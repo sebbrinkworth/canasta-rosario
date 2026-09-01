@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json, pathlib
 ROOT = pathlib.Path(__file__).parents[1]
-DATA = ROOT / "data" / "rosario-2026-08-31.json"
+DATA = ROOT / "data" / "latest.json"
 OUT = pathlib.Path(__file__).parent / "index.html"
 
 data = json.loads(DATA.read_text(encoding="utf-8"))

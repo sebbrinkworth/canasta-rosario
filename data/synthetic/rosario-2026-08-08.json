@@ -1,0 +1,1059 @@
+{
+  "date": "2026-08-08",
+  "gran_rosario": true,
+  "synthetic": true,
+  "branches_count": 20,
+  "chains": [
+    {
+      "id": "10",
+      "label": "Carrefour"
+    },
+    {
+      "id": "12",
+      "label": "Coto"
+    },
+    {
+      "id": "15",
+      "label": "DIA"
+    },
+    {
+      "id": "2",
+      "label": "La Anónima"
+    },
+    {
+      "id": "9",
+      "label": "Jumbo/Vea/Disco"
+    }
+  ],
+  "hero": [
+    {
+      "chain_id": "10",
+      "chain_label": "Carrefour",
+      "total": 85705.9,
+      "items_found": 24
+    },
+    {
+      "chain_id": "12",
+      "chain_label": "Coto",
+      "total": 126296.09,
+      "items_found": 23
+    },
+    {
+      "chain_id": "15",
+      "chain_label": "DIA",
+      "total": 113949.04,
+      "items_found": 23
+    },
+    {
+      "chain_id": "2",
+      "chain_label": "La Anónima",
+      "total": 100516.35,
+      "items_found": 21
+    },
+    {
+      "chain_id": "9",
+      "chain_label": "Jumbo/Vea/Disco",
+      "total": 130212.27,
+      "items_found": 21
+    }
+  ],
+  "table": [
+    {
+      "id": "leche_entera",
+      "name": "Leche entera",
+      "unit_display": "1 L",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 1733.94,
+          "price_per_unit": 1733.94,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 1834.67,
+          "price_per_unit": 1834.67,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 1951.91,
+          "price_per_unit": 1951.91,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 1928.63,
+          "price_per_unit": 1928.63,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 2788.5,
+          "price_per_unit": 2788.5,
+          "per_unit": "lt.",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "pan_lactal",
+      "name": "Pan lactal",
+      "unit_display": "500 g",
+      "category": "Panificados",
+      "prices": {
+        "10": {
+          "price_lista": 8264.1,
+          "price_per_unit": 8264.1,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 10137.18,
+          "price_per_unit": 10137.18,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 9018.35,
+          "price_per_unit": 9018.35,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": null,
+        "9": {
+          "price_lista": 11842.76,
+          "price_per_unit": 11842.76,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "arroz",
+      "name": "Arroz largo fino",
+      "unit_display": "1 kg",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 1183.01,
+          "price_per_unit": 1183.01,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 1631.73,
+          "price_per_unit": 1631.73,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 1500.72,
+          "price_per_unit": 1500.72,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 1122.29,
+          "price_per_unit": 1122.29,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 3033.55,
+          "price_per_unit": 3033.55,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "fideos",
+      "name": "Fideos secos",
+      "unit_display": "500 g",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 1209.7,
+          "price_per_unit": 1209.7,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 2240.21,
+          "price_per_unit": 2240.21,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 2086.81,
+          "price_per_unit": 2086.81,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 1471.47,
+          "price_per_unit": 1471.47,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 2836.61,
+          "price_per_unit": 2836.61,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "aceite_girasol",
+      "name": "Aceite girasol",
+      "unit_display": "1,5 L",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 3909.61,
+          "price_per_unit": 3909.61,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 4428.8,
+          "price_per_unit": 4428.8,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 3883.62,
+          "price_per_unit": 3883.62,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 3211.0,
+          "price_per_unit": 3211.0,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 4887.68,
+          "price_per_unit": 4887.68,
+          "per_unit": "lt.",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "harina_000",
+      "name": "Harina 000",
+      "unit_display": "1 kg",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 800.05,
+          "price_per_unit": 800.05,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 931.87,
+          "price_per_unit": 931.87,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 931.15,
+          "price_per_unit": 931.15,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 896.39,
+          "price_per_unit": 896.39,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 1713.66,
+          "price_per_unit": 1713.66,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "azucar",
+      "name": "Azúcar",
+      "unit_display": "1 kg",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 1376.5,
+          "price_per_unit": 1376.5,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 1414.39,
+          "price_per_unit": 1414.39,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 1401.35,
+          "price_per_unit": 1401.35,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 958.08,
+          "price_per_unit": 958.08,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 5880.1,
+          "price_per_unit": 5880.1,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "yerba",
+      "name": "Yerba mate",
+      "unit_display": "1 kg",
+      "category": "Infusiones",
+      "prices": {
+        "10": {
+          "price_lista": 788.89,
+          "price_per_unit": 788.89,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 3417.18,
+          "price_per_unit": 3417.18,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 3619.75,
+          "price_per_unit": 3619.75,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 3140.26,
+          "price_per_unit": 3140.26,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 2820.86,
+          "price_per_unit": 2820.86,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "cafe",
+      "name": "Café instantáneo",
+      "unit_display": "170 g",
+      "category": "Infusiones",
+      "prices": {
+        "10": {
+          "price_lista": 7035.13,
+          "price_per_unit": 7035.13,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 40623.09,
+          "price_per_unit": 40623.09,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": null,
+        "2": {
+          "price_lista": 30420.0,
+          "price_per_unit": 30420.0,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": null
+      }
+    },
+    {
+      "id": "tomate_triturado",
+      "name": "Tomate triturado",
+      "unit_display": "520 g",
+      "category": "Conservas",
+      "prices": {
+        "10": {
+          "price_lista": 1586.24,
+          "price_per_unit": 1586.24,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 1959.59,
+          "price_per_unit": 1959.59,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 1881.25,
+          "price_per_unit": 1881.25,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 1345.5,
+          "price_per_unit": 1345.5,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": null
+      }
+    },
+    {
+      "id": "arvejas",
+      "name": "Arvejas",
+      "unit_display": "350 g",
+      "category": "Conservas",
+      "prices": {
+        "10": {
+          "price_lista": 2134.7,
+          "price_per_unit": 2134.7,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 2362.27,
+          "price_per_unit": 2362.27,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 2464.02,
+          "price_per_unit": 2464.02,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 2309.81,
+          "price_per_unit": 2309.81,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 1994.2,
+          "price_per_unit": 1994.2,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "pollo",
+      "name": "Pollo entero",
+      "unit_display": "1 kg",
+      "category": "Carnes",
+      "prices": {
+        "10": {
+          "price_lista": 4180.74,
+          "price_per_unit": 4180.74,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 1014.0,
+          "price_per_unit": 1014.0,
+          "per_unit": "u",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 8923.2,
+          "price_per_unit": 8923.2,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 3148.27,
+          "price_per_unit": 3148.27,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 13271.48,
+          "price_per_unit": 13271.48,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "carne_picada",
+      "name": "Carne picada",
+      "unit_display": "1 kg",
+      "category": "Carnes",
+      "prices": {
+        "10": {
+          "price_lista": 9053.86,
+          "price_per_unit": 9053.86,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 7066.29,
+          "price_per_unit": 7066.29,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 17735.99,
+          "price_per_unit": 17735.99,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": null,
+        "9": {
+          "price_lista": 8451.69,
+          "price_per_unit": 8451.69,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "huevo",
+      "name": "Huevo",
+      "unit_display": "12 u",
+      "category": "Frescos",
+      "prices": {
+        "10": {
+          "price_lista": 168.96,
+          "price_per_unit": 168.96,
+          "per_unit": "u",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 330.18,
+          "price_per_unit": 330.18,
+          "per_unit": "u",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 355.56,
+          "price_per_unit": 355.56,
+          "per_unit": "ud",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 401.83,
+          "price_per_unit": 401.83,
+          "per_unit": "cu",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 387.01,
+          "price_per_unit": 387.01,
+          "per_unit": "un.",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "papa",
+      "name": "Papa",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 2334.08,
+          "price_per_unit": 2334.08,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 2026.99,
+          "price_per_unit": 2026.99,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 2488.37,
+          "price_per_unit": 2488.37,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 1824.19,
+          "price_per_unit": 1824.19,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 7410.0,
+          "price_per_unit": 7410.0,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "cebolla",
+      "name": "Cebolla",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 636.89,
+          "price_per_unit": 636.89,
+          "per_unit": "u",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 2394.03,
+          "price_per_unit": 2394.03,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 2017.86,
+          "price_per_unit": 2017.86,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 2110.2,
+          "price_per_unit": 2110.2,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 11204.52,
+          "price_per_unit": 11204.52,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "manzana",
+      "name": "Manzana",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 2626.26,
+          "price_per_unit": 2626.26,
+          "per_unit": "u",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 4145.22,
+          "price_per_unit": 4145.22,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 3640.26,
+          "price_per_unit": 3640.26,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 3071.69,
+          "price_per_unit": 3071.69,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 3765.5,
+          "price_per_unit": 3765.5,
+          "per_unit": "lt.",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 4010.0,
+          "price_per_unit": 4010.0,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 2485.57,
+          "price_per_unit": 2485.57,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 1815.06,
+          "price_per_unit": 1815.06,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 14727.24,
+          "price_per_unit": 14727.24,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": null
+      }
+    },
+    {
+      "id": "queso_cremoso",
+      "name": "Queso cremoso",
+      "unit_display": "1 kg",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 12264.33,
+          "price_per_unit": 12264.33,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 12775.39,
+          "price_per_unit": 12775.39,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 12831.0,
+          "price_per_unit": 12831.0,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": null,
+        "9": {
+          "price_lista": 14495.99,
+          "price_per_unit": 14495.99,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "yogur",
+      "name": "Yogur entero",
+      "unit_display": "1 kg",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 536.22,
+          "price_per_unit": 536.22,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 3137.76,
+          "price_per_unit": 3137.76,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 3262.7,
+          "price_per_unit": 3262.7,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 2321.42,
+          "price_per_unit": 2321.42,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 1030.69,
+          "price_per_unit": 1030.69,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "manteca",
+      "name": "Manteca",
+      "unit_display": "200 g",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 14634.0,
+          "price_per_unit": 14634.0,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 16221.97,
+          "price_per_unit": 16221.97,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 19012.5,
+          "price_per_unit": 19012.5,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 14599.45,
+          "price_per_unit": 14599.45,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 22257.3,
+          "price_per_unit": 22257.3,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "galletitas_agua",
+      "name": "Galletitas de agua",
+      "unit_display": "300 g",
+      "category": "Panificados",
+      "prices": {
+        "10": null,
+        "12": null,
+        "15": {
+          "price_lista": 5681.67,
+          "price_per_unit": 5681.67,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": null,
+        "9": {
+          "price_lista": 1085.64,
+          "price_per_unit": 1085.64,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "jabon_tocador",
+      "name": "Jabón de tocador",
+      "unit_display": "125 g",
+      "category": "Limpieza",
+      "prices": {
+        "10": {
+          "price_lista": 1012.65,
+          "price_per_unit": 1012.65,
+          "per_unit": "kg",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": null,
+        "15": null,
+        "2": {
+          "price_lista": 6121.76,
+          "price_per_unit": 6121.76,
+          "per_unit": "kgr",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 5809.73,
+          "price_per_unit": 5809.73,
+          "per_unit": "un.",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "detergente",
+      "name": "Detergente",
+      "unit_display": "750 ml",
+      "category": "Limpieza",
+      "prices": {
+        "10": {
+          "price_lista": 3006.7,
+          "price_per_unit": 3006.7,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 2663.15,
+          "price_per_unit": 2663.15,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 6457.29,
+          "price_per_unit": 6457.29,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 4157.4,
+          "price_per_unit": 4157.4,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": {
+          "price_lista": 3244.8,
+          "price_per_unit": 3244.8,
+          "per_unit": "lt.",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        }
+      }
+    },
+    {
+      "id": "lavandina",
+      "name": "Lavandina",
+      "unit_display": "1 L",
+      "category": "Limpieza",
+      "prices": {
+        "10": {
+          "price_lista": 1219.34,
+          "price_per_unit": 1219.34,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "12": {
+          "price_lista": 1054.56,
+          "price_per_unit": 1054.56,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "15": {
+          "price_lista": 988.65,
+          "price_per_unit": 988.65,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "2": {
+          "price_lista": 1229.47,
+          "price_per_unit": 1229.47,
+          "per_unit": "L",
+          "desc": "SINTETICO",
+          "marca": "SINT"
+        },
+        "9": null
+      }
+    }
+  ]
+}

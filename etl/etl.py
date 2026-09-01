@@ -16,8 +16,8 @@ DATA_AGG = ROOT / "data"
 
 CKAN_IDS = {
     "lunes": "0a9069a9-06e8-4f98-874d-da5578693290",
-    "martes": None,
-    "miercoles": None,
+    "martes": "9dc06241-cc83-44f4-8e25-c9b1636b8bc8",
+    "miercoles": "1e92cd42-4f94-4071-a165-62c4cb2ce23c",
     "jueves": "d076720f-a7f0-4af8-b1d6-1b99d5a90c14",
     "viernes": "91bc072a-4726-44a1-85ec-4a8467aad27e",
     "sabado": "b3c3da5d-213d-41e7-8d74-f23fda0a3c30",
@@ -414,21 +414,24 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
         dt = datetime.strptime(date_str, "%Y-%m-%d")
         weekday = WEEKDAY_ES[dt.weekday()]
         alt = weekday
-        candidates = [Path(f"/tmp/canasta-etl/sepa_{weekday}.zip"), Path(f"/tmp/canasta-etl/sepa_lunes.zip"), ROOT / f"sepa_{weekday}.zip"]
+        candidates = [Path(f"/tmp/canasta-etl/sepa_{weekday}.zip"), ROOT / f"sepa_{weekday}.zip"]
         for c in candidates:
             if c.exists():
                 zip_path = c
                 break
         if zip_path is None:
-            import urllib.request
             rid = CKAN_IDS.get(weekday)
             if not rid:
                 raise SystemExit(f"No CKAN id for {weekday}, pass --zip")
             url = CKAN_BASE.format(rid, weekday)
             print(f"Downloading {url} ...")
             zip_path = Path(f"/tmp/sepa_{weekday}.zip")
-            urllib.request.urlretrieve(url, zip_path)
-            print(f"Saved to {zip_path}")
+            import subprocess, shlex
+            # Use curl (handles egress proxy auth reliably; urllib 407s after 2 downloads)
+            res = subprocess.run(["curl","-L","--fail","--connect-timeout","30","--max-time","300","-o",str(zip_path), url], capture_output=True, text=True)
+            if res.returncode != 0:
+                raise SystemExit(f"curl failed for {url}: {res.stderr[:800]}")
+            print(f"Saved to {zip_path} ({zip_path.stat().st_size} bytes)")
     print(f"Parsing {zip_path} gran_rosario={gran_rosario} ...")
     comercios, branches, observations_raw = extract_observations(zip_path, gran_rosario=gran_rosario)
     print(f"Branches matched: {len(branches)} ; observations matched to canasta (raw): {len(observations_raw)}")
