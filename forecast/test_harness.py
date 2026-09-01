@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Walk-forward 1-day ahead harness — 4 covariate configs — TimesFM 3 zero-shot + naive fallback.
 
-Queue: si data/rosario-*.json < 50 → scaffold only, no heavy run.
-Si >=50 o --force → corre eval completa.
+Queue: si data/rosario-*.json < 50 -> scaffold only, no heavy run.
+Si >=50 o --force -> corre eval completa.
 """
 import argparse, json, sys
 from pathlib import Path
@@ -128,7 +128,7 @@ def run():
         df=load_synthetic_30d()
     else:
         df=load_price_dataframe()
-    print(f"[harness] DataFrame {df.shape} {df.index.min().date() if len(df)>0 else '?'} → {df.index.max().date() if len(df)>0 else '?'}")
+    print(f"[harness] DataFrame {df.shape} {df.index.min().date() if len(df)>0 else '?'} -> {df.index.max().date() if len(df)>0 else '?'}")
     if df.empty:
         produce_report_placeholder(n); return
     # filter series with enough obs
@@ -158,9 +158,9 @@ def run():
             print("[harness] TimesFM cargado")
         except Exception as e:
             import traceback; traceback.print_exc()
-            print(f"[harness] TimesFM init falló: {e} → baseline naive")
+            print(f"[harness] TimesFM init falló: {e} -> baseline naive")
     else:
-        print(f"[harness] TimesFM no instalado ({err}) → baseline naive (is_media: pip install timesfm)")
+        print(f"[harness] TimesFM no instalado ({err}) -> baseline naive (is_media: pip install timesfm)")
     # evaluate
     results=[]  # per series per config metrics
     forecasts_for_plot={}  # example series
@@ -212,7 +212,7 @@ def run():
     # include synthetic flag in json
     json_path.write_text(json.dumps({"cov_note":cov_note,"timesfm_ok":timesfm_ok,"n_series":len(keep),"n_files":n,"n_synthetic":len(syn_files) if synthetic_mode else 0,"synthetic":synthetic_mode,"results":results,"example":forecasts_for_plot}, ensure_ascii=False, indent=2))
     # markdown
-    md_lines=["# Canasta Rosario — TimesFM 3 Evaluación","",f"Rango: {dates.min().date()} → {dates.max().date()} — {n} archivos — {len(keep)} series (≥{args.min_obs} obs)","",f"> Covariables: {cov_note}","",f"> Motor: {'TimesFM 3' if timesfm_ok else 'Naive/MA baseline (TimesFM no instalado — `pip install timesfm`)'}","","## Agregado por configuración","","| Config | MAE | MAPE % | RMSE | Coverage 10-90 | n |","|---|---|---|---|---|---|"]
+    md_lines=["# Canasta Rosario — TimesFM 3 Evaluación","",f"Rango: {dates.min().date()} -> {dates.max().date()} — {n} archivos — {len(keep)} series (≥{args.min_obs} obs)","",f"> Covariables: {cov_note}","",f"> Motor: {'TimesFM 3' if timesfm_ok else 'Naive/MA baseline (TimesFM no instalado — `pip install timesfm`)'}","","## Agregado por configuración","","| Config | MAE | MAPE % | RMSE | Coverage 10-90 | n |","|---|---|---|---|---|---|"]
     agg=df_res.groupby("config").agg({"mae":"mean","mape":"mean","rmse":"mean","coverage":"mean","n":"sum"}).reindex(CONFIGS)
     for cfg in CONFIGS:
         if cfg in agg.index:
