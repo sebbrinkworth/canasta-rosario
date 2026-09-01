@@ -1,0 +1,26 @@
+name: daily-etl
+on:
+  schedule:
+    - cron: '0 20 * * *' # 17:00 ART = 20:00 UTC
+  workflow_dispatch:
+
+jobs:
+  etl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      - run: uv run pytest -q
+      - name: Run ETL for today (ART date)
+        run: |
+          DATE=$(TZ=America/Argentina/Buenos_Aires date +%Y-%m-%d)
+          PYTHONPATH=. uv run python -m etl.etl --date $DATE --gran-rosario
+          PYTHONPATH=. uv run python web/generate.py || true
+      - name: Commit data
+        run: |
+          git config user.name "canasta-bot"
+          git config user.email "bot@canasta-rosario"
+          git add data/ web/index.html || true
+          git diff --cached --quiet || git commit -m "data: $(TZ=America/Argentina/Buenos_Aires date +%Y-%m-%d) [skip ci]"
+          git push || true

@@ -1,0 +1,10 @@
+/tmp/
+__pycache__/
+.venv/
+.venv*/
+.pytest_cache/
+data/raw/
+*.zip
+*.db
+*.parquet
+

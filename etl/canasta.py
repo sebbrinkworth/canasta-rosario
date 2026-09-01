@@ -1,0 +1,30 @@
+"""Canasta Rosario v1 — 25 items definition. v1.0.1: EAN-first prefixes added, stricter keywords kept in etl.py NEGATIVE."""
+CANASTA = [
+    {"id": "leche_entera", "name": "Leche entera", "category": "Lácteos", "unit": "L", "unit_display": "1 L", "need_qty": 1, "need_unit": "L", "keywords": ["leche entera", "leche "], "ean_prefixes": ["779074", "779038", "779007", "779015"], "fallback_must": ["leche"]},
+    {"id": "pan_lactal", "name": "Pan lactal", "category": "Panificados", "unit": "kg", "unit_display": "500 g", "need_qty": 0.5, "need_unit": "kg", "keywords": ["pan lactal"], "ean_prefixes": ["779004", "779058"]},
+    {"id": "arroz", "name": "Arroz largo fino", "category": "Almacén", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["arroz largo fino", "arroz 00000", "arroz"], "ean_prefixes": ["779007", "779074"]},
+    {"id": "fideos", "name": "Fideos secos", "category": "Almacén", "unit": "kg", "unit_display": "500 g", "need_qty": 0.5, "need_unit": "kg", "keywords": ["fideos", "tallarines", "spaghetti", "mostachol"], "ean_prefixes": ["779007", "779074"]},
+    {"id": "aceite_girasol", "name": "Aceite girasol", "category": "Almacén", "unit": "L", "unit_display": "1,5 L", "need_qty": 1.5, "need_unit": "L", "keywords": ["aceite girasol", "aceite de girasol"], "ean_prefixes": ["779074", "779133"]},
+    {"id": "harina_000", "name": "Harina 000", "category": "Almacén", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["harina 000", "harina"], "ean_prefixes": ["779007"]},
+    {"id": "azucar", "name": "Azúcar", "category": "Almacén", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["azucar", "azúcar"], "ean_prefixes": ["779007", "779074"]},
+    {"id": "yerba", "name": "Yerba mate", "category": "Infusiones", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["yerba mate", "yerba"], "ean_prefixes": ["779092", "779074"]},
+    {"id": "cafe", "name": "Café instantáneo", "category": "Infusiones", "unit": "kg", "unit_display": "170 g", "need_qty": 0.17, "need_unit": "kg", "keywords": ["cafe instantaneo", "café instantáneo", "cafe instantáneo"], "ean_prefixes": ["779007", "779074"]},
+    {"id": "tomate_triturado", "name": "Tomate triturado", "category": "Conservas", "unit": "kg", "unit_display": "520 g", "need_qty": 0.52, "need_unit": "kg", "keywords": ["tomate triturado", "pure de tomate", "puré de tomate"], "ean_prefixes": ["779007"]},
+    {"id": "arvejas", "name": "Arvejas", "category": "Conservas", "unit": "kg", "unit_display": "350 g", "need_qty": 0.35, "need_unit": "kg", "keywords": ["arveja"], "ean_prefixes": ["779007"]},
+    {"id": "pollo", "name": "Pollo entero", "category": "Carnes", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["pollo entero", "pollo fresco", "pollo "], "ean_prefixes": []},
+    {"id": "carne_picada", "name": "Carne picada", "category": "Carnes", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["carne picada", "picada comun", "picada especial"], "ean_prefixes": []},
+    {"id": "huevo", "name": "Huevo", "category": "Frescos", "unit": "u", "unit_display": "12 u", "need_qty": 12, "need_unit": "u", "keywords": ["huevo"], "ean_prefixes": ["779058"]},
+    {"id": "papa", "name": "Papa", "category": "Verdulería", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["papa negra", "papa comercial", "papa blanca", "papa "], "ean_prefixes": []},
+    {"id": "cebolla", "name": "Cebolla", "category": "Verdulería", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["cebolla"], "ean_prefixes": []},
+    {"id": "manzana", "name": "Manzana", "category": "Verdulería", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["manzana"], "ean_prefixes": []},
+    {"id": "banana", "name": "Banana", "category": "Verdulería", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["banana"], "ean_prefixes": []},
+    {"id": "queso_cremoso", "name": "Queso cremoso", "category": "Lácteos", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["queso cremoso"], "ean_prefixes": ["779074", "779058"]},
+    {"id": "yogur", "name": "Yogur entero", "category": "Lácteos", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["yogur", "yogurt"], "ean_prefixes": ["779074", "779133"]},
+    {"id": "manteca", "name": "Manteca", "category": "Lácteos", "unit": "kg", "unit_display": "200 g", "need_qty": 0.2, "need_unit": "kg", "keywords": ["manteca"], "ean_prefixes": ["779074"]},
+    {"id": "galletitas_agua", "name": "Galletitas de agua", "category": "Panificados", "unit": "kg", "unit_display": "300 g", "need_qty": 0.3, "need_unit": "kg", "keywords": ["galletita de agua", "galletitas de agua", "galletitas agua"], "ean_prefixes": ["779074", "779004"]},
+    {"id": "jabon_tocador", "name": "Jabón de tocador", "category": "Limpieza", "unit": "u", "unit_display": "125 g", "need_qty": 1, "need_unit": "u", "keywords": ["jabon tocador", "jabón de tocador", "jabon de tocador"], "ean_prefixes": ["779007", "779074"]},
+    {"id": "detergente", "name": "Detergente", "category": "Limpieza", "unit": "L", "unit_display": "750 ml", "need_qty": 0.75, "need_unit": "L", "keywords": ["detergente"], "ean_prefixes": ["779007", "779058"]},
+    {"id": "lavandina", "name": "Lavandina", "category": "Limpieza", "unit": "L", "unit_display": "1 L", "need_qty": 1, "need_unit": "L", "keywords": ["lavandina", "agua lavandina"], "ean_prefixes": ["779007"]},
+]
+
+CANASTA_BY_ID = {c["id"]: c for c in CANASTA}

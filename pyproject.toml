@@ -1,0 +1,13 @@
+[project]
+name = "canasta-rosario"
+version = "0.2.0"
+description = "Canasta Rosario - ETL SEPA"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
