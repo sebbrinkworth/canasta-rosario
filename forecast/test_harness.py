@@ -68,17 +68,18 @@ def timesfm_predict(model, history, horizon=1, past_only_covariates=None):
     try:
         h_full = np.array(history, dtype=float)
         h = h_full[~np.isnan(h_full)].astype(float)
-        # If past_only provided, align length = len(history slice) not compacted h; TimesFM handles interpolation but we pass full window length
-        # For covariates: use np.atleast_2d; TimesFM3 pads/truncates internally
         if len(h) < 5:
             return naive_forecast(history, horizon)
         if hasattr(model, "predict"):
-            # sanitize covariates: ensure 2D (n_cov, L) with L == len(h_full) or len compacted — use h_full length
             po = _prep_cov_block(past_only_covariates) if past_only_covariates is not None else None
-            # If covariates length mismatched vs h, model._Query.format will handle pad/trunc but warn: pass length == len(h_full)
+            # When covariates present, pass full history (with NaNs) so context length matches covariate length
+            # TimesFM interpolates NaNs internally via linear_interpolation. Without covariates, use compacted h for speed.
+            ctx = h_full if po is not None else h
+            # Compact po to match non-NaN positions if ctx is compacted — but we pass full, so keep po as-is.
+            # If h has leading NaNs, model trims them and trims covariates correspondingly.
             try:
                 if po is not None:
-                    out = model.predict(context=h, horizon=horizon, past_only_covariates=po, return_quantiles=True)  # type: ignore
+                    out = model.predict(context=ctx, horizon=horizon, past_only_covariates=po, return_quantiles=True)  # type: ignore
                 else:
                     out = model.predict(context=h, horizon=horizon, return_quantiles=True)  # type: ignore
             except TypeError:
