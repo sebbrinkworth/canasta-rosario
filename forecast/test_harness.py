@@ -44,19 +44,63 @@ def naive_forecast(history: np.ndarray, horizon=1):
     std = np.std(np.diff(h[-7:])) if len(h)>=4 else h[-1]*0.03
     return np.array([p50]), np.array([p50 - 1.28*std]), np.array([p50 + 1.28*std])
 
-def timesfm_predict(model, history, horizon=1):
+def _prep_cov_block(arr: np.ndarray) -> np.ndarray | None:
+    """Sanitize covariate block: arr shape (n_cov, L). Forward-fill NaNs, clip extreme, return float32."""
+    if arr is None or arr.size == 0:
+        return None
+    a = np.array(arr, dtype=float)
+    if a.ndim == 1:
+        a = a[None, :]
+    # forward-fill per row then fill remaining with row mean / 0
+    for r in range(a.shape[0]):
+        s = pd.Series(a[r]).ffill().bfill()
+        # clip absurd
+        s = s.replace([np.inf, -np.inf], np.nan).fillna(0)
+        a[r] = s.values
+        # clip to ±5 sigma-ish (keep in range)
+        a[r] = np.clip(a[r], -1e6, 1e6)
+    # if still any NaN, zero
+    a = np.nan_to_num(a, nan=0.0, posinf=0.0, neginf=0.0).astype(np.float32)
+    return a
+
+def timesfm_predict(model, history, horizon=1, past_only_covariates=None):
     """Wrapper — tries TimesFM3Forecaster.predict, falls back to naive. Returns p50, p10, p90 arrays length horizon."""
     try:
-        h = history[~np.isnan(history)].astype(float)
+        h_full = np.array(history, dtype=float)
+        h = h_full[~np.isnan(h_full)].astype(float)
+        # If past_only provided, align length = len(history slice) not compacted h; TimesFM handles interpolation but we pass full window length
+        # For covariates: use np.atleast_2d; TimesFM3 pads/truncates internally
         if len(h) < 5:
             return naive_forecast(history, horizon)
         if hasattr(model, "predict"):
-            # TimesFM3Forecaster.predict(context=np.ndarray, horizon=int, return_quantiles=True)
+            # sanitize covariates: ensure 2D (n_cov, L) with L == len(h_full) or len compacted — use h_full length
+            po = _prep_cov_block(past_only_covariates) if past_only_covariates is not None else None
+            # If covariates length mismatched vs h, model._Query.format will handle pad/trunc but warn: pass length == len(h_full)
             try:
-                out = model.predict(context=h, horizon=horizon, return_quantiles=True)  # type: ignore
+                if po is not None:
+                    out = model.predict(context=h, horizon=horizon, past_only_covariates=po, return_quantiles=True)  # type: ignore
+                else:
+                    out = model.predict(context=h, horizon=horizon, return_quantiles=True)  # type: ignore
             except TypeError:
                 out = model.predict(h, horizon)  # type: ignore
             # out is ForecastOutput or tuple — normalize
+            # TimesFM3 ForecastOutput has .forecast and .quantiles
+            if hasattr(out, "forecast"):
+                # TimesFM3
+                p50 = np.array(getattr(out, "forecast")).flatten()[:horizon] if getattr(out, "forecast") is not None else np.array([h[-1]])
+                q = getattr(out, "quantiles", None)
+                if q is not None and hasattr(q, "shape") and np.array(q).size > 0:
+                    try:
+                        q_arr = np.array(q)
+                        if q_arr.ndim == 2 and q_arr.shape[1] >= 9:
+                            p50 = q_arr[:, 4]
+                            lo = q_arr[:, 0]
+                            hi = q_arr[:, -1]
+                            return p50[:horizon], lo[:horizon], hi[:horizon]
+                        elif q_arr.ndim == 1:
+                            return p50, p50*0.93, p50*1.07
+                    except: pass
+                return p50, p50*0.93, p50*1.07
             if hasattr(out, "mean"):
                 p50 = np.array(getattr(out, "mean")).flatten()[:horizon]
                 q = getattr(out, "quantiles", None)
@@ -179,17 +223,41 @@ def run():
     print(f"[harness] ejemplo plot: {example_col}")
     for col in keep:
         pid, chain = col.split("__",1)
-        # precompute competitive min series
         comp_min = competitor_min_price(df, pid, chain, dates)
+        # pre-slice covariate windows aligned to dates for speed (series already aligned)
+        # cov_df indexed by dates — ensure length matches
+        brecha_s = cov_df["brecha"].reindex(dates).ffill().bfill().fillna(0).values
+        vol7_s   = cov_df["fx_vol7"].reindex(dates).ffill().bfill().fillna(0.015).values
+        ipim_s   = cov_df["ipim_idx"].reindex(dates).ffill().bfill().fillna(100).values
+        # normalize ipim to small scale (z-like) to avoid dominating; use /100
+        ipim_s = (ipim_s - 100.0) / 10.0
+        comp_s = pd.Series(comp_min).reindex(dates).ffill().bfill().values.astype(float) if comp_min is not None else np.full(len(dates), np.nan)
+        # competitor as relative spread vs own price median — keep raw but nan->0
+        comp_s = np.nan_to_num(comp_s, nan=0.0, posinf=0.0, neginf=0.0)
         for cfg in CONFIGS:
             y_true=[]; y_pred=[]; y_lo=[]; y_hi=[]
             y_pred_series=[]  # for plot
             for t_idx in range(eval_start, len(dates)):
-                hist = df[col].iloc[max(0, t_idx-ctx_len):t_idx].values.astype(float)
-                # covariates could condition model — for now we log but naive ignores; TimesFM future: pass as exogenous
-                # keep stub: we still run same forecast (ablation is structural placeholder; real TimesFM covariate path would concat)
+                start = max(0, t_idx-ctx_len)
+                hist = df[col].iloc[start:t_idx].values.astype(float)
+                # build past_only covariates for this cfg, aligned to context window [start:t_idx)
+                po = None
+                if cfg == "plus_fx":
+                    po = np.vstack([brecha_s[start:t_idx], vol7_s[start:t_idx]])
+                elif cfg == "plus_fx_ipim":
+                    po = np.vstack([brecha_s[start:t_idx], vol7_s[start:t_idx], ipim_s[start:t_idx]])
+                elif cfg == "plus_fx_competitor":
+                    # if competitor all zeros -> fall back to fx only
+                    win_comp = comp_s[start:t_idx]
+                    if np.all(win_comp == 0):
+                        po = np.vstack([brecha_s[start:t_idx], vol7_s[start:t_idx]])
+                    else:
+                        # scale competitor to comparable magnitude (divide by 1000)
+                        win_comp = win_comp / 1000.0
+                        po = np.vstack([brecha_s[start:t_idx], vol7_s[start:t_idx], win_comp])
+                # else price_only: po=None
                 if timesfm_ok and model is not None:
-                    p50,p10,p90=timesfm_predict(model, hist, 1)
+                    p50,p10,p90=timesfm_predict(model, hist, 1, past_only_covariates=po)
                 else:
                     p50,p10,p90=naive_forecast(hist, 1)
                 actual = df[col].iloc[t_idx]
