@@ -1,6 +1,10 @@
 {
-  "generated_from": "synthetic_30d_7real_23synt",
-  "note": "tendencia 7d + drift (placeholder TimesFM en evaluacion separada). Experimental, no recomendacion de compra.",
+  "mode": "synthetic+real",
+  "real_days": 7,
+  "synthetic_days": 23,
+  "threshold": 30,
+  "generated_from": "synthetic_30d_merged",
+  "note": "Sintético se reemplaza solo: 7/30 días reales, resto sintético. ",
   "items": {
     "leche_entera__10": {
       "dir": "estable",

@@ -16,11 +16,16 @@ jobs:
         run: |
           DATE=$(TZ=America/Argentina/Buenos_Aires date +%Y-%m-%d)
           PYTHONPATH=. uv run python -m etl.etl --date $DATE --gran-rosario
+          PYTHONPATH=. uv run python forecast/build_next.py || true
           PYTHONPATH=. uv run python web/generate.py || true
+          cp web/index.html ./index.html || true
+          cp web/index.html docs/index.html || true
+          cp web/forecast_synthetic.html ./forecast_synthetic.html 2>/dev/null || true
+          cp web/forecast_synthetic.html docs/forecast_synthetic.html 2>/dev/null || true
       - name: Commit data
         run: |
           git config user.name "canasta-bot"
           git config user.email "bot@canasta-rosario"
-          git add data/ web/index.html || true
+          git add data/rosario-*.json data/latest.json data/forecast-next.json web/index.html index.html docs/index.html forecast_synthetic.html docs/forecast_synthetic.html || true
           git diff --cached --quiet || git commit -m "data: $(TZ=America/Argentina/Buenos_Aires date +%Y-%m-%d) [skip ci]"
           git push || true
