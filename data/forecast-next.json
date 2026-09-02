@@ -1,0 +1,881 @@
+{
+  "generated_from": "synthetic_30d_7real_23synt",
+  "note": "tendencia 7d + drift (placeholder TimesFM en evaluacion separada). Experimental, no recomendacion de compra.",
+  "items": {
+    "leche_entera__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1710.0,
+      "last": 1710.0,
+      "conf": "media"
+    },
+    "leche_entera__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1799.0,
+      "last": 1799.0,
+      "conf": "media"
+    },
+    "leche_entera__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1915.0,
+      "last": 1915.0,
+      "conf": "media"
+    },
+    "leche_entera__2": {
+      "dir": "estable",
+      "delta_pct": -0.43,
+      "pred": 1842.0,
+      "last": 1850.0,
+      "conf": "media"
+    },
+    "leche_entera__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2750.0,
+      "last": 2750.0,
+      "conf": "media"
+    },
+    "pan_lactal__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 8150.0,
+      "last": 8150.0,
+      "conf": "media"
+    },
+    "pan_lactal__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 9997.22,
+      "last": 9997.22,
+      "conf": "media"
+    },
+    "pan_lactal__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 8861.11,
+      "last": 8861.11,
+      "conf": "media"
+    },
+    "pan_lactal__2": {
+      "dir": "estable",
+      "delta_pct": 0.57,
+      "pred": 1043.01,
+      "last": 1037.07,
+      "conf": "media"
+    },
+    "pan_lactal__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 11679.25,
+      "last": 11679.25,
+      "conf": "media"
+    },
+    "arroz__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1160.0,
+      "last": 1160.0,
+      "conf": "media"
+    },
+    "arroz__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1599.0,
+      "last": 1599.0,
+      "conf": "media"
+    },
+    "arroz__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1480.0,
+      "last": 1480.0,
+      "conf": "media"
+    },
+    "arroz__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1100.0,
+      "last": 1100.0,
+      "conf": "media"
+    },
+    "arroz__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2980.0,
+      "last": 2980.0,
+      "conf": "media"
+    },
+    "fideos__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1193.0,
+      "last": 1193.0,
+      "conf": "media"
+    },
+    "fideos__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2200.0,
+      "last": 2200.0,
+      "conf": "media"
+    },
+    "fideos__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2058.0,
+      "last": 2058.0,
+      "conf": "media"
+    },
+    "fideos__2": {
+      "dir": "estable",
+      "delta_pct": 0.67,
+      "pred": 1510.0,
+      "last": 1500.0,
+      "conf": "media"
+    },
+    "fideos__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2780.0,
+      "last": 2780.0,
+      "conf": "media"
+    },
+    "aceite_girasol__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3833.33,
+      "last": 3833.33,
+      "conf": "media"
+    },
+    "aceite_girasol__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 4353.33,
+      "last": 4353.33,
+      "conf": "media"
+    },
+    "aceite_girasol__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3830.0,
+      "last": 3830.0,
+      "conf": "media"
+    },
+    "aceite_girasol__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3166.67,
+      "last": 3166.67,
+      "conf": "media"
+    },
+    "aceite_girasol__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 4800.0,
+      "last": 4800.0,
+      "conf": "media"
+    },
+    "harina_000__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 789.0,
+      "last": 789.0,
+      "conf": "media"
+    },
+    "harina_000__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 919.0,
+      "last": 919.0,
+      "conf": "media"
+    },
+    "harina_000__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 915.0,
+      "last": 915.0,
+      "conf": "media"
+    },
+    "harina_000__2": {
+      "dir": "baja",
+      "delta_pct": -2.28,
+      "pred": 772.0,
+      "last": 790.0,
+      "conf": "media"
+    },
+    "harina_000__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1690.0,
+      "last": 1690.0,
+      "conf": "media"
+    },
+    "azucar__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1350.0,
+      "last": 1350.0,
+      "conf": "media"
+    },
+    "azucar__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1390.0,
+      "last": 1390.0,
+      "conf": "media"
+    },
+    "azucar__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1382.0,
+      "last": 1382.0,
+      "conf": "media"
+    },
+    "azucar__2": {
+      "dir": "baja",
+      "delta_pct": -4.24,
+      "pred": 948.0,
+      "last": 990.0,
+      "conf": "baja"
+    },
+    "azucar__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 5780.0,
+      "last": 5780.0,
+      "conf": "media"
+    },
+    "yerba__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 778.0,
+      "last": 778.0,
+      "conf": "media"
+    },
+    "yerba__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3370.0,
+      "last": 3370.0,
+      "conf": "media"
+    },
+    "yerba__15": {
+      "dir": "sube",
+      "delta_pct": 4.16,
+      "pred": 3801.8,
+      "last": 3650.0,
+      "conf": "baja"
+    },
+    "yerba__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3096.9,
+      "last": 3096.9,
+      "conf": "media"
+    },
+    "yerba__9": {
+      "dir": "estable",
+      "delta_pct": -0.13,
+      "pred": 2776.4,
+      "last": 2780.0,
+      "conf": "media"
+    },
+    "cafe__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 6938.0,
+      "last": 6938.0,
+      "conf": "media"
+    },
+    "cafe__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 40062.22,
+      "last": 40062.22,
+      "conf": "media"
+    },
+    "cafe__15": {
+      "dir": "estable",
+      "delta_pct": 0.06,
+      "pred": 1048.24,
+      "last": 1047.59,
+      "conf": "media"
+    },
+    "cafe__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 30000.0,
+      "last": 30000.0,
+      "conf": "media"
+    },
+    "cafe__9": {
+      "dir": "sube",
+      "delta_pct": 1.51,
+      "pred": 1072.51,
+      "last": 1056.53,
+      "conf": "media"
+    },
+    "tomate_triturado__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1555.77,
+      "last": 1555.77,
+      "conf": "media"
+    },
+    "tomate_triturado__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1921.15,
+      "last": 1921.15,
+      "conf": "media"
+    },
+    "tomate_triturado__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1844.23,
+      "last": 1844.23,
+      "conf": "media"
+    },
+    "tomate_triturado__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1326.92,
+      "last": 1326.92,
+      "conf": "media"
+    },
+    "tomate_triturado__9": {
+      "dir": "sube",
+      "delta_pct": 1.88,
+      "pred": 1085.46,
+      "last": 1065.44,
+      "conf": "alta"
+    },
+    "arvejas__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2096.67,
+      "last": 2096.67,
+      "conf": "media"
+    },
+    "arvejas__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2320.58,
+      "last": 2320.58,
+      "conf": "media"
+    },
+    "arvejas__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2430.0,
+      "last": 2430.0,
+      "conf": "media"
+    },
+    "arvejas__2": {
+      "dir": "baja",
+      "delta_pct": -6.23,
+      "pred": 1661.01,
+      "last": 1771.43,
+      "conf": "baja"
+    },
+    "arvejas__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1966.67,
+      "last": 1966.67,
+      "conf": "media"
+    },
+    "pollo__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 4100.0,
+      "last": 4100.0,
+      "conf": "media"
+    },
+    "pollo__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1000.0,
+      "last": 1000.0,
+      "conf": "media"
+    },
+    "pollo__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 8800.0,
+      "last": 8800.0,
+      "conf": "media"
+    },
+    "pollo__2": {
+      "dir": "sube",
+      "delta_pct": 3.17,
+      "pred": 3910.0,
+      "last": 3790.0,
+      "conf": "baja"
+    },
+    "pollo__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 13088.24,
+      "last": 13088.24,
+      "conf": "media"
+    },
+    "carne_picada__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 8900.0,
+      "last": 8900.0,
+      "conf": "media"
+    },
+    "carne_picada__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 6999.0,
+      "last": 6999.0,
+      "conf": "media"
+    },
+    "carne_picada__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 17475.0,
+      "last": 17475.0,
+      "conf": "media"
+    },
+    "carne_picada__2": {
+      "dir": "sube",
+      "delta_pct": 2.96,
+      "pred": 1196.19,
+      "last": 1161.81,
+      "conf": "media"
+    },
+    "carne_picada__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 8335.0,
+      "last": 8335.0,
+      "conf": "media"
+    },
+    "huevo__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 166.63,
+      "last": 166.63,
+      "conf": "media"
+    },
+    "huevo__12": {
+      "dir": "sube",
+      "delta_pct": 5.98,
+      "pred": 352.4,
+      "last": 332.5,
+      "conf": "baja"
+    },
+    "huevo__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 349.17,
+      "last": 349.17,
+      "conf": "media"
+    },
+    "huevo__2": {
+      "dir": "estable",
+      "delta_pct": -0.79,
+      "pred": 396.83,
+      "last": 400.0,
+      "conf": "media"
+    },
+    "huevo__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 381.67,
+      "last": 381.67,
+      "conf": "media"
+    },
+    "papa__10": {
+      "dir": "baja",
+      "delta_pct": -1.74,
+      "pred": 2259.0,
+      "last": 2299.0,
+      "conf": "media"
+    },
+    "papa__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1999.0,
+      "last": 1999.0,
+      "conf": "media"
+    },
+    "papa__15": {
+      "dir": "sube",
+      "delta_pct": 3.01,
+      "pred": 3080.0,
+      "last": 2990.0,
+      "conf": "baja"
+    },
+    "papa__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1799.0,
+      "last": 1799.0,
+      "conf": "media"
+    },
+    "papa__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 7307.69,
+      "last": 7307.69,
+      "conf": "media"
+    },
+    "cebolla__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 624.75,
+      "last": 624.75,
+      "conf": "media"
+    },
+    "cebolla__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2499.0,
+      "last": 2499.0,
+      "conf": "baja"
+    },
+    "cebolla__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1990.0,
+      "last": 1990.0,
+      "conf": "media"
+    },
+    "cebolla__2": {
+      "dir": "sube",
+      "delta_pct": 4.02,
+      "pred": 2070.0,
+      "last": 1990.0,
+      "conf": "baja"
+    },
+    "cebolla__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 11000.0,
+      "last": 11000.0,
+      "conf": "media"
+    },
+    "manzana__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2590.0,
+      "last": 2590.0,
+      "conf": "media"
+    },
+    "manzana__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3999.0,
+      "last": 3999.0,
+      "conf": "baja"
+    },
+    "manzana__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3590.0,
+      "last": 3590.0,
+      "conf": "media"
+    },
+    "manzana__2": {
+      "dir": "sube",
+      "delta_pct": 5.01,
+      "pred": 4190.0,
+      "last": 3990.0,
+      "conf": "baja"
+    },
+    "manzana__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3700.0,
+      "last": 3700.0,
+      "conf": "media"
+    },
+    "banana__10": {
+      "dir": "sube",
+      "delta_pct": 2.5,
+      "pred": 4099.0,
+      "last": 3999.0,
+      "conf": "media"
+    },
+    "banana__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2499.0,
+      "last": 2499.0,
+      "conf": "baja"
+    },
+    "banana__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1790.0,
+      "last": 1790.0,
+      "conf": "media"
+    },
+    "banana__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 14950.0,
+      "last": 14950.0,
+      "conf": "baja"
+    },
+    "banana__9": {
+      "dir": "estable",
+      "delta_pct": -0.39,
+      "pred": 984.16,
+      "last": 988.01,
+      "conf": "media"
+    },
+    "queso_cremoso__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 12095.0,
+      "last": 12095.0,
+      "conf": "media"
+    },
+    "queso_cremoso__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 12599.0,
+      "last": 12599.0,
+      "conf": "media"
+    },
+    "queso_cremoso__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 12653.85,
+      "last": 12653.85,
+      "conf": "media"
+    },
+    "queso_cremoso__2": {
+      "dir": "baja",
+      "delta_pct": -1.41,
+      "pred": 1000.72,
+      "last": 1015.01,
+      "conf": "media"
+    },
+    "queso_cremoso__9": {
+      "dir": "baja",
+      "delta_pct": -1.91,
+      "pred": 14410.0,
+      "last": 14690.0,
+      "conf": "media"
+    },
+    "yogur__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 416.54,
+      "last": 416.54,
+      "conf": "baja"
+    },
+    "yogur__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3094.44,
+      "last": 3094.44,
+      "conf": "media"
+    },
+    "yogur__15": {
+      "dir": "sube",
+      "delta_pct": 8.22,
+      "pred": 6570.6,
+      "last": 6071.43,
+      "conf": "baja"
+    },
+    "yogur__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2277.78,
+      "last": 2277.78,
+      "conf": "media"
+    },
+    "yogur__9": {
+      "dir": "estable",
+      "delta_pct": -0.39,
+      "pred": 1001.98,
+      "last": 1005.87,
+      "conf": "media"
+    },
+    "manteca__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 14295.0,
+      "last": 14295.0,
+      "conf": "media"
+    },
+    "manteca__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 15998.0,
+      "last": 15998.0,
+      "conf": "media"
+    },
+    "manteca__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 18750.0,
+      "last": 18750.0,
+      "conf": "media"
+    },
+    "manteca__2": {
+      "dir": "sube",
+      "delta_pct": 2.15,
+      "pred": 16600.0,
+      "last": 16250.0,
+      "conf": "baja"
+    },
+    "manteca__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 21950.0,
+      "last": 21950.0,
+      "conf": "media"
+    },
+    "galletitas_agua__10": {
+      "dir": "sube",
+      "delta_pct": 1.26,
+      "pred": 1103.87,
+      "last": 1090.09,
+      "conf": "media"
+    },
+    "galletitas_agua__12": {
+      "dir": "baja",
+      "delta_pct": -1.24,
+      "pred": 979.8,
+      "last": 992.05,
+      "conf": "media"
+    },
+    "galletitas_agua__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 5581.48,
+      "last": 5581.48,
+      "conf": "media"
+    },
+    "galletitas_agua__2": {
+      "dir": "estable",
+      "delta_pct": 0.62,
+      "pred": 1069.49,
+      "last": 1062.9,
+      "conf": "media"
+    },
+    "galletitas_agua__9": {
+      "dir": "sube",
+      "delta_pct": 0.86,
+      "pred": 1102.34,
+      "last": 1092.95,
+      "conf": "media"
+    },
+    "jabon_tocador__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 998.67,
+      "last": 998.67,
+      "conf": "media"
+    },
+    "jabon_tocador__12": {
+      "dir": "baja",
+      "delta_pct": -0.88,
+      "pred": 7773.62,
+      "last": 7842.64,
+      "conf": "media"
+    },
+    "jabon_tocador__15": {
+      "dir": "baja",
+      "delta_pct": -0.96,
+      "pred": 7332.36,
+      "last": 7403.7,
+      "conf": "media"
+    },
+    "jabon_tocador__2": {
+      "dir": "sube",
+      "delta_pct": 1.23,
+      "pred": 6343.53,
+      "last": 6266.67,
+      "conf": "media"
+    },
+    "jabon_tocador__9": {
+      "dir": "sube",
+      "delta_pct": 17.49,
+      "pred": 5613.34,
+      "last": 4777.78,
+      "conf": "baja"
+    },
+    "detergente__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2950.0,
+      "last": 2950.0,
+      "conf": "media"
+    },
+    "detergente__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2613.32,
+      "last": 2613.32,
+      "conf": "media"
+    },
+    "detergente__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 6333.33,
+      "last": 6333.33,
+      "conf": "media"
+    },
+    "detergente__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 4100.0,
+      "last": 4100.0,
+      "conf": "media"
+    },
+    "detergente__9": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3200.0,
+      "last": 3200.0,
+      "conf": "media"
+    },
+    "lavandina__10": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1202.5,
+      "last": 1202.5,
+      "conf": "media"
+    },
+    "lavandina__12": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1040.0,
+      "last": 1040.0,
+      "conf": "media"
+    },
+    "lavandina__15": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 975.0,
+      "last": 975.0,
+      "conf": "media"
+    },
+    "lavandina__2": {
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1212.5,
+      "last": 1212.5,
+      "conf": "media"
+    },
+    "lavandina__9": {
+      "dir": "estable",
+      "delta_pct": 0.34,
+      "pred": 1087.92,
+      "last": 1084.28,
+      "conf": "media"
+    }
+  }
+}
