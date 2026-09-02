@@ -428,10 +428,11 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
             zip_path = Path(f"/tmp/sepa_{weekday}.zip")
             import subprocess, shlex
             # Use curl (handles egress proxy auth reliably; urllib 407s after 2 downloads)
-            res = subprocess.run(["curl","-L","--fail","--connect-timeout","30","--max-time","300","-o",str(zip_path), url], capture_output=True, text=True)
+            UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+            res = subprocess.run(["curl","-L","--fail","--connect-timeout","30","--max-time","300","-A",UA,"-o",str(zip_path), url], capture_output=True, text=True)
             if res.returncode != 0:
                 # Fallback for hosts with expired CA bundle (e.g. local Fedora) — runner certs are fine, -k only on retry
-                res2 = subprocess.run(["curl","-k","-L","--fail","--connect-timeout","30","--max-time","300","-o",str(zip_path), url], capture_output=True, text=True)
+                res2 = subprocess.run(["curl","-k","-L","--fail","--connect-timeout","30","--max-time","300","-A",UA,"-o",str(zip_path), url], capture_output=True, text=True)
                 if res2.returncode != 0:
                     raise SystemExit(f"curl failed for {url}: {res.stderr[:800]}")
             print(f"Saved to {zip_path} ({zip_path.stat().st_size} bytes)")

@@ -15,7 +15,7 @@ jobs:
       - name: Run ETL for today (ART date)
         run: |
           DATE=$(TZ=America/Argentina/Buenos_Aires date +%Y-%m-%d)
-          PYTHONPATH=. uv run python -m etl.etl --date $DATE --gran-rosario
+          PYTHONPATH=. uv run python -m etl.etl --date $DATE --gran-rosario || echo "ETL failed for $DATE — keeping previous data, site still regenerates"
           PYTHONPATH=. uv run python forecast/build_next.py || true
           PYTHONPATH=. uv run python web/generate.py || true
           cp web/index.html ./index.html || true
