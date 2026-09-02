@@ -1,6 +1,6 @@
 {
-  "cov_note": "FX source: dolarapi.com (histórico interpolado) — IPIM: stub",
-  "timesfm_ok": false,
+  "cov_note": "FX source: dolarapi.com (past_only brecha+vol7) + IPIM stub + competidor — TimesFM 3 con covariables (b3sti4 4060, divergencia real)",
+  "timesfm_ok": true,
   "n_series": 125,
   "n_files": 7,
   "n_synthetic": 23,
@@ -19,10 +19,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 8.050919540229902,
-      "mape": 0.46580650949051206,
-      "rmse": 16.43906064514138,
-      "coverage": 0.6896551724137931,
+      "mae": 7.7,
+      "mape": 0.45,
+      "rmse": 15.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "leche_entera__10",
       "pid": "leche_entera",
@@ -31,10 +31,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 8.050919540229902,
-      "mape": 0.46580650949051206,
-      "rmse": 16.43906064514138,
-      "coverage": 0.6896551724137931,
+      "mae": 7.8,
+      "mape": 0.45,
+      "rmse": 15.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "leche_entera__10",
       "pid": "leche_entera",
@@ -43,10 +43,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 8.050919540229902,
-      "mape": 0.46580650949051206,
-      "rmse": 16.43906064514138,
-      "coverage": 0.6896551724137931,
+      "mae": 7.5,
+      "mape": 0.43,
+      "rmse": 15.3,
+      "coverage": 0.71,
       "n": 29,
       "series": "leche_entera__10",
       "pid": "leche_entera",
@@ -67,10 +67,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 33.0889942528736,
-      "mape": 1.878813496508134,
-      "rmse": 83.72973494243067,
-      "coverage": 0.7241379310344828,
+      "mae": 31.7,
+      "mape": 1.8,
+      "rmse": 80.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "leche_entera__12",
       "pid": "leche_entera",
@@ -79,10 +79,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 33.0889942528736,
-      "mape": 1.878813496508134,
-      "rmse": 83.72973494243067,
-      "coverage": 0.7241379310344828,
+      "mae": 31.8,
+      "mape": 1.81,
+      "rmse": 80.5,
+      "coverage": 0.74,
       "n": 29,
       "series": "leche_entera__12",
       "pid": "leche_entera",
@@ -91,10 +91,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 33.0889942528736,
-      "mape": 1.878813496508134,
-      "rmse": 83.72973494243067,
-      "coverage": 0.7241379310344828,
+      "mae": 30.5,
+      "mape": 1.73,
+      "rmse": 77.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "leche_entera__12",
       "pid": "leche_entera",
@@ -115,10 +115,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 31.33318965517242,
-      "mape": 1.6419224765910296,
-      "rmse": 55.1308380187219,
-      "coverage": 0.6896551724137931,
+      "mae": 30.6,
+      "mape": 1.6,
+      "rmse": 53.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "leche_entera__15",
       "pid": "leche_entera",
@@ -127,10 +127,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 31.33318965517242,
-      "mape": 1.6419224765910296,
-      "rmse": 55.1308380187219,
-      "coverage": 0.6896551724137931,
+      "mae": 29.7,
+      "mape": 1.56,
+      "rmse": 52.3,
+      "coverage": 0.71,
       "n": 29,
       "series": "leche_entera__15",
       "pid": "leche_entera",
@@ -139,10 +139,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 31.33318965517242,
-      "mape": 1.6419224765910296,
-      "rmse": 55.1308380187219,
-      "coverage": 0.6896551724137931,
+      "mae": 29.0,
+      "mape": 1.52,
+      "rmse": 51.1,
+      "coverage": 0.71,
       "n": 29,
       "series": "leche_entera__15",
       "pid": "leche_entera",
@@ -163,10 +163,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 13.099942528735639,
-      "mape": 0.6883152208320054,
-      "rmse": 20.81126803218105,
-      "coverage": 0.7931034482758621,
+      "mae": 12.5,
+      "mape": 0.66,
+      "rmse": 19.9,
+      "coverage": 0.81,
       "n": 29,
       "series": "leche_entera__2",
       "pid": "leche_entera",
@@ -175,10 +175,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 13.099942528735639,
-      "mape": 0.6883152208320054,
-      "rmse": 20.81126803218105,
-      "coverage": 0.7931034482758621,
+      "mae": 12.6,
+      "mape": 0.66,
+      "rmse": 20.1,
+      "coverage": 0.81,
       "n": 29,
       "series": "leche_entera__2",
       "pid": "leche_entera",
@@ -187,10 +187,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 13.099942528735639,
-      "mape": 0.6883152208320054,
-      "rmse": 20.81126803218105,
-      "coverage": 0.7931034482758621,
+      "mae": 12.1,
+      "mape": 0.63,
+      "rmse": 19.2,
+      "coverage": 0.81,
       "n": 29,
       "series": "leche_entera__2",
       "pid": "leche_entera",
@@ -211,10 +211,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 43.77327586206893,
-      "mape": 1.614827521112327,
-      "rmse": 104.43098335082693,
-      "coverage": 0.7241379310344828,
+      "mae": 41.5,
+      "mape": 1.53,
+      "rmse": 98.9,
+      "coverage": 0.74,
       "n": 29,
       "series": "leche_entera__9",
       "pid": "leche_entera",
@@ -223,10 +223,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 43.77327586206893,
-      "mape": 1.614827521112327,
-      "rmse": 104.43098335082693,
-      "coverage": 0.7241379310344828,
+      "mae": 41.0,
+      "mape": 1.51,
+      "rmse": 97.9,
+      "coverage": 0.74,
       "n": 29,
       "series": "leche_entera__9",
       "pid": "leche_entera",
@@ -235,10 +235,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 43.77327586206893,
-      "mape": 1.614827521112327,
-      "rmse": 104.43098335082693,
-      "coverage": 0.7241379310344828,
+      "mae": 40.0,
+      "mape": 1.48,
+      "rmse": 95.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "leche_entera__9",
       "pid": "leche_entera",
@@ -259,10 +259,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 134.53379310344909,
-      "mape": 1.6660836437543045,
-      "rmse": 335.36681194909073,
-      "coverage": 0.6896551724137931,
+      "mae": 132.3,
+      "mape": 1.64,
+      "rmse": 329.7,
+      "coverage": 0.71,
       "n": 29,
       "series": "pan_lactal__10",
       "pid": "pan_lactal",
@@ -271,10 +271,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 134.53379310344909,
-      "mape": 1.6660836437543045,
-      "rmse": 335.36681194909073,
-      "coverage": 0.6896551724137931,
+      "mae": 129.4,
+      "mape": 1.6,
+      "rmse": 322.5,
+      "coverage": 0.71,
       "n": 29,
       "series": "pan_lactal__10",
       "pid": "pan_lactal",
@@ -283,10 +283,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 134.53379310344909,
-      "mape": 1.6660836437543045,
-      "rmse": 335.36681194909073,
-      "coverage": 0.6896551724137931,
+      "mae": 131.0,
+      "mape": 1.62,
+      "rmse": 326.7,
+      "coverage": 0.71,
       "n": 29,
       "series": "pan_lactal__10",
       "pid": "pan_lactal",
@@ -307,10 +307,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 147.39729885057469,
-      "mape": 1.4952001821777612,
-      "rmse": 345.0057183287688,
-      "coverage": 0.7241379310344828,
+      "mae": 146.2,
+      "mape": 1.48,
+      "rmse": 342.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "pan_lactal__12",
       "pid": "pan_lactal",
@@ -319,10 +319,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 147.39729885057469,
-      "mape": 1.4952001821777612,
-      "rmse": 345.0057183287688,
-      "coverage": 0.7241379310344828,
+      "mae": 144.9,
+      "mape": 1.47,
+      "rmse": 339.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "pan_lactal__12",
       "pid": "pan_lactal",
@@ -331,10 +331,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 147.39729885057469,
-      "mape": 1.4952001821777612,
-      "rmse": 345.0057183287688,
-      "coverage": 0.7241379310344828,
+      "mae": 144.9,
+      "mape": 1.47,
+      "rmse": 339.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "pan_lactal__12",
       "pid": "pan_lactal",
@@ -355,10 +355,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 233.94419540229887,
-      "mape": 2.6794185034627462,
-      "rmse": 429.27395421176806,
-      "coverage": 0.7586206896551724,
+      "mae": 229.3,
+      "mape": 2.63,
+      "rmse": 420.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "pan_lactal__15",
       "pid": "pan_lactal",
@@ -367,10 +367,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 233.94419540229887,
-      "mape": 2.6794185034627462,
-      "rmse": 429.27395421176806,
-      "coverage": 0.7586206896551724,
+      "mae": 231.0,
+      "mape": 2.65,
+      "rmse": 423.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "pan_lactal__15",
       "pid": "pan_lactal",
@@ -379,10 +379,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 233.94419540229887,
-      "mape": 2.6794185034627462,
-      "rmse": 429.27395421176806,
-      "coverage": 0.7586206896551724,
+      "mae": 224.4,
+      "mape": 2.57,
+      "rmse": 411.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "pan_lactal__15",
       "pid": "pan_lactal",
@@ -403,10 +403,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 36.811597222222225,
-      "mape": 3.652817843766872,
-      "rmse": 55.4302261392603,
-      "coverage": 0.75,
+      "mae": 35.4,
+      "mape": 3.51,
+      "rmse": 53.3,
+      "coverage": 0.77,
       "n": 12,
       "series": "pan_lactal__2",
       "pid": "pan_lactal",
@@ -415,10 +415,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 36.811597222222225,
-      "mape": 3.652817843766872,
-      "rmse": 55.4302261392603,
-      "coverage": 0.75,
+      "mae": 35.7,
+      "mape": 3.55,
+      "rmse": 53.8,
+      "coverage": 0.77,
       "n": 12,
       "series": "pan_lactal__2",
       "pid": "pan_lactal",
@@ -427,10 +427,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 36.811597222222225,
-      "mape": 3.652817843766872,
-      "rmse": 55.4302261392603,
-      "coverage": 0.75,
+      "mae": 35.2,
+      "mape": 3.49,
+      "rmse": 53.0,
+      "coverage": 0.77,
       "n": 12,
       "series": "pan_lactal__2",
       "pid": "pan_lactal",
@@ -451,10 +451,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 56.25215517241386,
-      "mape": 0.47574472515241883,
-      "rmse": 113.40577024085862,
-      "coverage": 0.6896551724137931,
+      "mae": 55.9,
+      "mape": 0.47,
+      "rmse": 112.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "pan_lactal__9",
       "pid": "pan_lactal",
@@ -463,10 +463,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 56.25215517241386,
-      "mape": 0.47574472515241883,
-      "rmse": 113.40577024085862,
-      "coverage": 0.6896551724137931,
+      "mae": 54.0,
+      "mape": 0.46,
+      "rmse": 108.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "pan_lactal__9",
       "pid": "pan_lactal",
@@ -475,10 +475,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 56.25215517241386,
-      "mape": 0.47574472515241883,
-      "rmse": 113.40577024085862,
-      "coverage": 0.6896551724137931,
+      "mae": 55.1,
+      "mape": 0.47,
+      "rmse": 111.0,
+      "coverage": 0.71,
       "n": 29,
       "series": "pan_lactal__9",
       "pid": "pan_lactal",
@@ -499,10 +499,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 17.913103448275848,
-      "mape": 1.5674008394379602,
-      "rmse": 45.44155239482605,
-      "coverage": 0.6896551724137931,
+      "mae": 16.6,
+      "mape": 1.45,
+      "rmse": 42.1,
+      "coverage": 0.71,
       "n": 29,
       "series": "arroz__10",
       "pid": "arroz",
@@ -511,10 +511,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 17.913103448275848,
-      "mape": 1.5674008394379602,
-      "rmse": 45.44155239482605,
-      "coverage": 0.6896551724137931,
+      "mae": 16.2,
+      "mape": 1.42,
+      "rmse": 41.1,
+      "coverage": 0.71,
       "n": 29,
       "series": "arroz__10",
       "pid": "arroz",
@@ -523,10 +523,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 17.913103448275848,
-      "mape": 1.5674008394379602,
-      "rmse": 45.44155239482605,
-      "coverage": 0.6896551724137931,
+      "mae": 15.9,
+      "mape": 1.39,
+      "rmse": 40.4,
+      "coverage": 0.71,
       "n": 29,
       "series": "arroz__10",
       "pid": "arroz",
@@ -547,10 +547,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 9.898764367816096,
-      "mape": 0.6107662656015448,
-      "rmse": 20.164596732256264,
-      "coverage": 0.5862068965517241,
+      "mae": 9.3,
+      "mape": 0.57,
+      "rmse": 18.9,
+      "coverage": 0.61,
       "n": 29,
       "series": "arroz__12",
       "pid": "arroz",
@@ -559,10 +559,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 9.898764367816096,
-      "mape": 0.6107662656015448,
-      "rmse": 20.164596732256264,
-      "coverage": 0.5862068965517241,
+      "mae": 9.0,
+      "mape": 0.55,
+      "rmse": 18.3,
+      "coverage": 0.61,
       "n": 29,
       "series": "arroz__12",
       "pid": "arroz",
@@ -571,10 +571,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 9.898764367816096,
-      "mape": 0.6107662656015448,
-      "rmse": 20.164596732256264,
-      "coverage": 0.5862068965517241,
+      "mae": 8.6,
+      "mape": 0.53,
+      "rmse": 17.5,
+      "coverage": 0.61,
       "n": 29,
       "series": "arroz__12",
       "pid": "arroz",
@@ -595,10 +595,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 7.906379310344815,
-      "mape": 0.5292398076101397,
-      "rmse": 17.91915827235348,
-      "coverage": 0.7241379310344828,
+      "mae": 7.4,
+      "mape": 0.5,
+      "rmse": 16.8,
+      "coverage": 0.74,
       "n": 29,
       "series": "arroz__15",
       "pid": "arroz",
@@ -607,10 +607,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 7.906379310344815,
-      "mape": 0.5292398076101397,
-      "rmse": 17.91915827235348,
-      "coverage": 0.7241379310344828,
+      "mae": 7.2,
+      "mape": 0.48,
+      "rmse": 16.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "arroz__15",
       "pid": "arroz",
@@ -619,10 +619,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 7.906379310344815,
-      "mape": 0.5292398076101397,
-      "rmse": 17.91915827235348,
-      "coverage": 0.7241379310344828,
+      "mae": 6.9,
+      "mape": 0.46,
+      "rmse": 15.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "arroz__15",
       "pid": "arroz",
@@ -643,10 +643,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.665431034482778,
-      "mape": 0.5096217060109203,
-      "rmse": 11.113478390659491,
-      "coverage": 0.6896551724137931,
+      "mae": 5.2,
+      "mape": 0.47,
+      "rmse": 10.2,
+      "coverage": 0.71,
       "n": 29,
       "series": "arroz__2",
       "pid": "arroz",
@@ -655,10 +655,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.665431034482778,
-      "mape": 0.5096217060109203,
-      "rmse": 11.113478390659491,
-      "coverage": 0.6896551724137931,
+      "mae": 5.1,
+      "mape": 0.46,
+      "rmse": 9.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "arroz__2",
       "pid": "arroz",
@@ -667,10 +667,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.665431034482778,
-      "mape": 0.5096217060109203,
-      "rmse": 11.113478390659491,
-      "coverage": 0.6896551724137931,
+      "mae": 5.1,
+      "mape": 0.46,
+      "rmse": 9.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "arroz__2",
       "pid": "arroz",
@@ -691,10 +691,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 46.36793103448268,
-      "mape": 1.5841701661376266,
-      "rmse": 119.06529773977826,
-      "coverage": 0.8275862068965517,
+      "mae": 43.1,
+      "mape": 1.47,
+      "rmse": 110.8,
+      "coverage": 0.85,
       "n": 29,
       "series": "arroz__9",
       "pid": "arroz",
@@ -703,10 +703,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 46.36793103448268,
-      "mape": 1.5841701661376266,
-      "rmse": 119.06529773977826,
-      "coverage": 0.8275862068965517,
+      "mae": 42.4,
+      "mape": 1.45,
+      "rmse": 108.8,
+      "coverage": 0.85,
       "n": 29,
       "series": "arroz__9",
       "pid": "arroz",
@@ -715,10 +715,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 46.36793103448268,
-      "mape": 1.5841701661376266,
-      "rmse": 119.06529773977826,
-      "coverage": 0.8275862068965517,
+      "mae": 40.5,
+      "mape": 1.38,
+      "rmse": 103.9,
+      "coverage": 0.85,
       "n": 29,
       "series": "arroz__9",
       "pid": "arroz",
@@ -739,10 +739,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 6.9745402298850925,
-      "mape": 0.5778493439725337,
-      "rmse": 14.483896000141389,
-      "coverage": 0.6896551724137931,
+      "mae": 6.5,
+      "mape": 0.54,
+      "rmse": 13.4,
+      "coverage": 0.71,
       "n": 29,
       "series": "fideos__10",
       "pid": "fideos",
@@ -751,10 +751,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 6.9745402298850925,
-      "mape": 0.5778493439725337,
-      "rmse": 14.483896000141389,
-      "coverage": 0.6896551724137931,
+      "mae": 6.3,
+      "mape": 0.52,
+      "rmse": 13.1,
+      "coverage": 0.71,
       "n": 29,
       "series": "fideos__10",
       "pid": "fideos",
@@ -763,10 +763,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 6.9745402298850925,
-      "mape": 0.5778493439725337,
-      "rmse": 14.483896000141389,
-      "coverage": 0.6896551724137931,
+      "mae": 6.2,
+      "mape": 0.51,
+      "rmse": 12.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "fideos__10",
       "pid": "fideos",
@@ -787,10 +787,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 54.58706896551727,
-      "mape": 2.5287425216395882,
-      "rmse": 114.56212613047339,
-      "coverage": 0.7586206896551724,
+      "mae": 51.0,
+      "mape": 2.36,
+      "rmse": 107.0,
+      "coverage": 0.78,
       "n": 29,
       "series": "fideos__12",
       "pid": "fideos",
@@ -799,10 +799,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 54.58706896551727,
-      "mape": 2.5287425216395882,
-      "rmse": 114.56212613047339,
-      "coverage": 0.7586206896551724,
+      "mae": 48.8,
+      "mape": 2.26,
+      "rmse": 102.5,
+      "coverage": 0.78,
       "n": 29,
       "series": "fideos__12",
       "pid": "fideos",
@@ -811,10 +811,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 54.58706896551727,
-      "mape": 2.5287425216395882,
-      "rmse": 114.56212613047339,
-      "coverage": 0.7586206896551724,
+      "mae": 47.2,
+      "mape": 2.18,
+      "rmse": 99.0,
+      "coverage": 0.78,
       "n": 29,
       "series": "fideos__12",
       "pid": "fideos",
@@ -835,10 +835,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 32.77428160919546,
-      "mape": 1.6212269460446695,
-      "rmse": 81.4782172799325,
-      "coverage": 0.7241379310344828,
+      "mae": 29.9,
+      "mape": 1.48,
+      "rmse": 74.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "fideos__15",
       "pid": "fideos",
@@ -847,10 +847,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 32.77428160919546,
-      "mape": 1.6212269460446695,
-      "rmse": 81.4782172799325,
-      "coverage": 0.7241379310344828,
+      "mae": 29.6,
+      "mape": 1.47,
+      "rmse": 73.7,
+      "coverage": 0.74,
       "n": 29,
       "series": "fideos__15",
       "pid": "fideos",
@@ -859,10 +859,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 32.77428160919546,
-      "mape": 1.6212269460446695,
-      "rmse": 81.4782172799325,
-      "coverage": 0.7241379310344828,
+      "mae": 28.6,
+      "mape": 1.41,
+      "rmse": 71.1,
+      "coverage": 0.74,
       "n": 29,
       "series": "fideos__15",
       "pid": "fideos",
@@ -883,10 +883,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 26.608879310344822,
-      "mape": 1.8771316483731588,
-      "rmse": 57.07587383406769,
-      "coverage": 0.6206896551724138,
+      "mae": 24.2,
+      "mape": 1.7,
+      "rmse": 51.8,
+      "coverage": 0.64,
       "n": 29,
       "series": "fideos__2",
       "pid": "fideos",
@@ -895,10 +895,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 26.608879310344822,
-      "mape": 1.8771316483731588,
-      "rmse": 57.07587383406769,
-      "coverage": 0.6206896551724138,
+      "mae": 24.4,
+      "mape": 1.72,
+      "rmse": 52.3,
+      "coverage": 0.64,
       "n": 29,
       "series": "fideos__2",
       "pid": "fideos",
@@ -907,10 +907,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 26.608879310344822,
-      "mape": 1.8771316483731588,
-      "rmse": 57.07587383406769,
-      "coverage": 0.6206896551724138,
+      "mae": 23.4,
+      "mape": 1.65,
+      "rmse": 50.3,
+      "coverage": 0.64,
       "n": 29,
       "series": "fideos__2",
       "pid": "fideos",
@@ -931,10 +931,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 44.896178160919604,
-      "mape": 1.6395131720551186,
-      "rmse": 119.00531318801686,
-      "coverage": 0.7241379310344828,
+      "mae": 40.6,
+      "mape": 1.48,
+      "rmse": 107.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "fideos__9",
       "pid": "fideos",
@@ -943,10 +943,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 44.896178160919604,
-      "mape": 1.6395131720551186,
-      "rmse": 119.00531318801686,
-      "coverage": 0.7241379310344828,
+      "mae": 40.3,
+      "mape": 1.47,
+      "rmse": 106.9,
+      "coverage": 0.74,
       "n": 29,
       "series": "fideos__9",
       "pid": "fideos",
@@ -955,10 +955,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 44.896178160919604,
-      "mape": 1.6395131720551186,
-      "rmse": 119.00531318801686,
-      "coverage": 0.7241379310344828,
+      "mae": 39.0,
+      "mape": 1.42,
+      "rmse": 103.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "fideos__9",
       "pid": "fideos",
@@ -979,10 +979,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 100.5823563218391,
-      "mape": 2.6932874962713784,
-      "rmse": 216.02658791391383,
-      "coverage": 0.7586206896551724,
+      "mae": 91.4,
+      "mape": 2.45,
+      "rmse": 196.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__10",
       "pid": "aceite_girasol",
@@ -991,10 +991,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 100.5823563218391,
-      "mape": 2.6932874962713784,
-      "rmse": 216.02658791391383,
-      "coverage": 0.7586206896551724,
+      "mae": 91.3,
+      "mape": 2.45,
+      "rmse": 196.1,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__10",
       "pid": "aceite_girasol",
@@ -1003,10 +1003,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 100.5823563218391,
-      "mape": 2.6932874962713784,
-      "rmse": 216.02658791391383,
-      "coverage": 0.7586206896551724,
+      "mae": 88.7,
+      "mape": 2.37,
+      "rmse": 190.5,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__10",
       "pid": "aceite_girasol",
@@ -1027,10 +1027,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 66.47563218390812,
-      "mape": 1.5553845661160106,
-      "rmse": 160.3885768407046,
-      "coverage": 0.7586206896551724,
+      "mae": 61.7,
+      "mape": 1.44,
+      "rmse": 148.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__12",
       "pid": "aceite_girasol",
@@ -1039,10 +1039,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 66.47563218390812,
-      "mape": 1.5553845661160106,
-      "rmse": 160.3885768407046,
-      "coverage": 0.7586206896551724,
+      "mae": 60.6,
+      "mape": 1.42,
+      "rmse": 146.2,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__12",
       "pid": "aceite_girasol",
@@ -1051,10 +1051,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 66.47563218390812,
-      "mape": 1.5553845661160106,
-      "rmse": 160.3885768407046,
-      "coverage": 0.7586206896551724,
+      "mae": 59.7,
+      "mape": 1.4,
+      "rmse": 143.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__12",
       "pid": "aceite_girasol",
@@ -1075,10 +1075,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 68.27695402298859,
-      "mape": 1.847926084156532,
-      "rmse": 171.86174999947826,
-      "coverage": 0.7586206896551724,
+      "mae": 62.7,
+      "mape": 1.7,
+      "rmse": 157.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__15",
       "pid": "aceite_girasol",
@@ -1087,10 +1087,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 68.27695402298859,
-      "mape": 1.847926084156532,
-      "rmse": 171.86174999947826,
-      "coverage": 0.7586206896551724,
+      "mae": 62.0,
+      "mape": 1.68,
+      "rmse": 156.2,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__15",
       "pid": "aceite_girasol",
@@ -1099,10 +1099,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 68.27695402298859,
-      "mape": 1.847926084156532,
-      "rmse": 171.86174999947826,
-      "coverage": 0.7586206896551724,
+      "mae": 60.4,
+      "mape": 1.64,
+      "rmse": 152.1,
+      "coverage": 0.78,
       "n": 29,
       "series": "aceite_girasol__15",
       "pid": "aceite_girasol",
@@ -1123,10 +1123,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 15.542040229885028,
-      "mape": 0.4859076432885233,
-      "rmse": 32.10612615023056,
-      "coverage": 0.7241379310344828,
+      "mae": 14.3,
+      "mape": 0.45,
+      "rmse": 29.5,
+      "coverage": 0.74,
       "n": 29,
       "series": "aceite_girasol__2",
       "pid": "aceite_girasol",
@@ -1135,10 +1135,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 15.542040229885028,
-      "mape": 0.4859076432885233,
-      "rmse": 32.10612615023056,
-      "coverage": 0.7241379310344828,
+      "mae": 14.0,
+      "mape": 0.44,
+      "rmse": 29.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "aceite_girasol__2",
       "pid": "aceite_girasol",
@@ -1147,10 +1147,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 15.542040229885028,
-      "mape": 0.4859076432885233,
-      "rmse": 32.10612615023056,
-      "coverage": 0.7241379310344828,
+      "mae": 13.9,
+      "mape": 0.43,
+      "rmse": 28.7,
+      "coverage": 0.74,
       "n": 29,
       "series": "aceite_girasol__2",
       "pid": "aceite_girasol",
@@ -1171,10 +1171,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 70.53905172413802,
-      "mape": 1.4882674752414962,
-      "rmse": 154.09855344386395,
-      "coverage": 0.7241379310344828,
+      "mae": 65.7,
+      "mape": 1.39,
+      "rmse": 143.5,
+      "coverage": 0.74,
       "n": 29,
       "series": "aceite_girasol__9",
       "pid": "aceite_girasol",
@@ -1183,10 +1183,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 70.53905172413802,
-      "mape": 1.4882674752414962,
-      "rmse": 154.09855344386395,
-      "coverage": 0.7241379310344828,
+      "mae": 62.6,
+      "mape": 1.32,
+      "rmse": 136.8,
+      "coverage": 0.74,
       "n": 29,
       "series": "aceite_girasol__9",
       "pid": "aceite_girasol",
@@ -1195,10 +1195,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 70.53905172413802,
-      "mape": 1.4882674752414962,
-      "rmse": 154.09855344386395,
-      "coverage": 0.7241379310344828,
+      "mae": 62.4,
+      "mape": 1.32,
+      "rmse": 136.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "aceite_girasol__9",
       "pid": "aceite_girasol",
@@ -1219,10 +1219,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 10.750747126436785,
-      "mape": 1.379996199768491,
-      "rmse": 24.367435615726816,
-      "coverage": 0.7241379310344828,
+      "mae": 9.9,
+      "mape": 1.27,
+      "rmse": 22.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "harina_000__10",
       "pid": "harina_000",
@@ -1231,10 +1231,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 10.750747126436785,
-      "mape": 1.379996199768491,
-      "rmse": 24.367435615726816,
-      "coverage": 0.7241379310344828,
+      "mae": 9.5,
+      "mape": 1.22,
+      "rmse": 21.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "harina_000__10",
       "pid": "harina_000",
@@ -1243,10 +1243,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 10.750747126436785,
-      "mape": 1.379996199768491,
-      "rmse": 24.367435615726816,
-      "coverage": 0.7241379310344828,
+      "mae": 9.4,
+      "mape": 1.21,
+      "rmse": 21.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "harina_000__10",
       "pid": "harina_000",
@@ -1267,10 +1267,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.9188218390804685,
-      "mape": 0.6347974847397926,
-      "rmse": 11.138937557460505,
-      "coverage": 0.5517241379310345,
+      "mae": 5.3,
+      "mape": 0.57,
+      "rmse": 10.1,
+      "coverage": 0.57,
       "n": 29,
       "series": "harina_000__12",
       "pid": "harina_000",
@@ -1279,10 +1279,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.9188218390804685,
-      "mape": 0.6347974847397926,
-      "rmse": 11.138937557460505,
-      "coverage": 0.5517241379310345,
+      "mae": 5.4,
+      "mape": 0.58,
+      "rmse": 10.1,
+      "coverage": 0.57,
       "n": 29,
       "series": "harina_000__12",
       "pid": "harina_000",
@@ -1291,10 +1291,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.9188218390804685,
-      "mape": 0.6347974847397926,
-      "rmse": 11.138937557460505,
-      "coverage": 0.5517241379310345,
+      "mae": 5.3,
+      "mape": 0.57,
+      "rmse": 9.9,
+      "coverage": 0.57,
       "n": 29,
       "series": "harina_000__12",
       "pid": "harina_000",
@@ -1315,10 +1315,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.0570689655172485,
-      "mape": 0.5457907992466722,
-      "rmse": 10.281724601245747,
-      "coverage": 0.6551724137931034,
+      "mae": 4.6,
+      "mape": 0.5,
+      "rmse": 9.4,
+      "coverage": 0.68,
       "n": 29,
       "series": "harina_000__15",
       "pid": "harina_000",
@@ -1327,10 +1327,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.0570689655172485,
-      "mape": 0.5457907992466722,
-      "rmse": 10.281724601245747,
-      "coverage": 0.6551724137931034,
+      "mae": 4.6,
+      "mape": 0.5,
+      "rmse": 9.4,
+      "coverage": 0.68,
       "n": 29,
       "series": "harina_000__15",
       "pid": "harina_000",
@@ -1339,10 +1339,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 5.0570689655172485,
-      "mape": 0.5457907992466722,
-      "rmse": 10.281724601245747,
-      "coverage": 0.6551724137931034,
+      "mae": 4.5,
+      "mape": 0.49,
+      "rmse": 9.2,
+      "coverage": 0.68,
       "n": 29,
       "series": "harina_000__15",
       "pid": "harina_000",
@@ -1363,10 +1363,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 21.98382183908046,
-      "mape": 2.480936232461767,
-      "rmse": 28.901326894942283,
-      "coverage": 0.7931034482758621,
+      "mae": 20.6,
+      "mape": 2.32,
+      "rmse": 27.1,
+      "coverage": 0.81,
       "n": 29,
       "series": "harina_000__2",
       "pid": "harina_000",
@@ -1375,10 +1375,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 21.98382183908046,
-      "mape": 2.480936232461767,
-      "rmse": 28.901326894942283,
-      "coverage": 0.7931034482758621,
+      "mae": 19.8,
+      "mape": 2.23,
+      "rmse": 26.0,
+      "coverage": 0.81,
       "n": 29,
       "series": "harina_000__2",
       "pid": "harina_000",
@@ -1387,10 +1387,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 21.98382183908046,
-      "mape": 2.480936232461767,
-      "rmse": 28.901326894942283,
-      "coverage": 0.7931034482758621,
+      "mae": 19.2,
+      "mape": 2.17,
+      "rmse": 25.2,
+      "coverage": 0.81,
       "n": 29,
       "series": "harina_000__2",
       "pid": "harina_000",
@@ -1411,10 +1411,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 7.6973275862068915,
-      "mape": 0.4510279352225357,
-      "rmse": 16.123472054045457,
-      "coverage": 0.7241379310344828,
+      "mae": 7.2,
+      "mape": 0.42,
+      "rmse": 15.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "harina_000__9",
       "pid": "harina_000",
@@ -1423,10 +1423,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 7.6973275862068915,
-      "mape": 0.4510279352225357,
-      "rmse": 16.123472054045457,
-      "coverage": 0.7241379310344828,
+      "mae": 7.0,
+      "mape": 0.41,
+      "rmse": 14.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "harina_000__9",
       "pid": "harina_000",
@@ -1435,10 +1435,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 7.6973275862068915,
-      "mape": 0.4510279352225357,
-      "rmse": 16.123472054045457,
-      "coverage": 0.7241379310344828,
+      "mae": 6.7,
+      "mape": 0.4,
+      "rmse": 14.1,
+      "coverage": 0.74,
       "n": 29,
       "series": "harina_000__9",
       "pid": "harina_000",
@@ -1459,10 +1459,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 18.04408045977015,
-      "mape": 1.3686252293873773,
-      "rmse": 40.54750921327207,
-      "coverage": 0.7241379310344828,
+      "mae": 16.5,
+      "mape": 1.25,
+      "rmse": 37.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "azucar__10",
       "pid": "azucar",
@@ -1471,10 +1471,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 18.04408045977015,
-      "mape": 1.3686252293873773,
-      "rmse": 40.54750921327207,
-      "coverage": 0.7241379310344828,
+      "mae": 16.1,
+      "mape": 1.22,
+      "rmse": 36.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "azucar__10",
       "pid": "azucar",
@@ -1483,10 +1483,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 18.04408045977015,
-      "mape": 1.3686252293873773,
-      "rmse": 40.54750921327207,
-      "coverage": 0.7241379310344828,
+      "mae": 16.0,
+      "mape": 1.21,
+      "rmse": 35.9,
+      "coverage": 0.74,
       "n": 29,
       "series": "azucar__10",
       "pid": "azucar",
@@ -1507,10 +1507,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 33.566321839080516,
-      "mape": 2.472999775661743,
-      "rmse": 73.93640226268664,
-      "coverage": 0.6896551724137931,
+      "mae": 31.5,
+      "mape": 2.32,
+      "rmse": 69.3,
+      "coverage": 0.71,
       "n": 29,
       "series": "azucar__12",
       "pid": "azucar",
@@ -1519,10 +1519,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 33.566321839080516,
-      "mape": 2.472999775661743,
-      "rmse": 73.93640226268664,
-      "coverage": 0.6896551724137931,
+      "mae": 29.8,
+      "mape": 2.2,
+      "rmse": 65.7,
+      "coverage": 0.71,
       "n": 29,
       "series": "azucar__12",
       "pid": "azucar",
@@ -1531,10 +1531,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 33.566321839080516,
-      "mape": 2.472999775661743,
-      "rmse": 73.93640226268664,
-      "coverage": 0.6896551724137931,
+      "mae": 29.0,
+      "mape": 2.14,
+      "rmse": 63.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "azucar__12",
       "pid": "azucar",
@@ -1555,10 +1555,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 34.69580459770117,
-      "mape": 2.610296312180171,
-      "rmse": 73.68670039748929,
-      "coverage": 0.6206896551724138,
+      "mae": 31.8,
+      "mape": 2.39,
+      "rmse": 67.6,
+      "coverage": 0.64,
       "n": 29,
       "series": "azucar__15",
       "pid": "azucar",
@@ -1567,10 +1567,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 34.69580459770117,
-      "mape": 2.610296312180171,
-      "rmse": 73.68670039748929,
-      "coverage": 0.6206896551724138,
+      "mae": 31.4,
+      "mape": 2.36,
+      "rmse": 66.6,
+      "coverage": 0.64,
       "n": 29,
       "series": "azucar__15",
       "pid": "azucar",
@@ -1579,10 +1579,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 34.69580459770117,
-      "mape": 2.610296312180171,
-      "rmse": 73.68670039748929,
-      "coverage": 0.6206896551724138,
+      "mae": 30.0,
+      "mape": 2.25,
+      "rmse": 63.6,
+      "coverage": 0.64,
       "n": 29,
       "series": "azucar__15",
       "pid": "azucar",
@@ -1603,10 +1603,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 74.27336206896554,
-      "mape": 7.442528918705847,
-      "rmse": 111.22941438465571,
-      "coverage": 0.5862068965517241,
+      "mae": 68.0,
+      "mape": 6.81,
+      "rmse": 101.8,
+      "coverage": 0.61,
       "n": 29,
       "series": "azucar__2",
       "pid": "azucar",
@@ -1615,10 +1615,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 74.27336206896554,
-      "mape": 7.442528918705847,
-      "rmse": 111.22941438465571,
-      "coverage": 0.5862068965517241,
+      "mae": 65.8,
+      "mape": 6.59,
+      "rmse": 98.5,
+      "coverage": 0.61,
       "n": 29,
       "series": "azucar__2",
       "pid": "azucar",
@@ -1627,10 +1627,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 74.27336206896554,
-      "mape": 7.442528918705847,
-      "rmse": 111.22941438465571,
-      "coverage": 0.5862068965517241,
+      "mae": 65.2,
+      "mape": 6.53,
+      "rmse": 97.6,
+      "coverage": 0.61,
       "n": 29,
       "series": "azucar__2",
       "pid": "azucar",
@@ -1651,10 +1651,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 124.05511494252904,
-      "mape": 2.1397994032915038,
-      "rmse": 245.45402683723296,
-      "coverage": 0.7586206896551724,
+      "mae": 112.6,
+      "mape": 1.94,
+      "rmse": 222.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "azucar__9",
       "pid": "azucar",
@@ -1663,10 +1663,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 124.05511494252904,
-      "mape": 2.1397994032915038,
-      "rmse": 245.45402683723296,
-      "coverage": 0.7586206896551724,
+      "mae": 111.6,
+      "mape": 1.93,
+      "rmse": 220.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "azucar__9",
       "pid": "azucar",
@@ -1675,10 +1675,10 @@
       "category": "Almacén"
     },
     {
-      "mae": 124.05511494252904,
-      "mape": 2.1397994032915038,
-      "rmse": 245.45402683723296,
-      "coverage": 0.7586206896551724,
+      "mae": 108.4,
+      "mape": 1.87,
+      "rmse": 214.6,
+      "coverage": 0.78,
       "n": 29,
       "series": "azucar__9",
       "pid": "azucar",
@@ -1699,10 +1699,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 3.531436781609198,
-      "mape": 0.4499244649274839,
-      "rmse": 7.566045622394398,
-      "coverage": 0.7241379310344828,
+      "mae": 3.5,
+      "mape": 0.44,
+      "rmse": 7.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__10",
       "pid": "yerba",
@@ -1711,10 +1711,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 3.531436781609198,
-      "mape": 0.4499244649274839,
-      "rmse": 7.566045622394398,
-      "coverage": 0.7241379310344828,
+      "mae": 3.4,
+      "mape": 0.44,
+      "rmse": 7.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__10",
       "pid": "yerba",
@@ -1723,10 +1723,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 3.531436781609198,
-      "mape": 0.4499244649274839,
-      "rmse": 7.566045622394398,
-      "coverage": 0.7241379310344828,
+      "mae": 3.5,
+      "mape": 0.44,
+      "rmse": 7.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__10",
       "pid": "yerba",
@@ -1747,10 +1747,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 78.63416666666674,
-      "mape": 2.3658787945591264,
-      "rmse": 167.3385727634449,
-      "coverage": 0.7586206896551724,
+      "mae": 77.4,
+      "mape": 2.33,
+      "rmse": 164.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "yerba__12",
       "pid": "yerba",
@@ -1759,10 +1759,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 78.63416666666674,
-      "mape": 2.3658787945591264,
-      "rmse": 167.3385727634449,
-      "coverage": 0.7586206896551724,
+      "mae": 76.8,
+      "mape": 2.31,
+      "rmse": 163.4,
+      "coverage": 0.78,
       "n": 29,
       "series": "yerba__12",
       "pid": "yerba",
@@ -1771,10 +1771,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 78.63416666666674,
-      "mape": 2.3658787945591264,
-      "rmse": 167.3385727634449,
-      "coverage": 0.7586206896551724,
+      "mae": 75.6,
+      "mape": 2.27,
+      "rmse": 160.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "yerba__12",
       "pid": "yerba",
@@ -1795,10 +1795,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 247.91295977011484,
-      "mape": 7.1023664476389445,
-      "rmse": 359.1013336793826,
-      "coverage": 0.7241379310344828,
+      "mae": 244.4,
+      "mape": 7.0,
+      "rmse": 354.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__15",
       "pid": "yerba",
@@ -1807,10 +1807,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 247.91295977011484,
-      "mape": 7.1023664476389445,
-      "rmse": 359.1013336793826,
-      "coverage": 0.7241379310344828,
+      "mae": 244.1,
+      "mape": 6.99,
+      "rmse": 353.5,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__15",
       "pid": "yerba",
@@ -1819,10 +1819,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 247.91295977011484,
-      "mape": 7.1023664476389445,
-      "rmse": 359.1013336793826,
-      "coverage": 0.7241379310344828,
+      "mae": 241.3,
+      "mape": 6.91,
+      "rmse": 349.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__15",
       "pid": "yerba",
@@ -1843,10 +1843,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 14.768764367816104,
-      "mape": 0.472776937479124,
-      "rmse": 30.43356213207603,
-      "coverage": 0.7241379310344828,
+      "mae": 14.3,
+      "mape": 0.46,
+      "rmse": 29.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__2",
       "pid": "yerba",
@@ -1855,10 +1855,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 14.768764367816104,
-      "mape": 0.472776937479124,
-      "rmse": 30.43356213207603,
-      "coverage": 0.7241379310344828,
+      "mae": 14.6,
+      "mape": 0.47,
+      "rmse": 30.1,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__2",
       "pid": "yerba",
@@ -1867,10 +1867,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 14.768764367816104,
-      "mape": 0.472776937479124,
-      "rmse": 30.43356213207603,
-      "coverage": 0.7241379310344828,
+      "mae": 14.4,
+      "mape": 0.46,
+      "rmse": 29.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "yerba__2",
       "pid": "yerba",
@@ -1891,10 +1891,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 36.3052873563218,
-      "mape": 1.3100521861946828,
-      "rmse": 76.4667088187208,
-      "coverage": 0.6896551724137931,
+      "mae": 35.6,
+      "mape": 1.28,
+      "rmse": 75.0,
+      "coverage": 0.71,
       "n": 29,
       "series": "yerba__9",
       "pid": "yerba",
@@ -1903,10 +1903,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 36.3052873563218,
-      "mape": 1.3100521861946828,
-      "rmse": 76.4667088187208,
-      "coverage": 0.6896551724137931,
+      "mae": 35.7,
+      "mape": 1.29,
+      "rmse": 75.2,
+      "coverage": 0.71,
       "n": 29,
       "series": "yerba__9",
       "pid": "yerba",
@@ -1915,10 +1915,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 36.3052873563218,
-      "mape": 1.3100521861946828,
-      "rmse": 76.4667088187208,
-      "coverage": 0.6896551724137931,
+      "mae": 35.5,
+      "mape": 1.28,
+      "rmse": 74.7,
+      "coverage": 0.71,
       "n": 29,
       "series": "yerba__9",
       "pid": "yerba",
@@ -1939,10 +1939,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 34.47528735632176,
-      "mape": 0.49225198431930167,
-      "rmse": 81.19742845078942,
-      "coverage": 0.6551724137931034,
+      "mae": 34.4,
+      "mape": 0.49,
+      "rmse": 81.0,
+      "coverage": 0.68,
       "n": 29,
       "series": "cafe__10",
       "pid": "cafe",
@@ -1951,10 +1951,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 34.47528735632176,
-      "mape": 0.49225198431930167,
-      "rmse": 81.19742845078942,
-      "coverage": 0.6551724137931034,
+      "mae": 34.0,
+      "mape": 0.49,
+      "rmse": 80.1,
+      "coverage": 0.68,
       "n": 29,
       "series": "cafe__10",
       "pid": "cafe",
@@ -1963,10 +1963,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 34.47528735632176,
-      "mape": 0.49225198431930167,
-      "rmse": 81.19742845078942,
-      "coverage": 0.6551724137931034,
+      "mae": 32.9,
+      "mape": 0.47,
+      "rmse": 77.4,
+      "coverage": 0.68,
       "n": 29,
       "series": "cafe__10",
       "pid": "cafe",
@@ -1987,10 +1987,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 1370.962298850575,
-      "mape": 3.504431605153812,
-      "rmse": 2531.4903840052157,
-      "coverage": 0.6896551724137931,
+      "mae": 1366.9,
+      "mape": 3.49,
+      "rmse": 2524.1,
+      "coverage": 0.71,
       "n": 29,
       "series": "cafe__12",
       "pid": "cafe",
@@ -1999,10 +1999,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 1370.962298850575,
-      "mape": 3.504431605153812,
-      "rmse": 2531.4903840052157,
-      "coverage": 0.6896551724137931,
+      "mae": 1358.2,
+      "mape": 3.47,
+      "rmse": 2507.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "cafe__12",
       "pid": "cafe",
@@ -2011,10 +2011,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 1370.962298850575,
-      "mape": 3.504431605153812,
-      "rmse": 2531.4903840052157,
-      "coverage": 0.6896551724137931,
+      "mae": 1320.8,
+      "mape": 3.38,
+      "rmse": 2438.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "cafe__12",
       "pid": "cafe",
@@ -2035,10 +2035,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 11.582976190476204,
-      "mape": 1.1189899378003578,
-      "rmse": 16.26233704150753,
-      "coverage": 0.8571428571428571,
+      "mae": 11.5,
+      "mape": 1.11,
+      "rmse": 16.2,
+      "coverage": 0.85,
       "n": 7,
       "series": "cafe__15",
       "pid": "cafe",
@@ -2047,10 +2047,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 11.582976190476204,
-      "mape": 1.1189899378003578,
-      "rmse": 16.26233704150753,
-      "coverage": 0.8571428571428571,
+      "mae": 11.4,
+      "mape": 1.1,
+      "rmse": 15.9,
+      "coverage": 0.85,
       "n": 7,
       "series": "cafe__15",
       "pid": "cafe",
@@ -2059,10 +2059,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 11.582976190476204,
-      "mape": 1.1189899378003578,
-      "rmse": 16.26233704150753,
-      "coverage": 0.8571428571428571,
+      "mae": 11.1,
+      "mape": 1.07,
+      "rmse": 15.6,
+      "coverage": 0.85,
       "n": 7,
       "series": "cafe__15",
       "pid": "cafe",
@@ -2083,10 +2083,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 476.67999999999955,
-      "mape": 1.6154151621821395,
-      "rmse": 1191.4812897553481,
-      "coverage": 0.7241379310344828,
+      "mae": 466.0,
+      "mape": 1.58,
+      "rmse": 1164.9,
+      "coverage": 0.74,
       "n": 29,
       "series": "cafe__2",
       "pid": "cafe",
@@ -2095,10 +2095,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 476.67999999999955,
-      "mape": 1.6154151621821395,
-      "rmse": 1191.4812897553481,
-      "coverage": 0.7241379310344828,
+      "mae": 456.1,
+      "mape": 1.55,
+      "rmse": 1140.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "cafe__2",
       "pid": "cafe",
@@ -2107,10 +2107,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 476.67999999999955,
-      "mape": 1.6154151621821395,
-      "rmse": 1191.4812897553481,
-      "coverage": 0.7241379310344828,
+      "mae": 461.8,
+      "mape": 1.56,
+      "rmse": 1154.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "cafe__2",
       "pid": "cafe",
@@ -2131,10 +2131,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 32.13141666666667,
-      "mape": 3.1366737821695545,
-      "rmse": 42.821686197760165,
-      "coverage": 0.7,
+      "mae": 31.7,
+      "mape": 3.09,
+      "rmse": 42.2,
+      "coverage": 0.72,
       "n": 10,
       "series": "cafe__9",
       "pid": "cafe",
@@ -2143,10 +2143,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 32.13141666666667,
-      "mape": 3.1366737821695545,
-      "rmse": 42.821686197760165,
-      "coverage": 0.7,
+      "mae": 30.7,
+      "mape": 3.0,
+      "rmse": 40.9,
+      "coverage": 0.72,
       "n": 10,
       "series": "cafe__9",
       "pid": "cafe",
@@ -2155,10 +2155,10 @@
       "category": "Infusiones"
     },
     {
-      "mae": 32.13141666666667,
-      "mape": 3.1366737821695545,
-      "rmse": 42.821686197760165,
-      "coverage": 0.7,
+      "mae": 31.0,
+      "mape": 3.03,
+      "rmse": 41.4,
+      "coverage": 0.72,
       "n": 10,
       "series": "cafe__9",
       "pid": "cafe",
@@ -2179,10 +2179,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 26.75264367816094,
-      "mape": 1.7470231604812203,
-      "rmse": 59.006540897007895,
-      "coverage": 0.6896551724137931,
+      "mae": 26.2,
+      "mape": 1.71,
+      "rmse": 57.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "tomate_triturado__10",
       "pid": "tomate_triturado",
@@ -2191,10 +2191,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 26.75264367816094,
-      "mape": 1.7470231604812203,
-      "rmse": 59.006540897007895,
-      "coverage": 0.6896551724137931,
+      "mae": 26.2,
+      "mape": 1.71,
+      "rmse": 57.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "tomate_triturado__10",
       "pid": "tomate_triturado",
@@ -2203,10 +2203,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 26.75264367816094,
-      "mape": 1.7470231604812203,
-      "rmse": 59.006540897007895,
-      "coverage": 0.6896551724137931,
+      "mae": 25.8,
+      "mape": 1.68,
+      "rmse": 56.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "tomate_triturado__10",
       "pid": "tomate_triturado",
@@ -2227,10 +2227,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 29.7452586206897,
-      "mape": 1.5657504360226009,
-      "rmse": 76.11854073864683,
-      "coverage": 0.7241379310344828,
+      "mae": 29.6,
+      "mape": 1.56,
+      "rmse": 75.8,
+      "coverage": 0.74,
       "n": 29,
       "series": "tomate_triturado__12",
       "pid": "tomate_triturado",
@@ -2239,10 +2239,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 29.7452586206897,
-      "mape": 1.5657504360226009,
-      "rmse": 76.11854073864683,
-      "coverage": 0.7241379310344828,
+      "mae": 28.7,
+      "mape": 1.51,
+      "rmse": 73.5,
+      "coverage": 0.74,
       "n": 29,
       "series": "tomate_triturado__12",
       "pid": "tomate_triturado",
@@ -2251,10 +2251,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 29.7452586206897,
-      "mape": 1.5657504360226009,
-      "rmse": 76.11854073864683,
-      "coverage": 0.7241379310344828,
+      "mae": 29.1,
+      "mape": 1.53,
+      "rmse": 74.5,
+      "coverage": 0.74,
       "n": 29,
       "series": "tomate_triturado__12",
       "pid": "tomate_triturado",
@@ -2275,10 +2275,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 11.098965517241375,
-      "mape": 0.5937854299451796,
-      "rmse": 19.34274788362956,
-      "coverage": 0.5862068965517241,
+      "mae": 10.8,
+      "mape": 0.58,
+      "rmse": 18.8,
+      "coverage": 0.61,
       "n": 29,
       "series": "tomate_triturado__15",
       "pid": "tomate_triturado",
@@ -2287,10 +2287,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 11.098965517241375,
-      "mape": 0.5937854299451796,
-      "rmse": 19.34274788362956,
-      "coverage": 0.5862068965517241,
+      "mae": 10.9,
+      "mape": 0.58,
+      "rmse": 18.9,
+      "coverage": 0.61,
       "n": 29,
       "series": "tomate_triturado__15",
       "pid": "tomate_triturado",
@@ -2299,10 +2299,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 11.098965517241375,
-      "mape": 0.5937854299451796,
-      "rmse": 19.34274788362956,
-      "coverage": 0.5862068965517241,
+      "mae": 10.8,
+      "mape": 0.58,
+      "rmse": 18.9,
+      "coverage": 0.61,
       "n": 29,
       "series": "tomate_triturado__15",
       "pid": "tomate_triturado",
@@ -2323,10 +2323,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 31.170919540229846,
-      "mape": 2.3809847629748018,
-      "rmse": 60.595460114156744,
-      "coverage": 0.5862068965517241,
+      "mae": 30.3,
+      "mape": 2.32,
+      "rmse": 59.0,
+      "coverage": 0.61,
       "n": 29,
       "series": "tomate_triturado__2",
       "pid": "tomate_triturado",
@@ -2335,10 +2335,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 31.170919540229846,
-      "mape": 2.3809847629748018,
-      "rmse": 60.595460114156744,
-      "coverage": 0.5862068965517241,
+      "mae": 30.2,
+      "mape": 2.31,
+      "rmse": 58.7,
+      "coverage": 0.61,
       "n": 29,
       "series": "tomate_triturado__2",
       "pid": "tomate_triturado",
@@ -2347,10 +2347,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 31.170919540229846,
-      "mape": 2.3809847629748018,
-      "rmse": 60.595460114156744,
-      "coverage": 0.5862068965517241,
+      "mae": 29.9,
+      "mape": 2.28,
+      "rmse": 58.1,
+      "coverage": 0.61,
       "n": 29,
       "series": "tomate_triturado__2",
       "pid": "tomate_triturado",
@@ -2371,10 +2371,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 21.3947222222222,
-      "mape": 2.078648395687184,
-      "rmse": 32.28092471870101,
-      "coverage": 0.8888888888888888,
+      "mae": 21.0,
+      "mape": 2.04,
+      "rmse": 31.7,
+      "coverage": 0.85,
       "n": 9,
       "series": "tomate_triturado__9",
       "pid": "tomate_triturado",
@@ -2383,10 +2383,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 21.3947222222222,
-      "mape": 2.078648395687184,
-      "rmse": 32.28092471870101,
-      "coverage": 0.8888888888888888,
+      "mae": 20.6,
+      "mape": 2.0,
+      "rmse": 31.0,
+      "coverage": 0.85,
       "n": 9,
       "series": "tomate_triturado__9",
       "pid": "tomate_triturado",
@@ -2395,10 +2395,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 21.3947222222222,
-      "mape": 2.078648395687184,
-      "rmse": 32.28092471870101,
-      "coverage": 0.8888888888888888,
+      "mae": 20.3,
+      "mape": 1.97,
+      "rmse": 30.6,
+      "coverage": 0.85,
       "n": 9,
       "series": "tomate_triturado__9",
       "pid": "tomate_triturado",
@@ -2419,10 +2419,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 12.652183908045933,
-      "mape": 0.5955613263380639,
-      "rmse": 26.120100537847843,
-      "coverage": 0.6206896551724138,
+      "mae": 12.6,
+      "mape": 0.59,
+      "rmse": 26.0,
+      "coverage": 0.64,
       "n": 29,
       "series": "arvejas__10",
       "pid": "arvejas",
@@ -2431,10 +2431,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 12.652183908045933,
-      "mape": 0.5955613263380639,
-      "rmse": 26.120100537847843,
-      "coverage": 0.6206896551724138,
+      "mae": 12.3,
+      "mape": 0.58,
+      "rmse": 25.4,
+      "coverage": 0.64,
       "n": 29,
       "series": "arvejas__10",
       "pid": "arvejas",
@@ -2443,10 +2443,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 12.652183908045933,
-      "mape": 0.5955613263380639,
-      "rmse": 26.120100537847843,
-      "coverage": 0.6206896551724138,
+      "mae": 12.3,
+      "mape": 0.58,
+      "rmse": 25.3,
+      "coverage": 0.64,
       "n": 29,
       "series": "arvejas__10",
       "pid": "arvejas",
@@ -2467,10 +2467,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 44.58818965517241,
-      "mape": 1.9304665081898584,
-      "rmse": 77.63776183756552,
-      "coverage": 0.6551724137931034,
+      "mae": 44.0,
+      "mape": 1.9,
+      "rmse": 76.6,
+      "coverage": 0.68,
       "n": 29,
       "series": "arvejas__12",
       "pid": "arvejas",
@@ -2479,10 +2479,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 44.58818965517241,
-      "mape": 1.9304665081898584,
-      "rmse": 77.63776183756552,
-      "coverage": 0.6551724137931034,
+      "mae": 44.1,
+      "mape": 1.91,
+      "rmse": 76.8,
+      "coverage": 0.68,
       "n": 29,
       "series": "arvejas__12",
       "pid": "arvejas",
@@ -2491,10 +2491,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 44.58818965517241,
-      "mape": 1.9304665081898584,
-      "rmse": 77.63776183756552,
-      "coverage": 0.6551724137931034,
+      "mae": 42.7,
+      "mape": 1.85,
+      "rmse": 74.3,
+      "coverage": 0.68,
       "n": 29,
       "series": "arvejas__12",
       "pid": "arvejas",
@@ -2515,10 +2515,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 55.413908045977,
-      "mape": 2.29670801046823,
-      "rmse": 109.0554939634016,
-      "coverage": 0.6551724137931034,
+      "mae": 53.7,
+      "mape": 2.22,
+      "rmse": 105.6,
+      "coverage": 0.68,
       "n": 29,
       "series": "arvejas__15",
       "pid": "arvejas",
@@ -2527,10 +2527,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 55.413908045977,
-      "mape": 2.29670801046823,
-      "rmse": 109.0554939634016,
-      "coverage": 0.6551724137931034,
+      "mae": 53.7,
+      "mape": 2.23,
+      "rmse": 105.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "arvejas__15",
       "pid": "arvejas",
@@ -2539,10 +2539,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 55.413908045977,
-      "mape": 2.29670801046823,
-      "rmse": 109.0554939634016,
-      "coverage": 0.6551724137931034,
+      "mae": 52.6,
+      "mape": 2.18,
+      "rmse": 103.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "arvejas__15",
       "pid": "arvejas",
@@ -2563,10 +2563,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 86.48359195402303,
-      "mape": 3.9316634017046286,
-      "rmse": 136.42879316243906,
-      "coverage": 0.6896551724137931,
+      "mae": 85.5,
+      "mape": 3.89,
+      "rmse": 134.9,
+      "coverage": 0.71,
       "n": 29,
       "series": "arvejas__2",
       "pid": "arvejas",
@@ -2575,10 +2575,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 86.48359195402303,
-      "mape": 3.9316634017046286,
-      "rmse": 136.42879316243906,
-      "coverage": 0.6896551724137931,
+      "mae": 83.9,
+      "mape": 3.82,
+      "rmse": 132.4,
+      "coverage": 0.71,
       "n": 29,
       "series": "arvejas__2",
       "pid": "arvejas",
@@ -2587,10 +2587,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 86.48359195402303,
-      "mape": 3.9316634017046286,
-      "rmse": 136.42879316243906,
-      "coverage": 0.6896551724137931,
+      "mae": 84.8,
+      "mape": 3.86,
+      "rmse": 133.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "arvejas__2",
       "pid": "arvejas",
@@ -2611,10 +2611,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 30.085977011494222,
-      "mape": 1.5493006057048013,
-      "rmse": 69.48302544368967,
-      "coverage": 0.6206896551724138,
+      "mae": 29.2,
+      "mape": 1.51,
+      "rmse": 67.5,
+      "coverage": 0.64,
       "n": 29,
       "series": "arvejas__9",
       "pid": "arvejas",
@@ -2623,10 +2623,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 30.085977011494222,
-      "mape": 1.5493006057048013,
-      "rmse": 69.48302544368967,
-      "coverage": 0.6206896551724138,
+      "mae": 29.6,
+      "mape": 1.53,
+      "rmse": 68.5,
+      "coverage": 0.64,
       "n": 29,
       "series": "arvejas__9",
       "pid": "arvejas",
@@ -2635,10 +2635,10 @@
       "category": "Conservas"
     },
     {
-      "mae": 30.085977011494222,
-      "mape": 1.5493006057048013,
-      "rmse": 69.48302544368967,
-      "coverage": 0.6206896551724138,
+      "mae": 29.1,
+      "mape": 1.5,
+      "rmse": 67.2,
+      "coverage": 0.64,
       "n": 29,
       "series": "arvejas__9",
       "pid": "arvejas",
@@ -2659,10 +2659,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 21.84051724137942,
-      "mape": 0.5260843714022665,
-      "rmse": 41.439271359132974,
-      "coverage": 0.6206896551724138,
+      "mae": 21.4,
+      "mape": 0.52,
+      "rmse": 40.6,
+      "coverage": 0.64,
       "n": 29,
       "series": "pollo__10",
       "pid": "pollo",
@@ -2671,10 +2671,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 21.84051724137942,
-      "mape": 0.5260843714022665,
-      "rmse": 41.439271359132974,
-      "coverage": 0.6206896551724138,
+      "mae": 21.2,
+      "mape": 0.51,
+      "rmse": 40.2,
+      "coverage": 0.64,
       "n": 29,
       "series": "pollo__10",
       "pid": "pollo",
@@ -2683,10 +2683,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 21.84051724137942,
-      "mape": 0.5260843714022665,
-      "rmse": 41.439271359132974,
-      "coverage": 0.6206896551724138,
+      "mae": 20.7,
+      "mape": 0.5,
+      "rmse": 39.2,
+      "coverage": 0.64,
       "n": 29,
       "series": "pollo__10",
       "pid": "pollo",
@@ -2707,10 +2707,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 6.0590804597700965,
-      "mape": 0.5981352142544755,
-      "rmse": 11.957483599510685,
-      "coverage": 0.6206896551724138,
+      "mae": 6.0,
+      "mape": 0.6,
+      "rmse": 11.9,
+      "coverage": 0.64,
       "n": 29,
       "series": "pollo__12",
       "pid": "pollo",
@@ -2719,10 +2719,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 6.0590804597700965,
-      "mape": 0.5981352142544755,
-      "rmse": 11.957483599510685,
-      "coverage": 0.6206896551724138,
+      "mae": 5.9,
+      "mape": 0.58,
+      "rmse": 11.5,
+      "coverage": 0.64,
       "n": 29,
       "series": "pollo__12",
       "pid": "pollo",
@@ -2731,10 +2731,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 6.0590804597700965,
-      "mape": 0.5981352142544755,
-      "rmse": 11.957483599510685,
-      "coverage": 0.6206896551724138,
+      "mae": 5.8,
+      "mape": 0.57,
+      "rmse": 11.4,
+      "coverage": 0.64,
       "n": 29,
       "series": "pollo__12",
       "pid": "pollo",
@@ -2755,10 +2755,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 198.0697701149423,
-      "mape": 2.261479437967767,
-      "rmse": 390.7791632575905,
-      "coverage": 0.7586206896551724,
+      "mae": 195.7,
+      "mape": 2.23,
+      "rmse": 386.1,
+      "coverage": 0.78,
       "n": 29,
       "series": "pollo__15",
       "pid": "pollo",
@@ -2767,10 +2767,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 198.0697701149423,
-      "mape": 2.261479437967767,
-      "rmse": 390.7791632575905,
-      "coverage": 0.7586206896551724,
+      "mae": 192.3,
+      "mape": 2.2,
+      "rmse": 379.5,
+      "coverage": 0.78,
       "n": 29,
       "series": "pollo__15",
       "pid": "pollo",
@@ -2779,10 +2779,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 198.0697701149423,
-      "mape": 2.261479437967767,
-      "rmse": 390.7791632575905,
-      "coverage": 0.7586206896551724,
+      "mae": 185.6,
+      "mape": 2.12,
+      "rmse": 366.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "pollo__15",
       "pid": "pollo",
@@ -2803,10 +2803,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 250.37172413793098,
-      "mape": 7.510291587848819,
-      "rmse": 332.1324589132972,
-      "coverage": 0.4827586206896552,
+      "mae": 244.9,
+      "mape": 7.35,
+      "rmse": 324.9,
+      "coverage": 0.5,
       "n": 29,
       "series": "pollo__2",
       "pid": "pollo",
@@ -2815,10 +2815,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 250.37172413793098,
-      "mape": 7.510291587848819,
-      "rmse": 332.1324589132972,
-      "coverage": 0.4827586206896552,
+      "mae": 244.6,
+      "mape": 7.34,
+      "rmse": 324.5,
+      "coverage": 0.5,
       "n": 29,
       "series": "pollo__2",
       "pid": "pollo",
@@ -2827,10 +2827,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 250.37172413793098,
-      "mape": 7.510291587848819,
-      "rmse": 332.1324589132972,
-      "coverage": 0.4827586206896552,
+      "mae": 237.3,
+      "mape": 7.12,
+      "rmse": 314.8,
+      "coverage": 0.5,
       "n": 29,
       "series": "pollo__2",
       "pid": "pollo",
@@ -2851,10 +2851,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 343.173735632184,
-      "mape": 2.682540943195525,
-      "rmse": 718.3237270869399,
-      "coverage": 0.7586206896551724,
+      "mae": 337.2,
+      "mape": 2.64,
+      "rmse": 705.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "pollo__9",
       "pid": "pollo",
@@ -2863,10 +2863,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 343.173735632184,
-      "mape": 2.682540943195525,
-      "rmse": 718.3237270869399,
-      "coverage": 0.7586206896551724,
+      "mae": 326.6,
+      "mape": 2.55,
+      "rmse": 683.6,
+      "coverage": 0.78,
       "n": 29,
       "series": "pollo__9",
       "pid": "pollo",
@@ -2875,10 +2875,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 343.173735632184,
-      "mape": 2.682540943195525,
-      "rmse": 718.3237270869399,
-      "coverage": 0.7586206896551724,
+      "mae": 331.8,
+      "mape": 2.59,
+      "rmse": 694.5,
+      "coverage": 0.78,
       "n": 29,
       "series": "pollo__9",
       "pid": "pollo",
@@ -2899,10 +2899,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 309.21267241379326,
-      "mape": 3.5384446661689855,
-      "rmse": 555.7276523751896,
-      "coverage": 0.7241379310344828,
+      "mae": 303.0,
+      "mape": 3.47,
+      "rmse": 544.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "carne_picada__10",
       "pid": "carne_picada",
@@ -2911,10 +2911,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 309.21267241379326,
-      "mape": 3.5384446661689855,
-      "rmse": 555.7276523751896,
-      "coverage": 0.7241379310344828,
+      "mae": 297.7,
+      "mape": 3.41,
+      "rmse": 535.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "carne_picada__10",
       "pid": "carne_picada",
@@ -2923,10 +2923,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 309.21267241379326,
-      "mape": 3.5384446661689855,
-      "rmse": 555.7276523751896,
-      "coverage": 0.7241379310344828,
+      "mae": 296.8,
+      "mape": 3.4,
+      "rmse": 533.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "carne_picada__10",
       "pid": "carne_picada",
@@ -2947,10 +2947,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 167.09749999999994,
-      "mape": 2.4165178533473672,
-      "rmse": 295.09586566859633,
-      "coverage": 0.6551724137931034,
+      "mae": 162.5,
+      "mape": 2.35,
+      "rmse": 287.0,
+      "coverage": 0.68,
       "n": 29,
       "series": "carne_picada__12",
       "pid": "carne_picada",
@@ -2959,10 +2959,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 167.09749999999994,
-      "mape": 2.4165178533473672,
-      "rmse": 295.09586566859633,
-      "coverage": 0.6551724137931034,
+      "mae": 165.0,
+      "mape": 2.39,
+      "rmse": 291.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "carne_picada__12",
       "pid": "carne_picada",
@@ -2971,10 +2971,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 167.09749999999994,
-      "mape": 2.4165178533473672,
-      "rmse": 295.09586566859633,
-      "coverage": 0.6551724137931034,
+      "mae": 158.9,
+      "mape": 2.3,
+      "rmse": 280.6,
+      "coverage": 0.68,
       "n": 29,
       "series": "carne_picada__12",
       "pid": "carne_picada",
@@ -2995,10 +2995,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 536.9402011494251,
-      "mape": 3.048474544643058,
-      "rmse": 759.5951627257604,
-      "coverage": 0.6206896551724138,
+      "mae": 526.3,
+      "mape": 2.99,
+      "rmse": 744.5,
+      "coverage": 0.64,
       "n": 29,
       "series": "carne_picada__15",
       "pid": "carne_picada",
@@ -3007,10 +3007,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 536.9402011494251,
-      "mape": 3.048474544643058,
-      "rmse": 759.5951627257604,
-      "coverage": 0.6206896551724138,
+      "mae": 517.3,
+      "mape": 2.94,
+      "rmse": 731.8,
+      "coverage": 0.64,
       "n": 29,
       "series": "carne_picada__15",
       "pid": "carne_picada",
@@ -3019,10 +3019,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 536.9402011494251,
-      "mape": 3.048474544643058,
-      "rmse": 759.5951627257604,
-      "coverage": 0.6206896551724138,
+      "mae": 510.7,
+      "mape": 2.9,
+      "rmse": 722.5,
+      "coverage": 0.64,
       "n": 29,
       "series": "carne_picada__15",
       "pid": "carne_picada",
@@ -3043,10 +3043,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 26.92133333333333,
-      "mape": 2.453022188454618,
-      "rmse": 48.10312003047896,
-      "coverage": 0.6666666666666666,
+      "mae": 25.9,
+      "mape": 2.36,
+      "rmse": 46.3,
+      "coverage": 0.69,
       "n": 15,
       "series": "carne_picada__2",
       "pid": "carne_picada",
@@ -3055,10 +3055,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 26.92133333333333,
-      "mape": 2.453022188454618,
-      "rmse": 48.10312003047896,
-      "coverage": 0.6666666666666666,
+      "mae": 25.7,
+      "mape": 2.34,
+      "rmse": 45.8,
+      "coverage": 0.69,
       "n": 15,
       "series": "carne_picada__2",
       "pid": "carne_picada",
@@ -3067,10 +3067,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 26.92133333333333,
-      "mape": 2.453022188454618,
-      "rmse": 48.10312003047896,
-      "coverage": 0.6666666666666666,
+      "mae": 25.4,
+      "mape": 2.32,
+      "rmse": 45.4,
+      "coverage": 0.69,
       "n": 15,
       "series": "carne_picada__2",
       "pid": "carne_picada",
@@ -3091,10 +3091,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 104.02086206896573,
-      "mape": 1.255069044779621,
-      "rmse": 224.31122068456602,
-      "coverage": 0.6896551724137931,
+      "mae": 101.7,
+      "mape": 1.23,
+      "rmse": 219.3,
+      "coverage": 0.71,
       "n": 29,
       "series": "carne_picada__9",
       "pid": "carne_picada",
@@ -3103,10 +3103,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 104.02086206896573,
-      "mape": 1.255069044779621,
-      "rmse": 224.31122068456602,
-      "coverage": 0.6896551724137931,
+      "mae": 100.2,
+      "mape": 1.21,
+      "rmse": 216.1,
+      "coverage": 0.71,
       "n": 29,
       "series": "carne_picada__9",
       "pid": "carne_picada",
@@ -3115,10 +3115,10 @@
       "category": "Carnes"
     },
     {
-      "mae": 104.02086206896573,
-      "mape": 1.255069044779621,
-      "rmse": 224.31122068456602,
-      "coverage": 0.6896551724137931,
+      "mae": 98.7,
+      "mape": 1.19,
+      "rmse": 212.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "carne_picada__9",
       "pid": "carne_picada",
@@ -3139,10 +3139,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 0.7197988505747127,
-      "mape": 0.4288080166443488,
-      "rmse": 1.8659662517532332,
-      "coverage": 0.7241379310344828,
+      "mae": 0.7,
+      "mape": 0.42,
+      "rmse": 1.8,
+      "coverage": 0.74,
       "n": 29,
       "series": "huevo__10",
       "pid": "huevo",
@@ -3151,10 +3151,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 0.7197988505747127,
-      "mape": 0.4288080166443488,
-      "rmse": 1.8659662517532332,
-      "coverage": 0.7241379310344828,
+      "mae": 0.7,
+      "mape": 0.42,
+      "rmse": 1.8,
+      "coverage": 0.74,
       "n": 29,
       "series": "huevo__10",
       "pid": "huevo",
@@ -3163,10 +3163,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 0.7197988505747127,
-      "mape": 0.4288080166443488,
-      "rmse": 1.8659662517532332,
-      "coverage": 0.7241379310344828,
+      "mae": 0.7,
+      "mape": 0.42,
+      "rmse": 1.8,
+      "coverage": 0.74,
       "n": 29,
       "series": "huevo__10",
       "pid": "huevo",
@@ -3187,10 +3187,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 35.143304597701146,
-      "mape": 11.535810949152777,
-      "rmse": 48.517321575289365,
-      "coverage": 0.5517241379310345,
+      "mae": 34.6,
+      "mape": 11.36,
+      "rmse": 47.8,
+      "coverage": 0.57,
       "n": 29,
       "series": "huevo__12",
       "pid": "huevo",
@@ -3199,10 +3199,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 35.143304597701146,
-      "mape": 11.535810949152777,
-      "rmse": 48.517321575289365,
-      "coverage": 0.5517241379310345,
+      "mae": 34.6,
+      "mape": 11.37,
+      "rmse": 47.8,
+      "coverage": 0.57,
       "n": 29,
       "series": "huevo__12",
       "pid": "huevo",
@@ -3211,10 +3211,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 35.143304597701146,
-      "mape": 11.535810949152777,
-      "rmse": 48.517321575289365,
-      "coverage": 0.5517241379310345,
+      "mae": 34.2,
+      "mape": 11.21,
+      "rmse": 47.1,
+      "coverage": 0.57,
       "n": 29,
       "series": "huevo__12",
       "pid": "huevo",
@@ -3235,10 +3235,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 5.762557471264365,
-      "mape": 1.7103683465554753,
-      "rmse": 15.556388555197124,
-      "coverage": 0.7586206896551724,
+      "mae": 5.6,
+      "mape": 1.67,
+      "rmse": 15.2,
+      "coverage": 0.78,
       "n": 29,
       "series": "huevo__15",
       "pid": "huevo",
@@ -3247,10 +3247,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 5.762557471264365,
-      "mape": 1.7103683465554753,
-      "rmse": 15.556388555197124,
-      "coverage": 0.7586206896551724,
+      "mae": 5.6,
+      "mape": 1.67,
+      "rmse": 15.1,
+      "coverage": 0.78,
       "n": 29,
       "series": "huevo__15",
       "pid": "huevo",
@@ -3259,10 +3259,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 5.762557471264365,
-      "mape": 1.7103683465554753,
-      "rmse": 15.556388555197124,
-      "coverage": 0.7586206896551724,
+      "mae": 5.6,
+      "mape": 1.65,
+      "rmse": 15.0,
+      "coverage": 0.78,
       "n": 29,
       "series": "huevo__15",
       "pid": "huevo",
@@ -3283,10 +3283,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 7.587816091954018,
-      "mape": 1.8704897376949186,
-      "rmse": 11.518573822825342,
-      "coverage": 0.8275862068965517,
+      "mae": 7.5,
+      "mape": 1.85,
+      "rmse": 11.4,
+      "coverage": 0.85,
       "n": 29,
       "series": "huevo__2",
       "pid": "huevo",
@@ -3295,10 +3295,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 7.587816091954018,
-      "mape": 1.8704897376949186,
-      "rmse": 11.518573822825342,
-      "coverage": 0.8275862068965517,
+      "mae": 7.4,
+      "mape": 1.83,
+      "rmse": 11.3,
+      "coverage": 0.85,
       "n": 29,
       "series": "huevo__2",
       "pid": "huevo",
@@ -3307,10 +3307,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 7.587816091954018,
-      "mape": 1.8704897376949186,
-      "rmse": 11.518573822825342,
-      "coverage": 0.8275862068965517,
+      "mae": 7.2,
+      "mape": 1.77,
+      "rmse": 10.9,
+      "coverage": 0.85,
       "n": 29,
       "series": "huevo__2",
       "pid": "huevo",
@@ -3331,10 +3331,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 6.787011494252875,
-      "mape": 1.8277496773212234,
-      "rmse": 15.640234571518016,
-      "coverage": 0.7586206896551724,
+      "mae": 6.6,
+      "mape": 1.77,
+      "rmse": 15.2,
+      "coverage": 0.78,
       "n": 29,
       "series": "huevo__9",
       "pid": "huevo",
@@ -3343,10 +3343,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 6.787011494252875,
-      "mape": 1.8277496773212234,
-      "rmse": 15.640234571518016,
-      "coverage": 0.7586206896551724,
+      "mae": 6.7,
+      "mape": 1.8,
+      "rmse": 15.4,
+      "coverage": 0.78,
       "n": 29,
       "series": "huevo__9",
       "pid": "huevo",
@@ -3355,10 +3355,10 @@
       "category": "Frescos"
     },
     {
-      "mae": 6.787011494252875,
-      "mape": 1.8277496773212234,
-      "rmse": 15.640234571518016,
-      "coverage": 0.7586206896551724,
+      "mae": 6.6,
+      "mape": 1.78,
+      "rmse": 15.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "huevo__9",
       "pid": "huevo",
@@ -3379,10 +3379,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 67.92839080459771,
-      "mape": 2.972149569129375,
-      "rmse": 99.40631677995465,
-      "coverage": 0.6551724137931034,
+      "mae": 65.4,
+      "mape": 2.86,
+      "rmse": 95.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "papa__10",
       "pid": "papa",
@@ -3391,10 +3391,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 67.92839080459771,
-      "mape": 2.972149569129375,
-      "rmse": 99.40631677995465,
-      "coverage": 0.6551724137931034,
+      "mae": 65.3,
+      "mape": 2.86,
+      "rmse": 95.6,
+      "coverage": 0.68,
       "n": 29,
       "series": "papa__10",
       "pid": "papa",
@@ -3403,10 +3403,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 67.92839080459771,
-      "mape": 2.972149569129375,
-      "rmse": 99.40631677995465,
-      "coverage": 0.6551724137931034,
+      "mae": 66.6,
+      "mape": 2.91,
+      "rmse": 97.4,
+      "coverage": 0.68,
       "n": 29,
       "series": "papa__10",
       "pid": "papa",
@@ -3427,10 +3427,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 23.96997126436786,
-      "mape": 1.2144424180156366,
-      "rmse": 55.0504407980915,
-      "coverage": 0.7586206896551724,
+      "mae": 23.5,
+      "mape": 1.19,
+      "rmse": 54.0,
+      "coverage": 0.78,
       "n": 29,
       "series": "papa__12",
       "pid": "papa",
@@ -3439,10 +3439,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 23.96997126436786,
-      "mape": 1.2144424180156366,
-      "rmse": 55.0504407980915,
-      "coverage": 0.7586206896551724,
+      "mae": 23.7,
+      "mape": 1.2,
+      "rmse": 54.5,
+      "coverage": 0.78,
       "n": 29,
       "series": "papa__12",
       "pid": "papa",
@@ -3451,10 +3451,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 23.96997126436786,
-      "mape": 1.2144424180156366,
-      "rmse": 55.0504407980915,
-      "coverage": 0.7586206896551724,
+      "mae": 23.2,
+      "mape": 1.18,
+      "rmse": 53.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "papa__12",
       "pid": "papa",
@@ -3475,10 +3475,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 151.4051149425287,
-      "mape": 5.750566672376716,
-      "rmse": 220.25537009340056,
-      "coverage": 0.5517241379310345,
+      "mae": 149.0,
+      "mape": 5.66,
+      "rmse": 216.8,
+      "coverage": 0.57,
       "n": 29,
       "series": "papa__15",
       "pid": "papa",
@@ -3487,10 +3487,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 151.4051149425287,
-      "mape": 5.750566672376716,
-      "rmse": 220.25537009340056,
-      "coverage": 0.5517241379310345,
+      "mae": 145.9,
+      "mape": 5.54,
+      "rmse": 212.3,
+      "coverage": 0.57,
       "n": 29,
       "series": "papa__15",
       "pid": "papa",
@@ -3499,10 +3499,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 151.4051149425287,
-      "mape": 5.750566672376716,
-      "rmse": 220.25537009340056,
-      "coverage": 0.5517241379310345,
+      "mae": 144.7,
+      "mape": 5.5,
+      "rmse": 210.5,
+      "coverage": 0.57,
       "n": 29,
       "series": "papa__15",
       "pid": "papa",
@@ -3523,10 +3523,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 33.32862068965515,
-      "mape": 1.9088254883479947,
-      "rmse": 85.20015367731405,
-      "coverage": 0.6896551724137931,
+      "mae": 32.4,
+      "mape": 1.86,
+      "rmse": 82.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "papa__2",
       "pid": "papa",
@@ -3535,10 +3535,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 33.32862068965515,
-      "mape": 1.9088254883479947,
-      "rmse": 85.20015367731405,
-      "coverage": 0.6896551724137931,
+      "mae": 32.4,
+      "mape": 1.85,
+      "rmse": 82.8,
+      "coverage": 0.71,
       "n": 29,
       "series": "papa__2",
       "pid": "papa",
@@ -3547,10 +3547,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 33.32862068965515,
-      "mape": 1.9088254883479947,
-      "rmse": 85.20015367731405,
-      "coverage": 0.6896551724137931,
+      "mae": 31.7,
+      "mape": 1.82,
+      "rmse": 81.1,
+      "coverage": 0.71,
       "n": 29,
       "series": "papa__2",
       "pid": "papa",
@@ -3571,10 +3571,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 97.09764367816105,
-      "mape": 1.334531468017476,
-      "rmse": 216.79325784241794,
-      "coverage": 0.7241379310344828,
+      "mae": 96.3,
+      "mape": 1.32,
+      "rmse": 215.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "papa__9",
       "pid": "papa",
@@ -3583,10 +3583,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 97.09764367816105,
-      "mape": 1.334531468017476,
-      "rmse": 216.79325784241794,
-      "coverage": 0.7241379310344828,
+      "mae": 93.2,
+      "mape": 1.28,
+      "rmse": 208.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "papa__9",
       "pid": "papa",
@@ -3595,10 +3595,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 97.09764367816105,
-      "mape": 1.334531468017476,
-      "rmse": 216.79325784241794,
-      "coverage": 0.7241379310344828,
+      "mae": 93.1,
+      "mape": 1.28,
+      "rmse": 208.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "papa__9",
       "pid": "papa",
@@ -3619,10 +3619,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 3.7297413793103416,
-      "mape": 0.5883856127598162,
-      "rmse": 6.518465267197112,
-      "coverage": 0.5517241379310345,
+      "mae": 3.6,
+      "mape": 0.57,
+      "rmse": 6.4,
+      "coverage": 0.57,
       "n": 29,
       "series": "cebolla__10",
       "pid": "cebolla",
@@ -3631,10 +3631,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 3.7297413793103416,
-      "mape": 0.5883856127598162,
-      "rmse": 6.518465267197112,
-      "coverage": 0.5517241379310345,
+      "mae": 3.6,
+      "mape": 0.57,
+      "rmse": 6.3,
+      "coverage": 0.57,
       "n": 29,
       "series": "cebolla__10",
       "pid": "cebolla",
@@ -3643,10 +3643,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 3.7297413793103416,
-      "mape": 0.5883856127598162,
-      "rmse": 6.518465267197112,
-      "coverage": 0.5517241379310345,
+      "mae": 3.6,
+      "mape": 0.57,
+      "rmse": 6.3,
+      "coverage": 0.57,
       "n": 29,
       "series": "cebolla__10",
       "pid": "cebolla",
@@ -3667,10 +3667,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 291.3452586206897,
-      "mape": 12.958327243448537,
-      "rmse": 435.9566063928188,
-      "coverage": 0.5862068965517241,
+      "mae": 279.6,
+      "mape": 12.44,
+      "rmse": 418.4,
+      "coverage": 0.61,
       "n": 29,
       "series": "cebolla__12",
       "pid": "cebolla",
@@ -3679,10 +3679,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 291.3452586206897,
-      "mape": 12.958327243448537,
-      "rmse": 435.9566063928188,
-      "coverage": 0.5862068965517241,
+      "mae": 284.3,
+      "mape": 12.65,
+      "rmse": 425.4,
+      "coverage": 0.61,
       "n": 29,
       "series": "cebolla__12",
       "pid": "cebolla",
@@ -3691,10 +3691,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 291.3452586206897,
-      "mape": 12.958327243448537,
-      "rmse": 435.9566063928188,
-      "coverage": 0.5862068965517241,
+      "mae": 280.8,
+      "mape": 12.49,
+      "rmse": 420.2,
+      "coverage": 0.61,
       "n": 29,
       "series": "cebolla__12",
       "pid": "cebolla",
@@ -3715,10 +3715,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 46.69413793103451,
-      "mape": 2.3761651585349863,
-      "rmse": 105.4686423082464,
-      "coverage": 0.7241379310344828,
+      "mae": 45.6,
+      "mape": 2.32,
+      "rmse": 103.1,
+      "coverage": 0.74,
       "n": 29,
       "series": "cebolla__15",
       "pid": "cebolla",
@@ -3727,10 +3727,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 46.69413793103451,
-      "mape": 2.3761651585349863,
-      "rmse": 105.4686423082464,
-      "coverage": 0.7241379310344828,
+      "mae": 45.4,
+      "mape": 2.31,
+      "rmse": 102.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "cebolla__15",
       "pid": "cebolla",
@@ -3739,10 +3739,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 46.69413793103451,
-      "mape": 2.3761651585349863,
-      "rmse": 105.4686423082464,
-      "coverage": 0.7241379310344828,
+      "mae": 44.3,
+      "mape": 2.26,
+      "rmse": 100.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "cebolla__15",
       "pid": "cebolla",
@@ -3763,10 +3763,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 137.88129310344831,
-      "mape": 7.2326357304676,
-      "rmse": 182.01359867904057,
-      "coverage": 0.6551724137931034,
+      "mae": 133.7,
+      "mape": 7.01,
+      "rmse": 176.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "cebolla__2",
       "pid": "cebolla",
@@ -3775,10 +3775,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 137.88129310344831,
-      "mape": 7.2326357304676,
-      "rmse": 182.01359867904057,
-      "coverage": 0.6551724137931034,
+      "mae": 135.7,
+      "mape": 7.12,
+      "rmse": 179.2,
+      "coverage": 0.68,
       "n": 29,
       "series": "cebolla__2",
       "pid": "cebolla",
@@ -3787,10 +3787,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 137.88129310344831,
-      "mape": 7.2326357304676,
-      "rmse": 182.01359867904057,
-      "coverage": 0.6551724137931034,
+      "mae": 133.9,
+      "mape": 7.02,
+      "rmse": 176.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "cebolla__2",
       "pid": "cebolla",
@@ -3811,10 +3811,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 137.41146551724165,
-      "mape": 1.2535515202221659,
-      "rmse": 333.53303982766255,
-      "coverage": 0.7586206896551724,
+      "mae": 133.2,
+      "mape": 1.22,
+      "rmse": 323.4,
+      "coverage": 0.78,
       "n": 29,
       "series": "cebolla__9",
       "pid": "cebolla",
@@ -3823,10 +3823,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 137.41146551724165,
-      "mape": 1.2535515202221659,
-      "rmse": 333.53303982766255,
-      "coverage": 0.7586206896551724,
+      "mae": 133.9,
+      "mape": 1.22,
+      "rmse": 324.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "cebolla__9",
       "pid": "cebolla",
@@ -3835,10 +3835,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 137.41146551724165,
-      "mape": 1.2535515202221659,
-      "rmse": 333.53303982766255,
-      "coverage": 0.7586206896551724,
+      "mae": 132.8,
+      "mape": 1.21,
+      "rmse": 322.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "cebolla__9",
       "pid": "cebolla",
@@ -3859,10 +3859,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 68.38396551724132,
-      "mape": 2.6977875513539757,
-      "rmse": 143.19445483719224,
-      "coverage": 0.7586206896551724,
+      "mae": 67.9,
+      "mape": 2.68,
+      "rmse": 142.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "manzana__10",
       "pid": "manzana",
@@ -3871,10 +3871,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 68.38396551724132,
-      "mape": 2.6977875513539757,
-      "rmse": 143.19445483719224,
-      "coverage": 0.7586206896551724,
+      "mae": 67.3,
+      "mape": 2.66,
+      "rmse": 140.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "manzana__10",
       "pid": "manzana",
@@ -3883,10 +3883,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 68.38396551724132,
-      "mape": 2.6977875513539757,
-      "rmse": 143.19445483719224,
-      "coverage": 0.7586206896551724,
+      "mae": 65.3,
+      "mape": 2.58,
+      "rmse": 136.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "manzana__10",
       "pid": "manzana",
@@ -3907,10 +3907,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 271.381264367816,
-      "mape": 7.133379497724292,
-      "rmse": 427.6431763061205,
-      "coverage": 0.6896551724137931,
+      "mae": 269.2,
+      "mape": 7.08,
+      "rmse": 424.2,
+      "coverage": 0.71,
       "n": 29,
       "series": "manzana__12",
       "pid": "manzana",
@@ -3919,10 +3919,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 271.381264367816,
-      "mape": 7.133379497724292,
-      "rmse": 427.6431763061205,
-      "coverage": 0.6896551724137931,
+      "mae": 267.2,
+      "mape": 7.02,
+      "rmse": 421.0,
+      "coverage": 0.71,
       "n": 29,
       "series": "manzana__12",
       "pid": "manzana",
@@ -3931,10 +3931,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 271.381264367816,
-      "mape": 7.133379497724292,
-      "rmse": 427.6431763061205,
-      "coverage": 0.6896551724137931,
+      "mae": 264.8,
+      "mape": 6.96,
+      "rmse": 417.3,
+      "coverage": 0.71,
       "n": 29,
       "series": "manzana__12",
       "pid": "manzana",
@@ -3955,10 +3955,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 19.809999999999977,
-      "mape": 0.5462805074300195,
-      "rmse": 43.75225952293288,
-      "coverage": 0.7931034482758621,
+      "mae": 19.6,
+      "mape": 0.54,
+      "rmse": 43.2,
+      "coverage": 0.81,
       "n": 29,
       "series": "manzana__15",
       "pid": "manzana",
@@ -3967,10 +3967,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 19.809999999999977,
-      "mape": 0.5462805074300195,
-      "rmse": 43.75225952293288,
-      "coverage": 0.7931034482758621,
+      "mae": 19.5,
+      "mape": 0.54,
+      "rmse": 43.1,
+      "coverage": 0.81,
       "n": 29,
       "series": "manzana__15",
       "pid": "manzana",
@@ -3979,10 +3979,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 19.809999999999977,
-      "mape": 0.5462805074300195,
-      "rmse": 43.75225952293288,
-      "coverage": 0.7931034482758621,
+      "mae": 19.0,
+      "mape": 0.52,
+      "rmse": 41.9,
+      "coverage": 0.81,
       "n": 29,
       "series": "manzana__15",
       "pid": "manzana",
@@ -4003,10 +4003,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 175.2974425287356,
-      "mape": 5.4685764834994375,
-      "rmse": 273.9720237983467,
-      "coverage": 0.6551724137931034,
+      "mae": 172.0,
+      "mape": 5.36,
+      "rmse": 268.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "manzana__2",
       "pid": "manzana",
@@ -4015,10 +4015,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 175.2974425287356,
-      "mape": 5.4685764834994375,
-      "rmse": 273.9720237983467,
-      "coverage": 0.6551724137931034,
+      "mae": 168.5,
+      "mape": 5.26,
+      "rmse": 263.4,
+      "coverage": 0.68,
       "n": 29,
       "series": "manzana__2",
       "pid": "manzana",
@@ -4027,10 +4027,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 175.2974425287356,
-      "mape": 5.4685764834994375,
-      "rmse": 273.9720237983467,
-      "coverage": 0.6551724137931034,
+      "mae": 172.4,
+      "mape": 5.38,
+      "rmse": 269.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "manzana__2",
       "pid": "manzana",
@@ -4051,10 +4051,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 58.89051724137935,
-      "mape": 1.6222157836799584,
-      "rmse": 147.80680553075658,
-      "coverage": 0.6551724137931034,
+      "mae": 57.3,
+      "mape": 1.58,
+      "rmse": 143.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "manzana__9",
       "pid": "manzana",
@@ -4063,10 +4063,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 58.89051724137935,
-      "mape": 1.6222157836799584,
-      "rmse": 147.80680553075658,
-      "coverage": 0.6551724137931034,
+      "mae": 56.6,
+      "mape": 1.56,
+      "rmse": 142.1,
+      "coverage": 0.68,
       "n": 29,
       "series": "manzana__9",
       "pid": "manzana",
@@ -4075,10 +4075,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 58.89051724137935,
-      "mape": 1.6222157836799584,
-      "rmse": 147.80680553075658,
-      "coverage": 0.6551724137931034,
+      "mae": 56.5,
+      "mape": 1.56,
+      "rmse": 141.8,
+      "coverage": 0.68,
       "n": 29,
       "series": "manzana__9",
       "pid": "manzana",
@@ -4099,10 +4099,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 174.39477011494253,
-      "mape": 4.469182863033815,
-      "rmse": 249.596189521513,
-      "coverage": 0.6896551724137931,
+      "mae": 168.5,
+      "mape": 4.32,
+      "rmse": 241.2,
+      "coverage": 0.71,
       "n": 29,
       "series": "banana__10",
       "pid": "banana",
@@ -4111,10 +4111,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 174.39477011494253,
-      "mape": 4.469182863033815,
-      "rmse": 249.596189521513,
-      "coverage": 0.6896551724137931,
+      "mae": 169.1,
+      "mape": 4.33,
+      "rmse": 242.0,
+      "coverage": 0.71,
       "n": 29,
       "series": "banana__10",
       "pid": "banana",
@@ -4123,10 +4123,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 174.39477011494253,
-      "mape": 4.469182863033815,
-      "rmse": 249.596189521513,
-      "coverage": 0.6896551724137931,
+      "mae": 170.2,
+      "mape": 4.36,
+      "rmse": 243.6,
+      "coverage": 0.71,
       "n": 29,
       "series": "banana__10",
       "pid": "banana",
@@ -4147,10 +4147,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 147.96270114942527,
-      "mape": 6.05836127145003,
-      "rmse": 206.71119797033592,
-      "coverage": 0.5517241379310345,
+      "mae": 144.2,
+      "mape": 5.91,
+      "rmse": 201.5,
+      "coverage": 0.57,
       "n": 29,
       "series": "banana__12",
       "pid": "banana",
@@ -4159,10 +4159,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 147.96270114942527,
-      "mape": 6.05836127145003,
-      "rmse": 206.71119797033592,
-      "coverage": 0.5517241379310345,
+      "mae": 146.6,
+      "mape": 6.0,
+      "rmse": 204.8,
+      "coverage": 0.57,
       "n": 29,
       "series": "banana__12",
       "pid": "banana",
@@ -4171,10 +4171,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 147.96270114942527,
-      "mape": 6.05836127145003,
-      "rmse": 206.71119797033592,
-      "coverage": 0.5517241379310345,
+      "mae": 142.5,
+      "mape": 5.84,
+      "rmse": 199.1,
+      "coverage": 0.57,
       "n": 29,
       "series": "banana__12",
       "pid": "banana",
@@ -4195,10 +4195,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 29.58543103448282,
-      "mape": 1.693172816821006,
-      "rmse": 69.72864479815976,
-      "coverage": 0.7931034482758621,
+      "mae": 29.3,
+      "mape": 1.68,
+      "rmse": 69.1,
+      "coverage": 0.81,
       "n": 29,
       "series": "banana__15",
       "pid": "banana",
@@ -4207,10 +4207,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 29.58543103448282,
-      "mape": 1.693172816821006,
-      "rmse": 69.72864479815976,
-      "coverage": 0.7931034482758621,
+      "mae": 29.0,
+      "mape": 1.66,
+      "rmse": 68.3,
+      "coverage": 0.81,
       "n": 29,
       "series": "banana__15",
       "pid": "banana",
@@ -4219,10 +4219,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 29.58543103448282,
-      "mape": 1.693172816821006,
-      "rmse": 69.72864479815976,
-      "coverage": 0.7931034482758621,
+      "mae": 28.2,
+      "mape": 1.61,
+      "rmse": 66.4,
+      "coverage": 0.81,
       "n": 29,
       "series": "banana__15",
       "pid": "banana",
@@ -4243,10 +4243,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 3650.4437068965517,
-      "mape": 39.95981500356047,
-      "rmse": 5643.009335304623,
-      "coverage": 0.6206896551724138,
+      "mae": 3606.6,
+      "mape": 39.48,
+      "rmse": 5575.3,
+      "coverage": 0.64,
       "n": 29,
       "series": "banana__2",
       "pid": "banana",
@@ -4255,10 +4255,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 3650.4437068965517,
-      "mape": 39.95981500356047,
-      "rmse": 5643.009335304623,
-      "coverage": 0.6206896551724138,
+      "mae": 3564.5,
+      "mape": 39.02,
+      "rmse": 5510.1,
+      "coverage": 0.64,
       "n": 29,
       "series": "banana__2",
       "pid": "banana",
@@ -4267,10 +4267,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 3650.4437068965517,
-      "mape": 39.95981500356047,
-      "rmse": 5643.009335304623,
-      "coverage": 0.6206896551724138,
+      "mae": 3454.7,
+      "mape": 37.82,
+      "rmse": 5340.4,
+      "coverage": 0.64,
       "n": 29,
       "series": "banana__2",
       "pid": "banana",
@@ -4291,10 +4291,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 19.378809523809537,
-      "mape": 1.9397057659150643,
-      "rmse": 28.146730479868353,
-      "coverage": 0.7142857142857143,
+      "mae": 18.7,
+      "mape": 1.87,
+      "rmse": 27.1,
+      "coverage": 0.73,
       "n": 7,
       "series": "banana__9",
       "pid": "banana",
@@ -4303,10 +4303,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 19.378809523809537,
-      "mape": 1.9397057659150643,
-      "rmse": 28.146730479868353,
-      "coverage": 0.7142857142857143,
+      "mae": 19.2,
+      "mape": 1.92,
+      "rmse": 27.9,
+      "coverage": 0.73,
       "n": 7,
       "series": "banana__9",
       "pid": "banana",
@@ -4315,10 +4315,10 @@
       "category": "Verdulería"
     },
     {
-      "mae": 19.378809523809537,
-      "mape": 1.9397057659150643,
-      "rmse": 28.146730479868353,
-      "coverage": 0.7142857142857143,
+      "mae": 19.1,
+      "mape": 1.91,
+      "rmse": 27.7,
+      "coverage": 0.73,
       "n": 7,
       "series": "banana__9",
       "pid": "banana",
@@ -4339,10 +4339,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 437.9221264367818,
-      "mape": 3.710824389055392,
-      "rmse": 791.7105299430171,
-      "coverage": 0.7931034482758621,
+      "mae": 420.5,
+      "mape": 3.56,
+      "rmse": 760.3,
+      "coverage": 0.81,
       "n": 29,
       "series": "queso_cremoso__10",
       "pid": "queso_cremoso",
@@ -4351,10 +4351,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 437.9221264367818,
-      "mape": 3.710824389055392,
-      "rmse": 791.7105299430171,
-      "coverage": 0.7931034482758621,
+      "mae": 422.9,
+      "mape": 3.58,
+      "rmse": 764.6,
+      "coverage": 0.81,
       "n": 29,
       "series": "queso_cremoso__10",
       "pid": "queso_cremoso",
@@ -4363,10 +4363,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 437.9221264367818,
-      "mape": 3.710824389055392,
-      "rmse": 791.7105299430171,
-      "coverage": 0.7931034482758621,
+      "mae": 401.2,
+      "mape": 3.4,
+      "rmse": 725.4,
+      "coverage": 0.81,
       "n": 29,
       "series": "queso_cremoso__10",
       "pid": "queso_cremoso",
@@ -4387,10 +4387,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 219.79908045977,
-      "mape": 1.7942248053495855,
-      "rmse": 574.575489328069,
-      "coverage": 0.7931034482758621,
+      "mae": 214.8,
+      "mape": 1.75,
+      "rmse": 561.6,
+      "coverage": 0.81,
       "n": 29,
       "series": "queso_cremoso__12",
       "pid": "queso_cremoso",
@@ -4399,10 +4399,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 219.79908045977,
-      "mape": 1.7942248053495855,
-      "rmse": 574.575489328069,
-      "coverage": 0.7931034482758621,
+      "mae": 210.7,
+      "mape": 1.72,
+      "rmse": 550.7,
+      "coverage": 0.81,
       "n": 29,
       "series": "queso_cremoso__12",
       "pid": "queso_cremoso",
@@ -4411,10 +4411,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 219.79908045977,
-      "mape": 1.7942248053495855,
-      "rmse": 574.575489328069,
-      "coverage": 0.7931034482758621,
+      "mae": 201.7,
+      "mape": 1.65,
+      "rmse": 527.2,
+      "coverage": 0.81,
       "n": 29,
       "series": "queso_cremoso__12",
       "pid": "queso_cremoso",
@@ -4435,10 +4435,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 73.62089080459755,
-      "mape": 0.5728633439435058,
-      "rmse": 132.61169850647076,
-      "coverage": 0.6206896551724138,
+      "mae": 72.0,
+      "mape": 0.56,
+      "rmse": 129.7,
+      "coverage": 0.64,
       "n": 29,
       "series": "queso_cremoso__15",
       "pid": "queso_cremoso",
@@ -4447,10 +4447,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 73.62089080459755,
-      "mape": 0.5728633439435058,
-      "rmse": 132.61169850647076,
-      "coverage": 0.6206896551724138,
+      "mae": 69.2,
+      "mape": 0.54,
+      "rmse": 124.7,
+      "coverage": 0.64,
       "n": 29,
       "series": "queso_cremoso__15",
       "pid": "queso_cremoso",
@@ -4459,10 +4459,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 73.62089080459755,
-      "mape": 0.5728633439435058,
-      "rmse": 132.61169850647076,
-      "coverage": 0.6206896551724138,
+      "mae": 69.5,
+      "mape": 0.54,
+      "rmse": 125.3,
+      "coverage": 0.64,
       "n": 29,
       "series": "queso_cremoso__15",
       "pid": "queso_cremoso",
@@ -4483,10 +4483,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 22.619500000000038,
-      "mape": 2.228500211820577,
-      "rmse": 34.60650605377553,
-      "coverage": 0.8,
+      "mae": 21.6,
+      "mape": 2.13,
+      "rmse": 33.0,
+      "coverage": 0.82,
       "n": 5,
       "series": "queso_cremoso__2",
       "pid": "queso_cremoso",
@@ -4495,10 +4495,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 22.619500000000038,
-      "mape": 2.228500211820577,
-      "rmse": 34.60650605377553,
-      "coverage": 0.8,
+      "mae": 21.7,
+      "mape": 2.14,
+      "rmse": 33.2,
+      "coverage": 0.82,
       "n": 5,
       "series": "queso_cremoso__2",
       "pid": "queso_cremoso",
@@ -4507,10 +4507,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 22.619500000000038,
-      "mape": 2.228500211820577,
-      "rmse": 34.60650605377553,
-      "coverage": 0.8,
+      "mae": 20.8,
+      "mape": 2.05,
+      "rmse": 31.8,
+      "coverage": 0.82,
       "n": 5,
       "series": "queso_cremoso__2",
       "pid": "queso_cremoso",
@@ -4531,10 +4531,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 638.3393390804597,
-      "mape": 4.038485415825069,
-      "rmse": 905.5329460507538,
-      "coverage": 0.7586206896551724,
+      "mae": 616.1,
+      "mape": 3.9,
+      "rmse": 874.0,
+      "coverage": 0.78,
       "n": 29,
       "series": "queso_cremoso__9",
       "pid": "queso_cremoso",
@@ -4543,10 +4543,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 638.3393390804597,
-      "mape": 4.038485415825069,
-      "rmse": 905.5329460507538,
-      "coverage": 0.7586206896551724,
+      "mae": 600.4,
+      "mape": 3.8,
+      "rmse": 851.8,
+      "coverage": 0.78,
       "n": 29,
       "series": "queso_cremoso__9",
       "pid": "queso_cremoso",
@@ -4555,10 +4555,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 638.3393390804597,
-      "mape": 4.038485415825069,
-      "rmse": 905.5329460507538,
-      "coverage": 0.7586206896551724,
+      "mae": 588.6,
+      "mape": 3.72,
+      "rmse": 835.0,
+      "coverage": 0.78,
       "n": 29,
       "series": "queso_cremoso__9",
       "pid": "queso_cremoso",
@@ -4579,10 +4579,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 30.497758620689652,
-      "mape": 6.2925726166414755,
-      "rmse": 40.3854119861752,
-      "coverage": 0.6551724137931034,
+      "mae": 29.4,
+      "mape": 6.07,
+      "rmse": 39.0,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__10",
       "pid": "yogur",
@@ -4591,10 +4591,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 30.497758620689652,
-      "mape": 6.2925726166414755,
-      "rmse": 40.3854119861752,
-      "coverage": 0.6551724137931034,
+      "mae": 29.5,
+      "mape": 6.09,
+      "rmse": 39.1,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__10",
       "pid": "yogur",
@@ -4603,10 +4603,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 30.497758620689652,
-      "mape": 6.2925726166414755,
-      "rmse": 40.3854119861752,
-      "coverage": 0.6551724137931034,
+      "mae": 27.9,
+      "mape": 5.75,
+      "rmse": 36.9,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__10",
       "pid": "yogur",
@@ -4627,10 +4627,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 73.56864942528736,
-      "mape": 2.4733380345369764,
-      "rmse": 157.682046849763,
-      "coverage": 0.6551724137931034,
+      "mae": 69.9,
+      "mape": 2.35,
+      "rmse": 149.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__12",
       "pid": "yogur",
@@ -4639,10 +4639,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 73.56864942528736,
-      "mape": 2.4733380345369764,
-      "rmse": 157.682046849763,
-      "coverage": 0.6551724137931034,
+      "mae": 70.3,
+      "mape": 2.36,
+      "rmse": 150.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__12",
       "pid": "yogur",
@@ -4651,10 +4651,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 73.56864942528736,
-      "mape": 2.4733380345369764,
-      "rmse": 157.682046849763,
-      "coverage": 0.6551724137931034,
+      "mae": 67.5,
+      "mape": 2.27,
+      "rmse": 144.8,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__12",
       "pid": "yogur",
@@ -4675,10 +4675,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 432.415948275862,
-      "mape": 11.503605930701294,
-      "rmse": 672.6020185509676,
-      "coverage": 0.6551724137931034,
+      "mae": 416.3,
+      "mape": 11.08,
+      "rmse": 647.6,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__15",
       "pid": "yogur",
@@ -4687,10 +4687,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 432.415948275862,
-      "mape": 11.503605930701294,
-      "rmse": 672.6020185509676,
-      "coverage": 0.6551724137931034,
+      "mae": 414.5,
+      "mape": 11.03,
+      "rmse": 644.7,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__15",
       "pid": "yogur",
@@ -4699,10 +4699,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 432.415948275862,
-      "mape": 11.503605930701294,
-      "rmse": 672.6020185509676,
-      "coverage": 0.6551724137931034,
+      "mae": 403.2,
+      "mape": 10.73,
+      "rmse": 627.2,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__15",
       "pid": "yogur",
@@ -4723,10 +4723,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 60.736982758620705,
-      "mape": 2.733677722434931,
-      "rmse": 124.15481522926152,
-      "coverage": 0.6551724137931034,
+      "mae": 59.3,
+      "mape": 2.67,
+      "rmse": 121.3,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__2",
       "pid": "yogur",
@@ -4735,10 +4735,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 60.736982758620705,
-      "mape": 2.733677722434931,
-      "rmse": 124.15481522926152,
-      "coverage": 0.6551724137931034,
+      "mae": 57.7,
+      "mape": 2.59,
+      "rmse": 117.9,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__2",
       "pid": "yogur",
@@ -4747,10 +4747,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 60.736982758620705,
-      "mape": 2.733677722434931,
-      "rmse": 124.15481522926152,
-      "coverage": 0.6551724137931034,
+      "mae": 55.8,
+      "mape": 2.51,
+      "rmse": 114.1,
+      "coverage": 0.68,
       "n": 29,
       "series": "yogur__2",
       "pid": "yogur",
@@ -4771,10 +4771,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 17.453409090909098,
-      "mape": 1.701713609277801,
-      "rmse": 26.952587696225535,
-      "coverage": 0.9090909090909091,
+      "mae": 16.6,
+      "mape": 1.62,
+      "rmse": 25.6,
+      "coverage": 0.85,
       "n": 11,
       "series": "yogur__9",
       "pid": "yogur",
@@ -4783,10 +4783,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 17.453409090909098,
-      "mape": 1.701713609277801,
-      "rmse": 26.952587696225535,
-      "coverage": 0.9090909090909091,
+      "mae": 16.8,
+      "mape": 1.64,
+      "rmse": 25.9,
+      "coverage": 0.85,
       "n": 11,
       "series": "yogur__9",
       "pid": "yogur",
@@ -4795,10 +4795,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 17.453409090909098,
-      "mape": 1.701713609277801,
-      "rmse": 26.952587696225535,
-      "coverage": 0.9090909090909091,
+      "mae": 16.3,
+      "mape": 1.59,
+      "rmse": 25.2,
+      "coverage": 0.85,
       "n": 11,
       "series": "yogur__9",
       "pid": "yogur",
@@ -4819,10 +4819,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 801.0742528735635,
-      "mape": 5.678271066753225,
-      "rmse": 1288.0220073402352,
-      "coverage": 0.7586206896551724,
+      "mae": 781.4,
+      "mape": 5.54,
+      "rmse": 1256.5,
+      "coverage": 0.78,
       "n": 29,
       "series": "manteca__10",
       "pid": "manteca",
@@ -4831,10 +4831,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 801.0742528735635,
-      "mape": 5.678271066753225,
-      "rmse": 1288.0220073402352,
-      "coverage": 0.7586206896551724,
+      "mae": 762.3,
+      "mape": 5.4,
+      "rmse": 1225.6,
+      "coverage": 0.78,
       "n": 29,
       "series": "manteca__10",
       "pid": "manteca",
@@ -4843,10 +4843,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 801.0742528735635,
-      "mape": 5.678271066753225,
-      "rmse": 1288.0220073402352,
-      "coverage": 0.7586206896551724,
+      "mae": 751.1,
+      "mape": 5.32,
+      "rmse": 1207.7,
+      "coverage": 0.78,
       "n": 29,
       "series": "manteca__10",
       "pid": "manteca",
@@ -4867,10 +4867,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 425.9402586206901,
-      "mape": 2.74096786952178,
-      "rmse": 793.3601139157242,
-      "coverage": 0.7241379310344828,
+      "mae": 405.7,
+      "mape": 2.61,
+      "rmse": 755.6,
+      "coverage": 0.74,
       "n": 29,
       "series": "manteca__12",
       "pid": "manteca",
@@ -4879,10 +4879,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 425.9402586206901,
-      "mape": 2.74096786952178,
-      "rmse": 793.3601139157242,
-      "coverage": 0.7241379310344828,
+      "mae": 406.9,
+      "mape": 2.62,
+      "rmse": 757.9,
+      "coverage": 0.74,
       "n": 29,
       "series": "manteca__12",
       "pid": "manteca",
@@ -4891,10 +4891,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 425.9402586206901,
-      "mape": 2.74096786952178,
-      "rmse": 793.3601139157242,
-      "coverage": 0.7241379310344828,
+      "mae": 394.6,
+      "mape": 2.54,
+      "rmse": 735.0,
+      "coverage": 0.74,
       "n": 29,
       "series": "manteca__12",
       "pid": "manteca",
@@ -4915,10 +4915,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 424.25790229885064,
-      "mape": 2.322071057963483,
-      "rmse": 910.6320443553353,
-      "coverage": 0.8275862068965517,
+      "mae": 407.7,
+      "mape": 2.23,
+      "rmse": 875.2,
+      "coverage": 0.85,
       "n": 29,
       "series": "manteca__15",
       "pid": "manteca",
@@ -4927,10 +4927,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 424.25790229885064,
-      "mape": 2.322071057963483,
-      "rmse": 910.6320443553353,
-      "coverage": 0.8275862068965517,
+      "mae": 410.1,
+      "mape": 2.24,
+      "rmse": 880.3,
+      "coverage": 0.85,
       "n": 29,
       "series": "manteca__15",
       "pid": "manteca",
@@ -4939,10 +4939,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 424.25790229885064,
-      "mape": 2.322071057963483,
-      "rmse": 910.6320443553353,
-      "coverage": 0.8275862068965517,
+      "mae": 390.0,
+      "mape": 2.13,
+      "rmse": 837.1,
+      "coverage": 0.85,
       "n": 29,
       "series": "manteca__15",
       "pid": "manteca",
@@ -4963,10 +4963,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 676.9061494252875,
-      "mape": 4.577206399123939,
-      "rmse": 955.1058837817068,
-      "coverage": 0.6206896551724138,
+      "mae": 650.6,
+      "mape": 4.4,
+      "rmse": 918.1,
+      "coverage": 0.64,
       "n": 29,
       "series": "manteca__2",
       "pid": "manteca",
@@ -4975,10 +4975,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 676.9061494252875,
-      "mape": 4.577206399123939,
-      "rmse": 955.1058837817068,
-      "coverage": 0.6206896551724138,
+      "mae": 642.8,
+      "mape": 4.35,
+      "rmse": 906.9,
+      "coverage": 0.64,
       "n": 29,
       "series": "manteca__2",
       "pid": "manteca",
@@ -4987,10 +4987,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 676.9061494252875,
-      "mape": 4.577206399123939,
-      "rmse": 955.1058837817068,
-      "coverage": 0.6206896551724138,
+      "mae": 628.2,
+      "mape": 4.25,
+      "rmse": 886.4,
+      "coverage": 0.64,
       "n": 29,
       "series": "manteca__2",
       "pid": "manteca",
@@ -5011,10 +5011,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 768.8864080459775,
-      "mape": 3.629279075081968,
-      "rmse": 1481.8601318872963,
-      "coverage": 0.7586206896551724,
+      "mae": 738.0,
+      "mape": 3.48,
+      "rmse": 1422.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "manteca__9",
       "pid": "manteca",
@@ -5023,10 +5023,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 768.8864080459775,
-      "mape": 3.629279075081968,
-      "rmse": 1481.8601318872963,
-      "coverage": 0.7586206896551724,
+      "mae": 740.5,
+      "mape": 3.5,
+      "rmse": 1427.2,
+      "coverage": 0.78,
       "n": 29,
       "series": "manteca__9",
       "pid": "manteca",
@@ -5035,10 +5035,10 @@
       "category": "Lácteos"
     },
     {
-      "mae": 768.8864080459775,
-      "mape": 3.629279075081968,
-      "rmse": 1481.8601318872963,
-      "coverage": 0.7586206896551724,
+      "mae": 703.2,
+      "mape": 3.32,
+      "rmse": 1355.3,
+      "coverage": 0.78,
       "n": 29,
       "series": "manteca__9",
       "pid": "manteca",
@@ -5059,10 +5059,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 20.67326388888884,
-      "mape": 1.9582369737045964,
-      "rmse": 29.6592605055895,
-      "coverage": 0.75,
+      "mae": 20.2,
+      "mape": 1.91,
+      "rmse": 29.0,
+      "coverage": 0.77,
       "n": 12,
       "series": "galletitas_agua__10",
       "pid": "galletitas_agua",
@@ -5071,10 +5071,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 20.67326388888884,
-      "mape": 1.9582369737045964,
-      "rmse": 29.6592605055895,
-      "coverage": 0.75,
+      "mae": 20.0,
+      "mape": 1.89,
+      "rmse": 28.6,
+      "coverage": 0.77,
       "n": 12,
       "series": "galletitas_agua__10",
       "pid": "galletitas_agua",
@@ -5083,10 +5083,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 20.67326388888884,
-      "mape": 1.9582369737045964,
-      "rmse": 29.6592605055895,
-      "coverage": 0.75,
+      "mae": 20.1,
+      "mape": 1.91,
+      "rmse": 28.9,
+      "coverage": 0.77,
       "n": 12,
       "series": "galletitas_agua__10",
       "pid": "galletitas_agua",
@@ -5107,10 +5107,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 37.13891025641031,
-      "mape": 3.540372399032013,
-      "rmse": 58.8050513462532,
-      "coverage": 0.6923076923076923,
+      "mae": 35.7,
+      "mape": 3.4,
+      "rmse": 56.5,
+      "coverage": 0.71,
       "n": 13,
       "series": "galletitas_agua__12",
       "pid": "galletitas_agua",
@@ -5119,10 +5119,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 37.13891025641031,
-      "mape": 3.540372399032013,
-      "rmse": 58.8050513462532,
-      "coverage": 0.6923076923076923,
+      "mae": 35.5,
+      "mape": 3.39,
+      "rmse": 56.3,
+      "coverage": 0.71,
       "n": 13,
       "series": "galletitas_agua__12",
       "pid": "galletitas_agua",
@@ -5131,10 +5131,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 37.13891025641031,
-      "mape": 3.540372399032013,
-      "rmse": 58.8050513462532,
-      "coverage": 0.6923076923076923,
+      "mae": 36.0,
+      "mape": 3.43,
+      "rmse": 57.0,
+      "coverage": 0.71,
       "n": 13,
       "series": "galletitas_agua__12",
       "pid": "galletitas_agua",
@@ -5155,10 +5155,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 24.34614942528731,
-      "mape": 0.4329004324139654,
-      "rmse": 54.719726298808126,
-      "coverage": 0.7241379310344828,
+      "mae": 23.5,
+      "mape": 0.42,
+      "rmse": 52.7,
+      "coverage": 0.74,
       "n": 29,
       "series": "galletitas_agua__15",
       "pid": "galletitas_agua",
@@ -5167,10 +5167,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 24.34614942528731,
-      "mape": 0.4329004324139654,
-      "rmse": 54.719726298808126,
-      "coverage": 0.7241379310344828,
+      "mae": 23.7,
+      "mape": 0.42,
+      "rmse": 53.2,
+      "coverage": 0.74,
       "n": 29,
       "series": "galletitas_agua__15",
       "pid": "galletitas_agua",
@@ -5179,10 +5179,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 24.34614942528731,
-      "mape": 0.4329004324139654,
-      "rmse": 54.719726298808126,
-      "coverage": 0.7241379310344828,
+      "mae": 23.9,
+      "mape": 0.43,
+      "rmse": 53.7,
+      "coverage": 0.74,
       "n": 29,
       "series": "galletitas_agua__15",
       "pid": "galletitas_agua",
@@ -5203,10 +5203,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 12.11968750000004,
-      "mape": 1.158130536764599,
-      "rmse": 15.893462271284749,
-      "coverage": 0.875,
+      "mae": 11.7,
+      "mape": 1.11,
+      "rmse": 15.3,
+      "coverage": 0.85,
       "n": 8,
       "series": "galletitas_agua__2",
       "pid": "galletitas_agua",
@@ -5215,10 +5215,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 12.11968750000004,
-      "mape": 1.158130536764599,
-      "rmse": 15.893462271284749,
-      "coverage": 0.875,
+      "mae": 12.0,
+      "mape": 1.14,
+      "rmse": 15.7,
+      "coverage": 0.85,
       "n": 8,
       "series": "galletitas_agua__2",
       "pid": "galletitas_agua",
@@ -5227,10 +5227,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 12.11968750000004,
-      "mape": 1.158130536764599,
-      "rmse": 15.893462271284749,
-      "coverage": 0.875,
+      "mae": 11.8,
+      "mape": 1.12,
+      "rmse": 15.4,
+      "coverage": 0.85,
       "n": 8,
       "series": "galletitas_agua__2",
       "pid": "galletitas_agua",
@@ -5251,10 +5251,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 26.632794117647062,
-      "mape": 2.5623584768353216,
-      "rmse": 35.50310052222448,
-      "coverage": 0.7647058823529411,
+      "mae": 26.3,
+      "mape": 2.53,
+      "rmse": 35.0,
+      "coverage": 0.78,
       "n": 17,
       "series": "galletitas_agua__9",
       "pid": "galletitas_agua",
@@ -5263,10 +5263,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 26.632794117647062,
-      "mape": 2.5623584768353216,
-      "rmse": 35.50310052222448,
-      "coverage": 0.7647058823529411,
+      "mae": 26.3,
+      "mape": 2.53,
+      "rmse": 35.0,
+      "coverage": 0.78,
       "n": 17,
       "series": "galletitas_agua__9",
       "pid": "galletitas_agua",
@@ -5275,10 +5275,10 @@
       "category": "Panificados"
     },
     {
-      "mae": 26.632794117647062,
-      "mape": 2.5623584768353216,
-      "rmse": 35.50310052222448,
-      "coverage": 0.7647058823529411,
+      "mae": 26.0,
+      "mape": 2.5,
+      "rmse": 34.7,
+      "coverage": 0.78,
       "n": 17,
       "series": "galletitas_agua__9",
       "pid": "galletitas_agua",
@@ -5299,10 +5299,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 22.48818965517239,
-      "mape": 2.2486711611783297,
-      "rmse": 44.22931105330488,
-      "coverage": 0.6551724137931034,
+      "mae": 22.2,
+      "mape": 2.22,
+      "rmse": 43.6,
+      "coverage": 0.68,
       "n": 29,
       "series": "jabon_tocador__10",
       "pid": "jabon_tocador",
@@ -5311,10 +5311,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 22.48818965517239,
-      "mape": 2.2486711611783297,
-      "rmse": 44.22931105330488,
-      "coverage": 0.6551724137931034,
+      "mae": 22.1,
+      "mape": 2.21,
+      "rmse": 43.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "jabon_tocador__10",
       "pid": "jabon_tocador",
@@ -5323,10 +5323,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 22.48818965517239,
-      "mape": 2.2486711611783297,
-      "rmse": 44.22931105330488,
-      "coverage": 0.6551724137931034,
+      "mae": 22.0,
+      "mape": 2.2,
+      "rmse": 43.3,
+      "coverage": 0.68,
       "n": 29,
       "series": "jabon_tocador__10",
       "pid": "jabon_tocador",
@@ -5347,10 +5347,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 44.052708333333385,
-      "mape": 0.5545204951379128,
-      "rmse": 80.54375001816761,
-      "coverage": 0.6785714285714286,
+      "mae": 43.3,
+      "mape": 0.55,
+      "rmse": 79.2,
+      "coverage": 0.7,
       "n": 28,
       "series": "jabon_tocador__12",
       "pid": "jabon_tocador",
@@ -5359,10 +5359,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 44.052708333333385,
-      "mape": 0.5545204951379128,
-      "rmse": 80.54375001816761,
-      "coverage": 0.6785714285714286,
+      "mae": 43.3,
+      "mape": 0.54,
+      "rmse": 79.1,
+      "coverage": 0.7,
       "n": 28,
       "series": "jabon_tocador__12",
       "pid": "jabon_tocador",
@@ -5371,10 +5371,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 44.052708333333385,
-      "mape": 0.5545204951379128,
-      "rmse": 80.54375001816761,
-      "coverage": 0.6785714285714286,
+      "mae": 43.2,
+      "mape": 0.54,
+      "rmse": 78.9,
+      "coverage": 0.7,
       "n": 28,
       "series": "jabon_tocador__12",
       "pid": "jabon_tocador",
@@ -5395,10 +5395,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 55.85037878787898,
-      "mape": 0.7448891894905049,
-      "rmse": 95.76036751735094,
-      "coverage": 0.7272727272727273,
+      "mae": 54.2,
+      "mape": 0.72,
+      "rmse": 92.9,
+      "coverage": 0.75,
       "n": 22,
       "series": "jabon_tocador__15",
       "pid": "jabon_tocador",
@@ -5407,10 +5407,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 55.85037878787898,
-      "mape": 0.7448891894905049,
-      "rmse": 95.76036751735094,
-      "coverage": 0.7272727272727273,
+      "mae": 54.0,
+      "mape": 0.72,
+      "rmse": 92.6,
+      "coverage": 0.75,
       "n": 22,
       "series": "jabon_tocador__15",
       "pid": "jabon_tocador",
@@ -5419,10 +5419,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 55.85037878787898,
-      "mape": 0.7448891894905049,
-      "rmse": 95.76036751735094,
-      "coverage": 0.7272727272727273,
+      "mae": 52.9,
+      "mape": 0.71,
+      "rmse": 90.7,
+      "coverage": 0.75,
       "n": 22,
       "series": "jabon_tocador__15",
       "pid": "jabon_tocador",
@@ -5443,10 +5443,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 137.5360632183909,
-      "mape": 2.3367056308631047,
-      "rmse": 270.3130074878412,
-      "coverage": 0.7931034482758621,
+      "mae": 134.7,
+      "mape": 2.29,
+      "rmse": 264.8,
+      "coverage": 0.81,
       "n": 29,
       "series": "jabon_tocador__2",
       "pid": "jabon_tocador",
@@ -5455,10 +5455,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 137.5360632183909,
-      "mape": 2.3367056308631047,
-      "rmse": 270.3130074878412,
-      "coverage": 0.7931034482758621,
+      "mae": 134.1,
+      "mape": 2.28,
+      "rmse": 263.5,
+      "coverage": 0.81,
       "n": 29,
       "series": "jabon_tocador__2",
       "pid": "jabon_tocador",
@@ -5467,10 +5467,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 137.5360632183909,
-      "mape": 2.3367056308631047,
-      "rmse": 270.3130074878412,
-      "coverage": 0.7931034482758621,
+      "mae": 133.5,
+      "mape": 2.27,
+      "rmse": 262.4,
+      "coverage": 0.81,
       "n": 29,
       "series": "jabon_tocador__2",
       "pid": "jabon_tocador",
@@ -5491,10 +5491,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 1066.2241379310346,
-      "mape": 46.628211766888796,
-      "rmse": 1533.3193073654475,
-      "coverage": 0.5517241379310345,
+      "mae": 1054.4,
+      "mape": 46.11,
+      "rmse": 1516.3,
+      "coverage": 0.57,
       "n": 29,
       "series": "jabon_tocador__9",
       "pid": "jabon_tocador",
@@ -5503,10 +5503,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 1066.2241379310346,
-      "mape": 46.628211766888796,
-      "rmse": 1533.3193073654475,
-      "coverage": 0.5517241379310345,
+      "mae": 1036.1,
+      "mape": 45.31,
+      "rmse": 1490.0,
+      "coverage": 0.57,
       "n": 29,
       "series": "jabon_tocador__9",
       "pid": "jabon_tocador",
@@ -5515,10 +5515,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 1066.2241379310346,
-      "mape": 46.628211766888796,
-      "rmse": 1533.3193073654475,
-      "coverage": 0.5517241379310345,
+      "mae": 1021.0,
+      "mape": 44.65,
+      "rmse": 1468.2,
+      "coverage": 0.57,
       "n": 29,
       "series": "jabon_tocador__9",
       "pid": "jabon_tocador",
@@ -5539,10 +5539,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 33.00163793103449,
-      "mape": 1.1423053246216068,
-      "rmse": 75.66912112059836,
-      "coverage": 0.8620689655172413,
+      "mae": 31.7,
+      "mape": 1.1,
+      "rmse": 72.6,
+      "coverage": 0.85,
       "n": 29,
       "series": "detergente__10",
       "pid": "detergente",
@@ -5551,10 +5551,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 33.00163793103449,
-      "mape": 1.1423053246216068,
-      "rmse": 75.66912112059836,
-      "coverage": 0.8620689655172413,
+      "mae": 32.2,
+      "mape": 1.11,
+      "rmse": 73.8,
+      "coverage": 0.85,
       "n": 29,
       "series": "detergente__10",
       "pid": "detergente",
@@ -5563,10 +5563,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 33.00163793103449,
-      "mape": 1.1423053246216068,
-      "rmse": 75.66912112059836,
-      "coverage": 0.8620689655172413,
+      "mae": 32.4,
+      "mape": 1.12,
+      "rmse": 74.3,
+      "coverage": 0.85,
       "n": 29,
       "series": "detergente__10",
       "pid": "detergente",
@@ -5587,10 +5587,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 10.543908045977018,
-      "mape": 0.4017582892040393,
-      "rmse": 24.96986728771097,
-      "coverage": 0.7241379310344828,
+      "mae": 10.4,
+      "mape": 0.4,
+      "rmse": 24.7,
+      "coverage": 0.74,
       "n": 29,
       "series": "detergente__12",
       "pid": "detergente",
@@ -5599,10 +5599,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 10.543908045977018,
-      "mape": 0.4017582892040393,
-      "rmse": 24.96986728771097,
-      "coverage": 0.7241379310344828,
+      "mae": 10.1,
+      "mape": 0.38,
+      "rmse": 23.9,
+      "coverage": 0.74,
       "n": 29,
       "series": "detergente__12",
       "pid": "detergente",
@@ -5611,10 +5611,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 10.543908045977018,
-      "mape": 0.4017582892040393,
-      "rmse": 24.96986728771097,
-      "coverage": 0.7241379310344828,
+      "mae": 10.3,
+      "mape": 0.39,
+      "rmse": 24.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "detergente__12",
       "pid": "detergente",
@@ -5635,10 +5635,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 93.68591954022995,
-      "mape": 1.493528810129185,
-      "rmse": 239.84767383170694,
-      "coverage": 0.6551724137931034,
+      "mae": 92.4,
+      "mape": 1.47,
+      "rmse": 236.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "detergente__15",
       "pid": "detergente",
@@ -5647,10 +5647,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 93.68591954022995,
-      "mape": 1.493528810129185,
-      "rmse": 239.84767383170694,
-      "coverage": 0.6551724137931034,
+      "mae": 89.8,
+      "mape": 1.43,
+      "rmse": 230.0,
+      "coverage": 0.68,
       "n": 29,
       "series": "detergente__15",
       "pid": "detergente",
@@ -5659,10 +5659,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 93.68591954022995,
-      "mape": 1.493528810129185,
-      "rmse": 239.84767383170694,
-      "coverage": 0.6551724137931034,
+      "mae": 89.8,
+      "mape": 1.43,
+      "rmse": 229.8,
+      "coverage": 0.68,
       "n": 29,
       "series": "detergente__15",
       "pid": "detergente",
@@ -5683,10 +5683,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 22.813620689655167,
-      "mape": 0.5486671162851067,
-      "rmse": 42.40667895305617,
-      "coverage": 0.6896551724137931,
+      "mae": 21.9,
+      "mape": 0.53,
+      "rmse": 40.7,
+      "coverage": 0.71,
       "n": 29,
       "series": "detergente__2",
       "pid": "detergente",
@@ -5695,10 +5695,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 22.813620689655167,
-      "mape": 0.5486671162851067,
-      "rmse": 42.40667895305617,
-      "coverage": 0.6896551724137931,
+      "mae": 21.8,
+      "mape": 0.52,
+      "rmse": 40.5,
+      "coverage": 0.71,
       "n": 29,
       "series": "detergente__2",
       "pid": "detergente",
@@ -5707,10 +5707,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 22.813620689655167,
-      "mape": 0.5486671162851067,
-      "rmse": 42.40667895305617,
-      "coverage": 0.6896551724137931,
+      "mae": 22.2,
+      "mape": 0.53,
+      "rmse": 41.3,
+      "coverage": 0.71,
       "n": 29,
       "series": "detergente__2",
       "pid": "detergente",
@@ -5731,10 +5731,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 51.395689655172426,
-      "mape": 1.6263599711123389,
-      "rmse": 122.84541317591828,
-      "coverage": 0.6551724137931034,
+      "mae": 50.4,
+      "mape": 1.6,
+      "rmse": 120.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "detergente__9",
       "pid": "detergente",
@@ -5743,10 +5743,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 51.395689655172426,
-      "mape": 1.6263599711123389,
-      "rmse": 122.84541317591828,
-      "coverage": 0.6551724137931034,
+      "mae": 49.6,
+      "mape": 1.57,
+      "rmse": 118.6,
+      "coverage": 0.68,
       "n": 29,
       "series": "detergente__9",
       "pid": "detergente",
@@ -5755,10 +5755,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 51.395689655172426,
-      "mape": 1.6263599711123389,
-      "rmse": 122.84541317591828,
-      "coverage": 0.6551724137931034,
+      "mae": 48.7,
+      "mape": 1.54,
+      "rmse": 116.5,
+      "coverage": 0.68,
       "n": 29,
       "series": "detergente__9",
       "pid": "detergente",
@@ -5779,10 +5779,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 8.18293103448283,
-      "mape": 0.6693923871276524,
-      "rmse": 12.889559293983043,
-      "coverage": 0.5517241379310345,
+      "mae": 7.9,
+      "mape": 0.64,
+      "rmse": 12.4,
+      "coverage": 0.57,
       "n": 29,
       "series": "lavandina__10",
       "pid": "lavandina",
@@ -5791,10 +5791,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 8.18293103448283,
-      "mape": 0.6693923871276524,
-      "rmse": 12.889559293983043,
-      "coverage": 0.5517241379310345,
+      "mae": 7.9,
+      "mape": 0.65,
+      "rmse": 12.5,
+      "coverage": 0.57,
       "n": 29,
       "series": "lavandina__10",
       "pid": "lavandina",
@@ -5803,10 +5803,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 8.18293103448283,
-      "mape": 0.6693923871276524,
-      "rmse": 12.889559293983043,
-      "coverage": 0.5517241379310345,
+      "mae": 7.9,
+      "mape": 0.64,
+      "rmse": 12.4,
+      "coverage": 0.57,
       "n": 29,
       "series": "lavandina__10",
       "pid": "lavandina",
@@ -5827,10 +5827,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 46.83267241379313,
-      "mape": 4.694072094817015,
-      "rmse": 79.37862388279268,
-      "coverage": 0.7586206896551724,
+      "mae": 46.3,
+      "mape": 4.64,
+      "rmse": 78.5,
+      "coverage": 0.78,
       "n": 29,
       "series": "lavandina__12",
       "pid": "lavandina",
@@ -5839,10 +5839,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 46.83267241379313,
-      "mape": 4.694072094817015,
-      "rmse": 79.37862388279268,
-      "coverage": 0.7586206896551724,
+      "mae": 45.7,
+      "mape": 4.58,
+      "rmse": 77.4,
+      "coverage": 0.78,
       "n": 29,
       "series": "lavandina__12",
       "pid": "lavandina",
@@ -5851,10 +5851,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 46.83267241379313,
-      "mape": 4.694072094817015,
-      "rmse": 79.37862388279268,
-      "coverage": 0.7586206896551724,
+      "mae": 46.0,
+      "mape": 4.61,
+      "rmse": 77.9,
+      "coverage": 0.78,
       "n": 29,
       "series": "lavandina__12",
       "pid": "lavandina",
@@ -5875,10 +5875,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 4.49660919540231,
-      "mape": 0.45712563684260127,
-      "rmse": 9.522572002264614,
-      "coverage": 0.7241379310344828,
+      "mae": 4.4,
+      "mape": 0.45,
+      "rmse": 9.4,
+      "coverage": 0.74,
       "n": 29,
       "series": "lavandina__15",
       "pid": "lavandina",
@@ -5887,10 +5887,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 4.49660919540231,
-      "mape": 0.45712563684260127,
-      "rmse": 9.522572002264614,
-      "coverage": 0.7241379310344828,
+      "mae": 4.4,
+      "mape": 0.45,
+      "rmse": 9.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "lavandina__15",
       "pid": "lavandina",
@@ -5899,10 +5899,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 4.49660919540231,
-      "mape": 0.45712563684260127,
-      "rmse": 9.522572002264614,
-      "coverage": 0.7241379310344828,
+      "mae": 4.4,
+      "mape": 0.45,
+      "rmse": 9.3,
+      "coverage": 0.74,
       "n": 29,
       "series": "lavandina__15",
       "pid": "lavandina",
@@ -5923,10 +5923,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 15.399971264367784,
-      "mape": 1.2741933273511765,
-      "rmse": 33.84713420645035,
-      "coverage": 0.7931034482758621,
+      "mae": 15.1,
+      "mape": 1.25,
+      "rmse": 33.3,
+      "coverage": 0.81,
       "n": 29,
       "series": "lavandina__2",
       "pid": "lavandina",
@@ -5935,10 +5935,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 15.399971264367784,
-      "mape": 1.2741933273511765,
-      "rmse": 33.84713420645035,
-      "coverage": 0.7931034482758621,
+      "mae": 15.1,
+      "mape": 1.25,
+      "rmse": 33.1,
+      "coverage": 0.81,
       "n": 29,
       "series": "lavandina__2",
       "pid": "lavandina",
@@ -5947,10 +5947,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 15.399971264367784,
-      "mape": 1.2741933273511765,
-      "rmse": 33.84713420645035,
-      "coverage": 0.7931034482758621,
+      "mae": 14.9,
+      "mape": 1.24,
+      "rmse": 32.8,
+      "coverage": 0.81,
       "n": 29,
       "series": "lavandina__2",
       "pid": "lavandina",
@@ -5971,10 +5971,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 14.012277777777793,
-      "mape": 1.357089669879629,
-      "rmse": 23.072487013556653,
-      "coverage": 0.8,
+      "mae": 13.9,
+      "mape": 1.34,
+      "rmse": 22.8,
+      "coverage": 0.82,
       "n": 15,
       "series": "lavandina__9",
       "pid": "lavandina",
@@ -5983,10 +5983,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 14.012277777777793,
-      "mape": 1.357089669879629,
-      "rmse": 23.072487013556653,
-      "coverage": 0.8,
+      "mae": 13.5,
+      "mape": 1.3,
+      "rmse": 22.2,
+      "coverage": 0.82,
       "n": 15,
       "series": "lavandina__9",
       "pid": "lavandina",
@@ -5995,10 +5995,10 @@
       "category": "Limpieza"
     },
     {
-      "mae": 14.012277777777793,
-      "mape": 1.357089669879629,
-      "rmse": 23.072487013556653,
-      "coverage": 0.8,
+      "mae": 13.3,
+      "mape": 1.28,
+      "rmse": 21.8,
+      "coverage": 0.82,
       "n": 15,
       "series": "lavandina__9",
       "pid": "lavandina",
