@@ -107,6 +107,25 @@ html = f"""<!doctype html>
 </header>
 
 <main class="mx-auto max-w-6xl px-4 pb-10">
+  <!-- Qué es esto -->
+  <section class="mt-4 rounded-xl border border-slate-200 bg-white p-5 md:p-6 shadow-sm">
+    <h2 class="text-base md:text-lg font-extrabold text-slate-900">¿Qué es esto?</h2>
+    <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-slate-700">En Rosario el mismo paquete de yerba, aceite o leche puede salir muy distinto según dónde compres. <strong>Canasta Rosario</strong> compara <strong>todos los días una canasta fija de 25 alimentos y limpieza</strong> en 5 cadenas de Rosario y Gran Rosario, para que en 10 segundos sepas <strong>dónde conviene comprar hoy</strong> y cuánto te ahorrás. Sin login, sin app, sin vueltas: una sola página, precios por paquete y por kilo/litro.</p>
+    <div class="mt-4 grid gap-3 md:grid-cols-3">
+      <div class="rounded-lg bg-slate-50 border border-slate-200 p-3">
+        <div class="text-xs font-bold uppercase tracking-wide text-slate-600">Cómo leerlo</div>
+        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Arriba ves el <strong>total de la canasta por cadena</strong>, del más barato al más caro. En verde el ganador. Abajo, la tabla: cada fila es un producto, cada celda su precio. <strong>Verde = más barato</strong> en $/kg-L. <strong>“—” = no informado</strong> ese día por esa cadena (no inventamos precios).</p>
+      </div>
+      <div class="rounded-lg bg-slate-50 border border-slate-200 p-3">
+        <div class="text-xs font-bold uppercase tracking-wide text-slate-600">De dónde salen los datos</div>
+        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Fuente oficial <strong>SEPA (Precios Claros)</strong>, Secretaría de Comercio — lo que las grandes cadenas están obligadas a informar a diario. Licencia CC BY 4.0. Cobertura: <strong>{branches} sucursales</strong> en Rosario + Gran Rosario. No incluye La Gallega / DAR / Micropack porque no informan a SEPA (adhesión voluntaria). Sin promos bancarias en v1.</p>
+      </div>
+      <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3">
+        <div class="text-xs font-bold uppercase tracking-wide text-emerald-800">Qué estamos probando</div>
+        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Además de mostrar hoy, probamos si se puede <strong>anticipar el precio de mañana</strong> con <a class="underline font-semibold" href="forecast_synthetic.html">TimesFM 3 de Google</a>. Usamos como pistas (<em>covariables</em>): <strong>dólar blue / MEP / oficial, brecha % y volatilidad 7 días</strong> (dolarapi.com), <strong>IPIM mayorista</strong> (INDEC, interpolado diario) y <strong>precio mínimo de la competencia</strong>. En sintético, sumarlas bajó el error de $150 a $142 (-5.5%, Almacén -12%). Cuando haya 30 días reales, el mismo test corre sin sintéticos.</p>
+      </div>
+    </div>
+  </section>
   <!-- Hero -->
   <section>
     <h2 class="text-sm font-bold uppercase tracking-wide text-slate-600 mb-3">Costo total canasta HOY por cadena — más barato primero</h2>
