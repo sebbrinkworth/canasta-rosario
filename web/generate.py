@@ -41,6 +41,10 @@ def fmt(v):
     # replace comma thousand with dot, dot decimal with comma? Keep simple
     return "$" + f"{v:,.0f}".replace(",",".")
 
+def fmt_ar(v):
+    """$69.601 formato argentino, solo para números (nunca sobre HTML/JS)."""
+    return f"${v:,.0f}".replace(",", ".")
+
 # Build chains header order as in hero (cheapest first) or as stored
 chain_order = [c["id"] for c in chains]
 # But hero is cheapest first; keep that for columns? Use hero order for intuitive
@@ -57,7 +61,7 @@ for row in table:
     cat_groups[row["category"]].append(row)
 
 def forecast_badge(pid, cid):
-    """Flechita ↑↓→ con delta% y confianza. Solo UI, no cambia el precio."""
+    """Flechita ↑↓→ tocable: badge con cursor pointer + tooltip en hover (desktop) y tap (móvil)."""
     f = FORECAST.get(f"{pid}__{cid}")
     if not f:
         return ""
@@ -65,57 +69,128 @@ def forecast_badge(pid, cid):
     delta = f.get("delta_pct", 0)
     conf = f.get("conf", "media")
     if d == "sube":
-        arrow, cls2, label = "↑", "text-red-600", f"Se espera que suba {delta:+.1f}% (confianza {conf})"
+        arrow, cls2, label = "↑ sube", "fc-up", f"Se espera que suba {delta:+.1f}% · confianza {conf}"
     elif d == "baja":
-        arrow, cls2, label = "↓", "text-emerald-700", f"Se espera que baje {delta:+.1f}% (confianza {conf})"
+        arrow, cls2, label = "↓ baja", "fc-down", f"Se espera que baje {delta:+.1f}% · confianza {conf}"
     else:
-        arrow, cls2, label = "→", "text-slate-400", f"Estable ({delta:+.1f}%, confianza {conf})"
-    return f'<span class="{cls2} font-bold ml-1 text-xs" title="{label}. Pronóstico experimental 24-48h, no es recomendación de compra.">{arrow}</span>'
+        arrow, cls2, label = "→ estable", "fc-flat", f"Estable ({delta:+.1f}%) · confianza {conf}"
+    tip = f"{label}. Pronóstico experimental 24-48h, no es recomendación de compra. Tocá de nuevo para cerrar."
+    return f'<button type="button" class="fc-badge {cls2}" data-tip="{tip}" aria-label="{label}">{arrow}</button>'
 
-rows_html=""
-for cat in cat_order:
-    group = cat_groups.get(cat, [])
-    if not group: continue
-    rows_html += f'<tr><td colspan="{2+len(hero_order)}" class="bg-slate-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-600">{cat}</td></tr>\n'
-    for r in group:
-        name = r["name"]
-        unit = r["unit_display"]
-        cheapest_cid = r.get("cheapest_chain")
-        rows_html += f'<tr class="border-b border-slate-100 hover:bg-slate-50">'
-        rows_html += f'<td class="px-3 py-2 text-sm font-medium text-slate-800 whitespace-nowrap">{name} <span class="text-xs text-slate-500">{unit}</span></td>'
-        rows_html += f'<td class="px-2 py-2 text-right text-xs text-slate-500 hidden md:table-cell">{unit}</td>'
-        for cid in hero_order:
-            p = r["prices"].get(cid)
-            if p is None:
-                rows_html += f'<td class="px-2 py-2 text-right text-xs text-slate-400">—</td>'
-            else:
-                is_cheapest = (cid == cheapest_cid)
-                cls = "bg-emerald-50 font-semibold text-emerald-700" if is_cheapest else "text-slate-700"
-                # show price per unit + small package price
-                per = p["price_per_unit"]
-                lista = p["price_lista"]
-                # format: $1.799 /L (small $1.799)
-                # if per_unit differs from lista, show both
-                badge = forecast_badge(r["id"], cid)
-                if abs(per - lista) > 0.01 and p["per_unit"] in ("kg","L"):
-                    cell = f'<div class="{cls} text-right text-sm px-1 rounded">${per:,.0f}<span class="text-xs font-normal">/{p["per_unit"]}</span>{badge}</div><div class="text-xs text-slate-400 text-right">${lista:,.0f}</div>'.replace(",",".")
+def render_rows(table_data, chain_ids):
+    cat_groups = defaultdict(list)
+    for row in table_data:
+        cat_groups[row["category"]].append(row)
+    out = ""
+    for cat in cat_order:
+        group = cat_groups.get(cat, [])
+        if not group: continue
+        out += f'<tr><td colspan="{2+len(chain_ids)}" class="bg-slate-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-600">{cat}</td></tr>\n'
+        for r in group:
+            name = r["name"]
+            unit = r["unit_display"]
+            cheapest_cid = r.get("cheapest_chain")
+            out += f'<tr class="border-b border-slate-100 hover:bg-slate-50">'
+            out += f'<td class="px-3 py-2 text-sm font-medium text-slate-800 whitespace-nowrap">{name} <span class="text-xs text-slate-500">{unit}</span></td>'
+            out += f'<td class="px-2 py-2 text-right text-xs text-slate-500 hidden md:table-cell">{unit}</td>'
+            for cid in chain_ids:
+                p = r["prices"].get(cid)
+                if p is None:
+                    out += f'<td class="px-2 py-2 text-right text-xs text-slate-400">—</td>'
                 else:
-                    cell = f'<div class="{cls} text-right text-sm px-1 rounded">${lista:,.0f}{badge}</div>'.replace(",",".")
-                rows_html += f'<td class="px-2 py-1.5 text-right">{cell}</td>'
-        rows_html += '</tr>\n'
+                    is_cheapest = (cid == cheapest_cid)
+                    cls = "bg-emerald-50 font-semibold text-emerald-700" if is_cheapest else "text-slate-700"
+                    per = p["price_per_unit"]
+                    lista = p["price_lista"]
+                    badge = forecast_badge(r["id"], cid)
+                    if abs(per - lista) > 0.01 and p["per_unit"] in ("kg","L"):
+                        cell = f'<div class="{cls} text-right text-sm px-1 rounded">{fmt_ar(per)}<span class="text-xs font-normal">/{p["per_unit"]}</span>{badge}</div><div class="text-xs text-slate-400 text-right">{fmt_ar(lista)}</div>'
+                    else:
+                        cell = f'<div class="{cls} text-right text-sm px-1 rounded">{fmt_ar(lista)}{badge}</div>'
+                    out += f'<td class="px-2 py-1.5 text-right">{cell}</td>'
+            out += '</tr>\n'
+    return out
 
-# Hero cards
-hero_cards=""
-for i, h in enumerate(hero):
-    is_win = i==0
-    border = "border-emerald-400 bg-emerald-50" if is_win else "border-slate-200 bg-white"
-    hero_cards += f'''
-    <div class="rounded-xl border-2 {border} p-4 flex flex-col gap-1 min-w-[160px] flex-1">
-      <div class="text-sm font-bold text-slate-800">{h["chain_label"]}</div>
-      <div class="text-2xl font-extrabold {"text-emerald-700" if is_win else "text-slate-800"}">${h["total"]:,.0f}</div>
-      <div class="text-xs text-slate-500">{h["items_found"]}/25 ítems · $/pack + $/kg</div>
-      {f'<span class="mt-1 inline-flex w-fit rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white">Más barato</span>' if is_win else ''}
-    </div>'''.replace(",",".")
+def render_hero(hero_list):
+    cards = ""
+    for i, h in enumerate(hero_list):
+        is_win = i==0
+        border = "border-emerald-400 bg-emerald-50" if is_win else "border-slate-200 bg-white"
+        cards += f'''
+        <div class="rounded-xl border-2 {border} p-4 flex flex-col gap-1 min-w-[160px] flex-1">
+          <div class="text-sm font-bold text-slate-800">{h["chain_label"]}</div>
+          <div class="text-2xl font-extrabold {"text-emerald-700" if is_win else "text-slate-800"}">{fmt_ar(h["total"])}</div>
+          <div class="text-xs text-slate-500">{h["items_found"]}/25 ítems · $/pack + $/kg</div>
+          {f'<span class="mt-1 inline-flex w-fit rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white">Más barato</span>' if is_win else ''}
+        </div>'''
+    return cards
+
+# Zonas: todo (combinado) + rosario + gran. Fallback a combinado si falta.
+zones_data = data.get("zones") or {}
+ZDESC = {
+    "todo": ("Todo: Rosario + alrededores", f"{branches} sucursales"),
+    "rosario": ("Solo Rosario", f"{(zones_data.get('rosario') or {}).get('branches_count', '?')} sucursales"),
+    "gran": ("Alrededores (Funes, Fisherton…)", f"{(zones_data.get('gran') or {}).get('branches_count', '?')} sucursales"),
+}
+zone_blocks = {}
+for zkey in ("todo", "rosario", "gran"):
+    if zkey == "todo":
+        z_hero, z_table = hero, table
+        z_chains, z_order = chains, hero_order
+    else:
+        zd = zones_data.get(zkey) or {}
+        if not zd.get("hero"):
+            continue
+        z_hero, z_table = zd["hero"], zd["table"]
+        z_chains = zd.get("chains", chains)
+        z_order = [h["chain_id"] for h in z_hero]
+    z_cheapest = z_hero[0] if z_hero else None
+    z_exp = z_hero[-1] if z_hero else None
+    if z_cheapest and z_exp and z_exp["total"]:
+        z_ah = z_exp["total"] - z_cheapest["total"]
+        z_ahp = round(z_ah / z_exp["total"] * 100)
+    else:
+        z_ah, z_ahp = 0, 0
+    z_heads = "".join(f'<th class="px-2 py-2 text-right text-xs font-semibold text-slate-700 whitespace-nowrap">{next((c["label"] for c in z_chains if c["id"]==cid), cid)}</th>' for cid in z_order)
+    zone_blocks[zkey] = {
+        "title": ZDESC[zkey][0], "sub": ZDESC[zkey][1],
+        "hero": render_hero(z_hero),
+        "heads": z_heads,
+        "rows": render_rows(z_table, z_order),
+        "foot": f'Ahorro máximo: <strong class="text-emerald-700">{fmt_ar(z_ah)} ({z_ahp}%)</strong> entre {z_cheapest["chain_label"]} y {z_exp["chain_label"]}.' if z_cheapest and z_exp else "",
+    }
+zone_blocks["todo"]["title"] = f"Todo: Rosario + alrededores"
+zone_sections = ""
+for zkey in ("todo", "rosario", "gran"):
+    zb = zone_blocks.get(zkey)
+    if not zb:
+        continue
+    hidden = "" if zkey == "todo" else ' hidden'
+    zone_sections += f"""
+  <div data-zoneblock="{zkey}"{hidden}>
+  <section class="mt-4">
+    <h2 class="text-sm font-bold uppercase tracking-wide text-slate-600 mb-1">Costo total canasta HOY por cadena — {zb['title']}</h2>
+    <p class="text-xs text-slate-500 mb-3">{zb['sub']}</p>
+    <div class="flex flex-wrap gap-3">
+      {zb['hero']}
+    </div>
+    <p class="mt-3 text-sm text-slate-600">{zb['foot']} Precios por paquete y $/kg-L donde aplica.</p>
+  </section>
+  <section class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+    <table class="w-full min-w-[720px] text-sm">
+      <thead class="bg-slate-50 border-b border-slate-200">
+        <tr>
+          <th class="px-3 py-2 text-left text-xs font-semibold text-slate-600">Producto</th>
+          <th class="px-2 py-2 text-right text-xs font-semibold text-slate-600 hidden md:table-cell">Unidad</th>
+          {zb['heads']}
+        </tr>
+      </thead>
+      <tbody>
+        {zb['rows']}
+      </tbody>
+    </table>
+  </section>
+  </div>"""
 
 # Precisión del pronóstico (backtest real) — honesto: separa estables de movimientos
 if BT and BT.get("n"):
@@ -155,6 +230,16 @@ html = f"""<!doctype html>
 <title>Canasta Rosario — 25 alimentos — {dt_fmt}</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <meta name="description" content="Compará el costo de 25 alimentos en Rosario + Gran Rosario con datos SEPA.">
+<style>
+.fc-badge{{cursor:pointer;border:1px dashed #94a3b8;border-radius:9999px;padding:0 6px;margin-left:4px;font-size:11px;font-weight:700;line-height:1.6;position:relative;background:#fff}}
+.fc-up{{color:#dc2626;border-color:#fca5a5;background:#fef2f2}}
+.fc-down{{color:#047857;border-color:#6ee7b7;background:#ecfdf5}}
+.fc-flat{{color:#64748b}}
+.fc-badge::after{{content:attr(data-tip);display:none;position:absolute;right:0;top:130%;z-index:30;width:210px;white-space:normal;background:#0f172a;color:#fff;font-size:11px;font-weight:400;border-radius:8px;padding:8px 10px;text-align:left;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.25)}}
+.fc-badge:hover::after,.fc-badge.show::after{{display:block}}
+.zone-chip{{cursor:pointer}}
+.zone-chip[aria-pressed="true"]{{background:#0f172a;color:#fff;border-color:#0f172a}}
+</style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 <header class="mx-auto max-w-6xl px-4 pt-6 pb-4">
@@ -188,38 +273,16 @@ html = f"""<!doctype html>
       </div>
     </div>
   </section>
-  <!-- Hero -->
-  <section>
-    <h2 class="text-sm font-bold uppercase tracking-wide text-slate-600 mb-3">Costo total canasta HOY por cadena — más barato primero</h2>
-    <div class="flex flex-wrap gap-3">
-      {hero_cards}
-    </div>
-    <p class="mt-3 text-sm text-slate-600">Ahorro máximo: <strong class="text-emerald-700">${ahorro:,.0f} ({ahorro_pct}%)</strong> entre {cheapest["chain_label"]} y {most_exp["chain_label"]}. Precios por paquete y $/kg-L donde aplica.</p>
-  </section>
-
-  <!-- Controls (no-JS visible) -->
-  <section class="mt-6 flex flex-wrap gap-2 items-center text-xs">
-    <span class="text-slate-500">Vista:</span>
-    <span class="rounded-full border border-slate-300 bg-white px-3 py-1 font-medium">Precio por paquete + $/kg-L</span>
+  <!-- Filtro de zona -->
+  <section class="mt-4 flex flex-wrap gap-2 items-center text-xs" role="group" aria-label="Filtrar por zona">
+    <span class="text-slate-500 font-semibold">Zona:</span>
+    <button type="button" class="zone-chip rounded-full border border-slate-300 bg-white px-3 py-1 font-medium" data-zone="todo" aria-pressed="true">Todo ({branches})</button>
+    <button type="button" class="zone-chip rounded-full border border-slate-300 bg-white px-3 py-1 font-medium" data-zone="rosario" aria-pressed="false">Rosario</button>
+    <button type="button" class="zone-chip rounded-full border border-slate-300 bg-white px-3 py-1 font-medium" data-zone="gran" aria-pressed="false">Alrededores</button>
     <span class="text-slate-400">· En móvil deslizá la tabla →</span>
   </section>
-
-  <!-- Table -->
-  <section class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-    <table class="w-full min-w-[720px] text-sm">
-      <thead class="bg-slate-50 border-b border-slate-200">
-        <tr>
-          <th class="px-3 py-2 text-left text-xs font-semibold text-slate-600">Producto</th>
-          <th class="px-2 py-2 text-right text-xs font-semibold text-slate-600 hidden md:table-cell">Unidad</th>
-          {html_chains}
-        </tr>
-      </thead>
-      <tbody>
-        {rows_html}
-      </tbody>
-    </table>
-  </section>
-  <p class="mt-2 text-xs text-slate-500">Verde = más barato por $/kg-L (o paquete si unidad no normalizada). “—” = No informado ese día. Flechas: <span class="text-red-600 font-bold">↑</span> se espera que suba · <span class="text-emerald-700 font-bold">↓</span> se espera que baje · <span class="text-slate-400 font-bold">→</span> estable. Pasá el cursor (o tocá) para ver % esperado. Pronóstico experimental 24-48h, no es recomendación de compra. <a class="underline" href="#pronostico">Cómo funciona</a>.</p>
+  {zone_sections}
+  <p class="mt-2 text-xs text-slate-500">Verde = más barato por $/kg-L (o paquete si unidad no normalizada). “—” = No informado ese día. Las flechas son botones: <button type="button" class="fc-badge fc-up" style="cursor:pointer" onclick="return false">↑ sube</button> <button type="button" class="fc-badge fc-down" onclick="return false">↓ baja</button> <button type="button" class="fc-badge fc-flat" onclick="return false">→ estable</button> — <strong>tocá cualquier flecha de la tabla</strong> para ver % esperado y confianza. Pronóstico experimental 24-48h, no es recomendación de compra. <a class="underline" href="#pronostico">Cómo funciona</a>.</p>
 
   <!-- Precisión: cuántas pegamos -->
   {precision_html}
@@ -247,8 +310,23 @@ html = f"""<!doctype html>
     <p class="mt-3 text-xs">Roadmap: scraping La Gallega v1.1 · <a class="underline" href="https://github.com/sebbrinkworth/canasta-rosario">GitHub — sebbrinkworth/canasta-rosario</a> · MIT</p>
   </footer>
 </main>
+<script>
+// Filtro de zona: muestra solo el bloque elegido
+document.querySelectorAll('.zone-chip').forEach(function(btn){{btn.addEventListener('click',function(){{
+  document.querySelectorAll('.zone-chip').forEach(function(b){{b.setAttribute('aria-pressed','false')}});
+  btn.setAttribute('aria-pressed','true');
+  var z=btn.getAttribute('data-zone');
+  document.querySelectorAll('[data-zoneblock]').forEach(function(div){{div.hidden=(div.getAttribute('data-zoneblock')!==z)}});
+}})}});
+// Flechas tocables: tap muestra el dato, otro tap lo cierra
+document.addEventListener('click',function(e){{
+  var b=e.target.closest?e.target.closest('.fc-badge[data-tip]'):null;
+  document.querySelectorAll('.fc-badge.show').forEach(function(x){{if(x!==b)x.classList.remove('show')}});
+  if(b){{b.classList.toggle('show');e.preventDefault()}}
+}});
+</script>
 </body>
 </html>
 """
-OUT.write_text(html.replace(",","."), encoding="utf-8")
+OUT.write_text(html, encoding="utf-8")
 print(f"Wrote {OUT} ({len(html)} bytes)")

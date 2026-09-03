@@ -409,6 +409,30 @@ def aggregate(observations, branches):
         "branches": branch_summary,
     }
 
+def zone_of(localidad):
+    loc = (localidad or "").strip().lower()
+    return "rosario" if loc == "rosario" else "gran"
+
+def build_table(agg):
+    table=[]
+    for item in CANASTA:
+        row={"id": item["id"], "name": item["name"], "unit_display": item["unit_display"], "category": item["category"], "prices": {}}
+        for cid in agg["chains"]:
+            obs = agg["cheapest"][cid].get(item["id"])
+            if obs:
+                row["prices"][cid] = {"price_lista": obs["price_lista"], "price_per_unit": obs["price_per_unit"], "per_unit": obs["per_unit_name"], "desc": obs["descripcion"], "marca": obs["marca"]}
+            else:
+                row["prices"][cid] = None
+        vals=[(cid, v["price_per_unit"]) for cid,v in row["prices"].items() if v]
+        row["cheapest_chain"] = min(vals, key=lambda x: x[1])[0] if vals else None
+        table.append(row)
+    return table
+
+def aggregate_zone(observations, branches, zone):
+    obs_z = [o for o in observations if zone_of(o.get("branch_localidad")) == zone]
+    br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone]
+    return aggregate(obs_z, br_z)
+
 def run(date_str: str, gran_rosario=False, zip_path: Path = None):
     if zip_path is None:
         dt = datetime.strptime(date_str, "%Y-%m-%d")
@@ -461,22 +485,21 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
         "comercios": comercios,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {raw_out}")
-    table=[]
-    for item in CANASTA:
-        row={"id": item["id"], "name": item["name"], "unit_display": item["unit_display"], "category": item["category"], "prices": {}}
-        for cid in agg["chains"]:
-            obs = agg["cheapest"][cid].get(item["id"])
-            if obs:
-                row["prices"][cid] = {"price_lista": obs["price_lista"], "price_per_unit": obs["price_per_unit"], "per_unit": obs["per_unit_name"], "desc": obs["descripcion"], "marca": obs["marca"]}
-            else:
-                row["prices"][cid] = None
-        vals=[(cid, v["price_per_unit"]) for cid,v in row["prices"].items() if v]
-        if vals:
-            cheapest_cid = min(vals, key=lambda x: x[1])[0]
-            row["cheapest_chain"] = cheapest_cid
-        else:
-            row["cheapest_chain"]=None
-        table.append(row)
+    table = build_table(agg)
+    zones = {}
+    for zone in ("rosario", "gran"):
+        try:
+            agg_z = aggregate_zone(observations, branches, zone)
+            br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone]
+            zones[zone] = {
+                "branches_count": len(br_z),
+                "chains": [{"id": cid, "label": CHAIN_LABELS.get(cid,cid)} for cid in agg_z["chains"]],
+                "hero": agg_z["hero"],
+                "table": build_table(agg_z),
+            }
+        except Exception as e:
+            print(f"zone {zone} failed: {e}")
+            zones[zone] = {"branches_count": 0, "chains": [], "hero": [], "table": []}
     agg_out = DATA_AGG / f"rosario-{date_str}.json"
     agg_out.write_text(json.dumps({
         "date": date_str, "gran_rosario": gran_rosario,
@@ -484,6 +507,7 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
         "chains": [{"id": cid, "label": CHAIN_LABELS.get(cid,cid)} for cid in agg["chains"]],
         "hero": agg["hero"],
         "table": table,
+        "zones": zones,
         "generated_at": datetime.now().isoformat(),
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {agg_out}")
