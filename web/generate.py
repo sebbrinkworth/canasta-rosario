@@ -14,6 +14,12 @@ try:
 except Exception:
     FORECAST = {}
     FORECAST_NOTE = ""
+# Backtest real (cuántas pegamos) — si falta, se omite la sección
+BT_PATH = ROOT / "data" / "backtest.json"
+try:
+    BT = json.loads(BT_PATH.read_text(encoding="utf-8"))
+except Exception:
+    BT = {}
 date = data["date"]
 dt_fmt = f"{date[8:10]}/{date[5:7]}/{date[0:4]}"
 branches = data["branches_count"]
@@ -111,6 +117,36 @@ for i, h in enumerate(hero):
       {f'<span class="mt-1 inline-flex w-fit rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white">Más barato</span>' if is_win else ''}
     </div>'''.replace(",",".")
 
+# Precisión del pronóstico (backtest real) — honesto: separa estables de movimientos
+if BT and BT.get("n"):
+    mp = BT.get("moves_prec", {})
+    sube = mp.get("sube", {"n":0,"hits":0,"precision":0})
+    baja = mp.get("baja", {"n":0,"hits":0,"precision":0})
+    est = mp.get("estable", {"n":0,"hits":0,"precision":0})
+    mov_n = sube["n"] + baja["n"]
+    mov_h = sube["hits"] + baja["hits"]
+    mov_p = round(mov_h / mov_n * 100, 1) if mov_n else 0
+    cat_rows = "".join(
+        f'<tr class="border-b border-slate-100"><td class="px-2 py-1">{k}</td>'
+        f'<td class="px-2 py-1 text-right">{v["hit_rate"]}%</td>'
+        f'<td class="px-2 py-1 text-right text-slate-400">{v["n"]}</td></tr>'
+        for k, v in (BT.get("by_category") or {}).items()
+    )
+    precision_html = f"""
+  <section class="mt-6 rounded-xl border-2 border-slate-800 bg-white p-5 md:p-6 shadow-sm">
+    <h3 class="text-base md:text-lg font-extrabold text-slate-900">¿Cuántas pegamos? <span class="text-sm font-normal text-slate-500">— medido con datos reales, no con sintéticos</span></h3>
+    <p class="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900\">De cada 10 flechas, <span class="text-emerald-700\">acertamos {round(BT['hit_rate']/10):.0f}</span> <span class="text-sm font-normal text-slate-500\">({BT['hits']}/{BT['n']}, últimos {BT.get('eval_days')} días: {BT.get('date_range',[None,None])[0]} → {BT.get('date_range',[None,None])[1]})</span></p>
+    <div class="mt-3 grid gap-3 md:grid-cols-2 text-xs md:text-[13px] leading-relaxed">
+      <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3"><strong>Lo fácil: decir “mañana no cambia” →</strong> acierta el <strong>{est['precision']}%</strong> ({est['hits']}/{est['n']}). La mayoría de los días los precios no se mueven, y ahí somos buenos.</div>
+      <div class="rounded-lg bg-amber-50 border border-amber-200 p-3"><strong>Lo difícil: anticipar subas y bajas.</strong> Cuando la flecha dijo <strong>↑</strong> o <strong>↓</strong> ({mov_n} veces), solo acertó <strong>{mov_h} ({mov_p}%)</strong>. Tómalas como señal débil, no como certeza — por eso seguimos con el experimento TimesFM + dólar.</div>
+    </div>
+    <details class="mt-3 text-xs md:text-[13px]"><summary class="cursor-pointer underline text-slate-600\">Ver por categoría</summary>
+      <table class="mt-2 w-full max-w-md text-xs"><thead><tr class="text-left text-slate-500\"><th class="px-2 py-1\">Categoría</th><th class="px-2 py-1 text-right\">Acierto</th><th class="px-2 py-1 text-right\">Casos</th></tr></thead><tbody>{cat_rows}</tbody></table>
+    </details>
+  </section>"""
+else:
+    precision_html = ""
+
 html = f"""<!doctype html>
 <html lang="es">
 <head>
@@ -185,6 +221,8 @@ html = f"""<!doctype html>
   </section>
   <p class="mt-2 text-xs text-slate-500">Verde = más barato por $/kg-L (o paquete si unidad no normalizada). “—” = No informado ese día. Flechas: <span class="text-red-600 font-bold">↑</span> se espera que suba · <span class="text-emerald-700 font-bold">↓</span> se espera que baje · <span class="text-slate-400 font-bold">→</span> estable. Pasá el cursor (o tocá) para ver % esperado. Pronóstico experimental 24-48h, no es recomendación de compra. <a class="underline" href="#pronostico">Cómo funciona</a>.</p>
 
+  <!-- Precisión: cuántas pegamos -->
+  {precision_html}
   <!-- Pronóstico en esta misma vista -->
   <section id="pronostico" class="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/50 p-5 md:p-6">
     <h3 class="text-base font-extrabold text-slate-900">Pronóstico en esta misma vista — qué significan las flechas</h3>

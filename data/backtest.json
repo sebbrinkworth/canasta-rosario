@@ -1,0 +1,73 @@
+{
+  "method": "drift-7d, umbral 0.8%, solo datos reales SEPA",
+  "eval_days": 5,
+  "date_range": [
+    "2026-08-27",
+    "2026-09-03"
+  ],
+  "n": 554,
+  "hits": 444,
+  "hit_rate": 80.1,
+  "mae": 203.8,
+  "mape": 5.16,
+  "pred_dist": {
+    "estable": 481,
+    "sube": 44,
+    "baja": 29
+  },
+  "moves_prec": {
+    "sube": {
+      "n": 44,
+      "hits": 1,
+      "precision": 2.3
+    },
+    "baja": {
+      "n": 29,
+      "hits": 1,
+      "precision": 3.4
+    },
+    "estable": {
+      "n": 481,
+      "hits": 442,
+      "precision": 91.9
+    }
+  },
+  "by_category": {
+    "Almacén": {
+      "n": 125,
+      "hit_rate": 91.2
+    },
+    "Carnes": {
+      "n": 44,
+      "hit_rate": 72.7
+    },
+    "Conservas": {
+      "n": 45,
+      "hit_rate": 84.4
+    },
+    "Frescos": {
+      "n": 25,
+      "hit_rate": 68.0
+    },
+    "Infusiones": {
+      "n": 40,
+      "hit_rate": 87.5
+    },
+    "Limpieza": {
+      "n": 66,
+      "hit_rate": 87.9
+    },
+    "Lácteos": {
+      "n": 90,
+      "hit_rate": 73.3
+    },
+    "Panificados": {
+      "n": 25,
+      "hit_rate": 88.0
+    },
+    "Verdulería": {
+      "n": 94,
+      "hit_rate": 66.0
+    }
+  }
+}
