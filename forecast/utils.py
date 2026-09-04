@@ -12,42 +12,13 @@ def list_jsons():
     return sorted(DATA_DIR.glob("rosario-*.json"))
 
 def list_synthetic_jsons():
-    return sorted((DATA_DIR / "synthetic").glob("rosario-*.json"))
+    # synthetic preview removed 2026-09-04: real SEPA history only
+    return []
 
 def load_synthetic_30d(price_field: str = "price_per_unit", fill_limit: int = 2) -> pd.DataFrame:
-    """Merge synthetic (data/synthetic/) + real (data/) sorted by date."""
-    import json as _json, re as _re, numpy as _np, pandas as _pd
-    files = list_synthetic_jsons() + list_jsons()
-    rows = {}
-    for fp in files:
-        try:
-            d = _json.loads(fp.read_text())
-        except Exception:
-            continue
-        date = d.get("date") or _re.search(r"(\d{4}-\d{2}-\d{2})", fp.name).group(1)
-        for item in d.get("table", []):
-            pid = item["id"]
-            for cid, price_obj in (item.get("prices") or {}).items():
-                col = f"{pid}__{cid}"
-                if price_obj is None:
-                    val = _np.nan
-                else:
-                    raw = price_obj.get(price_field)
-                    if raw is None or raw == "—" or raw == "":
-                        val = _np.nan
-                    else:
-                        try:
-                            val = float(raw)
-                        except:
-                            val = _np.nan
-                rows.setdefault(date, {})[col] = val
-    if not rows:
-        return _pd.DataFrame()
-    df = _pd.DataFrame.from_dict(rows, orient="index")
-    df.index = _pd.to_datetime(df.index)
-    df = df.sort_index()
-    df = df.ffill(limit=fill_limit)
-    return df
+    """DEPRECATED 2026-09-04: synthetic preview removed — returns real-only data.
+    Kept for backwards compatibility with old callers; the synthetic directory no longer exists."""
+    return load_price_dataframe(price_field=price_field, fill_limit=fill_limit)
 
 def load_price_dataframe(price_field: str = "price_per_unit", fill_limit: int = 2) -> pd.DataFrame:
     """Values = price_field (price_per_unit | price_lista). '—'/null → NaN, ffill limit 2."""

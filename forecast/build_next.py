@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Build data/forecast-next.json with AUTO-REPLACE: real-only when enough real days.
+"""Build data/forecast-next.json — REAL SEPA data only.
 
-- Counts data/rosario-*.json (real, agregados).
-- If real_days >= 30: uses only real (mode=real).
-- Else: merges data/synthetic + real to reach ~30 (mode=synthetic+real), clearly labeled.
-- Forecast method (lightweight, no GPU): drift of last 5 diffs on price_per_unit.
-  Full TimesFM3 eval lives in forecast/test_harness.py (b3sti4 4060).
+Synthetic preview removed 2026-09-04 (transparencia: nada sintético va al sitio).
+Con pocos días reales el drift usa la ventana disponible; crece solo al acumular
+historia. Honestidad > completitud.
+
+Forecast method (lightweight, no GPU): drift of last 5 diffs on price_per_unit.
+Full TimesFM3 eval lives in forecast/test_harness.py (b3sti4 4060).
 """
 import json, pathlib
 import numpy as np
@@ -13,7 +14,7 @@ import numpy as np
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 OUT = DATA / "forecast-next.json"
-THRESHOLD = 30
+
 
 def load_df(files, field="price_per_unit"):
     import pandas as pd
@@ -47,20 +48,12 @@ def load_df(files, field="price_per_unit"):
 
 def main():
     real_files = sorted(DATA.glob("rosario-*.json"))
-    synt_files = sorted((DATA / "synthetic").glob("rosario-*.json"))
     real_days = len(real_files)
-    if real_days >= THRESHOLD:
-        df = load_df(real_files)
-        mode = "real"
-        used_real, used_synt = real_days, 0
-    else:
-        # merge synthetic + real, sorted, keep last 30
-        df = load_df(synt_files + real_files)
-        # keep last 30 dates to bound size
-        if len(df) > 30:
-            df = df.iloc[-30:]
-        mode = "synthetic+real"
-        used_real, used_synt = real_days, max(0, len(df) - real_days)
+    df = load_df(real_files)
+    if len(df) > 30:
+        df = df.iloc[-30:]
+    mode = "real"
+    used_real, used_synt = real_days, 0
     items = {}
     for col in df.columns:
         s = df[col].dropna()
@@ -89,14 +82,11 @@ def main():
     OUT.write_text(json.dumps({
         "mode": mode,
         "real_days": used_real,
-        "synthetic_days": used_synt,
-        "threshold": THRESHOLD,
-        "generated_from": "real-only" if mode == "real" else "synthetic_30d_merged",
-        "note": ("Solo datos reales SEPA. " if mode == "real"
-                 else f"Sintético se reemplaza solo: {used_real}/{THRESHOLD} días reales, resto sintético. "),
+        "synthetic_days": 0,
+        "note": f"Solo datos reales SEPA ({used_real} días acumulados). Precisión mejora al crecer la historia.",
         "items": items,
     }, ensure_ascii=False, indent=2))
-    print(f"[build_next] mode={mode} real={used_real} synt={used_synt} forecasts={len(items)} -> {OUT}")
+    print(f"[build_next] mode={mode} real={used_real} forecasts={len(items)} -> {OUT}")
 
 if __name__ == "__main__":
     main()

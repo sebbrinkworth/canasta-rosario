@@ -207,28 +207,21 @@ def metrics(y_true, y_pred, y_lo, y_hi):
 def run():
     ap=argparse.ArgumentParser()
     ap.add_argument("--force",action="store_true")
-    ap.add_argument("--synthetic",action="store_true", help="usa data/synthetic + real (30d preview)")
     ap.add_argument("--skip-timesfm",action="store_true", help="fuerza baseline naive (no carga el modelo; útil en CPU/CI)")
     ap.add_argument("--min-obs",type=int,default=4)
     args=ap.parse_args()
-    # synthetic mode: load merged 30d series
-    synthetic_mode = bool(args.synthetic)
+    # datos reales únicamente (preview sintético eliminado 2026-09-04)
     files=list(DATA_DIR.glob("rosario-*.json"))
-    syn_files=list((DATA_DIR/"synthetic").glob("rosario-*.json")) if synthetic_mode else []
     n=len(files)
-    print(f"[harness] data/rosario-*.json: {n} archivos" + (f" + synthetic {len(syn_files)}" if synthetic_mode else ""))
-    if not synthetic_mode and n < 50 and not args.force:
+    print(f"[harness] data/rosario-*.json: {n} archivos")
+    if n < 50 and not args.force:
         print(f"Backfill no listo ({n}/64). Solo scaffolding. Cuando termine, corré: uv run python forecast/test_harness.py  (o --force para probar con datos actuales)")
         if not (OUT_DIR / "report.html").exists() or (OUT_DIR / "eval_results.json").exists() is False:
             produce_report_placeholder(n)
         else:
             print("[harness] reporte preview existente preservado — no se sobrescribe. Para forzar placeholder, borrá forecast/report.html.")
         return
-    if synthetic_mode:
-        from forecast.utils import load_synthetic_30d
-        df=load_synthetic_30d()
-    else:
-        df=load_price_dataframe()
+    df=load_price_dataframe()
     print(f"[harness] DataFrame {df.shape} {df.index.min().date() if len(df)>0 else '?'} -> {df.index.max().date() if len(df)>0 else '?'}")
     if df.empty:
         produce_report_placeholder(n); return
@@ -375,12 +368,11 @@ def run():
                 forecasts_for_plot[col]= {"y_true":y_true,"y_pred":y_pred,"y_lo":y_lo,"y_hi":y_hi,"dates":[d.strftime("%Y-%m-%d") for d in eval_dates]}
     # aggregate
     df_res=pd.DataFrame(results)
-    # write eval_results.json/md — synthetic uses separate files
+    # write eval_results.json/md
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    suffix = "_synthetic" if synthetic_mode else ""
-    json_path=OUT_DIR/f"eval_results{suffix}.json"
-    # include synthetic flag in json
-    json_path.write_text(json.dumps({"cov_note":cov_note,"timesfm_ok":timesfm_ok,"n_series":len(keep),"n_files":n,"n_synthetic":len(syn_files) if synthetic_mode else 0,"synthetic":synthetic_mode,"results":results,"example":forecasts_for_plot}, ensure_ascii=False, indent=2))
+    json_path=OUT_DIR/f"eval_results.json"
+    # include metadata in json
+    json_path.write_text(json.dumps({"cov_note":cov_note,"timesfm_ok":timesfm_ok,"n_series":len(keep),"n_files":n,"results":results,"example":forecasts_for_plot}, ensure_ascii=False, indent=2))
     # markdown
     md_lines=["# Canasta Rosario — TimesFM 3 Evaluación","",f"Rango: {dates.min().date()} -> {dates.max().date()} — {n} archivos — {len(keep)} series (≥{args.min_obs} obs)","",f"> Covariables: {cov_note}","",f"> Motor: {'TimesFM 3' if timesfm_ok else 'Naive/MA baseline (TimesFM no instalado — `pip install timesfm`)'}","","## Agregado por configuración","","| Config | MAE | MAPE % | RMSE | Coverage 10-90 | n |","|---|---|---|---|---|---|"]
     agg=df_res.groupby("config").agg({"mae":"mean","mape":"mean","rmse":"mean","coverage":"mean","n":"sum"}).reindex(CONFIGS)
@@ -403,15 +395,11 @@ def run():
         row=cat_agg.loc[cat]
         md_lines.append(f"| {cat} | " + " | ".join(f"{row.get(c,np.nan):.1f}" if pd.notna(row.get(c)) else "—" for c in CONFIGS) + " |")
     (OUT_DIR/f"eval_results{suffix}.md").write_text("\n".join(md_lines), encoding="utf-8")
-    print(f"[harness] escrito {json_path} y eval_results{suffix}.md")
-    # Build plots + HTML — synthetic variant
+    print(f"[harness] escrito {json_path}")
+    # Build plots + HTML
     try:
-        if synthetic_mode:
-            from forecast.report_synthetic import build_report_synthetic
-            build_report_synthetic(df, df_res, forecasts_for_plot, cov_df, meta=load_meta(), timesfm_ok=timesfm_ok, cov_note=cov_note)
-        else:
-            from forecast.report import build_report
-            build_report(df, df_res, forecasts_for_plot, cov_df, meta=load_meta(), timesfm_ok=timesfm_ok, cov_note=cov_note)
+        from forecast.report import build_report
+        build_report(df, df_res, forecasts_for_plot, cov_df, meta=load_meta(), timesfm_ok=timesfm_ok, cov_note=cov_note)
     except Exception as e:
         import traceback; traceback.print_exc()
         print(f"[harness] report build falló: {e}")
