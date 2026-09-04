@@ -3,8 +3,8 @@
 <div class="banner">⚠️ Synthetic preview 23 sintéticos + 7 reales (jitter + promo + FX pass-through) — para validar plumbing, no para publicar MAE<br><b>2026-08-01 → 2026-09-03</b> · 30 días (sintéticos 2026-08-01..24 + reales 2026-08-25..09-01) · Walk-forward últimos 10 días, contexto 20d, h=1 · El Action diario reemplazará sintéticos por reales (~30 reales hacia fines de sep).</div>
 <header class="card"><h1>Canasta Rosario — Preview Sintético 30 días · TimesFM 3</h1>
 <p>Rango: <b>2026-08-01 → 2026-09-03</b> · Reales: 7 · Sintéticos: 23 · Sintéticos en <code>data/synthetic/rosario-*.json</code> (no en <code>data/*.json</code>)</p>
-<p><span class="badge">Gran Rosario</span> <span class="badge">Walk-forward h=1</span> <span class="badge">Baseline naive (TimesFM no instalado)</span> <span class="badge">FX source: dolarapi.com (histórico interpolado) — IPIM: stub</span></p>
-<p style="font-size:12px;color:#64748b">Generado 2026-09-04 12:06 — <code>forecast/eval_results_synthetic.json</code> · Cadenas: Carrefour, Coto, DIA, La Anónima, Jumbo/Vea/Disco</p>
+<p><span class="badge">Gran Rosario</span> <span class="badge">Walk-forward h=1</span> <span class="badge">Baseline naive (TimesFM no instalado)</span> <span class="badge">FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual interpolado diario (series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (INDEC))</span></p>
+<p style="font-size:12px;color:#64748b">Generado 2026-09-04 12:52 — <code>forecast/eval_results_synthetic.json</code> · Cadenas: Carrefour, Coto, DIA, La Anónima, Jumbo/Vea/Disco</p>
 </header>
 <section class="card"><h2>1. ¿Ayudan las covariables? (MAE por config)</h2>
 <img src="plots_synthetic/01_mae_por_config.png" alt="MAE por config">
@@ -1329,5 +1329,5 @@
   </tbody>
 </table>
 </section>
-<section class="card footer"><b>Metodología preview:</b> 23 días sintéticos (median + N(0,std*0.35) + 5% promo −8..−15% + trend +0.2%/día + FX pass-through) + 7 reales. Walk-forward nowcast h=1 últimos 10 días, contexto 20d. TimesFM 3 si instalado, si no baseline naive (drift). Covariables: FX source: dolarapi.com (histórico interpolado) — IPIM: stub. Re-ejecutar: <code>uv run python forecast/test_harness.py --synthetic --force</code>. Cuando haya ~30 reales, correr sin --synthetic.<br>Repro: <code>PYTHONPATH=. uv run python forecast/synthetic.py</code> regenera sintéticos.</section>
+<section class="card footer"><b>Metodología preview:</b> 23 días sintéticos (median + N(0,std*0.35) + 5% promo −8..−15% + trend +0.2%/día + FX pass-through) + 7 reales. Walk-forward nowcast h=1 últimos 10 días, contexto 20d. TimesFM 3 si instalado, si no baseline naive (drift). Covariables: FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual interpolado diario (series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (INDEC)). Re-ejecutar: <code>uv run python forecast/test_harness.py --synthetic --force</code>. Cuando haya ~30 reales, correr sin --synthetic.<br>Repro: <code>PYTHONPATH=. uv run python forecast/synthetic.py</code> regenera sintéticos.</section>
 </body></html>

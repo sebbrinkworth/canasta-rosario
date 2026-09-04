@@ -2,7 +2,7 @@
 
 Rango: 2026-08-01 -> 2026-09-03 — 9 archivos — 125 series (≥4 obs)
 
-> Covariables: FX source: dolarapi.com (histórico interpolado) — IPIM: stub
+> Covariables: FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual interpolado diario (series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (INDEC))
 
 > Motor: Naive/MA baseline (TimesFM no instalado — `pip install timesfm`)
 

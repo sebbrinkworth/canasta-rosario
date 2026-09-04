@@ -1,5 +1,5 @@
 {
-  "cov_note": "FX source: dolarapi.com (histórico interpolado) — IPIM: stub",
+  "cov_note": "FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual interpolado diario (series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (INDEC))",
   "timesfm_ok": false,
   "n_series": 125,
   "n_files": 9,
