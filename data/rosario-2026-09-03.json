@@ -1,7 +1,7 @@
 {
   "date": "2026-09-03",
   "gran_rosario": true,
-  "branches_count": 19,
+  "branches_count": 14,
   "chains": [
     {
       "id": "10",
@@ -1082,7 +1082,7 @@
   ],
   "zones": {
     "rosario": {
-      "branches_count": 16,
+      "branches_count": 11,
       "chains": [
         {
           "id": "10",
