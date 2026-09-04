@@ -69,11 +69,11 @@ def forecast_badge(pid, cid):
     delta = f.get("delta_pct", 0)
     conf = f.get("conf", "media")
     if d == "sube":
-        arrow, cls2, label = "↑ sube", "fc-up", f"Se espera que suba {delta:+.1f}% · confianza {conf}"
+        arrow, cls2, label = "↑", "fc-up", f"Se espera que suba {delta:+.1f}% · confianza {conf}"
     elif d == "baja":
-        arrow, cls2, label = "↓ baja", "fc-down", f"Se espera que baje {delta:+.1f}% · confianza {conf}"
+        arrow, cls2, label = "↓", "fc-down", f"Se espera que baje {delta:+.1f}% · confianza {conf}"
     else:
-        arrow, cls2, label = "→ estable", "fc-flat", f"Estable ({delta:+.1f}%) · confianza {conf}"
+        arrow, cls2, label = "→", "fc-flat", f"Estable ({delta:+.1f}%) · confianza {conf}"
     tip = f"{label}. Pronóstico experimental 24-48h, no es recomendación de compra. Tocá de nuevo para cerrar."
     return f'<button type="button" class="fc-badge {cls2}" data-tip="{tip}" aria-label="{label}">{arrow}</button>'
 
@@ -282,7 +282,7 @@ html = f"""<!doctype html>
     <span class="text-slate-400">· En móvil deslizá la tabla →</span>
   </section>
   {zone_sections}
-  <p class="mt-2 text-xs text-slate-500">Verde = más barato por $/kg-L (o paquete si unidad no normalizada). “—” = No informado ese día. Las flechas son botones: <button type="button" class="fc-badge fc-up" style="cursor:pointer" onclick="return false">↑ sube</button> <button type="button" class="fc-badge fc-down" onclick="return false">↓ baja</button> <button type="button" class="fc-badge fc-flat" onclick="return false">→ estable</button> — <strong>tocá cualquier flecha de la tabla</strong> para ver % esperado y confianza. Pronóstico experimental 24-48h, no es recomendación de compra. <a class="underline" href="#pronostico">Cómo funciona</a>.</p>
+  <p class="mt-2 text-xs text-slate-500">Verde = más barato por $/kg-L (o paquete si unidad no normalizada). “—” = No informado ese día. Las flechas son botones: <button type="button" class="fc-badge fc-up" style="cursor:pointer" onclick="return false">↑</button> <button type="button" class="fc-badge fc-down" onclick="return false">↓</button> <button type="button" class="fc-badge fc-flat" onclick="return false">→</button> — <strong>tocá cualquier flecha de la tabla</strong> para ver % esperado y confianza. Pronóstico experimental 24-48h, no es recomendación de compra. <a class="underline" href="#pronostico">Cómo funciona</a>.</p>
 
   <!-- Precisión: cuántas pegamos -->
   {precision_html}

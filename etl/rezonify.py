@@ -10,7 +10,7 @@ import json, pathlib, sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from etl.etl import aggregate_zone, build_table, zone_of
-from etl.etl import CHAIN_LABELS
+from etl.etl import CHAIN_LABELS, NON_RETAIL_COMERCIOS
 
 for raw_fp in sorted((ROOT / "data" / "raw").glob("rosario-*.json")):
     date = raw_fp.stem.replace("rosario-", "")
@@ -24,7 +24,7 @@ for raw_fp in sorted((ROOT / "data" / "raw").glob("rosario-*.json")):
     zones = {}
     for zone in ("rosario", "gran"):
         agg_z = aggregate_zone(observations, branches, zone)
-        br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone]
+        br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone and str(b.get("id_comercio")) not in NON_RETAIL_COMERCIOS]
         zones[zone] = {
             "branches_count": len(br_z),
             "chains": [{"id": c, "label": CHAIN_LABELS.get(c, c)} for c in agg_z["chains"]],

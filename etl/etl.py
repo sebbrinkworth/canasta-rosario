@@ -38,6 +38,7 @@ CHAIN_LABELS = {
 }
 ALLOWED_CHAINS = {"2","9","10","11","12","13","15","16"}
 EXCLUDE_CHAINS = None
+NON_RETAIL_COMERCIOS = {"23"}  # Axion Energy: estaciones de servicio, no supermercados
 
 def normalize_text(s: str) -> str:
     if not s: return ""
@@ -430,7 +431,7 @@ def build_table(agg):
 
 def aggregate_zone(observations, branches, zone):
     obs_z = [o for o in observations if zone_of(o.get("branch_localidad")) == zone]
-    br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone]
+    br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone and str(b.get("id_comercio")) not in NON_RETAIL_COMERCIOS]
     return aggregate(obs_z, br_z)
 
 def run(date_str: str, gran_rosario=False, zip_path: Path = None):
@@ -462,7 +463,8 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
             print(f"Saved to {zip_path} ({zip_path.stat().st_size} bytes)")
     print(f"Parsing {zip_path} gran_rosario={gran_rosario} ...")
     comercios, branches, observations_raw = extract_observations(zip_path, gran_rosario=gran_rosario)
-    print(f"Branches matched: {len(branches)} ; observations matched to canasta (raw): {len(observations_raw)}")
+    branches = [b for b in branches if str(b.get("id_comercio")) not in NON_RETAIL_COMERCIOS]
+    print(f"Branches matched (retail): {len(branches)} ; observations matched to canasta (raw): {len(observations_raw)}")
     kept, rejected, medians = filter_outliers(observations_raw)
     if rejected:
         print(f"Outlier/sanity rejected: {len(rejected)} (kept {len(kept)})")
@@ -490,7 +492,7 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
     for zone in ("rosario", "gran"):
         try:
             agg_z = aggregate_zone(observations, branches, zone)
-            br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone]
+            br_z = [b for b in branches if zone_of(b.get("localidad") or b.get("sucursales_localidad")) == zone and str(b.get("id_comercio")) not in NON_RETAIL_COMERCIOS]
             zones[zone] = {
                 "branches_count": len(br_z),
                 "chains": [{"id": cid, "label": CHAIN_LABELS.get(cid,cid)} for cid in agg_z["chains"]],
