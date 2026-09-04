@@ -8,8 +8,8 @@
   "n": 666,
   "hits": 546,
   "hit_rate": 82.0,
-  "mae": 167.2,
-  "mape": 3.2,
+  "mae": 152.2,
+  "mape": 2.97,
   "pred_dist": {
     "estable": 579,
     "sube": 51,
@@ -23,13 +23,13 @@
     },
     "baja": {
       "n": 36,
-      "hits": 2,
-      "precision": 5.6
+      "hits": 1,
+      "precision": 2.8
     },
     "estable": {
       "n": 579,
-      "hits": 543,
-      "precision": 93.8
+      "hits": 544,
+      "precision": 94.0
     }
   },
   "event_precision": {
@@ -45,19 +45,19 @@
     },
     "baja": {
       "n": 36,
-      "actual": 2,
-      "hits": 2,
-      "precision": 5.6,
+      "actual": 1,
+      "hits": 1,
+      "precision": 2.8,
       "recall": 100.0,
-      "f1": 10.53
+      "f1": 5.41
     },
     "estable": {
       "n": 579,
-      "actual": 543,
-      "hits": 543,
-      "precision": 93.8,
+      "actual": 544,
+      "hits": 544,
+      "precision": 94.0,
       "recall": 100.0,
-      "f1": 96.79
+      "f1": 96.88
     }
   },
   "weekly": {
@@ -67,11 +67,11 @@
     "classes": {
       "sube": {
         "n": 44,
-        "actual": 1,
-        "hits": 1,
-        "precision": 2.3,
+        "actual": 5,
+        "hits": 5,
+        "precision": 11.4,
         "recall": 100.0,
-        "f1": 4.44
+        "f1": 20.41
       },
       "baja": {
         "n": 29,
@@ -83,16 +83,16 @@
       },
       "estable": {
         "n": 481,
-        "actual": 411,
-        "hits": 411,
-        "precision": 85.4,
+        "actual": 408,
+        "hits": 408,
+        "precision": 84.8,
         "recall": 100.0,
-        "f1": 92.15
+        "f1": 91.79
       }
     },
     "mov_prec_summary": {
       "sube_pred": 44,
-      "sube_precision": 2.3,
+      "sube_precision": 11.4,
       "sube_recall": 100.0,
       "baja_pred": 29,
       "baja_precision": 10.3,
