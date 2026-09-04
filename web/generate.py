@@ -60,18 +60,49 @@ cat_groups = defaultdict(list)
 for row in table:
     cat_groups[row["category"]].append(row)
 
+MOVE_PREC_GATE = 25.0  # % precision de la clase sube/baja bajo el cual no mostramos flechas ↑↓ (solo →)
+
+
+def _move_precision():
+    """Measured move precision from data/backtest.json. Returns (daily_sube, daily_baja, weekly_sube, weekly_baja).
+    Daily if present, else weekly if present, else (None...) — gating uses whatever the method actually measured."""
+    try:
+        ev = (BT or {}).get("event_precision") or {}
+        wk = (BT or {}).get("weekly") or {}
+        ds = (ev.get("daily") or {}).get("sube") or {}
+        db = (ev.get("daily") or {}).get("baja") or {}
+        ws = (wk.get("classes") or {}).get("sube") or {}
+        wb = (wk.get("classes") or {}).get("baja") or {}
+        return ds.get("precision"), db.get("precision"), ws.get("precision"), wb.get("precision")
+    except Exception:
+        return None, None, None, None
+
+
 def forecast_badge(pid, cid):
-    """Flechita ↑↓→ tocable: badge con cursor pointer + tooltip en hover (desktop) y tap (móvil)."""
+    """Flechita ↑↓→ tocable: badge con cursor pointer + tooltip en hover (desktop) y tap (móvil).
+    Gate: las flechas ↑↓ solo se muestran si la precisión medida de la clase (backtest real)
+    supera MOVE_PREC_GATE; si no, renderizamos la flecha gris → con leyenda honesta en el tooltip."""
     f = FORECAST.get(f"{pid}__{cid}")
     if not f:
         return ""
     d = f.get("dir", "estable")
     delta = f.get("delta_pct", 0)
     conf = f.get("conf", "media")
+    ds, db, ws, wb = _move_precision()
     if d == "sube":
-        arrow, cls2, label = "↑", "fc-up", f"Se espera que suba {delta:+.1f}% · confianza {conf}"
+        prec = ds if ds is not None else ws
+        show_arrow = prec is not None and prec >= MOVE_PREC_GATE
+        if show_arrow:
+            arrow, cls2, label = "↑", "fc-up", f"Se espera que suba {delta:+.1f}% · confianza {conf}"
+        else:
+            arrow, cls2, label = "→", "fc-flat", f"Sin flecha ↑: esta clase hoy acierta {prec}% (umbral {MOVE_PREC_GATE:.0f}%) — no podemos anticipar subas todavía, mostramos →"
     elif d == "baja":
-        arrow, cls2, label = "↓", "fc-down", f"Se espera que baje {delta:+.1f}% · confianza {conf}"
+        prec = db if db is not None else wb
+        show_arrow = prec is not None and prec >= MOVE_PREC_GATE
+        if show_arrow:
+            arrow, cls2, label = "↓", "fc-down", f"Se espera que baje {delta:+.1f}% · confianza {conf}"
+        else:
+            arrow, cls2, label = "→", "fc-flat", f"Sin flecha ↓: esta clase hoy acierta {prec}% (umbral {MOVE_PREC_GATE:.0f}%) — no podemos anticipar bajas todavía, mostramos →"
     else:
         arrow, cls2, label = "→", "fc-flat", f"Estable ({delta:+.1f}%) · confianza {conf}"
     tip = f"{label}. Pronóstico experimental 24-48h, no es recomendación de compra. Tocá de nuevo para cerrar."
@@ -201,6 +232,16 @@ if BT and BT.get("n"):
     mov_n = sube["n"] + baja["n"]
     mov_h = sube["hits"] + baja["hits"]
     mov_p = round(mov_h / mov_n * 100, 1) if mov_n else 0
+    # event layer: precision/recall por clase (daily + weekly)
+    ev = BT.get("event_precision") or {}
+    wk = BT.get("weekly") or {}
+    def _s(d, k): return (d.get(k) or {}) if isinstance(d, dict) else {}
+    ev_d = _s(ev, "daily"); ev_w = _s(wk, "classes")
+    ev_sube = _s(ev_d, "sube"); ev_baja = _s(ev_d, "baja"); ev_est = _s(ev_d, "estable")
+    wk_sube = _s(ev_w, "sube"); wk_baja = _s(ev_w, "baja")
+    ev_sube_p = ev_sube.get("precision", 0); ev_sube_r = ev_sube.get("recall", 0)
+    ev_baja_p = ev_baja.get("precision", 0); ev_baja_r = ev_baja.get("recall", 0)
+    wk_sube_p = wk_sube.get("precision", 0); wk_baja_p = wk_baja.get("precision", 0)
     cat_rows = "".join(
         f'<tr class="border-b border-slate-100"><td class="px-2 py-1">{k}</td>'
         f'<td class="px-2 py-1 text-right">{v["hit_rate"]}%</td>'
@@ -210,10 +251,10 @@ if BT and BT.get("n"):
     precision_html = f"""
   <section class="mt-6 rounded-xl border-2 border-slate-800 bg-white p-5 md:p-6 shadow-sm">
     <h3 class="text-base md:text-lg font-extrabold text-slate-900">¿Cuántas pegamos? <span class="text-sm font-normal text-slate-500">— medido con datos reales, no con sintéticos</span></h3>
-    <p class="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900\">De cada 10 flechas, <span class="text-emerald-700\">acertamos {round(BT['hit_rate']/10):.0f}</span> <span class="text-sm font-normal text-slate-500\">({BT['hits']}/{BT['n']}, últimos {BT.get('eval_days')} días: {BT.get('date_range',[None,None])[0]} → {BT.get('date_range',[None,None])[1]})</span></p>
+    <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-slate-700">La flecha <strong>↑/↓</strong> (mover el precio) es la parte difícil: hoy acierta <strong class="text-amber-700">{mov_p}%</strong> ({mov_h}/{mov_n}). Cuando dice <strong>→</strong> (“no cambia”) acierta <strong>{est['precision']}%</strong> ({est['hits']}/{est['n']}). Por eso, hasta que la precisión de movimiento pase el umbral (<strong>{MOVE_PREC_GATE:.0f}%</strong>), el sitio muestra solo la flecha gris → aunque el modelo interno crea que va a subir o bajar.</p>
     <div class="mt-3 grid gap-3 md:grid-cols-2 text-xs md:text-[13px] leading-relaxed">
       <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3"><strong>Lo fácil: decir “mañana no cambia” →</strong> acierta el <strong>{est['precision']}%</strong> ({est['hits']}/{est['n']}). La mayoría de los días los precios no se mueven, y ahí somos buenos.</div>
-      <div class="rounded-lg bg-amber-50 border border-amber-200 p-3"><strong>Lo difícil: anticipar subas y bajas.</strong> Cuando la flecha dijo <strong>↑</strong> o <strong>↓</strong> ({mov_n} veces), solo acertó <strong>{mov_h} ({mov_p}%)</strong>. Tómalas como señal débil, no como certeza — por eso seguimos con el experimento TimesFM + dólar.</div>
+      <div class="rounded-lg bg-amber-50 border border-amber-200 p-3"><strong>Lo difícil: anticipar subas y bajas.</strong> Hoy <strong>↑</strong> acierta <strong>{ev_sube_p}%</strong> (recall {ev_sube_r}%), <strong>↓</strong> acierta <strong>{ev_baja_p}%</strong> (recall {ev_baja_r}%). En ventana semanal (7 días): <strong>↑ {wk_sube_p}% · ↓ {wk_baja_p}%</strong>. Tómalas como señal débil — por eso seguimos con el experimento TimesFM + dólar.</div>
     </div>
     <details class="mt-3 text-xs md:text-[13px]"><summary class="cursor-pointer underline text-slate-600\">Ver por categoría</summary>
       <table class="mt-2 w-full max-w-md text-xs"><thead><tr class="text-left text-slate-500\"><th class="px-2 py-1\">Categoría</th><th class="px-2 py-1 text-right\">Acierto</th><th class="px-2 py-1 text-right\">Casos</th></tr></thead><tbody>{cat_rows}</tbody></table>

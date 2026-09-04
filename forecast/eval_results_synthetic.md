@@ -2,30 +2,40 @@
 
 Rango: 2026-08-01 -> 2026-09-03 — 9 archivos — 125 series (≥4 obs)
 
-> Covariables: FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual interpolado diario (series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (cache data/covariates/ipim_series_tiempo.csv))
+> Covariables: FX source: dolarapi.com (histórico interpolado) — IPIM: stub
 
-> Motor: TimesFM 3
+> Motor: Naive/MA baseline (TimesFM no instalado — `pip install timesfm`)
 
 ## Agregado por configuración
 
 | Config | MAE | MAPE % | RMSE | Coverage 10-90 | n |
 |---|---|---|---|---|---|
-| price_only | 118.1 | 2.7 | 214.5 | 0.72 | 3491 |
-| plus_fx | 117.7 | 2.6 | 214.1 | 0.72 | 3491 |
-| plus_fx_ipim | 117.6 | 2.7 | 215.7 | 0.71 | 3491 |
-| plus_fx_competitor | 116.6 | 2.6 | 212.5 | 0.73 | 3491 |
+| price_only | 152.6 | 3.1 | 271.8 | 0.72 | 3491 |
+| plus_fx | 152.6 | 3.1 | 271.8 | 0.72 | 3491 |
+| plus_fx_ipim | 152.6 | 3.1 | 271.8 | 0.72 | 3491 |
+| plus_fx_competitor | 152.6 | 3.1 | 271.8 | 0.72 | 3491 |
+
+
+> Precisión de eventos (umbral 0.8%) — de las veces que el modelo dijo ↑/↓, cuántas acertó. Separada del acierto general para no esconder las flechas débiles.
+
+| Config | ↑ prec (d) | ↑ recall (d) | ↓ prec (d) | ↓ recall (d) | ↑ prec (w7) | ↓ prec (w7) |
+|---|---|---|---|---|---|---|
+| price_only | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| plus_fx | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| plus_fx_ipim | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
+| plus_fx_competitor | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
 
 
 ## Por categoría (MAE promedio)
 
 | Categoría | price_only | plus_fx | plus_fx_ipim | plus_fx_competitor |
 |---|---|---|---|---|
-| Almacén | 29.3 | 28.1 | 28.5 | 27.7 |
-| Carnes | 157.2 | 150.4 | 155.1 | 149.9 |
-| Conservas | 28.6 | 29.2 | 30.2 | 29.0 |
-| Frescos | 8.3 | 8.1 | 8.3 | 8.1 |
-| Infusiones | 158.9 | 158.2 | 157.5 | 157.3 |
-| Limpieza | 81.4 | 81.3 | 82.3 | 82.3 |
-| Lácteos | 200.2 | 192.7 | 193.2 | 190.3 |
-| Panificados | 80.8 | 90.4 | 88.8 | 89.1 |
-| Verdulería | 225.1 | 230.6 | 226.5 | 227.4 |
+| Almacén | 34.7 | 34.7 | 34.7 | 34.7 |
+| Carnes | 192.9 | 192.9 | 192.9 | 192.9 |
+| Conservas | 34.6 | 34.6 | 34.6 | 34.6 |
+| Frescos | 11.0 | 11.0 | 11.0 | 11.0 |
+| Infusiones | 222.1 | 222.1 | 222.1 | 222.1 |
+| Limpieza | 102.2 | 102.2 | 102.2 | 102.2 |
+| Lácteos | 259.3 | 259.3 | 259.3 | 259.3 |
+| Panificados | 90.9 | 90.9 | 90.9 | 90.9 |
+| Verdulería | 301.5 | 301.5 | 301.5 | 301.5 |

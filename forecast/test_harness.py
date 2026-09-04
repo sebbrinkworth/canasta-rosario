@@ -20,6 +20,61 @@ from forecast.utils import load_price_dataframe, load_meta, category_of
 from forecast.covariates import build_daily_covariates, competitor_min_price
 
 CONFIGS = ["price_only", "plus_fx", "plus_fx_ipim", "plus_fx_competitor"]
+THRESH = 0.8   # same direction threshold as build_next.py/backtest.py
+WEEK_H = 7     # weekly-horizon variant: does price move >0.8% within the week?*
+
+def _class_stats(preds, actuals, cls):
+    """Precision/recall/F1 for one direction class. preds/actuals: lists of
+    direction labels ('sube'|'baja'|'estable')."""
+    preds = list(preds)
+    actuals = list(actuals)
+    tp = sum(1 for p, a in zip(preds, actuals) if p == cls and a == cls)
+    fp = sum(1 for p, a in zip(preds, actuals) if p == cls and a != cls)
+    fn = sum(1 for p, a in zip(preds, actuals) if p != cls and a == cls)
+    n_pred = tp + fp
+    n_act = tp + fn
+    prec = tp / n_pred * 100 if n_pred else 0.0
+    rec = tp / n_act * 100 if n_act else 0.0
+    f1 = 2 * prec * rec / (prec + rec) if (prec + rec) else 0.0
+    return {"n": n_pred, "actual": n_act, "hits": tp, "precision": round(prec, 1),
+            "recall": round(rec, 1), "f1": round(f1, 2)}
+
+
+def direction(delta_pct, thresh=THRESH):
+    if abs(delta_pct) < thresh:
+        return "estable"
+    return "sube" if delta_pct > 0 else "baja"
+
+
+def event_stats(daily_pred, daily_actual, week_pred, week_actual):
+    """Aggregate event layer for one series: dict with per-class daily stats,
+    weekly stats, and a required "move_precision" summary key."""
+    ev = {k: {"pred": [], "actual": []} for k in ("sube", "baja", "estable")}
+    wk = {k: {"pred": [], "actual": []} for k in ("sube", "baja", "estable")}
+    for p, a in zip(daily_pred, daily_actual):
+        if p is None or a is None:
+            continue
+        ev[p]["pred"].append(p)
+        ev[p]["actual"].append(a)
+    for p, a in zip(week_pred, week_actual):
+        if p is None or a is None:
+            continue
+        wk[p]["pred"].append(p)
+        wk[p]["actual"].append(a)
+    daily = {k: _class_stats(v["pred"], v["actual"], k) for k, v in ev.items()}
+    weekly = {k: _class_stats(v["pred"], v["actual"], k) for k, v in wk.items()}
+    return {
+        "threshold_pct": THRESH,
+        "daily": daily,
+        "weekly": weekly,
+        "move_precision": {
+            "daily": {"sube": daily["sube"]["precision"], "baja": daily["baja"]["precision"],
+                       "n_sube": daily["sube"]["n"], "n_baja": daily["baja"]["n"]},
+            "weekly": {"sube": weekly["sube"]["precision"], "baja": weekly["baja"]["precision"],
+                        "n_sube": weekly["sube"]["n"], "n_baja": weekly["baja"]["n"]},
+        },
+    }
+
 
 def try_load_timesfm():
     # Try TimesFM 3 (installed as timesfm==3.0.0 -> import timesfm3)
@@ -153,6 +208,7 @@ def run():
     ap=argparse.ArgumentParser()
     ap.add_argument("--force",action="store_true")
     ap.add_argument("--synthetic",action="store_true", help="usa data/synthetic + real (30d preview)")
+    ap.add_argument("--skip-timesfm",action="store_true", help="fuerza baseline naive (no carga el modelo; útil en CPU/CI)")
     ap.add_argument("--min-obs",type=int,default=4)
     args=ap.parse_args()
     # synthetic mode: load merged 30d series
@@ -191,7 +247,9 @@ def run():
     # try TimesFM
     TimesFM, err = try_load_timesfm()
     model=None; timesfm_ok=False
-    if TimesFM is not None:
+    if args.skip_timesfm:
+        print("[harness] --skip-timesfm: usando baseline naive")
+    elif TimesFM is not None:
         try:
             # TimesFM3Forecaster requires from_pretrained (downloads google/timesfm-3.0-pytorch)
             if "Forecaster" in getattr(TimesFM, "__name__", ""):
@@ -238,6 +296,8 @@ def run():
         for cfg in CONFIGS:
             y_true=[]; y_pred=[]; y_lo=[]; y_hi=[]
             y_pred_series=[]  # for plot
+            daily_pred=[]; daily_actual=[]; week_pred=[]; week_actual=[]
+            hist_all = df[col].values.astype(float)
             for t_idx in range(eval_start, len(dates)):
                 start = max(0, t_idx-ctx_len)
                 hist = df[col].iloc[start:t_idx].values.astype(float)
@@ -267,8 +327,49 @@ def run():
                 y_lo.append(float(p10[0]) if len(p10)>0 else np.nan)
                 y_hi.append(float(p90[0]) if len(p90)>0 else np.nan)
                 y_pred_series.append(float(p50[0]) if len(p50)>0 else np.nan)
+                # event layer: daily direction (pred vs actual, threshold 0.8%)
+                d_prev = df[col].iloc[t_idx-1]
+                if pd.notna(actual) and pd.notna(d_prev) and d_prev != 0:
+                    act_dlt = (float(actual) - float(d_prev)) / abs(float(d_prev)) * 100
+                    daily_actual.append(direction(act_dlt))
+                    if len(p50) > 0 and pd.notna(p50[0]):
+                        pred_dlt = (float(p50[0]) - float(d_prev)) / abs(float(d_prev)) * 100
+                        daily_pred.append(direction(pred_dlt))
+                    else:
+                        daily_pred.append(None)
+                else:
+                    daily_actual.append(None); daily_pred.append(None)
+                # weekly variant: does the price move >0.8% within [t_idx+1, t_idx+7]?
+                t_end = min(len(dates), t_idx + 1 + WEEK_H)
+                if t_end > t_idx + 1:
+                    fut = df[col].iloc[t_idx+1:t_end].dropna()
+                    if len(fut) >= 1 and pd.notna(d_prev) and d_prev != 0:
+                        fw = None
+                        for v in fut.values:
+                            fd = (float(v) - float(d_prev)) / abs(float(d_prev)) * 100
+                            if abs(fd) >= THRESH:
+                                fw = direction(fd)
+                                break
+                        week_actual.append(fw if fw is not None else "estable")
+                        if len(p50) > 0 and pd.notna(p50[0]):
+                            pdlt = (float(p50[0]) - float(d_prev)) / abs(float(d_prev)) * 100
+                            week_pred.append(direction(pdlt))
+                        else:
+                            week_pred.append(None)
+                    else:
+                        week_actual.append(None); week_pred.append(None)
+                else:
+                    week_actual.append(None); week_pred.append(None)
             m=metrics(y_true,y_pred,y_lo,y_hi)
             m.update({"series":col,"pid":pid,"chain":chain,"config":cfg,"category":category_of(pid)})
+            # event layer: precision/recall/F1 per class + weekly variant
+            ev = event_stats(daily_pred, daily_actual, week_pred, week_actual)
+            for k in ("daily", "weekly"):
+                for cls in ("sube", "baja", "estable"):
+                    for kk in ("n", "actual", "hits", "precision", "recall", "f1"):
+                        m[f"event_{k}_{cls}_{kk}"] = ev[k][cls][kk]
+            m["event_move_precision_daily"] = ev["move_precision"]["daily"]
+            m["event_move_precision_weekly"] = ev["move_precision"]["weekly"]
             results.append(m)
             if col==example_col and cfg=="plus_fx":
                 forecasts_for_plot[col]= {"y_true":y_true,"y_pred":y_pred,"y_lo":y_lo,"y_hi":y_hi,"dates":[d.strftime("%Y-%m-%d") for d in eval_dates]}
@@ -287,6 +388,15 @@ def run():
         if cfg in agg.index:
             r=agg.loc[cfg]
             md_lines.append(f"| {cfg} | {r['mae']:.1f} | {r['mape']:.1f} | {r['rmse']:.1f} | {r['coverage']:.2f} | {int(r['n'])} |")
+    md_lines+=["","","> Precisión de eventos (umbral 0.8%) — de las veces que el modelo dijo ↑/↓, cuántas acertó. Separada del acierto general para no esconder las flechas débiles.","","| Config | ↑ prec (d) | ↑ recall (d) | ↓ prec (d) | ↓ recall (d) | ↑ prec (w7) | ↓ prec (w7) |","|---|---|---|---|---|---|---|"]
+    for cfg in CONFIGS:
+        sub = df_res[df_res["config"]==cfg]
+        if sub.empty: continue
+        r0=sub.iloc[0]
+        md_lines.append(
+            f"| {cfg} | {r0['event_daily_sube_precision']:.1f}% | {r0['event_daily_sube_recall']:.1f}% | "
+            f"{r0['event_daily_baja_precision']:.1f}% | {r0['event_daily_baja_recall']:.1f}% | "
+            f"{r0['event_weekly_sube_precision']:.1f}% | {r0['event_weekly_baja_precision']:.1f}% |")
     md_lines+=["","","## Por categoría (MAE promedio)","","| Categoría | price_only | plus_fx | plus_fx_ipim | plus_fx_competitor |","|---|---|---|---|---|"]
     cat_agg=df_res.groupby(["category","config"])["mae"].mean().unstack("config").reindex(columns=CONFIGS)
     for cat in cat_agg.index:

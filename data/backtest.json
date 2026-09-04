@@ -32,42 +32,77 @@
       "precision": 93.6
     }
   },
-  "by_category": {
-    "Almacén": {
-      "n": 125,
-      "hit_rate": 91.2
-    },
-    "Carnes": {
+  "event_precision": {
+    "threshold_pct": 0.8,
+    "note": "Precision/recall/F1 por clase de dirección (daily). precision = de las veces que predijo la clase, cuántas acertó; recall = de las veces que la clase ocurrió, cuántas anticipó.",
+    "sube": {
       "n": 44,
-      "hit_rate": 72.7
+      "actual": 1,
+      "hits": 1,
+      "precision": 2.3,
+      "recall": 100.0,
+      "f1": 4.44
     },
-    "Conservas": {
-      "n": 45,
-      "hit_rate": 84.4
+    "baja": {
+      "n": 29,
+      "actual": 1,
+      "hits": 1,
+      "precision": 3.4,
+      "recall": 100.0,
+      "f1": 6.67
     },
-    "Frescos": {
-      "n": 25,
-      "hit_rate": 72.0
+    "estable": {
+      "n": 481,
+      "actual": 450,
+      "hits": 450,
+      "precision": 93.6,
+      "recall": 100.0,
+      "f1": 96.67
+    }
+  },
+  "weekly": {
+    "method": "drift-7d, umbral 0.8%, h<=7: predice si el precio se mueve >0.8% dentro de la semana y hacia dónde (primer movimiento real en la ventana)",
+    "threshold_pct": 0.8,
+    "horizon_days": 7,
+    "classes": {
+      "sube": {
+        "n": 37,
+        "actual": 1,
+        "hits": 1,
+        "precision": 2.7,
+        "recall": 100.0,
+        "f1": 5.26
+      },
+      "baja": {
+        "n": 24,
+        "actual": 3,
+        "hits": 3,
+        "precision": 12.5,
+        "recall": 100.0,
+        "f1": 22.22
+      },
+      "estable": {
+        "n": 381,
+        "actual": 320,
+        "hits": 320,
+        "precision": 84.0,
+        "recall": 100.0,
+        "f1": 91.3
+      }
     },
-    "Infusiones": {
-      "n": 40,
-      "hit_rate": 90.0
-    },
-    "Limpieza": {
-      "n": 66,
-      "hit_rate": 89.4
-    },
-    "Lácteos": {
-      "n": 90,
-      "hit_rate": 75.6
-    },
-    "Panificados": {
-      "n": 25,
-      "hit_rate": 88.0
-    },
-    "Verdulería": {
-      "n": 94,
-      "hit_rate": 69.1
+    "mov_prec_summary": {
+      "sube_pred": 37,
+      "sube_precision": 2.7,
+      "sube_recall": 100.0,
+      "baja_pred": 24,
+      "baja_precision": 12.5,
+      "baja_recall": 100.0
+    }
+  },
+  "by_category": {
+    "Otro": {
+      "n": 554,
+      "hit_rate": 81.6
     }
   }
 }
