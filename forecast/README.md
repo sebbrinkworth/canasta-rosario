@@ -22,7 +22,7 @@ uv run python -m http.server --directory forecast 8000  # http://localhost:8000/
 ```
 
 ## Covariables
-`forecast/covariates.py` → `build_daily_covariates(index)`: `fx_blue/mep/oficial, brecha, fx_vol7, ipim_idx`. Intenta `dolarapi.com` + stub suave si falla. IPIM stub mensual interpolado hasta tener serie real.
+`forecast/covariates.py` → `build_daily_covariates(index)`: `fx_blue/oficial, brecha, fx_vol7, ipim_idx` (fx_mep queda NaN: sin fuente histórica). FX = histórico diario real de `bluelytics.com.ar` (evolution.json, blue+oficial), cacheado en `data/covariates/`. IPIM = serie mensual real `448.1_NIVEL_GENERAL_0_0_13_46` de series-tiempo (apis.datos.gob.ar, INDEC), interpolada a diario; si el fetch falla o está desactualizada, estado explícito `IPIM: no data` (nunca sintético en silencio). Stub determinístico solo como fallback marcado si no hay FX real. `dolarapi.com` es spot-only: no sirve como fuente histórica.
 
 ## TimesFM 3
 `forecast/test_harness.py` intenta `import timesfm`; si no está, baseline naive (last + drift, banda ±1.28σ). Con `pip install timesfm` y checkpoint, TimesFM 3 zero-shot reemplaza naive (API `model.forecast`).
