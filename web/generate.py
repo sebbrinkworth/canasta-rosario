@@ -11,15 +11,48 @@ try:
     _fc = json.loads(FORECAST_PATH.read_text(encoding="utf-8"))
     FORECAST = _fc.get("items", {})
     FORECAST_NOTE = _fc.get("note", "")
+    REAL_DAYS = int(_fc.get("real_days", 0) or 0)
 except Exception:
     FORECAST = {}
     FORECAST_NOTE = ""
+    REAL_DAYS = 0
 # Backtest real (cuántas pegamos) — si falta, se omite la sección
 BT_PATH = ROOT / "data" / "backtest.json"
 try:
     BT = json.loads(BT_PATH.read_text(encoding="utf-8"))
 except Exception:
     BT = {}
+# Evaluación TimesFM real (pooled por config, solo observados) — si falta, se omite
+EVAL_PATH = ROOT / "forecast" / "eval_results.json"
+try:
+    _ev = json.loads(EVAL_PATH.read_text(encoding="utf-8"))
+    _rows = _ev.get("results", [])
+    _tfm_ok = bool(_ev.get("timesfm_ok"))
+    _fb_n = int(_ev.get("fallback_naive", 0) or 0)
+    _fb_c = int(_ev.get("fallback_cov_dropped", 0) or 0)
+    def _pool(cfg, prefix):
+        n = a = h = 0
+        for m in _rows:
+            if m.get("config") != cfg:
+                continue
+            n += int(m.get(f"{prefix}_n", 0) or 0)
+            a += int(m.get(f"{prefix}_actual", 0) or 0)
+            h += int(m.get(f"{prefix}_hits", 0) or 0)
+        prec = round(h / n * 100, 1) if n else 0.0
+        rec = round(h / a * 100, 1) if a else 0.0
+        return prec, rec, n
+    _mae = {}
+    for _c in ("price_only", "plus_fx", "plus_fx_ipim", "plus_fx_competitor"):
+        _m = [m["mae"] for m in _rows if m.get("config") == _c]
+        _mae[_c] = round(sum(_m) / len(_m), 1) if _m else None
+    _sp, _sr, _sn = _pool("plus_fx", "event_daily_sube")
+    _bp, _br, _bn = _pool("plus_fx", "event_daily_baja")
+    _n_eval = len(_rows)
+    TFM_BANNER = (f"Evaluación real con <strong>TimesFM 3</strong> (n={_n_eval} serie-config): MAE <strong>{_mae.get('plus_fx')}</strong> vs drift {BT.get('mae', '—')} en el backtest; anticipa <strong>{_sr}% de las subas</strong> y {_br}% de las bajas (el drift: 4%). Covariables FX/IPIM/competencia cambian el MAE ~1% con 11 días de historia. Fallbacks naive por historia corta: {_fb_n}.") if _rows and _tfm_ok else ""
+except Exception:
+    TFM_BANNER = ""
+tfm_banner = (f'<p class="mt-2 text-xs md:text-[13px] text-slate-700 leading-relaxed">📊 {TFM_BANNER}</p>'
+               if TFM_BANNER else "")
 date = data["date"]
 dt_fmt = f"{date[8:10]}/{date[5:7]}/{date[0:4]}"
 branches = data["branches_count"]
@@ -242,6 +275,16 @@ if BT and BT.get("n"):
     ev_sube_p = ev_sube.get("precision", 0); ev_sube_r = ev_sube.get("recall", 0)
     ev_baja_p = ev_baja.get("precision", 0); ev_baja_r = ev_baja.get("recall", 0)
     wk_sube_p = wk_sube.get("precision", 0); wk_baja_p = wk_baja.get("precision", 0)
+    # persistence baseline + assortment (honest context for the scoreboard)
+    bp = BT.get("baseline_persistence") or {}
+    bp_mae = bp.get("mae", "—"); bp_hit = bp.get("hit_rate", "—")
+    drift_mae = BT.get("mae", "—")
+    asrt = BT.get("assortment") or {}
+    asrt_txt = ""
+    if asrt.get("price_changes"):
+        asrt_txt = (f" De {asrt['price_changes']} cambios de precio, "
+                    f"{asrt['with_desc_or_brand_change']} ({asrt['pct']}%) vinieron con otro producto como cheapest: "
+                    f"ahí el movimiento puede ser <strong>cambio de surtido, no remarcación</strong>.")
     cat_rows = "".join(
         f'<tr class="border-b border-slate-100"><td class="px-2 py-1">{k}</td>'
         f'<td class="px-2 py-1 text-right">{v["hit_rate"]}%</td>'
@@ -252,6 +295,7 @@ if BT and BT.get("n"):
   <section class="mt-6 rounded-xl border-2 border-slate-800 bg-white p-5 md:p-6 shadow-sm">
     <h3 class="text-base md:text-lg font-extrabold text-slate-900">¿Cuántas pegamos? <span class="text-sm font-normal text-slate-500">— medido con datos reales, no con sintéticos</span></h3>
     <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-slate-700">La flecha <strong>↑/↓</strong> (mover el precio) es la parte difícil: hoy acierta <strong class="text-amber-700">{mov_p}%</strong> ({mov_h}/{mov_n}). Cuando dice <strong>→</strong> (“no cambia”) acierta <strong>{est['precision']}%</strong> ({est['hits']}/{est['n']}). Por eso, hasta que la precisión de movimiento pase el umbral (<strong>{MOVE_PREC_GATE:.0f}%</strong>), el sitio muestra solo la flecha gris → aunque el modelo interno crea que va a subir o bajar.</p>
+    <p class="mt-2 rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-xs md:text-[13px] text-slate-600">📏 <strong>Línea base (mañana = hoy):</strong> acierta el <strong>{bp_hit}%</strong> de las direcciones con MAE {bp_mae} — el drift actual tiene MAE {drift_mae}. Todo modelo propuesto debe superar esta línea: con series mayormente planas, no cambiar nada ya gana.{asrt_txt}</p>
     <p class="mt-2 rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-xs md:text-[13px] text-slate-600">🚫 <strong>Cero datos sintéticos:</strong> todo lo que ves (precios, pronósticos y este marcador) se calcula <strong>solo con precios reales de SEPA</strong>. Empezamos a recolectar el 26/08/2026, así que la historia es corta: con pocos días la precisión es limitada, y <strong>mejora automáticamente cada día</strong> que el recolector agrega datos reales.</p>
     <div class="mt-3 grid gap-3 md:grid-cols-2 text-xs md:text-[13px] leading-relaxed">
       <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3"><strong>Lo fácil: decir “mañana no cambia” →</strong> acierta el <strong>{est['precision']}%</strong> ({est['hits']}/{est['n']}). La mayoría de los días los precios no se mueven, y ahí somos buenos.</div>
@@ -311,7 +355,8 @@ html = f"""<!doctype html>
       </div>
       <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3">
         <div class="text-xs font-bold uppercase tracking-wide text-emerald-800">Qué estamos probando</div>
-        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Además de mostrar hoy, probamos si se puede <strong>anticipar el precio de mañana</strong> con <strong>TimesFM 3 de Google</strong>. Las flechas <strong>↑ ↓ →</strong> en cada precio son ese pronóstico, integrado acá mismo (<a class="underline font-semibold" href="#pronostico">ver cómo funciona</a>). Usamos como pistas (<em>covariables</em>): <strong>dólar blue / oficial, brecha % y volatilidad 7 días</strong> (histórico diario real de bluelytics.com.ar), <strong>IPIM mayorista</strong> (INDEC, serie mensual de series-tiempo interpolada a diario) y <strong>precio mínimo de la competencia</strong>. <strong>Solo datos reales</strong> — nada sintético ni simulado. La precisión de los pronósticos <strong>mejora sola con el tiempo</strong> a medida que acumulamos más días de historia real.</p>
+        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Además de mostrar hoy, probamos si se puede <strong>anticipar el precio de mañana</strong>. Las flechas <strong>↑ ↓ →</strong> en cada precio son un pronóstico liviano de <strong>tendencia de 7 días</strong> (último precio + promedio de cambios recientes, sin covariables), integrado acá mismo (<a class="underline font-semibold" href="#pronostico">ver cómo funciona</a>). En paralelo evaluamos <strong>TimesFM 3 de Google</strong> con covariables reales: <strong>dólar blue / oficial, brecha % y volatilidad 7 días</strong> (histórico diario real de bluelytics.com.ar), <strong>IPIM mayorista</strong> (INDEC vía series-tiempo, mensual; cada día solo ve valores ya publicados) y <strong>precio mínimo de la competencia</strong>. <strong>Solo datos reales</strong> — nada sintético ni simulado. Línea base a batir: <strong>mañana = hoy</strong> (persistencia). Nota de licencia: los pesos preentrenados de TimesFM 3 son de uso no-comercial según Google, así que el sitio en producción usa el método liviano.</p>
+        {tfm_banner}
       </div>
     </div>
   </section>
@@ -331,11 +376,11 @@ html = f"""<!doctype html>
   <!-- Pronóstico en esta misma vista -->
   <section id="pronostico" class="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/50 p-5 md:p-6">
     <h3 class="text-base font-extrabold text-slate-900">Pronóstico en esta misma vista — qué significan las flechas</h3>
-    <p class="mt-2 text-sm leading-relaxed text-slate-700">Cada precio lleva una flecha con lo que el modelo espera para las próximas 24-48h. Hoy es <strong>tendencia de 7 días + covariables</strong> (la versión liviana que anda sin GPU). En paralelo corremos el experimento completo con <strong>TimesFM 3</strong> en la RTX 4060 para validar si sumar dólar e IPIM mejora de verdad. <strong>Todo se entrena y evalúa solo con precios reales de SEPA</strong> — no usamos datos sintéticos ni simulados.</p>
+    <p class="mt-2 text-sm leading-relaxed text-slate-700">Cada precio lleva una flecha con lo que el modelo espera para las próximas 24-48h. Hoy es <strong>tendencia de 7 días</strong> (la versión liviana que anda sin GPU, sin covariables). En paralelo corremos el experimento completo con <strong>TimesFM 3</strong> para validar si sumar dólar e IPIM mejora de verdad contra la línea base <strong>mañana = hoy</strong>. <strong>Todo se entrena y evalúa solo con precios reales de SEPA</strong> — no usamos datos sintéticos ni simulados.</p>
     <div class="mt-3 grid gap-3 md:grid-cols-3 text-xs md:text-[13px] leading-relaxed">
       <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Dólar y brecha</strong><br>blue / oficial (histórico diario real de bluelytics.com.ar), brecha % = (blue-oficial)/oficial y volatilidad 7 días. Es la pista n°1 para aceite, harina, yerba.</div>
-      <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Mayorista y competencia</strong><br>IPIM nivel general (INDEC, serie mensual de series-tiempo interpolada a diario) + precio mínimo de las otras 4 cadenas para el mismo producto. Capta remarcación y undercutting.</div>
-      <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Cómo leer la confianza</strong><br>Pasá el cursor sobre la flecha: muestra % esperado y confianza (alta/media/baja según volatilidad reciente). Con solo 9 días de historia real, la precisión de eventos (↑↓) todavía es baja — <strong>mejora automáticamente a medida que el recolector diario suma datos</strong>. Detalle técnico en <code>forecast/</code> del repo.</div>
+      <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Mayorista y competencia</strong><br>IPIM nivel general (INDEC, serie mensual de series-tiempo; cada fecha solo usa valores ya publicados, sin interpolar futuro) + precio mínimo de las otras 4 cadenas para el mismo producto. Capta remarcación y undercutting.</div>
+      <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Cómo leer la confianza</strong><br>Pasá el cursor sobre la flecha: muestra % esperado y confianza (alta/media/baja según volatilidad reciente). Con {REAL_DAYS} días de historia real, la precisión de eventos (↑↓) todavía es baja — <strong>mejora a medida que el recolector diario suma datos</strong> (más historia = mejor evaluación, no automáticamente mejor precisión). Detalle técnico en <code>forecast/</code> del repo.</div>
     </div>
   </section>
 

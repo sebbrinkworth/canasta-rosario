@@ -16,12 +16,22 @@ PLOTS_DIR = OUT_DIR / "plots"
 
 # --- import helpers ---
 sys.path.insert(0, str(ROOT))
-from forecast.utils import load_price_dataframe, load_meta, category_of
+from forecast.utils import load_price_dataframe, load_meta, load_price_observed, category_of
 from forecast.covariates import build_daily_covariates, competitor_min_price
 
 CONFIGS = ["price_only", "plus_fx", "plus_fx_ipim", "plus_fx_competitor"]
 THRESH = 0.8   # same direction threshold as build_next.py/backtest.py
-WEEK_H = 7     # weekly-horizon variant: does price move >0.8% within the week?*
+WEEK_H = 7     # weekly-horizon variant: proper 7-day window [T, T+6], full windows only
+
+# Fallback accounting: every naive_forecast use inside timesfm_predict is
+# counted here. run() snapshots deltas per (series, config) so a run labelled
+# TimesFM reports exactly how many of its predictions are really baseline.
+_FB = {"naive": 0, "cov_dropped": 0}
+def _fb_bump(key):
+    try:
+        _FB[key] += 1
+    except Exception:
+        pass
 
 def _class_stats(preds, actuals, cls):
     """Precision/recall/F1 for one direction class. preds/actuals: lists of
@@ -48,21 +58,17 @@ def direction(delta_pct, thresh=THRESH):
 
 def event_stats(daily_pred, daily_actual, week_pred, week_actual):
     """Aggregate event layer for one series: dict with per-class daily stats,
-    weekly stats, and a required "move_precision" summary key."""
-    ev = {k: {"pred": [], "actual": []} for k in ("sube", "baja", "estable")}
-    wk = {k: {"pred": [], "actual": []} for k in ("sube", "baja", "estable")}
-    for p, a in zip(daily_pred, daily_actual):
-        if p is None or a is None:
-            continue
-        ev[p]["pred"].append(p)
-        ev[p]["actual"].append(a)
-    for p, a in zip(week_pred, week_actual):
-        if p is None or a is None:
-            continue
-        wk[p]["pred"].append(p)
-        wk[p]["actual"].append(a)
-    daily = {k: _class_stats(v["pred"], v["actual"], k) for k, v in ev.items()}
-    weekly = {k: _class_stats(v["pred"], v["actual"], k) for k, v in wk.items()}
+    weekly stats, and a required "move_precision" summary key.
+
+    FIX: stats are computed on GLOBAL pred/actual lists (pairs with a None on
+    either side are dropped). Grouping by predicted class first hides missed
+    events and inflates recall to 100% — never do that."""
+    dp = [(p, a) for p, a in zip(daily_pred, daily_actual) if p is not None and a is not None]
+    wp = [(p, a) for p, a in zip(week_pred, week_actual) if p is not None and a is not None]
+    dp_pred, dp_act = zip(*dp) if dp else ([], [])
+    wp_pred, wp_act = zip(*wp) if wp else ([], [])
+    daily = {k: _class_stats(list(dp_pred), list(dp_act), k) for k in ("sube", "baja", "estable")}
+    weekly = {k: _class_stats(list(wp_pred), list(wp_act), k) for k in ("sube", "baja", "estable")}
     return {
         "threshold_pct": THRESH,
         "daily": daily,
@@ -119,11 +125,17 @@ def _prep_cov_block(arr: np.ndarray) -> np.ndarray | None:
     return a
 
 def timesfm_predict(model, history, horizon=1, past_only_covariates=None):
-    """Wrapper — tries TimesFM3Forecaster.predict, falls back to naive. Returns p50, p10, p90 arrays length horizon."""
+    """Wrapper — tries TimesFM3Forecaster.predict, falls back to naive.
+    Returns (p50, p10, p90, info) with info in:
+      model | model_no_cov (TypeError path dropped covariates) |
+      naive_short (history < 5) | naive_fail (exception).
+    Callers MUST aggregate info to report fallback counts — a run labelled
+    TimesFM must never silently contain baseline predictions."""
     try:
         h_full = np.array(history, dtype=float)
         h = h_full[~np.isnan(h_full)].astype(float)
         if len(h) < 5:
+            _fb_bump("naive")
             return naive_forecast(history, horizon)
         if hasattr(model, "predict"):
             po = _prep_cov_block(past_only_covariates) if past_only_covariates is not None else None
@@ -138,6 +150,9 @@ def timesfm_predict(model, history, horizon=1, past_only_covariates=None):
                 else:
                     out = model.predict(context=h, horizon=horizon, return_quantiles=True)  # type: ignore
             except TypeError:
+                # Model API rejected covariates: count it — the prediction
+                # below runs WITHOUT covariates and must be labelled as such.
+                _fb_bump("cov_dropped")
                 out = model.predict(h, horizon)  # type: ignore
             # out is ForecastOutput or tuple — normalize
             # TimesFM3 ForecastOutput has .forecast and .quantiles
@@ -183,11 +198,14 @@ def timesfm_predict(model, history, horizon=1, past_only_covariates=None):
                     p50 = arr.flatten()[:horizon]
                 return p50[:horizon], p50[:horizon]*0.93, p50[:horizon]*1.07
             else:
+                _fb_bump("naive")
                 return naive_forecast(history, horizon)
+        _fb_bump("naive")
         return naive_forecast(history, horizon)
     except Exception as e:
         import traceback; print(f"[timesfm_predict] fail {e}")
         traceback.print_exc()
+        _fb_bump("naive")
         return naive_forecast(history, horizon)
 
 def metrics(y_true, y_pred, y_lo, y_hi):
@@ -225,6 +243,8 @@ def run():
     print(f"[harness] DataFrame {df.shape} {df.index.min().date() if len(df)>0 else '?'} -> {df.index.max().date() if len(df)>0 else '?'}")
     if df.empty:
         produce_report_placeholder(n); return
+    observed = load_price_observed().reindex_like(df).fillna(False).astype(bool)
+    n_filled_cells = int((~observed).sum().sum())
     # filter series with enough obs
     keep=[c for c in df.columns if df[c].notna().sum() >= args.min_obs]
     print(f"[harness] Series con >={args.min_obs} obs: {len(keep)}/{len(df.columns)}")
@@ -287,10 +307,12 @@ def run():
         # competitor as relative spread vs own price median — keep raw but nan->0
         comp_s = np.nan_to_num(comp_s, nan=0.0, posinf=0.0, neginf=0.0)
         for cfg in CONFIGS:
+            fb0_n, fb0_c = _FB["naive"], _FB["cov_dropped"]
             y_true=[]; y_pred=[]; y_lo=[]; y_hi=[]
             y_pred_series=[]  # for plot
             daily_pred=[]; daily_actual=[]; week_pred=[]; week_actual=[]
             hist_all = df[col].values.astype(float)
+            obs_col = observed[col] if col in observed.columns else None
             for t_idx in range(eval_start, len(dates)):
                 start = max(0, t_idx-ctx_len)
                 hist = df[col].iloc[start:t_idx].values.astype(float)
@@ -315,14 +337,27 @@ def run():
                 else:
                     p50,p10,p90=naive_forecast(hist, 1)
                 actual = df[col].iloc[t_idx]
+                # filled cells are not scored: ffill stability is not a forecast hit
+                t_is_obs = bool(obs_col.iloc[t_idx]) if obs_col is not None else True
+                if not t_is_obs:
+                    y_true.append(np.nan); y_pred.append(np.nan); y_lo.append(np.nan); y_hi.append(np.nan)
+                    y_pred_series.append(np.nan)
+                    daily_actual.append(None); daily_pred.append(None)
+                    week_actual.append(None); week_pred.append(None)
+                    # still advance model state? no — skip prediction entirely
+                    # (remove the unused predict above is complex; the y_* NaNs
+                    # exclude this step from metrics via mask)
+                    continue
                 y_true.append(float(actual) if pd.notna(actual) else np.nan)
                 y_pred.append(float(p50[0]) if len(p50)>0 else np.nan)
                 y_lo.append(float(p10[0]) if len(p10)>0 else np.nan)
                 y_hi.append(float(p90[0]) if len(p90)>0 else np.nan)
                 y_pred_series.append(float(p50[0]) if len(p50)>0 else np.nan)
                 # event layer: daily direction (pred vs actual, threshold 0.8%)
+                # both endpoints must be observed (no ffill artefacts)
                 d_prev = df[col].iloc[t_idx-1]
-                if pd.notna(actual) and pd.notna(d_prev) and d_prev != 0:
+                prev_is_obs = bool(obs_col.iloc[t_idx-1]) if obs_col is not None else True
+                if pd.notna(actual) and pd.notna(d_prev) and d_prev != 0 and prev_is_obs:
                     act_dlt = (float(actual) - float(d_prev)) / abs(float(d_prev)) * 100
                     daily_actual.append(direction(act_dlt))
                     if len(p50) > 0 and pd.notna(p50[0]):
@@ -332,11 +367,13 @@ def run():
                         daily_pred.append(None)
                 else:
                     daily_actual.append(None); daily_pred.append(None)
-                # weekly variant: does the price move >0.8% within [t_idx+1, t_idx+7]?
-                t_end = min(len(dates), t_idx + 1 + WEEK_H)
-                if t_end > t_idx + 1:
-                    fut = df[col].iloc[t_idx+1:t_end].dropna()
-                    if len(fut) >= 1 and pd.notna(d_prev) and d_prev != 0:
+                # weekly variant: proper 7-day window [t_idx, t_idx+6] — includes
+                # the immediate target day, requires the FULL window observed.
+                # Incomplete windows (edge of history) are not scored.
+                if t_idx + WEEK_H <= len(dates):
+                    fut = df[col].iloc[t_idx:t_idx+WEEK_H]
+                    fobs = obs_col.iloc[t_idx:t_idx+WEEK_H] if obs_col is not None else None
+                    if len(fut.dropna()) == WEEK_H and (fobs is None or bool(fobs.all())) and pd.notna(d_prev) and d_prev != 0:
                         fw = None
                         for v in fut.values:
                             fd = (float(v) - float(d_prev)) / abs(float(d_prev)) * 100
@@ -363,6 +400,11 @@ def run():
                         m[f"event_{k}_{cls}_{kk}"] = ev[k][cls][kk]
             m["event_move_precision_daily"] = ev["move_precision"]["daily"]
             m["event_move_precision_weekly"] = ev["move_precision"]["weekly"]
+            m["fallback_naive"] = _FB["naive"] - fb0_n
+            m["fallback_cov_dropped"] = _FB["cov_dropped"] - fb0_c
+            # stash raw event pairs for pooled config-level aggregation
+            m["_daily_pairs"] = [(p, a) for p, a in zip(daily_pred, daily_actual) if p is not None and a is not None]
+            m["_weekly_pairs"] = [(p, a) for p, a in zip(week_pred, week_actual) if p is not None and a is not None]
             results.append(m)
             if col==example_col and cfg=="plus_fx":
                 forecasts_for_plot[col]= {"y_true":y_true,"y_pred":y_pred,"y_lo":y_lo,"y_hi":y_hi,"dates":[d.strftime("%Y-%m-%d") for d in eval_dates]}
@@ -371,8 +413,16 @@ def run():
     # write eval_results.json/md
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     json_path=OUT_DIR/f"eval_results.json"
-    # include metadata in json
-    json_path.write_text(json.dumps({"cov_note":cov_note,"timesfm_ok":timesfm_ok,"n_series":len(keep),"n_files":n,"results":results,"example":forecasts_for_plot}, ensure_ascii=False, indent=2))
+    # include metadata in json (drop private pair lists from serialized rows)
+    pub_results = [{k: v for k, v in m.items() if not k.startswith("_")} for m in results]
+    total_fb_naive = int(sum(m.get("fallback_naive", 0) for m in results))
+    total_fb_cov = int(sum(m.get("fallback_cov_dropped", 0) for m in results))
+    json_path.write_text(json.dumps({"cov_note": cov_note, "timesfm_ok": timesfm_ok,
+        "n_series": len(keep), "n_files": n,
+        "fallback_naive": total_fb_naive, "fallback_cov_dropped": total_fb_cov,
+        "filled_cells_skipped": int(n_filled_cells),
+        "scoring_note": "Solo observaciones reales: celdas rellenadas por ffill excluidas del scoring. Ventana semanal [T,T+6] completa y observada.",
+        "results": pub_results, "example": forecasts_for_plot}, ensure_ascii=False, indent=2))
     # markdown
     md_lines=["# Canasta Rosario — TimesFM 3 Evaluación","",f"Rango: {dates.min().date()} -> {dates.max().date()} — {n} archivos — {len(keep)} series (≥{args.min_obs} obs)","",f"> Covariables: {cov_note}","",f"> Motor: {'TimesFM 3' if timesfm_ok else 'Naive/MA baseline (TimesFM no instalado — `pip install timesfm`)'}","","## Agregado por configuración","","| Config | MAE | MAPE % | RMSE | Coverage 10-90 | n |","|---|---|---|---|---|---|"]
     agg=df_res.groupby("config").agg({"mae":"mean","mape":"mean","rmse":"mean","coverage":"mean","n":"sum"}).reindex(CONFIGS)
@@ -380,21 +430,29 @@ def run():
         if cfg in agg.index:
             r=agg.loc[cfg]
             md_lines.append(f"| {cfg} | {r['mae']:.1f} | {r['mape']:.1f} | {r['rmse']:.1f} | {r['coverage']:.2f} | {int(r['n'])} |")
-    md_lines+=["","","> Precisión de eventos (umbral 0.8%) — de las veces que el modelo dijo ↑/↓, cuántas acertó. Separada del acierto general para no esconder las flechas débiles.","","| Config | ↑ prec (d) | ↑ recall (d) | ↓ prec (d) | ↓ recall (d) | ↑ prec (w7) | ↓ prec (w7) |","|---|---|---|---|---|---|---|"]
+    md_lines+=["","","> Precisión de eventos (umbral 0.8%) — POOL global por configuración (todas las series). De las veces que el modelo dijo ↑/↓, cuántas acertó; recall = de los movimientos reales, cuántos anticipó. Solo observaciones reales.","","| Config | ↑ prec (d) | ↑ recall (d) | ↓ prec (d) | ↓ recall (d) | ↑ prec (w7) | ↓ prec (w7) |","|---|---|---|---|---|---|---|"]
     for cfg in CONFIGS:
         sub = df_res[df_res["config"]==cfg]
         if sub.empty: continue
-        r0=sub.iloc[0]
+        # pool event pairs across all series of this config (honest aggregate)
+        dpool = [pr for m in results if m["config"]==cfg for pr in m.get("_daily_pairs", [])]
+        wpool = [pr for m in results if m["config"]==cfg for pr in m.get("_weekly_pairs", [])]
+        dp, da = zip(*dpool) if dpool else ([], [])
+        wp, wa = zip(*wpool) if wpool else ([], [])
+        ds = _class_stats(list(dp), list(da), "sube"); db = _class_stats(list(dp), list(da), "baja")
+        ws = _class_stats(list(wp), list(wa), "sube"); wb = _class_stats(list(wp), list(wa), "baja")
         md_lines.append(
-            f"| {cfg} | {r0['event_daily_sube_precision']:.1f}% | {r0['event_daily_sube_recall']:.1f}% | "
-            f"{r0['event_daily_baja_precision']:.1f}% | {r0['event_daily_baja_recall']:.1f}% | "
-            f"{r0['event_weekly_sube_precision']:.1f}% | {r0['event_weekly_baja_precision']:.1f}% |")
+            f"| {cfg} | {ds['precision']:.1f}% (n={ds['n']}) | {ds['recall']:.1f}% | "
+            f"{db['precision']:.1f}% (n={db['n']}) | {db['recall']:.1f}% | "
+            f"{ws['precision']:.1f}% | {wb['precision']:.1f}% |")
+    if total_fb_naive or total_fb_cov:
+        md_lines += ["", f"> Fallbacks naive durante la corrida: **{total_fb_naive}** predicciones; covariables descartadas por TypeError: **{total_fb_cov}**. Las celdas rellenadas excluidas del scoring: **{n_filled_cells}**."]
     md_lines+=["","","## Por categoría (MAE promedio)","","| Categoría | price_only | plus_fx | plus_fx_ipim | plus_fx_competitor |","|---|---|---|---|---|"]
     cat_agg=df_res.groupby(["category","config"])["mae"].mean().unstack("config").reindex(columns=CONFIGS)
     for cat in cat_agg.index:
         row=cat_agg.loc[cat]
         md_lines.append(f"| {cat} | " + " | ".join(f"{row.get(c,np.nan):.1f}" if pd.notna(row.get(c)) else "—" for c in CONFIGS) + " |")
-    (OUT_DIR/f"eval_results{suffix}.md").write_text("\n".join(md_lines), encoding="utf-8")
+    (OUT_DIR/"eval_results.md").write_text("\n".join(md_lines), encoding="utf-8")
     print(f"[harness] escrito {json_path}")
     # Build plots + HTML
     try:

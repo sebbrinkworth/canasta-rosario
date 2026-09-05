@@ -57,6 +57,17 @@ def parse_csv_text(txt: str) -> str:
         lines.append(l)
     return "\n".join(lines)
 
+def normalize_unit(u: str) -> str:
+    """SEPA unidad_ref variants → canonical kg/L/u/? (fixes 'kgr','lt.','un.','cu'…)."""
+    s = (u or "").strip().upper().rstrip(".")
+    if s in ("KGM", "KG", "KGR", "KILO", "KILOGRAMO", "GRM", "GR", "G", "GRS"):
+        return "kg"
+    if s in ("LTR", "LT", "L", "LITRO", "LITROS", "MLT", "ML", "CM3", "CC"):
+        return "L"
+    if s in ("UNI", "UN", "U", "UNIDAD", "UNIDADES", "CU", "C/U"):
+        return "u"
+    return (u or "?").strip().lower() or "?"
+
 def price_per_unit(price_lista: float, qty_present: float, unit_present: str, qty_ref: float = None, unit_ref: str = None) -> tuple[float, str]:
     up = (unit_present or "").strip().upper()
     if up in ("GRM","GR","G","GRS"):
@@ -89,27 +100,27 @@ def price_per_unit_calc(price_lista, cantidad_presentacion, unidad_presentacion)
     except: return None, "?"
 
 NEGATIVE = {
-    "leche_entera": ["chocolate","chocolatin","alfajor","dulce de leche","polvo","condensada","bon o bon","georgalos","tableta","nugaton","nugat","crema","leche en polvo","pan de leche","pan d leche","pref","100 uds","100uds","galletita","galletitas","leche en polvo","crema de leche","alimento","gato","perro","kingfood","king food","humedo"],
+    "leche_entera": ["chocolate","chocolatin","alfajor","dulce de leche","polvo","condensada","bon o bon","georgalos","tableta","nugaton","nugat","crema","leche en polvo","pan de leche","pan d leche","pref","100 uds","100uds","galletita","galletitas","leche en polvo","crema de leche","alimento","gato","perro","kingfood","king food","humedo","shampoo","whiskas","purina"],
     "pan_lactal": ["rallado","hamburguesa","pancho","fugazza","panchos"],
-    "arroz": ["condimento","galleta","harina de arroz","barrita","snack","barrita de arroz"],
+    "arroz": ["condimento","galleta","harina de arroz","barrita","snack","barrita de arroz","gato","perro","mascota","balanceado","raza","mizzi","pescado y arroz","pollo, carne"],
     "fideos": ["arroz","barrita"],
     "aceite_girasol": ["oliva","maiz","mezcla","soja"],
     "harina_000": ["integral","leudante","0000","sin gluten"],
-    "azucar": ["impalpable","gaseosa","edulcorante","azucarado","sin azucar","sin azúcar","barra","cereal","muecas","chocolate"],
+    "azucar": ["impalpable","gaseosa","edulcorante","azucarado","sin azucar","sin azúcar","s/ azucar","s azucar","barra","cereal","muecas","chocolate","gatorade","bebida","isotonica","powerade"],
     "yerba": ["saquito","saquitos","filtro","mate cocido","capsula","cafe"],
     "cafe": ["filtro","taza","capsula","cuchara","cubierto","licor","golosina","saquito","saquitos","mate cocido"],
     "tomate_triturado": ["salsa","ketchup","extracto"],
     "arvejas": ["sopa"],
-    "pollo": ["alimento","king food","humedo","perro","gato","capelleti","capelletis","raviol","sorrent","tapa","patita","nugget","hamburguesa","caldo","sabor pollo","picada","galletita","pet","cat chow","ciriola","zepellin"],
+    "pollo": ["alimento","king food","humedo","perro","gato","capelleti","capelletis","raviol","sorrent","tapa","patita","nugget","hamburguesa","caldo","sabor pollo","picada","galletita","pet","cat chow","ciriola","zepellin","pedigree","whiskas","purina","royal canin","eukanuba","pro plan","pouch","mascota","balanceado","raza","pochoclo","rebozado","rebozada","nugget","formita","formitas","medallon"],
     "carne_picada": ["pollo","rucula","cerdo","alimento","hamburguesa","rucula picada"],
     "huevo": ["maple"],
     "papa": ["pure de papas","papas fritas","sopapa","baston","noisette","copos","fritas","simplot","mc cain","mccain"],
-    "cebolla": ["mani","snack","verdeo","deshidratada","polvo","alicate","alicante","escamas","papas","lays","chetos","doritos","sabor","pringles","papa frita","queso y cebolla"],
-    "manzana": ["jugo","gaseosa","agua","aperitivo","terma","crush","te ","torta","gaseosa","amargo","shampoo","acondicionador","jab","crema","desodorante","alimento","head","rallador","isotonica","bebida","vinagre","avena","coloracion","nutrisse","acondicionad","acrilico","isotonico","powerade","decoralba","vinagre"],
-    "banana": ["jugo","yogur","gaseosa","bocadito","barra","integra","cereal","bananita","cremigal","lays","platano sabor","snack"],
+    "cebolla": ["mani","snack","verdeo","deshidratada","polvo","alicate","alicante","escamas","papas","lays","chetos","doritos","sabor","pringles","papa frita","queso y cebolla","ciriola","zepellin","baguette","criolla","pan"],
+    "manzana": ["jugo","gaseosa","agua","aperitivo","terma","crush","te ","torta","gaseosa","amargo","shampoo","acondicionador","jab","crema","desodorante","alimento","head","rallador","isotonica","bebida","vinagre","avena","coloracion","nutrisse","acondicionad","acrilico","isotonico","powerade","decoralba","vinagre","incienso","tibetano","vela","aromanza","aquarius","saborizada","slim","canela","barra","cereal","flow","ades","soja","leche de soja","budin","mermelada","relleno"],
+    "banana": ["jugo","yogur","gaseosa","bocadito","barra","integra","cereal","bananita","cremigal","lays","platano sabor","snack","perro","gato","mascota","helado","dr. zoo","dr zoo"],
     "queso_cremoso": ["rallado","canelon","panzotti","procesado","neufchatel","neufchâtel","queso crema","cheddar","fundido","snack","maiz","nacho","crema"],
     "yogur": ["barra","cereal","tortaza","torta","helado","postre","flan"],
-    "manteca": ["lechuga","medialuna","papel","popcorn","manteca de cacao","poroto","galletita","pepas","mini","sin manteca","budin","mani","mani king","figacita","figacitas"],
+    "manteca": ["lechuga","medialuna","papel","popcorn","manteca de cacao","poroto","galletita","pepas","mini","sin manteca","budin","mani","mani king","figacita","figacitas","shampoo","garnier","hair food","mejillon","mejillones","ajo","pescado","mariscos"],
     "galletitas_agua": ["pepas","pepitos","sandwich","media tarde","avena","chips","dulce","rellena","vainilla","chocolate","limon","cereal"],
     "jabon_tocador": ["polvo","liquido","líquido","ropa","lavar ropa","suavizante","detergente","lavavajillas","tocador liquido","zorro","ala","skip","ecovita"],
     "detergente": ["suavizante","jabon liquido","jabon líquido","enjuague","lavandina","tableta","tablet"],
@@ -139,6 +150,19 @@ STRICT_REQUIRE = {
     "detergente": [["detergente"]],
     "jabon_tocador": [["jabon","tocador"]],
     "queso_cremoso": [["queso","cremoso"],["cremoso"]],
+    # Especies/productos frescos: el keyword ya es la especie; exigirla evita
+    # que cualquier coincidencia parcial (ej. alimento con "arroz") califique.
+    "pollo": [["pollo"]],
+    "arroz": [["arroz"]],
+    "manzana": [["manzana"]],
+    "banana": [["banana"]],
+    "cebolla": [["cebolla"]],
+    "papa": [["papa"]],
+    "manteca": [["manteca"]],
+    "azucar": [["azucar"]],
+    "yerba": [["yerba"]],
+    "cafe": [["cafe"]],
+    "huevo": [["huevo"]],
 }
 
 def _strict_ok(pid: str, desc_n: str) -> bool:
@@ -329,14 +353,7 @@ def extract_observations(zip_path: Path, gran_rosario=False):
                             if precio_ref:
                                 try:
                                     per_unit = float(precio_ref.replace(",","."))
-                                    ur = unidad_ref.upper()
-                                    if ur in ("KGM","KG","KG."): per_unit_name="kg"
-                                    elif ur in ("LTR","LT","L","LITRO"): per_unit_name="L"
-                                    elif ur in ("GRM","GR","GRS","G","GR."): per_unit_name="kg"
-                                    elif ur in ("MLT","ML","CM3"): 
-                                        per_unit_name="L"
-                                    elif ur in ("UNI","UN","U"): per_unit_name="u"
-                                    else: per_unit_name=unidad_ref.lower() or "?"
+                                    per_unit_name = normalize_unit(unidad_ref)
                                     pass
                                 except:
                                     per_unit, per_unit_name = price_per_unit(price_lista, qty_present, unit_present)
@@ -387,7 +404,8 @@ def aggregate(observations, branches):
             if not item: continue
             unit = item["unit"]
             need = item["need_qty"]
-            if obs["per_unit_name"] == unit or (unit=="kg" and obs["per_unit_name"]=="kg") or (unit=="L" and obs["per_unit_name"]=="L") or (unit=="u" and obs["per_unit_name"]=="u"):
+            obs_unit = normalize_unit(obs["per_unit_name"])
+            if obs_unit == unit or (unit=="kg" and obs_unit=="kg") or (unit=="L" and obs_unit=="L") or (unit=="u" and obs_unit=="u"):
                 total += obs["price_per_unit"] * need
                 count+=1
             else:

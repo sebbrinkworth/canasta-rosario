@@ -1,0 +1,8 @@
+2026-08-26 branches=20 hero_cheapest=$29911 (La Anónima) status=ok
+2026-08-27 branches=21 hero_cheapest=$25526 (La Anónima) status=ok
+2026-08-28 branches=20 hero_cheapest=$25836 (La Anónima) status=ok
+2026-08-29 branches=20 hero_cheapest=$26336 (La Anónima) status=ok
+2026-08-30 branches=20 hero_cheapest=$29811 (La Anónima) status=ok
+2026-08-31 branches=21 hero_cheapest=$29711 (La Anónima) status=ok
+2026-09-01 branches=21 hero_cheapest=$27296 (La Anónima) status=ok
+# note: 2026-06-02..2026-08-25 not available via CKAN (only 7-day retention); see API last_modified; 90-day backfill requires archive

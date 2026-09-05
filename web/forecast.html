@@ -11,18 +11,18 @@ img{max-width:100%;border:1px solid #e5e7eb;border-radius:8px} table{border-coll
 .caption{background:#f8fafc;border-left:3px solid #2563eb;padding:8px 10px;margin:8px 0;font-size:13px}
 .footer{font-size:12px;color:#64748b}
 </style></head><body>
-<header class="card"><div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:8px 10px;margin-bottom:10px;font-size:13px">⚠️ <b>Preview con 5/64 archivos</b> — backfill 90d en curso (2026-06-02→2026-08-31). Cuando termine (~64 JSONs) corré <code>uv run python forecast/test_harness.py</code> para la evaluación completa con TimesFM 3. Logs: <code>data/backfill.log</code></div>
+<header class="card">
 <h1>Canasta Rosario — TimesFM 3 Evaluación</h1>
-<p>Rango: <b>2026-06-04 → 2026-08-31</b> · Archivos: <b>5</b> · Sucursales: <b>21</b> · Cadenas: Carrefour, Coto, DIA, La Anónima, Jumbo/Vea/Disco</p>
-<p><span class="badge">Gran Rosario</span> <span class="badge">Walk-forward 30 días (h=1)</span> <span class="badge">Baseline naive (TimesFM no instalado)</span> <span class="badge">FX source: dolarapi.com (histórico interpolado) — IPIM: stub</span></p>
-<p style="font-size:12px;color:#64748b">Generado 2026-09-01 14:29 — datos: <code>data/rosario-*.json</code> → <code>forecast/eval_results.json</code></p>
+<p>Rango: <b>2026-08-26 → 2026-09-05</b> · Archivos: <b>11</b> · Sucursales: <b>14</b> · Cadenas: Carrefour, Coto, DIA, La Anónima, Jumbo/Vea/Disco</p>
+<p><span class="badge">Gran Rosario</span> <span class="badge">Walk-forward 30 días (h=1)</span> <span class="badge">TimesFM 3</span> <span class="badge">FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual, último publicado a cada fecha (lag 60d, step-forward sin interpolar futuro; 11/11 días con valor; series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (cache vencida data/covariates/ipim_series_tiempo.csv))</span></p>
+<p style="font-size:12px;color:#64748b">Generado 2026-09-05 18:30 — datos: <code>data/rosario-*.json</code> → <code>forecast/eval_results.json</code></p>
 </header>
 <section class="card">
 <h2>1. ¿Ayudan las covariables?</h2>
 <img src="plots/01_mae_por_config.png" alt="MAE por configuración">
 <div class="caption"><b>Qué ves:</b> barra por configuración (solo precio, +FX, +FX+IPIM, +FX+competidor). Altura = error promedio MAE ($). <b>Qué significa:</b> si la barra baja al agregar FX, el dólar explica parte del movimiento de precios. Si no baja, el precio se mueve por otras razones (ofertas, stock, logística).</div>
 <table><tr><th>Config</th><th>MAE ($)</th></tr>
-<tr><td>Solo precio</td><td>87.2</td></tr><tr><td>+ FX</td><td>87.2</td></tr><tr><td>+ FX + IPIM</td><td>87.2</td></tr><tr><td>+ FX + competidor</td><td>87.2</td></tr>
+<tr><td>Solo precio</td><td>65.9</td></tr><tr><td>+ FX</td><td>65.7</td></tr><tr><td>+ FX + IPIM</td><td>65.0</td></tr><tr><td>+ FX + competidor</td><td>65.5</td></tr>
 </table>
 </section>
 <section class="card">
@@ -55,6 +55,48 @@ img{max-width:100%;border:1px solid #e5e7eb;border-radius:8px} table{border-coll
       <th>chain</th>
       <th>config</th>
       <th>category</th>
+      <th>event_daily_sube_n</th>
+      <th>event_daily_sube_actual</th>
+      <th>event_daily_sube_hits</th>
+      <th>event_daily_sube_precision</th>
+      <th>event_daily_sube_recall</th>
+      <th>event_daily_sube_f1</th>
+      <th>event_daily_baja_n</th>
+      <th>event_daily_baja_actual</th>
+      <th>event_daily_baja_hits</th>
+      <th>event_daily_baja_precision</th>
+      <th>event_daily_baja_recall</th>
+      <th>event_daily_baja_f1</th>
+      <th>event_daily_estable_n</th>
+      <th>event_daily_estable_actual</th>
+      <th>event_daily_estable_hits</th>
+      <th>event_daily_estable_precision</th>
+      <th>event_daily_estable_recall</th>
+      <th>event_daily_estable_f1</th>
+      <th>event_weekly_sube_n</th>
+      <th>event_weekly_sube_actual</th>
+      <th>event_weekly_sube_hits</th>
+      <th>event_weekly_sube_precision</th>
+      <th>event_weekly_sube_recall</th>
+      <th>event_weekly_sube_f1</th>
+      <th>event_weekly_baja_n</th>
+      <th>event_weekly_baja_actual</th>
+      <th>event_weekly_baja_hits</th>
+      <th>event_weekly_baja_precision</th>
+      <th>event_weekly_baja_recall</th>
+      <th>event_weekly_baja_f1</th>
+      <th>event_weekly_estable_n</th>
+      <th>event_weekly_estable_actual</th>
+      <th>event_weekly_estable_hits</th>
+      <th>event_weekly_estable_precision</th>
+      <th>event_weekly_estable_recall</th>
+      <th>event_weekly_estable_f1</th>
+      <th>event_move_precision_daily</th>
+      <th>event_move_precision_weekly</th>
+      <th>fallback_naive</th>
+      <th>fallback_cov_dropped</th>
+      <th>_daily_pairs</th>
+      <th>_weekly_pairs</th>
     </tr>
   </thead>
   <tbody>
@@ -63,305 +105,1355 @@ img{max-width:100%;border:1px solid #e5e7eb;border-radius:8px} table{border-coll
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>papa__9</td>
-      <td>papa</td>
-      <td>9</td>
-      <td>plus_fx_ipim</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__9</td>
-      <td>cebolla</td>
-      <td>9</td>
-      <td>plus_fx_ipim</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__9</td>
-      <td>cebolla</td>
-      <td>9</td>
-      <td>plus_fx</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__9</td>
-      <td>cebolla</td>
-      <td>9</td>
-      <td>price_only</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__15</td>
-      <td>cebolla</td>
-      <td>15</td>
+      <td>10</td>
+      <td>detergente__10</td>
+      <td>detergente</td>
+      <td>10</td>
       <td>plus_fx_competitor</td>
-      <td>Verdulería</td>
+      <td>Limpieza</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__15</td>
-      <td>cebolla</td>
-      <td>15</td>
-      <td>plus_fx_ipim</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__15</td>
-      <td>cebolla</td>
-      <td>15</td>
-      <td>plus_fx</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__15</td>
-      <td>cebolla</td>
+      <td>10</td>
+      <td>manzana__15</td>
+      <td>manzana</td>
       <td>15</td>
       <td>price_only</td>
       <td>Verdulería</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__10</td>
-      <td>cebolla</td>
       <td>10</td>
-      <td>plus_fx_competitor</td>
+      <td>manzana__15</td>
+      <td>manzana</td>
+      <td>15</td>
+      <td>plus_fx</td>
       <td>Verdulería</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__10</td>
-      <td>cebolla</td>
       <td>10</td>
+      <td>manzana__15</td>
+      <td>manzana</td>
+      <td>15</td>
       <td>plus_fx_ipim</td>
       <td>Verdulería</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>10</td>
+      <td>manzana__15</td>
+      <td>manzana</td>
+      <td>15</td>
+      <td>plus_fx_competitor</td>
+      <td>Verdulería</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>4</td>
-      <td>cebolla__10</td>
-      <td>cebolla</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__10</td>
+      <td>pan_lactal</td>
+      <td>10</td>
+      <td>price_only</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__10</td>
+      <td>pan_lactal</td>
       <td>10</td>
       <td>plus_fx</td>
-      <td>Verdulería</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__10</td>
+      <td>pan_lactal</td>
+      <td>10</td>
+      <td>plus_fx_ipim</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>4</td>
-      <td>cebolla__10</td>
-      <td>cebolla</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__10</td>
+      <td>pan_lactal</td>
+      <td>10</td>
+      <td>plus_fx_competitor</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__9</td>
+      <td>pan_lactal</td>
+      <td>9</td>
+      <td>price_only</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__9</td>
+      <td>pan_lactal</td>
+      <td>9</td>
+      <td>plus_fx</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__9</td>
+      <td>pan_lactal</td>
+      <td>9</td>
+      <td>plus_fx_ipim</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>pan_lactal__9</td>
+      <td>pan_lactal</td>
+      <td>9</td>
+      <td>plus_fx_competitor</td>
+      <td>Panificados</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>arroz__10</td>
+      <td>arroz</td>
       <td>10</td>
       <td>price_only</td>
-      <td>Verdulería</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>papa__9</td>
-      <td>papa</td>
-      <td>9</td>
-      <td>plus_fx_competitor</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>cebolla__9</td>
-      <td>cebolla</td>
-      <td>9</td>
-      <td>plus_fx_competitor</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>papa__9</td>
-      <td>papa</td>
-      <td>9</td>
+      <td>10</td>
+      <td>arroz__10</td>
+      <td>arroz</td>
+      <td>10</td>
       <td>plus_fx</td>
-      <td>Verdulería</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>papa__9</td>
-      <td>papa</td>
-      <td>9</td>
-      <td>price_only</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>papa__2</td>
-      <td>papa</td>
-      <td>2</td>
-      <td>plus_fx_competitor</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>papa__2</td>
-      <td>papa</td>
-      <td>2</td>
+      <td>10</td>
+      <td>arroz__10</td>
+      <td>arroz</td>
+      <td>10</td>
       <td>plus_fx_ipim</td>
-      <td>Verdulería</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>papa__2</td>
-      <td>papa</td>
-      <td>2</td>
-      <td>plus_fx</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>papa__2</td>
-      <td>papa</td>
-      <td>2</td>
-      <td>price_only</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>papa__12</td>
-      <td>papa</td>
-      <td>12</td>
+      <td>10</td>
+      <td>arroz__10</td>
+      <td>arroz</td>
+      <td>10</td>
       <td>plus_fx_competitor</td>
-      <td>Verdulería</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>10</td>
+      <td>arroz__12</td>
+      <td>arroz</td>
+      <td>12</td>
+      <td>price_only</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>4</td>
-      <td>papa__12</td>
-      <td>papa</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>arroz__12</td>
+      <td>arroz</td>
+      <td>12</td>
+      <td>plus_fx</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>arroz__12</td>
+      <td>arroz</td>
       <td>12</td>
       <td>plus_fx_ipim</td>
-      <td>Verdulería</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
     <tr>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>papa__12</td>
-      <td>papa</td>
+      <td>10</td>
+      <td>arroz__12</td>
+      <td>arroz</td>
       <td>12</td>
-      <td>plus_fx</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>papa__12</td>
-      <td>papa</td>
-      <td>12</td>
-      <td>price_only</td>
-      <td>Verdulería</td>
-    </tr>
-    <tr>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>huevo__9</td>
-      <td>huevo</td>
-      <td>9</td>
       <td>plus_fx_competitor</td>
-      <td>Frescos</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>arroz__15</td>
+      <td>arroz</td>
+      <td>15</td>
+      <td>price_only</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>arroz__15</td>
+      <td>arroz</td>
+      <td>15</td>
+      <td>plus_fx</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>arroz__15</td>
+      <td>arroz</td>
+      <td>15</td>
+      <td>plus_fx_ipim</td>
+      <td>Almacén</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+    </tr>
+    <tr>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>10</td>
+      <td>detergente__2</td>
+      <td>detergente</td>
+      <td>2</td>
+      <td>price_only</td>
+      <td>Limpieza</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>{'sube': 0.0, 'baja': 0.0, 'n_sube': 0, 'n_baja': 0}</td>
+      <td>5</td>
+      <td>0</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
+      <td>[(estable, estable), (estable, estable), (estable, estable), (estable, estable)]</td>
     </tr>
   </tbody>
 </table>
 </section>
 <section class="card footer">
-<b>Metodología:</b> Walk-forward nowcast h=1 sobre últimos 30 días; contexto 60 días. 4 configs: (1) solo precio, (2) +FX (blue/MEP, brecha, vol7), (3) +FX+IPIM mensual interpolado, (4) +FX+precio mínimo competidor. TimesFM 3 zero-shot con cuantiles 0.1/0.5/0.9; si no está instalado, baseline naive (último valor + drift). Métricas: MAE, MAPE, RMSE, cobertura 10–90%. Datos SEPA lunes/jueves/viernes/sáb/dom (martes/miércoles sin CKAN). Covariables: FX source: dolarapi.com (histórico interpolado) — IPIM: stub. Código: <code>forecast/test_harness.py</code> — re-ejecutar: <code>uv run python forecast/test_harness.py</code> (o --force con &lt;50 archivos).
+<b>Metodología:</b> Walk-forward nowcast h=1 sobre últimos 30 días; contexto 60 días. 4 configs: (1) solo precio, (2) +FX (blue/MEP, brecha, vol7), (3) +FX+IPIM mensual interpolado, (4) +FX+precio mínimo competidor. TimesFM 3 zero-shot con cuantiles 0.1/0.5/0.9; si no está instalado, baseline naive (último valor + drift). Métricas: MAE, MAPE, RMSE, cobertura 10–90%. Datos SEPA lunes/jueves/viernes/sáb/dom (martes/miércoles sin CKAN). Covariables: FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual, último publicado a cada fecha (lag 60d, step-forward sin interpolar futuro; 11/11 días con valor; series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (cache vencida data/covariates/ipim_series_tiempo.csv)). Código: <code>forecast/test_harness.py</code> — re-ejecutar: <code>uv run python forecast/test_harness.py</code> (o --force con &lt;50 archivos).
 </section>
 </body></html>

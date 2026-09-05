@@ -55,6 +55,38 @@ def load_price_dataframe(price_field: str = "price_per_unit", fill_limit: int = 
     df = df.ffill(limit=fill_limit)
     return df
 
+def load_price_observed(price_field: str = "price_per_unit") -> pd.DataFrame:
+    """Boolean mask aligned with load_price_dataframe(): True where the value
+    was actually observed that day (not forward-filled). Scoring must skip
+    filled cells — ffill stability is not a prediction success."""
+    files = list_jsons()
+    rows = {}
+    for fp in files:
+        try:
+            d = json.loads(fp.read_text())
+        except Exception:
+            continue
+        date = d.get("date") or re.search(r"(\d{4}-\d{2}-\d{2})", fp.name).group(1)
+        for item in d.get("table", []):
+            pid = item["id"]
+            for cid, price_obj in (item.get("prices") or {}).items():
+                col = f"{pid}__{cid}"
+                seen = False
+                if price_obj is not None:
+                    raw = price_obj.get(price_field)
+                    if raw is not None and raw != "—" and raw != "":
+                        try:
+                            v = float(raw)
+                            seen = v == v  # not NaN
+                        except Exception:
+                            seen = False
+                rows.setdefault(date, {})[col] = seen
+    if not rows:
+        return pd.DataFrame()
+    obs = pd.DataFrame.from_dict(rows, orient="index")
+    obs.index = pd.to_datetime(obs.index)
+    return obs.sort_index().fillna(False).astype(bool)
+
 def load_meta():
     files = list_jsons()
     if not files:

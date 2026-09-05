@@ -390,10 +390,10 @@
       "conf": "media"
     },
     "pollo__9": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 13088.24,
-      "last": 13088.24,
+      "dir": "sube",
+      "delta_pct": 1.74,
+      "pred": 23154.86,
+      "last": 22759.26,
       "conf": "media"
     },
     "carne_picada__10": {
@@ -522,18 +522,11 @@
       "last": 2990.0,
       "conf": "baja"
     },
-    "cebolla__9": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 11000.0,
-      "last": 11000.0,
-      "conf": "media"
-    },
     "manzana__10": {
       "dir": "estable",
       "delta_pct": 0.0,
-      "pred": 2590.0,
-      "last": 2590.0,
+      "pred": 3999.0,
+      "last": 3999.0,
       "conf": "media"
     },
     "manzana__12": {
@@ -556,13 +549,6 @@
       "pred": 4190.0,
       "last": 3990.0,
       "conf": "baja"
-    },
-    "manzana__9": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3700.0,
-      "last": 3700.0,
-      "conf": "media"
     },
     "banana__10": {
       "dir": "baja",
@@ -590,7 +576,7 @@
       "delta_pct": 0.0,
       "pred": 3990.0,
       "last": 3990.0,
-      "conf": "baja"
+      "conf": "media"
     },
     "queso_cremoso__10": {
       "dir": "estable",
@@ -656,10 +642,10 @@
       "conf": "media"
     },
     "manteca__12": {
-      "dir": "sube",
-      "delta_pct": 1.18,
-      "pred": 17198.0,
-      "last": 16998.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 17998.0,
+      "last": 17998.0,
       "conf": "media"
     },
     "manteca__15": {

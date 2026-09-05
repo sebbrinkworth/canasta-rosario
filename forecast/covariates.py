@@ -39,6 +39,10 @@ IPIM_SERIE_ID = "448.1_NIVEL_GENERAL_0_0_13_46"
 # actualizada hasta 2026-07). Si el fetch trae datos pero el último valor es más
 # viejo que esta ventana, se marca IPIM como "no data (stale)" en la nota.
 IPIM_MAX_STALE_DAYS = 75
+# Lag de publicación: el IPIM de un mes se publica ~30-45 días después del fin
+# de mes. Para no filtrar futuro en el backtest, cada fecha diaria solo ve los
+# valores mensuales publicados hasta esa fecha (60 días de margen seguro).
+IPIM_PUB_LAG_DAYS = 60
 
 
 def _http_get_json(url: str, timeout: int = 10, retries: int = 3, backoff: float = 2.0):
@@ -197,7 +201,11 @@ def build_daily_covariates(index: pd.DatetimeIndex) -> tuple[pd.DataFrame, str]:
         }, index=idx)
         fx_note = "FX: STUB sintético (bluelytics no disponible)"
 
-    # IPIM real (mensual → diario por interpolación temporal). Sin datos → "no data".
+    # IPIM real (mensual → diario SOLO con valores publicados a la fecha).
+    # Sin look-ahead: para cada fecha se usa el último valor mensual cuya
+    # publicación ya ocurrió (fin de mes + IPIM_PUB_LAG_DAYS). Nunca se interpola
+    # con valores futuros: entre publicaciones se mantiene el último conocido
+    # (step-forward, no time-interpolate). Sin datos → "no data".
     ipim = pd.Series(np.nan, index=idx, dtype=float)
     ipim_note = "IPIM: no data"
     if ipim_monthly is not None:
@@ -210,12 +218,21 @@ def build_daily_covariates(index: pd.DatetimeIndex) -> tuple[pd.DataFrame, str]:
             ipim_note = f"IPIM: no data (stale: último {ms.index[-1].date()}, {ipim_source})"
             print(f"[covariates] WARNING: {ipim_note}")
         else:
-            i_start, i_end = min(start, ms.index[-1]), max(end, ms.index[-1])
-            daily = ms.reindex(pd.date_range(i_start, i_end, freq="D")).interpolate(
-                method="time", limit_area="inside"
-            ).ffill().reindex(idx)
-            ipim = daily
-            ipim_note = f"IPIM real: INDEC {IPIM_SERIE_ID} mensual interpolado diario ({ipim_source})"
+            # Fecha de publicación estimada = fin de mes + lag. Solo valores
+            # publicados a cada fecha (asof join) — causal, sin futuro.
+            pub_dates = ms.index + pd.to_timedelta(IPIM_PUB_LAG_DAYS, unit="D")
+            vals = ms.values
+            # asof: para cada fecha, último valor con pub_date <= fecha
+            import bisect
+            pub_list = list(pub_dates)
+            filled = []
+            for d in idx:
+                d_ts = pd.Timestamp(d).tz_localize(None) if getattr(d, 'tz', None) else pd.Timestamp(d)
+                j = bisect.bisect_right(pub_list, d_ts) - 1
+                filled.append(float(vals[j]) if j >= 0 and pd.notna(vals[j]) else np.nan)
+            ipim = pd.Series(filled, index=idx, dtype=float)
+            n_known = int(np.sum(~np.isnan(filled)))
+            ipim_note = f"IPIM real: INDEC {IPIM_SERIE_ID} mensual, último publicado a cada fecha (lag {IPIM_PUB_LAG_DAYS}d, step-forward sin interpolar futuro; {n_known}/{len(idx)} días con valor; {ipim_source})"
 
     df["ipim_idx"] = ipim
 

@@ -28,19 +28,19 @@
     {
       "chain_id": "2",
       "chain_label": "La Anónima",
-      "total": 27346.35,
-      "items_found": 21
+      "total": 45937.45,
+      "items_found": 20
     },
     {
       "chain_id": "10",
       "chain_label": "Carrefour",
-      "total": 64885.24,
+      "total": 66294.24,
       "items_found": 24
     },
     {
       "chain_id": "12",
       "chain_label": "Coto",
-      "total": 77443.41,
+      "total": 77643.41,
       "items_found": 24
     },
     {
@@ -52,8 +52,8 @@
     {
       "chain_id": "9",
       "chain_label": "Jumbo/Vea/Disco",
-      "total": 96957.37,
-      "items_found": 19
+      "total": 93646.72,
+      "items_found": 17
     }
   ],
   "table": [
@@ -94,7 +94,7 @@
         "9": {
           "price_lista": 2750.0,
           "price_per_unit": 2750.0,
-          "per_unit": "lt.",
+          "per_unit": "L",
           "desc": "Leche UAT 0% Lactosa LAS TRES NIÑAS 1L BRK-1-lt.",
           "marca": "LAS TRES NIÑAS"
         }
@@ -169,7 +169,7 @@
         "2": {
           "price_lista": 1100.0,
           "price_per_unit": 1100.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "ARROZ LARGO FINO 00000 BOLSA, VANGUARDIA, 1000 gr",
           "marca": "VANGUARDIA"
         },
@@ -213,7 +213,7 @@
         "2": {
           "price_lista": 750.0,
           "price_per_unit": 1500.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "FIDEOS SPAGHETTI, FAVORITA, 500 gr",
           "marca": "FAVORITA"
         },
@@ -264,7 +264,7 @@
         "9": {
           "price_lista": 7200.0,
           "price_per_unit": 4800.0,
-          "per_unit": "lt.",
+          "per_unit": "L",
           "desc": "Aceite Girasol PUREZA 1,5L BOT-1.5-lt.",
           "marca": "PUREZA"
         }
@@ -301,7 +301,7 @@
         "2": {
           "price_lista": 790.0,
           "price_per_unit": 790.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "HARINA DE TRIGO 000, MORIXE, 1000 gr",
           "marca": "MORIXE"
         },
@@ -345,7 +345,7 @@
         "2": {
           "price_lista": 1200.0,
           "price_per_unit": 1200.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "AZUCAR COMUN TIPO A, AZUCEL, 1000 gr",
           "marca": "AZUCEL"
         },
@@ -389,7 +389,7 @@
         "2": {
           "price_lista": 3100.0,
           "price_per_unit": 3096.9,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "YERBA MATE C/PALO TRADICIONAL, ANDRESITO, 1001 gr",
           "marca": "ANDRESITO"
         },
@@ -427,7 +427,7 @@
         "2": {
           "price_lista": 3750.0,
           "price_per_unit": 30000.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "CAFE INSTANTANEO TRAD CAPPUCCINO DP, LA VIRGINIA, 125 gr",
           "marca": "LA VIRGINIA"
         },
@@ -465,7 +465,7 @@
         "2": {
           "price_lista": 690.0,
           "price_per_unit": 1326.92,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "PURE DE TOMATES, ALCO, 520 gr",
           "marca": "ALCO"
         },
@@ -503,7 +503,7 @@
         "2": {
           "price_lista": 620.0,
           "price_per_unit": 1771.43,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "ARVEJAS SECAS REMOJADAS, INCA, 350 gr",
           "marca": "INCA"
         },
@@ -547,16 +547,16 @@
         "2": {
           "price_lista": 3790.0,
           "price_per_unit": 3790.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "POLLO FRESCO, SAN SEBASTIAN, 1 kgr",
           "marca": "SAN SEBASTIAN"
         },
         "9": {
-          "price_lista": 4450.0,
-          "price_per_unit": 13088.24,
+          "price_lista": 6650.0,
+          "price_per_unit": 20781.25,
           "per_unit": "kg",
-          "desc": "PEDIGREE pasta Pollo LAT-340-gr.",
-          "marca": "PEDIGREE"
+          "desc": "Palitos de pollo GRUPOLAR finas h x320g BSA-320-gr.",
+          "marca": "GRUPOLAR"
         }
       },
       "cheapest_chain": "12"
@@ -629,14 +629,14 @@
         "2": {
           "price_lista": 12000.0,
           "price_per_unit": 400.0,
-          "per_unit": "cu",
+          "per_unit": "u",
           "desc": "HUEVO BLANCO GRANDE, LA ANONIMA, 30 cu",
           "marca": "LA ANONIMA"
         },
         "9": {
           "price_lista": 2290.0,
           "price_per_unit": 381.67,
-          "per_unit": "un.",
+          "per_unit": "u",
           "desc": "Huevo CARNAVE blanco carton x 6 u PCK-6-un.",
           "marca": "CARNAVE"
         }
@@ -673,7 +673,7 @@
         "2": {
           "price_lista": 1799.0,
           "price_per_unit": 1799.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "PAPA COMERCIAL BOLSITA ., ., 1 kgr",
           "marca": "."
         },
@@ -717,17 +717,11 @@
         "2": {
           "price_lista": 1990.0,
           "price_per_unit": 1990.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "CEBOLLA EN TUBO ., ., 1 kgr",
           "marca": "."
         },
-        "9": {
-          "price_lista": 11000.0,
-          "price_per_unit": 11000.0,
-          "per_unit": "un.",
-          "desc": "Ciriola Zepellin Cebolla y Queso S/E-1-un.",
-          "marca": "ELABORACION PROPIA"
-        }
+        "9": null
       },
       "cheapest_chain": "10"
     },
@@ -738,11 +732,11 @@
       "category": "Verdulería",
       "prices": {
         "10": {
-          "price_lista": 2590.0,
-          "price_per_unit": 2590.0,
-          "per_unit": "u",
-          "desc": "AROMANZA TIBETANOS SLIM X 10 V. MANZANA CANELA",
-          "marca": "AROMANZA"
+          "price_lista": 3999.0,
+          "price_per_unit": 3999.0,
+          "per_unit": "kg",
+          "desc": "MANZANA X KG. COMERCIAL",
+          "marca": "S/D"
         },
         "12": {
           "price_lista": 3999.0,
@@ -761,19 +755,13 @@
         "2": {
           "price_lista": 3990.0,
           "price_per_unit": 3990.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "MANZANA GRANY COMERCIAL BOLSITA, ., 1 kgr",
           "marca": "."
         },
-        "9": {
-          "price_lista": 1850.0,
-          "price_per_unit": 3700.0,
-          "per_unit": "lt.",
-          "desc": "saborizada AQUARIUS Manzana 500cc BOT-500-ml.",
-          "marca": "AQUARIUS"
-        }
+        "9": null
       },
-      "cheapest_chain": "10"
+      "cheapest_chain": "15"
     },
     {
       "id": "banana",
@@ -802,13 +790,7 @@
           "desc": "BANANA NOA KG",
           "marca": ""
         },
-        "2": {
-          "price_lista": 14950.0,
-          "price_per_unit": 14950.0,
-          "per_unit": "kgr",
-          "desc": "HELADO CHO-DDL-GRAN-BANANA C/S. DDL, ICE CREAM, 1000 gr",
-          "marca": "ICE CREAM"
-        },
+        "2": null,
         "9": null
       },
       "cheapest_chain": "15"
@@ -881,7 +863,7 @@
         "2": {
           "price_lista": 2050.0,
           "price_per_unit": 2277.78,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "YOGUR BEBIBLE DESCREMADO FRUTILLA, GRAN COMPRA, 900 gr",
           "marca": "GRAN COMPRA"
         },
@@ -903,11 +885,11 @@
           "marca": "COTAMPO"
         },
         "12": {
-          "price_lista": 8499.0,
-          "price_per_unit": 16998.0,
+          "price_lista": 8999.0,
+          "price_per_unit": 17998.0,
           "per_unit": "kg",
-          "desc": "MEJILLON A LA MANTECA Y AJO  ",
-          "marca": "ST ANDREWS"
+          "desc": "MANTECA PRIMER PREMIO PAN 500 GRM",
+          "marca": "PRIMER PREMIO"
         },
         "15": {
           "price_lista": 3750.0,
@@ -919,7 +901,7 @@
         "2": {
           "price_lista": 1500.0,
           "price_per_unit": 15000.0,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "MANTECA, PRIMER PREMIO, 100 gr",
           "marca": "PRIMER PREMIO"
         },
@@ -983,7 +965,7 @@
         "2": {
           "price_lista": 2350.0,
           "price_per_unit": 6266.67,
-          "per_unit": "kgr",
+          "per_unit": "kg",
           "desc": "JABON TOCADOR FLORES X3, ST TROPEZ, 375 gr",
           "marca": "ST TROPEZ"
         },
@@ -1034,7 +1016,7 @@
         "9": {
           "price_lista": 9600.0,
           "price_per_unit": 3200.0,
-          "per_unit": "lt.",
+          "per_unit": "L",
           "desc": "detergente liq ECOVITA intense DP 3000ml DOY-3-lt.",
           "marca": "ECOVITA"
         }
@@ -1105,26 +1087,26 @@
         {
           "chain_id": "2",
           "chain_label": "La Anónima",
-          "total": 27346.35,
-          "items_found": 21
+          "total": 45937.45,
+          "items_found": 20
         },
         {
           "chain_id": "10",
           "chain_label": "Carrefour",
-          "total": 64885.24,
+          "total": 66294.24,
           "items_found": 24
         },
         {
           "chain_id": "12",
           "chain_label": "Coto",
-          "total": 77508.39,
+          "total": 77708.39,
           "items_found": 24
         },
         {
           "chain_id": "9",
           "chain_label": "Jumbo/Vea/Disco",
-          "total": 95178.06,
-          "items_found": 18
+          "total": 91867.41,
+          "items_found": 16
         }
       ],
       "table": [
@@ -1158,7 +1140,7 @@
             "9": {
               "price_lista": 2750.0,
               "price_per_unit": 2750.0,
-              "per_unit": "lt.",
+              "per_unit": "L",
               "desc": "Leche UAT 0% Lactosa LAS TRES NIÑAS 1L BRK-1-lt.",
               "marca": "LAS TRES NIÑAS"
             }
@@ -1213,7 +1195,7 @@
             "2": {
               "price_lista": 1100.0,
               "price_per_unit": 1100.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "ARROZ LARGO FINO 00000 BOLSA, VANGUARDIA, 1000 gr",
               "marca": "VANGUARDIA"
             },
@@ -1250,7 +1232,7 @@
             "2": {
               "price_lista": 750.0,
               "price_per_unit": 1500.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "FIDEOS SPAGHETTI, FAVORITA, 500 gr",
               "marca": "FAVORITA"
             },
@@ -1294,7 +1276,7 @@
             "9": {
               "price_lista": 7200.0,
               "price_per_unit": 4800.0,
-              "per_unit": "lt.",
+              "per_unit": "L",
               "desc": "Aceite Girasol PUREZA 1,5L BOT-1.5-lt.",
               "marca": "PUREZA"
             }
@@ -1324,7 +1306,7 @@
             "2": {
               "price_lista": 790.0,
               "price_per_unit": 790.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "HARINA DE TRIGO 000, MORIXE, 1000 gr",
               "marca": "MORIXE"
             },
@@ -1361,7 +1343,7 @@
             "2": {
               "price_lista": 1200.0,
               "price_per_unit": 1200.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "AZUCAR COMUN TIPO A, AZUCEL, 1000 gr",
               "marca": "AZUCEL"
             },
@@ -1398,7 +1380,7 @@
             "2": {
               "price_lista": 3100.0,
               "price_per_unit": 3096.9,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "YERBA MATE C/PALO TRADICIONAL, ANDRESITO, 1001 gr",
               "marca": "ANDRESITO"
             },
@@ -1435,7 +1417,7 @@
             "2": {
               "price_lista": 3750.0,
               "price_per_unit": 30000.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "CAFE INSTANTANEO TRAD CAPPUCCINO DP, LA VIRGINIA, 125 gr",
               "marca": "LA VIRGINIA"
             },
@@ -1466,7 +1448,7 @@
             "2": {
               "price_lista": 690.0,
               "price_per_unit": 1326.92,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "PURE DE TOMATES, ALCO, 520 gr",
               "marca": "ALCO"
             },
@@ -1497,7 +1479,7 @@
             "2": {
               "price_lista": 620.0,
               "price_per_unit": 1771.43,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "ARVEJAS SECAS REMOJADAS, INCA, 350 gr",
               "marca": "INCA"
             },
@@ -1534,16 +1516,16 @@
             "2": {
               "price_lista": 3790.0,
               "price_per_unit": 3790.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "POLLO FRESCO, SAN SEBASTIAN, 1 kgr",
               "marca": "SAN SEBASTIAN"
             },
             "9": {
-              "price_lista": 4450.0,
-              "price_per_unit": 13088.24,
+              "price_lista": 6650.0,
+              "price_per_unit": 20781.25,
               "per_unit": "kg",
-              "desc": "PEDIGREE pasta Pollo LAT-340-gr.",
-              "marca": "PEDIGREE"
+              "desc": "Palitos de pollo GRUPOLAR finas h x320g BSA-320-gr.",
+              "marca": "GRUPOLAR"
             }
           },
           "cheapest_chain": "12"
@@ -1602,14 +1584,14 @@
             "2": {
               "price_lista": 12000.0,
               "price_per_unit": 400.0,
-              "per_unit": "cu",
+              "per_unit": "u",
               "desc": "HUEVO BLANCO GRANDE, LA ANONIMA, 30 cu",
               "marca": "LA ANONIMA"
             },
             "9": {
               "price_lista": 2350.0,
               "price_per_unit": 391.67,
-              "per_unit": "un.",
+              "per_unit": "u",
               "desc": "Huevo CARNAVE blanco carton x 6 u PCK-6-un.",
               "marca": "CARNAVE"
             }
@@ -1639,7 +1621,7 @@
             "2": {
               "price_lista": 1799.0,
               "price_per_unit": 1799.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "PAPA COMERCIAL BOLSITA ., ., 1 kgr",
               "marca": "."
             },
@@ -1676,17 +1658,11 @@
             "2": {
               "price_lista": 1990.0,
               "price_per_unit": 1990.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "CEBOLLA EN TUBO ., ., 1 kgr",
               "marca": "."
             },
-            "9": {
-              "price_lista": 11000.0,
-              "price_per_unit": 11000.0,
-              "per_unit": "un.",
-              "desc": "Ciriola Zepellin Cebolla y Queso S/E-1-un.",
-              "marca": "ELABORACION PROPIA"
-            }
+            "9": null
           },
           "cheapest_chain": "10"
         },
@@ -1697,11 +1673,11 @@
           "category": "Verdulería",
           "prices": {
             "10": {
-              "price_lista": 2590.0,
-              "price_per_unit": 2590.0,
-              "per_unit": "u",
-              "desc": "AROMANZA TIBETANOS SLIM X 10 V. MANZANA CANELA",
-              "marca": "AROMANZA"
+              "price_lista": 3999.0,
+              "price_per_unit": 3999.0,
+              "per_unit": "kg",
+              "desc": "MANZANA X KG. COMERCIAL",
+              "marca": "S/D"
             },
             "12": {
               "price_lista": 3999.0,
@@ -1713,19 +1689,13 @@
             "2": {
               "price_lista": 3990.0,
               "price_per_unit": 3990.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "MANZANA GRANY COMERCIAL BOLSITA, ., 1 kgr",
               "marca": "."
             },
-            "9": {
-              "price_lista": 1850.0,
-              "price_per_unit": 3700.0,
-              "per_unit": "lt.",
-              "desc": "saborizada AQUARIUS Manzana 500cc BOT-500-ml.",
-              "marca": "AQUARIUS"
-            }
+            "9": null
           },
-          "cheapest_chain": "10"
+          "cheapest_chain": "2"
         },
         {
           "id": "banana",
@@ -1747,13 +1717,7 @@
               "desc": "BANANA NACIONAL  X KG",
               "marca": " "
             },
-            "2": {
-              "price_lista": 14950.0,
-              "price_per_unit": 14950.0,
-              "per_unit": "kgr",
-              "desc": "HELADO CHO-DDL-GRAN-BANANA C/S. DDL, ICE CREAM, 1000 gr",
-              "marca": "ICE CREAM"
-            },
+            "2": null,
             "9": null
           },
           "cheapest_chain": "12"
@@ -1812,7 +1776,7 @@
             "2": {
               "price_lista": 2050.0,
               "price_per_unit": 2277.78,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "YOGUR BEBIBLE DESCREMADO FRUTILLA, GRAN COMPRA, 900 gr",
               "marca": "GRAN COMPRA"
             },
@@ -1834,16 +1798,16 @@
               "marca": "COTAMPO"
             },
             "12": {
-              "price_lista": 8499.0,
-              "price_per_unit": 16998.0,
+              "price_lista": 8999.0,
+              "price_per_unit": 17998.0,
               "per_unit": "kg",
-              "desc": "MEJILLON A LA MANTECA Y AJO  ",
-              "marca": "ST ANDREWS"
+              "desc": "MANTECA PRIMER PREMIO PAN 500 GRM",
+              "marca": "PRIMER PREMIO"
             },
             "2": {
               "price_lista": 1500.0,
               "price_per_unit": 15000.0,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "MANTECA, PRIMER PREMIO, 100 gr",
               "marca": "PRIMER PREMIO"
             },
@@ -1893,7 +1857,7 @@
             "2": {
               "price_lista": 2350.0,
               "price_per_unit": 6266.67,
-              "per_unit": "kgr",
+              "per_unit": "kg",
               "desc": "JABON TOCADOR FLORES X3, ST TROPEZ, 375 gr",
               "marca": "ST TROPEZ"
             },
@@ -1937,7 +1901,7 @@
             "9": {
               "price_lista": 9600.0,
               "price_per_unit": 3200.0,
-              "per_unit": "lt.",
+              "per_unit": "L",
               "desc": "detergente liq ECOVITA intense DP 3000ml DOY-3-lt.",
               "marca": "ECOVITA"
             }
@@ -1997,13 +1961,13 @@
         {
           "chain_id": "9",
           "chain_label": "Jumbo/Vea/Disco",
-          "total": 61871.42,
-          "items_found": 14
+          "total": 71493.7,
+          "items_found": 13
         },
         {
           "chain_id": "12",
           "chain_label": "Coto",
-          "total": 72338.37,
+          "total": 72538.37,
           "items_found": 23
         },
         {
@@ -2335,11 +2299,11 @@
               "marca": "RES"
             },
             "9": {
-              "price_lista": 7890.0,
-              "price_per_unit": 18785.71,
+              "price_lista": 12290.0,
+              "price_per_unit": 22759.26,
               "per_unit": "kg",
-              "desc": "Formitas de pollo GRUPOLAR esp y q x400g PAQ-420-gr.",
-              "marca": "GRUPOLAR"
+              "desc": "Suprema de pollo GRANJA TRES ARROYOS BSA-540-gr.",
+              "marca": "GRANJA TRES ARROYOS"
             }
           },
           "cheapest_chain": "12"
@@ -2385,7 +2349,7 @@
             "9": {
               "price_lista": 2290.0,
               "price_per_unit": 381.67,
-              "per_unit": "un.",
+              "per_unit": "u",
               "desc": "Huevo CARNAVE blanco carton x 6 u PCK-6-un.",
               "marca": "CARNAVE"
             }
@@ -2460,13 +2424,7 @@
               "desc": "MANZANA PG",
               "marca": ""
             },
-            "9": {
-              "price_lista": 1990.0,
-              "price_per_unit": 3980.0,
-              "per_unit": "lt.",
-              "desc": "saborizada AQUARIUS Manzana 500cc BOT-500-ml.",
-              "marca": "AQUARIUS"
-            }
+            "9": null
           },
           "cheapest_chain": "15"
         },
@@ -2555,11 +2513,11 @@
           "category": "Lácteos",
           "prices": {
             "12": {
-              "price_lista": 8499.0,
-              "price_per_unit": 16998.0,
+              "price_lista": 8999.0,
+              "price_per_unit": 17998.0,
               "per_unit": "kg",
-              "desc": "MEJILLON A LA MANTECA Y AJO  ",
-              "marca": "ST ANDREWS"
+              "desc": "MANTECA PRIMER PREMIO PAN 500 GRM",
+              "marca": "PRIMER PREMIO"
             },
             "15": {
               "price_lista": 3750.0,
@@ -2649,7 +2607,7 @@
             "9": {
               "price_lista": 6790.0,
               "price_per_unit": 7544.44,
-              "per_unit": "lt.",
+              "per_unit": "L",
               "desc": "detergente WOOLITE Ropa fina DOY-900-ml.",
               "marca": "WOOLITE"
             }
@@ -2683,5 +2641,6 @@
       ]
     }
   },
-  "generated_at": "2026-09-03T17:06:28.617187"
+  "generated_at": "2026-09-05T18:22:14.860527",
+  "rebuilt_with": "fixed-matcher-2026-09-05 (pet/nonfood negatives, strict species, normalized units)"
 }

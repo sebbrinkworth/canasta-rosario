@@ -28,6 +28,8 @@ WEEK_H = 7
 def load_series(field="price_per_unit"):
     import pandas as pd
     rows = {}
+    raw = {}   # True donde el valor fue observado (no rellenado)
+    descs = {}  # descripción+marca del cheapest que alimenta cada celda
     for fp in sorted(DATA.glob("rosario-*.json")):
         import re
         d = json.loads(fp.read_text())
@@ -37,16 +39,29 @@ def load_series(field="price_per_unit"):
             for cid, po in (item.get("prices") or {}).items():
                 if po is None:
                     val = float("nan")
+                    seen = False
+                    dd = ""
                 else:
                     try:
                         val = float(po.get(field))
                     except Exception:
                         val = float("nan")
+                    seen = not (val != val)  # observado salvo NaN
+                    dd = f"{po.get('desc','')}|{po.get('marca','')}"
                 rows.setdefault(date, {})[f"{pid}__{cid}"] = val
+                raw.setdefault(date, {})[f"{pid}__{cid}"] = seen
+                descs.setdefault(date, {})[f"{pid}__{cid}"] = dd
     import pandas as pd
     df = pd.DataFrame.from_dict(rows, orient="index")
     df.index = pd.to_datetime(df.index)
-    return df.sort_index().ffill(limit=2)
+    df = df.sort_index()
+    obs = pd.DataFrame.from_dict(raw, orient="index")
+    obs.index = pd.to_datetime(obs.index)
+    obs = obs.sort_index().reindex(df.index).fillna(False).astype(bool)
+    dd = pd.DataFrame.from_dict(descs, orient="index")
+    dd.index = pd.to_datetime(dd.index)
+    dd = dd.sort_index().reindex(df.index).fillna("")
+    return df.ffill(limit=2), obs, dd
 
 
 def direction(delta_pct):
@@ -89,27 +104,41 @@ def main():
         cat_of = lambda pid: CANASTA_BY_ID.get(pid, {}).get("category", "Otro")
     except Exception:
         cat_of = lambda pid: "Otro"
-    df = load_series()
+    df, observed, descs = load_series()
     dates = list(df.index)
     total = hits = 0
+    # persistence baseline (mañana = hoy): mismo eligibility, sin drift
+    p_hits = 0
+    p_err = []
     abs_err, abs_base = [], []
     per_cat = {}
     from collections import Counter
     pred_c, hits_c = Counter(), Counter()
-    # event-level accumulators (daily)
-    ev = {k: {"pred": [], "actual": []} for k in ("sube", "baja", "estable")}
-    # weekly accumulators (h=7): only where 7 future days exist
-    wk = {k: {"pred": [], "actual": []} for k in ("sube", "baja", "estable")}
+    # event-level: listas GLOBALES (no agrupadas por clase predicha — agrupar
+    # por predicha esconde los eventos perdidos e infla recall al 100%)
+    all_pred, all_actual = [], []
+    all_wpred, all_wactual = [], []
+    # assortment: cambios de precio con cambio de descripción/marca
+    n_chg, n_chg_desc = 0, 0
     n_days = 0
+    n_skipped_filled = 0
     for ti in range(1, len(dates)):
         hist = df.iloc[:ti]
         actual = df.iloc[ti]
-        # future window for weekly variant: ti+1 .. ti+WEEK_H
-        future = df.iloc[ti + 1: ti + 1 + WEEK_H] if ti + 1 < len(dates) else None
+        obs_row = observed.iloc[ti]
+        # ventana semanal COMPLETA h=7 incluyendo el día objetivo ti:
+        # predice si el precio se mueve >0.8% en [ti, ti+6]. Ventanas
+        # incompletas (menos de 7 días futuros) no se puntúan.
+        has_full_week = (ti + WEEK_H <= len(dates))
+        future = df.iloc[ti: ti + WEEK_H] if has_full_week else None
         day_hits = day_total = 0
         for col in df.columns:
             h = hist[col].dropna()
             a = actual[col]
+            # no puntuar precios rellenados: el ffill no es una observación
+            if not bool(obs_row.get(col, True)):
+                n_skipped_filled += 1
+                continue
             if len(h) < 4 or np.isnan(a) or a == 0:
                 continue
             last = float(h.iloc[-1])
@@ -122,6 +151,10 @@ def main():
             total += 1
             day_total += 1
             hits += int(ok)
+            # baseline persistencia: predice 'estable' (mañana = hoy)
+            p_ok = ("estable" == real_dir)
+            p_hits += int(p_ok)
+            p_err.append(abs(last - float(a)))
             pred_c[pred_dir] += 1
             hits_c[pred_dir] += int(ok)
             day_hits += int(ok)
@@ -132,14 +165,25 @@ def main():
             s = per_cat.setdefault(c, {"n": 0, "hits": 0})
             s["n"] += 1
             s["hits"] += int(ok)
-            # event layer: accumulate per-class pred/actual
-            ev[pred_dir]["pred"].append(pred_dir)
-            ev[pred_dir]["actual"].append(real_dir)
-            # weekly variant: predict move within next 7 days from current drift
+            # event layer: acumulación global para precision/recall honestos
+            all_pred.append(pred_dir)
+            all_actual.append(real_dir)
+            # assortment: ¿el cambio de precio vino con otro producto?
+            if real_dir != "estable":
+                n_chg += 1
+                try:
+                    d_prev = str(descs[col].iloc[ti - 1])
+                    d_now = str(descs[col].iloc[ti])
+                    if d_now != d_prev:
+                        n_chg_desc += 1
+                except Exception:
+                    pass
+            # weekly variant: primer movimiento real en [ti, ti+6]
             if future is not None:
-                fcol = future[col].dropna()
-                if len(fcol) >= 1:
-                    # first real move in window (vs last observed)
+                fcol = future[col]
+                # solo puntuar si la ventana está completa y observada
+                fobs = observed[col].iloc[ti: ti + WEEK_H]
+                if bool(fobs.all()) and len(fcol.dropna()) == WEEK_H:
                     first_move = None
                     for v in fcol.values:
                         dlt = (float(v) - last) / abs(last) * 100
@@ -147,14 +191,16 @@ def main():
                             first_move = direction(dlt)
                             break
                     actual_wk = first_move if first_move is not None else "estable"
-                    wk[pred_dir]["pred"].append(pred_dir)
-                    wk[pred_dir]["actual"].append(actual_wk)
+                    all_wpred.append(pred_dir)
+                    all_wactual.append(actual_wk)
         if day_total:
             n_days += 1
     mae = float(np.mean(abs_err)) if abs_err else 0.0
     mape = float(np.mean([e / b * 100 for e, b in zip(abs_err, abs_base) if b])) if abs_err else 0.0
-    event_prec = {k: _class_stats(v["pred"], v["actual"], k) for k, v in ev.items()}
-    weekly_prec = {k: _class_stats(v["pred"], v["actual"], k) for k, v in wk.items()}
+    p_mae = float(np.mean(p_err)) if p_err else 0.0
+    p_hit = round(p_hits / total * 100, 1) if total else 0.0
+    event_prec = {k: _class_stats(all_pred, all_actual, k) for k in ("sube", "baja", "estable")}
+    weekly_prec = {k: _class_stats(all_wpred, all_wactual, k) for k in ("sube", "baja", "estable")}
     OUT.write_text(json.dumps({
         "method": "drift-7d, umbral 0.8%, solo datos reales SEPA",
         "eval_days": n_days,
@@ -164,6 +210,22 @@ def main():
         "hit_rate": round(hits / total * 100, 1) if total else 0.0,
         "mae": round(mae, 1),
         "mape": round(mape, 2),
+        "baseline_persistence": {
+            "method": "mañana = hoy (predice estable siempre)",
+            "mae": round(p_mae, 1),
+            "hit_rate": p_hit,
+            "note": "Todo modelo propuesto debe superar esta línea base. Con series mayormente planas, la persistencia gana en MAE y acierto direccional; el drift solo aporta si anticipa cambios reales.",
+        },
+        "scoring": {
+            "filled_skipped": n_skipped_filled,
+            "note": "Los precios rellenados por ffill no se puntúan: solo observaciones reales.",
+        },
+        "assortment": {
+            "price_changes": n_chg,
+            "with_desc_or_brand_change": n_chg_desc,
+            "pct": round(n_chg_desc / n_chg * 100, 1) if n_chg else 0.0,
+            "note": "Cambios de precio donde el cheapest también cambió de descripción/marca: el movimiento puede ser assortment, no repricing del mismo producto.",
+        },
         "pred_dist": dict(pred_c),
         "moves_prec": {k: {"n": pred_c.get(k, 0), "hits": hits_c.get(k, 0), "precision": round(hits_c.get(k, 0) / pred_c[k] * 100, 1) if pred_c.get(k) else 0.0} for k in ("sube", "baja", "estable")},
         "event_precision": {
@@ -174,7 +236,7 @@ def main():
             "estable": event_prec["estable"],
         },
         "weekly": {
-            "method": "drift-7d, umbral 0.8%, h<=7: predice si el precio se mueve >0.8% dentro de la semana y hacia dónde (primer movimiento real en la ventana)",
+            "method": "drift-7d, umbral 0.8%, h=7: predice si el precio se mueve >0.8% dentro de [T, T+6] y hacia dónde (primer movimiento real en la ventana completa y observada)",
             "threshold_pct": THRESH,
             "horizon_days": WEEK_H,
             "classes": weekly_prec,
