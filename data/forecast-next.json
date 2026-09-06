@@ -1,9 +1,9 @@
 {
   "mode": "real",
   "price_normalization_version": "package-price-v2",
-  "real_days": 11,
+  "real_days": 12,
   "synthetic_days": 0,
-  "note": "Solo datos reales SEPA (11 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
+  "note": "Solo datos reales SEPA (12 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
   "items": {
     "leche_entera__10": {
       "dir": "estable",
@@ -27,11 +27,11 @@
       "conf": "media"
     },
     "leche_entera__2": {
-      "dir": "estable",
-      "delta_pct": 0.11,
-      "pred": 1902.0,
-      "last": 1900.0,
-      "conf": "media"
+      "dir": "baja",
+      "delta_pct": -3.27,
+      "pred": 1538.0,
+      "last": 1590.0,
+      "conf": "baja"
     },
     "leche_entera__9": {
       "dir": "estable",
@@ -126,8 +126,8 @@
     },
     "fideos__2": {
       "dir": "estable",
-      "delta_pct": 0.67,
-      "pred": 1510.0,
+      "delta_pct": 0.0,
+      "pred": 1500.0,
       "last": 1500.0,
       "conf": "media"
     },
@@ -195,9 +195,9 @@
       "conf": "media"
     },
     "harina_000__2": {
-      "dir": "baja",
-      "delta_pct": -2.28,
-      "pred": 772.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 790.0,
       "last": 790.0,
       "conf": "media"
     },
@@ -230,11 +230,11 @@
       "conf": "media"
     },
     "azucar__2": {
-      "dir": "sube",
-      "delta_pct": 3.5,
-      "pred": 1242.0,
-      "last": 1200.0,
-      "conf": "media"
+      "dir": "estable",
+      "delta_pct": -0.2,
+      "pred": 978.0,
+      "last": 980.0,
+      "conf": "baja"
     },
     "azucar__9": {
       "dir": "estable",
@@ -328,17 +328,17 @@
       "conf": "media"
     },
     "arvejas__10": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2096.67,
-      "last": 2096.67,
+      "dir": "baja",
+      "delta_pct": -1.35,
+      "pred": 1937.81,
+      "last": 1964.29,
       "conf": "media"
     },
     "arvejas__12": {
-      "dir": "sube",
-      "delta_pct": 1.06,
-      "pred": 2345.11,
-      "last": 2320.59,
+      "dir": "baja",
+      "delta_pct": -1.12,
+      "pred": 2173.48,
+      "last": 2198.0,
       "conf": "media"
     },
     "arvejas__15": {
@@ -349,9 +349,9 @@
       "conf": "media"
     },
     "arvejas__2": {
-      "dir": "baja",
-      "delta_pct": -6.23,
-      "pred": 1661.01,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1771.43,
       "last": 1771.43,
       "conf": "baja"
     },
@@ -384,9 +384,9 @@
       "conf": "media"
     },
     "pollo__2": {
-      "dir": "sube",
-      "delta_pct": 3.17,
-      "pred": 3910.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3790.0,
       "last": 3790.0,
       "conf": "media"
     },
@@ -413,8 +413,8 @@
     },
     "carne_picada__15": {
       "dir": "sube",
-      "delta_pct": 3.2,
-      "pred": 19325.0,
+      "delta_pct": 1.34,
+      "pred": 18975.0,
       "last": 18725.0,
       "conf": "media"
     },
@@ -433,10 +433,10 @@
       "conf": "media"
     },
     "huevo__12": {
-      "dir": "sube",
-      "delta_pct": 4.45,
-      "pred": 313.0,
-      "last": 299.67,
+      "dir": "baja",
+      "delta_pct": -5.09,
+      "pred": 251.5,
+      "last": 265.0,
       "conf": "baja"
     },
     "huevo__15": {
@@ -475,9 +475,9 @@
       "conf": "media"
     },
     "papa__15": {
-      "dir": "sube",
-      "delta_pct": 3.01,
-      "pred": 3080.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2990.0,
       "last": 2990.0,
       "conf": "media"
     },
@@ -504,8 +504,8 @@
     },
     "cebolla__12": {
       "dir": "baja",
-      "delta_pct": -8.58,
-      "pred": 1279.0,
+      "delta_pct": -15.73,
+      "pred": 1179.0,
       "last": 1399.0,
       "conf": "baja"
     },
@@ -531,10 +531,10 @@
       "conf": "media"
     },
     "manzana__12": {
-      "dir": "sube",
-      "delta_pct": 5.5,
-      "pred": 4219.0,
-      "last": 3999.0,
+      "dir": "baja",
+      "delta_pct": -7.59,
+      "pred": 2679.0,
+      "last": 2899.0,
       "conf": "baja"
     },
     "manzana__15": {
@@ -545,9 +545,9 @@
       "conf": "media"
     },
     "manzana__2": {
-      "dir": "sube",
-      "delta_pct": 5.01,
-      "pred": 4190.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3990.0,
       "last": 3990.0,
       "conf": "baja"
     },
@@ -559,10 +559,10 @@
       "conf": "baja"
     },
     "banana__12": {
-      "dir": "sube",
-      "delta_pct": 4.0,
-      "pred": 2599.0,
-      "last": 2499.0,
+      "dir": "baja",
+      "delta_pct": -7.78,
+      "pred": 1659.0,
+      "last": 1799.0,
       "conf": "baja"
     },
     "banana__15": {
@@ -587,11 +587,11 @@
       "conf": "media"
     },
     "queso_cremoso__12": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 12599.0,
-      "last": 12599.0,
-      "conf": "media"
+      "dir": "baja",
+      "delta_pct": -5.2,
+      "pred": 9479.0,
+      "last": 9999.0,
+      "conf": "baja"
     },
     "queso_cremoso__15": {
       "dir": "estable",
@@ -601,9 +601,9 @@
       "conf": "media"
     },
     "queso_cremoso__9": {
-      "dir": "baja",
-      "delta_pct": -1.91,
-      "pred": 14410.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 14690.0,
       "last": 14690.0,
       "conf": "media"
     },
@@ -622,9 +622,9 @@
       "conf": "media"
     },
     "yogur__15": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3575.56,
+      "dir": "baja",
+      "delta_pct": -13.96,
+      "pred": 3076.39,
       "last": 3575.56,
       "conf": "baja"
     },
@@ -699,9 +699,9 @@
       "conf": "media"
     },
     "jabon_tocador__2": {
-      "dir": "sube",
-      "delta_pct": 1.23,
-      "pred": 6343.53,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 6266.67,
       "last": 6266.67,
       "conf": "media"
     },
@@ -755,10 +755,10 @@
       "conf": "media"
     },
     "lavandina__12": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1040.0,
-      "last": 1040.0,
+      "dir": "baja",
+      "delta_pct": -1.33,
+      "pred": 962.0,
+      "last": 975.0,
       "conf": "media"
     },
     "lavandina__15": {
