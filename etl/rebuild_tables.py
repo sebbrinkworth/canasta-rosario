@@ -14,9 +14,11 @@ from collections import Counter
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from etl.etl import (match_product, filter_outliers, aggregate, build_table,
-                     normalize_unit, aggregate_zone, CHAIN_LABELS,
+                     aggregate_zone, CHAIN_LABELS,
                      NON_RETAIL_COMERCIOS)
 from etl.etl import zone_of
+from etl.canasta import CANASTA_BY_ID
+from etl.prices import normalize_observation, NORMALIZATION_VERSION
 from datetime import datetime
 
 RAW = ROOT / "data" / "raw"
@@ -28,6 +30,7 @@ def rebuild_one(raw_fp: pathlib.Path):
     branches = d.get("branches", [])
     branches = [b for b in branches if str(b.get("id_comercio")) not in NON_RETAIL_COMERCIOS]
     kept, dropped, changed = [], Counter(), Counter()
+    unverified_units = Counter()
     for o in d.get("observations", []):
         new = match_product(o.get("descripcion", ""), o.get("ean", ""))
         old = o.get("canonical_id")
@@ -37,8 +40,11 @@ def rebuild_one(raw_fp: pathlib.Path):
         if new != old:
             changed[f"{old}->{new}"] += 1
             o["canonical_id"] = new
-        o["per_unit_name"] = normalize_unit(o.get("per_unit_name"))
-        kept.append(o)
+        normalized = normalize_observation(o, CANASTA_BY_ID[new]["unit"])
+        if normalized is None:
+            unverified_units[new] += 1
+            continue
+        kept.append(normalized)
     kept2, rejected, medians = filter_outliers(kept)
     agg = aggregate(kept2, branches)
     table = build_table(agg)
@@ -66,15 +72,18 @@ def rebuild_one(raw_fp: pathlib.Path):
         "table": table,
         "zones": zones,
         "generated_at": datetime.now().isoformat(),
-        "rebuilt_with": "fixed-matcher-2026-09-05 (pet/nonfood negatives, strict species, normalized units)",
+        "rebuilt_with": "package-price-v2: list price / verified package quantity",
+        "price_normalization_version": NORMALIZATION_VERSION,
+        "normalization": {"excluded_unverified": sum(unverified_units.values()),
+                          "excluded_by_product": dict(unverified_units)},
     }
     (AGG / f"rosario-{date_str}.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    # refresh raw observations (corrected canonical + units)
-    d["observations"] = kept2
-    raw_fp.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+    # Preserve the input archive: repeated rebuilds must not erase candidates.
+
     return {"date": date_str, "kept": len(kept2), "dropped": dict(dropped),
             "changed": dict(changed), "rejected": len(rejected),
+            "unverified_units": sum(unverified_units.values()),
             "hero": [(h["chain_label"], h["total"]) for h in agg["hero"]]}
 
 if __name__ == "__main__":
@@ -86,12 +95,14 @@ if __name__ == "__main__":
         latest = r
         nd = sum(r["dropped"].values())
         nc = sum(r["changed"].values())
-        print(f"{r['date']}: kept={r['kept']} dropped_match={nd} changed={nc} outliers_rej={r['rejected']}")
+        print(f"{r['date']}: kept={r['kept']} dropped_match={nd} changed={nc} outliers_rej={r['rejected']} unverified_units={r['unverified_units']}")
         if nd or nc:
             print(f"   dropped: {r['dropped']}")
             if nc:
                 print(f"   changed: {r['changed']}")
     # refresh latest.json from newest date
+    if not files:
+        raise SystemExit("No raw snapshots found; existing outputs preserved")
     newest = max(files, key=lambda p: p.name)
     date_str = newest.stem.replace("rosario-", "")
     (AGG / "latest.json").write_text(

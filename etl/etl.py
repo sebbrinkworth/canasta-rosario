@@ -8,7 +8,9 @@ from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
 
-from etl.canasta import CANASTA
+from etl.canasta import CANASTA, CANASTA_BY_ID
+from etl.prices import (NORMALIZATION_VERSION, normalize_unit, price_per_unit,
+                        normalize_observation, positive_number)
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_RAW = ROOT / "data" / "raw"
@@ -56,39 +58,6 @@ def parse_csv_text(txt: str) -> str:
         if not l.strip(): continue
         lines.append(l)
     return "\n".join(lines)
-
-def normalize_unit(u: str) -> str:
-    """SEPA unidad_ref variants → canonical kg/L/u/? (fixes 'kgr','lt.','un.','cu'…)."""
-    s = (u or "").strip().upper().rstrip(".")
-    if s in ("KGM", "KG", "KGR", "KILO", "KILOGRAMO", "GRM", "GR", "G", "GRS"):
-        return "kg"
-    if s in ("LTR", "LT", "L", "LITRO", "LITROS", "MLT", "ML", "CM3", "CC"):
-        return "L"
-    if s in ("UNI", "UN", "U", "UNIDAD", "UNIDADES", "CU", "C/U"):
-        return "u"
-    return (u or "?").strip().lower() or "?"
-
-def price_per_unit(price_lista: float, qty_present: float, unit_present: str, qty_ref: float = None, unit_ref: str = None) -> tuple[float, str]:
-    up = (unit_present or "").strip().upper()
-    if up in ("GRM","GR","G","GRS"):
-        if qty_present and qty_present>0:
-            return price_lista / qty_present * 1000, "kg"
-    elif up in ("KGM","KG","KILO"):
-        if qty_present and qty_present>0:
-            return price_lista / qty_present, "kg"
-    elif up in ("MLT","ML","CM3","CC"):
-        if qty_present and qty_present>0:
-            return price_lista / qty_present * 1000, "L"
-    elif up in ("LTR","LT","L"):
-        if qty_present and qty_present>0:
-            return price_lista / qty_present, "L"
-    elif up in ("UNI","UN","U","UNIDAD"):
-        if qty_present and qty_present>0:
-            return price_lista / qty_present, "u"
-    if qty_ref and unit_ref:
-        ur = unit_ref.strip().upper()
-        if ur in ("KGM","KG"): return price_lista / (qty_present or 1) * (1000 if up in ("GRM",) else 1), "kg"
-    return price_lista, "?"
 
 def price_per_unit_calc(price_lista, cantidad_presentacion, unidad_presentacion):
     try:
@@ -205,11 +174,8 @@ def match_product(descripcion: str, ean: str = ""):
     return best
 
 def is_price_sane(price_per_unit: float) -> bool:
-    if price_per_unit is None or price_per_unit == 0:
-        return False
-    if price_per_unit != price_per_unit:  # NaN
-        return False
-    return True
+    return positive_number(price_per_unit) is not None
+
 
 def filter_outliers(observations):
     """Reject observations whose price_per_unit is far from median for that product.
@@ -219,6 +185,8 @@ def filter_outliers(observations):
     # compute cheapest per chain per product to get robust median
     cheapest_by_pid_chain = defaultdict(dict)
     for o in observations:
+        if not is_price_sane(o.get("price_per_unit")):
+            continue
         pid=o["canonical_id"]
         cid=o["chain_id"]
         cur=cheapest_by_pid_chain[pid].get(cid)
@@ -350,20 +318,8 @@ def extract_observations(zip_path: Path, gran_rosario=False):
                             precio_ref = (prow.get("productos_precio_referencia") or "").strip()
                             cantidad_ref = (prow.get("productos_cantidad_referencia") or "").strip()
                             unidad_ref = (prow.get("productos_unidad_medida_referencia") or "").strip()
-                            if precio_ref:
-                                try:
-                                    per_unit = float(precio_ref.replace(",","."))
-                                    per_unit_name = normalize_unit(unidad_ref)
-                                    pass
-                                except:
-                                    per_unit, per_unit_name = price_per_unit(price_lista, qty_present, unit_present)
-                            else:
-                                try:
-                                    per_unit, per_unit_name = price_per_unit(price_lista, qty_present, unit_present)
-                                except:
-                                    per_unit, per_unit_name = price_lista, "?"
                             bmatch = next((b for b in file_branches if b.get("id_sucursal")==prow.get("id_sucursal") and b.get("id_comercio")==prow.get("id_comercio")), None)
-                            observations.append({
+                            observation = {
                                 "canonical_id": canonical,
                                 "chain_id": prow.get("id_comercio"),
                                 "chain_label": CHAIN_LABELS.get(prow.get("id_comercio"), prow.get("id_comercio")),
@@ -376,8 +332,14 @@ def extract_observations(zip_path: Path, gran_rosario=False):
                                 "price_lista": price_lista,
                                 "cantidad_presentacion": qty_present,
                                 "unidad_presentacion": unit_present,
-                                "price_per_unit": round(per_unit,2) if per_unit else None,
-                                "per_unit_name": per_unit_name,
+                                "precio_referencia": precio_ref,
+                                "cantidad_referencia": cantidad_ref,
+                                "unidad_referencia": unidad_ref,
+                            }
+                            normalized = normalize_observation(observation, CANASTA_BY_ID[canonical]["unit"])
+                            observations.append(normalized if normalized is not None else {
+                                **observation, "price_per_unit": None, "per_unit_name": "?",
+                                "price_basis": "unverified", "price_normalization_version": NORMALIZATION_VERSION,
                             })
             except zipfile.BadZipFile:
                 continue
@@ -388,6 +350,10 @@ def aggregate(observations, branches):
     for obs in observations:
         cid = obs["chain_id"]
         pid = obs["canonical_id"]
+        item = CANASTA_BY_ID.get(pid)
+        if (not item or obs.get("per_unit_name") != item["unit"]
+                or positive_number(obs.get("price_per_unit")) is None):
+            continue
         cur = cheapest[cid].get(pid)
         if cur is None or obs["price_per_unit"] < cur["price_per_unit"]:
             cheapest[cid][pid] = obs
@@ -402,15 +368,8 @@ def aggregate(observations, branches):
         for pid, obs in cheapest[cid].items():
             item = next((c for c in CANASTA if c["id"]==pid), None)
             if not item: continue
-            unit = item["unit"]
-            need = item["need_qty"]
-            obs_unit = normalize_unit(obs["per_unit_name"])
-            if obs_unit == unit or (unit=="kg" and obs_unit=="kg") or (unit=="L" and obs_unit=="L") or (unit=="u" and obs_unit=="u"):
-                total += obs["price_per_unit"] * need
-                count+=1
-            else:
-                total += obs["price_lista"] * (need / (obs["cantidad_presentacion"] or 1)) if obs["cantidad_presentacion"] else obs["price_lista"]
-                count+=1
+            total += obs["price_per_unit"] * item["need_qty"]
+            count += 1
         hero.append({"chain_id": cid, "chain_label": CHAIN_LABELS.get(cid,cid), "total": round(total,2), "items_found": count})
     hero.sort(key=lambda x: x["total"])
     branch_summary=[]
@@ -439,7 +398,7 @@ def build_table(agg):
         for cid in agg["chains"]:
             obs = agg["cheapest"][cid].get(item["id"])
             if obs:
-                row["prices"][cid] = {"price_lista": obs["price_lista"], "price_per_unit": obs["price_per_unit"], "per_unit": obs["per_unit_name"], "desc": obs["descripcion"], "marca": obs["marca"]}
+                row["prices"][cid] = {"price_lista": obs["price_lista"], "price_per_unit": obs["price_per_unit"], "per_unit": obs["per_unit_name"], "desc": obs["descripcion"], "marca": obs["marca"], "price_basis": obs.get("price_basis"), "normalized_quantity": obs.get("normalized_quantity")}
             else:
                 row["prices"][cid] = None
         vals=[(cid, v["price_per_unit"]) for cid,v in row["prices"].items() if v]
@@ -500,8 +459,9 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
     raw_out = DATA_RAW / f"rosario-{date_str}.json"
     raw_out.write_text(json.dumps({
         "date": date_str, "gran_rosario": gran_rosario,
+        "price_normalization_version": NORMALIZATION_VERSION,
         "branches": agg["branches"],
-        "observations": observations,
+        "observations": observations_raw,
         "comercios": comercios,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {raw_out}")
@@ -523,6 +483,7 @@ def run(date_str: str, gran_rosario=False, zip_path: Path = None):
     agg_out = DATA_AGG / f"rosario-{date_str}.json"
     agg_out.write_text(json.dumps({
         "date": date_str, "gran_rosario": gran_rosario,
+        "price_normalization_version": NORMALIZATION_VERSION,
         "branches_count": len(branches),
         "chains": [{"id": cid, "label": CHAIN_LABELS.get(cid,cid)} for cid in agg["chains"]],
         "hero": agg["hero"],

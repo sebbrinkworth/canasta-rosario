@@ -22,7 +22,7 @@ CANASTA = [
     {"id": "yogur", "name": "Yogur entero", "category": "Lácteos", "unit": "kg", "unit_display": "1 kg", "need_qty": 1, "need_unit": "kg", "keywords": ["yogur", "yogurt"], "ean_prefixes": ["779074", "779133"]},
     {"id": "manteca", "name": "Manteca", "category": "Lácteos", "unit": "kg", "unit_display": "200 g", "need_qty": 0.2, "need_unit": "kg", "keywords": ["manteca"], "ean_prefixes": ["779074"]},
     {"id": "galletitas_agua", "name": "Galletitas de agua", "category": "Panificados", "unit": "kg", "unit_display": "300 g", "need_qty": 0.3, "need_unit": "kg", "keywords": ["galletita de agua", "galletitas de agua", "galletitas agua"], "ean_prefixes": ["779074", "779004"]},
-    {"id": "jabon_tocador", "name": "Jabón de tocador", "category": "Limpieza", "unit": "u", "unit_display": "125 g", "need_qty": 1, "need_unit": "u", "keywords": ["jabon tocador", "jabón de tocador", "jabon de tocador"], "ean_prefixes": ["779007", "779074"]},
+    {"id": "jabon_tocador", "name": "Jabón de tocador", "category": "Limpieza", "unit": "kg", "unit_display": "125 g", "need_qty": 0.125, "need_unit": "kg", "keywords": ["jabon tocador", "jabón de tocador", "jabon de tocador"], "ean_prefixes": ["779007", "779074"]},
     {"id": "detergente", "name": "Detergente", "category": "Limpieza", "unit": "L", "unit_display": "750 ml", "need_qty": 0.75, "need_unit": "L", "keywords": ["detergente"], "ean_prefixes": ["779007", "779058"]},
     {"id": "lavandina", "name": "Lavandina", "category": "Limpieza", "unit": "L", "unit_display": "1 L", "need_qty": 1, "need_unit": "L", "keywords": ["lavandina", "agua lavandina"], "ean_prefixes": ["779007"]},
 ]

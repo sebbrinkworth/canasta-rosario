@@ -94,7 +94,7 @@ def load_meta():
     latest = max(files, key=lambda p: p.name)
     try:
         d = json.loads(latest.read_text())
-        return {"latest_date": d.get("date"), "branches_count": d.get("branches_count"), "chains": d.get("chains", []), "file_count": len(files)}
+        return {"latest_date": d.get("date"), "branches_count": d.get("branches_count"), "chains": d.get("chains", []), "file_count": len(files), "price_normalization_version": d.get("price_normalization_version")}
     except:
         return {"file_count": len(files)}
 

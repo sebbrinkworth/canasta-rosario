@@ -419,6 +419,7 @@ def run():
     total_fb_cov = int(sum(m.get("fallback_cov_dropped", 0) for m in results))
     json_path.write_text(json.dumps({"cov_note": cov_note, "timesfm_ok": timesfm_ok,
         "n_series": len(keep), "n_files": n,
+        "price_normalization_version": load_meta().get("price_normalization_version"),
         "fallback_naive": total_fb_naive, "fallback_cov_dropped": total_fb_cov,
         "filled_cells_skipped": int(n_filled_cells),
         "scoring_note": "Solo observaciones reales: celdas rellenadas por ffill excluidas del scoring. Ventana semanal [T,T+6] completa y observada.",

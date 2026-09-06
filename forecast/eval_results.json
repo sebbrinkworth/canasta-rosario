@@ -27357,5 +27357,7 @@
         "2026-09-05"
       ]
     }
-  }
+  },
+  "status": "superseded",
+  "status_note": "Evaluación anterior a package-price-v2. Requiere nueva corrida con las cantidades corregidas; no comparar con los resultados actuales."
 }

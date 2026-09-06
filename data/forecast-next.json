@@ -1,8 +1,9 @@
 {
   "mode": "real",
+  "price_normalization_version": "package-price-v2",
   "real_days": 11,
   "synthetic_days": 0,
-  "note": "Solo datos reales SEPA (11 días acumulados). Precisión mejora al crecer la historia.",
+  "note": "Solo datos reales SEPA (11 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
   "items": {
     "leche_entera__10": {
       "dir": "estable",
@@ -105,8 +106,8 @@
     "fideos__10": {
       "dir": "estable",
       "delta_pct": 0.0,
-      "pred": 1193.0,
-      "last": 1193.0,
+      "pred": 1598.0,
+      "last": 1598.0,
       "conf": "media"
     },
     "fideos__12": {
@@ -243,11 +244,11 @@
       "conf": "media"
     },
     "yerba__10": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 778.0,
-      "last": 778.0,
-      "conf": "media"
+      "dir": "sube",
+      "delta_pct": 1.7,
+      "pred": 3224.0,
+      "last": 3170.0,
+      "conf": "baja"
     },
     "yerba__12": {
       "dir": "estable",
@@ -280,8 +281,8 @@
     "cafe__10": {
       "dir": "estable",
       "delta_pct": 0.0,
-      "pred": 6938.0,
-      "last": 6938.0,
+      "pred": 46040.0,
+      "last": 46040.0,
       "conf": "media"
     },
     "cafe__12": {
@@ -336,8 +337,8 @@
     "arvejas__12": {
       "dir": "sube",
       "delta_pct": 1.06,
-      "pred": 2345.1,
-      "last": 2320.58,
+      "pred": 2345.11,
+      "last": 2320.59,
       "conf": "media"
     },
     "arvejas__15": {
@@ -371,8 +372,8 @@
     "pollo__12": {
       "dir": "estable",
       "delta_pct": 0.0,
-      "pred": 1000.0,
-      "last": 1000.0,
+      "pred": 4399.0,
+      "last": 4399.0,
       "conf": "media"
     },
     "pollo__15": {
@@ -490,15 +491,15 @@
     "papa__9": {
       "dir": "estable",
       "delta_pct": 0.0,
-      "pred": 7307.69,
-      "last": 7307.69,
+      "pred": 9375.0,
+      "last": 9375.0,
       "conf": "media"
     },
     "cebolla__10": {
       "dir": "estable",
       "delta_pct": 0.0,
-      "pred": 624.75,
-      "last": 624.75,
+      "pred": 1999.0,
+      "last": 1999.0,
       "conf": "media"
     },
     "cebolla__12": {
@@ -607,11 +608,11 @@
       "conf": "media"
     },
     "yogur__10": {
-      "dir": "sube",
-      "delta_pct": 2.99,
-      "pred": 504.56,
-      "last": 489.89,
-      "conf": "baja"
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3187.78,
+      "last": 3187.78,
+      "conf": "media"
     },
     "yogur__12": {
       "dir": "estable",
@@ -677,10 +678,10 @@
       "conf": "media"
     },
     "jabon_tocador__10": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 998.67,
-      "last": 998.67,
+      "dir": "sube",
+      "delta_pct": 0.89,
+      "pred": 6053.33,
+      "last": 6000.0,
       "conf": "media"
     },
     "jabon_tocador__12": {

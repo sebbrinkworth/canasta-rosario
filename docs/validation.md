@@ -257,3 +257,33 @@ uv run python -m etl.etl --date 2026-08-31 --gran-rosario --zip /tmp/canasta-etl
 ```
 
 
+
+
+## Corrección de cantidades — 2026-09-06
+
+Los campos de referencia de SEPA no son uniformes entre comercios. En el ZIP
+del 05/09/2026, Carrefour informa el yogur de 900 g a $4.409 con
+`precio_referencia=489.89`, `cantidad_referencia=900`, `unidad_referencia=GRS`.
+La cotización equivale a 100 g, aunque la cantidad describe el envase completo.
+Para la leche de 1 L también se encontró una referencia declarada en gramos.
+Por eso ni reutilizar la cotización ni dividirla ciegamente por la cantidad
+de referencia produce un precio comparable confiable.
+
+La versión `package-price-v2` usa **precio de lista / contenido del envase**:
+
+- Cantidad y unidad de presentación cuando expresan kg, g, L, ml o unidades
+  compatibles con la categoría; se aplican las conversiones numéricas.
+- Cuando la presentación dice solamente «1 UNI», se busca un tamaño explícito
+  y no ambiguo en la descripción, incluidos multipacks y cantidades de huevos.
+- Si no se puede verificar el contenido, se excluye de la comparación y del
+  subtotal. No se supone que una unidad de pollo equivale a un kilogramo.
+- Jabón de tocador se compara por kg y aporta 125 g al subtotal.
+
+Los campos originales de referencia se conservan en nuevas extracciones para
+auditoría. Las reconstrucciones no modifican los archivos crudos, ni vuelven
+a convertir precios previamente calculados: parten siempre del precio del
+envase y su cantidad. Los 11 días disponibles se reconstruyeron con esta regla,
+y se regeneraron los pronósticos livianos y el backtest. La evaluación TimesFM
+anterior se conserva señalizada como histórica; debe repetirse con estas unidades.
+
+Verificación: `uv run pytest -q`. Reconstrucción: `uv run python etl/rebuild_tables.py`.

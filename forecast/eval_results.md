@@ -1,5 +1,7 @@
 # Canasta Rosario — TimesFM 3 Evaluación
 
+> **Evaluación histórica, reemplazada por datos corregidos.** Estos resultados son anteriores a la corrección de cantidades `package-price-v2`; no compararlos con los precios ni el backtest actual. Pendiente repetir TimesFM.
+
 Rango: 2026-08-26 -> 2026-09-05 — 11 archivos — 110 series (≥4 obs)
 
 > Covariables: FX real: bluelytics.com.ar diario (blue/oficial); IPIM real: INDEC 448.1_NIVEL_GENERAL_0_0_13_46 mensual, último publicado a cada fecha (lag 60d, step-forward sin interpolar futuro; 11/11 días con valor; series-tiempo 448.1_NIVEL_GENERAL_0_0_13_46 (cache vencida data/covariates/ipim_series_tiempo.csv))

@@ -1,419 +1,268 @@
 #!/usr/bin/env python3
-import json, pathlib
-ROOT = pathlib.Path(__file__).parents[1]
-DATA = ROOT / "data" / "latest.json"
-OUT = pathlib.Path(__file__).parent / "index.html"
-
-data = json.loads(DATA.read_text(encoding="utf-8"))
-# Pronóstico experimental T+1 (tendencia 7d, generado por forecast/; si falta, sin flechas)
-FORECAST_PATH = ROOT / "data" / "forecast-next.json"
-try:
-    _fc = json.loads(FORECAST_PATH.read_text(encoding="utf-8"))
-    FORECAST = _fc.get("items", {})
-    FORECAST_NOTE = _fc.get("note", "")
-    REAL_DAYS = int(_fc.get("real_days", 0) or 0)
-except Exception:
-    FORECAST = {}
-    FORECAST_NOTE = ""
-    REAL_DAYS = 0
-# Backtest real (cuántas pegamos) — si falta, se omite la sección
-BT_PATH = ROOT / "data" / "backtest.json"
-try:
-    BT = json.loads(BT_PATH.read_text(encoding="utf-8"))
-except Exception:
-    BT = {}
-# Evaluación TimesFM real (pooled por config, solo observados) — si falta, se omite
-EVAL_PATH = ROOT / "forecast" / "eval_results.json"
-try:
-    _ev = json.loads(EVAL_PATH.read_text(encoding="utf-8"))
-    _rows = _ev.get("results", [])
-    _tfm_ok = bool(_ev.get("timesfm_ok"))
-    _fb_n = int(_ev.get("fallback_naive", 0) or 0)
-    _fb_c = int(_ev.get("fallback_cov_dropped", 0) or 0)
-    def _pool(cfg, prefix):
-        n = a = h = 0
-        for m in _rows:
-            if m.get("config") != cfg:
-                continue
-            n += int(m.get(f"{prefix}_n", 0) or 0)
-            a += int(m.get(f"{prefix}_actual", 0) or 0)
-            h += int(m.get(f"{prefix}_hits", 0) or 0)
-        prec = round(h / n * 100, 1) if n else 0.0
-        rec = round(h / a * 100, 1) if a else 0.0
-        return prec, rec, n
-    _mae = {}
-    for _c in ("price_only", "plus_fx", "plus_fx_ipim", "plus_fx_competitor"):
-        _m = [m["mae"] for m in _rows if m.get("config") == _c]
-        _mae[_c] = round(sum(_m) / len(_m), 1) if _m else None
-    _sp, _sr, _sn = _pool("plus_fx", "event_daily_sube")
-    _bp, _br, _bn = _pool("plus_fx", "event_daily_baja")
-    _n_eval = len(_rows)
-    TFM_BANNER = (f"Evaluación real con <strong>TimesFM 3</strong> (n={_n_eval} serie-config): MAE <strong>{_mae.get('plus_fx')}</strong> vs drift {BT.get('mae', '—')} en el backtest; anticipa <strong>{_sr}% de las subas</strong> y {_br}% de las bajas (el drift: 4%). Covariables FX/IPIM/competencia cambian el MAE ~1% con 11 días de historia. Fallbacks naive por historia corta: {_fb_n}.") if _rows and _tfm_ok else ""
-except Exception:
-    TFM_BANNER = ""
-tfm_banner = (f'<p class="mt-2 text-xs md:text-[13px] text-slate-700 leading-relaxed">📊 {TFM_BANNER}</p>'
-               if TFM_BANNER else "")
-date = data["date"]
-dt_fmt = f"{date[8:10]}/{date[5:7]}/{date[0:4]}"
-branches = data["branches_count"]
-chains = data["chains"]
-hero = data["hero"]
-table = data["table"]
-
-# hero sorted cheapest first already
-cheapest = hero[0]
-most_exp = hero[-1]
-ahorro = most_exp["total"] - cheapest["total"]
-ahorro_pct = round(ahorro / most_exp["total"] * 100) if most_exp["total"] else 0
-
-def fmt_money(v):
-    return f"${v:,.0f}".replace(",",".").replace(".",".",1)  # simple
-    # use arg format
-def fmt(v):
-    s = f"{v:,.2f}"
-    # replace comma thousand with dot, dot decimal with comma? Keep simple
-    return "$" + f"{v:,.0f}".replace(",",".")
-
-def fmt_ar(v):
-    """$69.601 formato argentino, solo para números (nunca sobre HTML/JS)."""
-    return f"${v:,.0f}".replace(",", ".")
-
-# Build chains header order as in hero (cheapest first) or as stored
-chain_order = [c["id"] for c in chains]
-# But hero is cheapest first; keep that for columns? Use hero order for intuitive
-hero_order = [h["chain_id"] for h in hero]
-
-# For table, keep chain_order stable
-html_chains = "".join(f'<th class="px-2 py-2 text-right text-xs font-semibold text-slate-700 whitespace-nowrap">{next((c["label"] for c in chains if c["id"]==cid), cid)}</th>' for cid in hero_order)
-
-# Table rows grouped by category
+"""Generate the self-contained shopping page for all three static entry points."""
+import json
+import math
+import sys
 from collections import defaultdict
-cat_order = ["Lácteos","Panificados","Almacén","Infusiones","Conservas","Carnes","Frescos","Verdulería","Limpieza"]
-cat_groups = defaultdict(list)
-for row in table:
-    cat_groups[row["category"]].append(row)
+from html import escape
+from pathlib import Path
 
-MOVE_PREC_GATE = 25.0  # % precision de la clase sube/baja bajo el cual no mostramos flechas ↑↓ (solo →)
+ROOT = Path(__file__).resolve().parents[1]
+REPO_URL = "https://github.com/sebbrinkworth/canasta-rosario"
+CATEGORIES = ["Lácteos", "Panificados", "Almacén", "Infusiones", "Conservas",
+              "Carnes", "Frescos", "Verdulería", "Limpieza"]
 
 
-def _move_precision():
-    """Measured move precision from data/backtest.json. Returns (daily_sube, daily_baja, weekly_sube, weekly_baja).
-    Daily if present, else weekly if present, else (None...) — gating uses whatever the method actually measured."""
+def read_optional(path):
     try:
-        ev = (BT or {}).get("event_precision") or {}
-        wk = (BT or {}).get("weekly") or {}
-        ds = (ev.get("daily") or {}).get("sube") or {}
-        db = (ev.get("daily") or {}).get("baja") or {}
-        ws = (wk.get("classes") or {}).get("sube") or {}
-        wb = (wk.get("classes") or {}).get("baja") or {}
-        return ds.get("precision"), db.get("precision"), ws.get("precision"), wb.get("precision")
-    except Exception:
-        return None, None, None, None
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
 
 
-def forecast_badge(pid, cid):
-    """Flechita ↑↓→ tocable: badge con cursor pointer + tooltip en hover (desktop) y tap (móvil).
-    Gate: las flechas ↑↓ solo se muestran si la precisión medida de la clase (backtest real)
-    supera MOVE_PREC_GATE; si no, renderizamos la flecha gris → con leyenda honesta en el tooltip."""
-    f = FORECAST.get(f"{pid}__{cid}")
-    if not f:
-        return ""
-    d = f.get("dir", "estable")
-    delta = f.get("delta_pct", 0)
-    conf = f.get("conf", "media")
-    ds, db, ws, wb = _move_precision()
-    if d == "sube":
-        prec = ds if ds is not None else ws
-        show_arrow = prec is not None and prec >= MOVE_PREC_GATE
-        if show_arrow:
-            arrow, cls2, label = "↑", "fc-up", f"Se espera que suba {delta:+.1f}% · confianza {conf}"
-        else:
-            arrow, cls2, label = "→", "fc-flat", f"Sin flecha ↑: esta clase hoy acierta {prec}% (umbral {MOVE_PREC_GATE:.0f}%) — no podemos anticipar subas todavía, mostramos →"
-    elif d == "baja":
-        prec = db if db is not None else wb
-        show_arrow = prec is not None and prec >= MOVE_PREC_GATE
-        if show_arrow:
-            arrow, cls2, label = "↓", "fc-down", f"Se espera que baje {delta:+.1f}% · confianza {conf}"
-        else:
-            arrow, cls2, label = "→", "fc-flat", f"Sin flecha ↓: esta clase hoy acierta {prec}% (umbral {MOVE_PREC_GATE:.0f}%) — no podemos anticipar bajas todavía, mostramos →"
-    else:
-        arrow, cls2, label = "→", "fc-flat", f"Estable ({delta:+.1f}%) · confianza {conf}"
-    tip = f"{label}. Pronóstico experimental 24-48h, no es recomendación de compra. Tocá de nuevo para cerrar."
-    return f'<button type="button" class="fc-badge {cls2}" data-tip="{tip}" aria-label="{label}">{arrow}</button>'
+def text(value):
+    return escape(str(value).strip(), quote=True)
 
-def render_rows(table_data, chain_ids):
-    cat_groups = defaultdict(list)
-    for row in table_data:
-        cat_groups[row["category"]].append(row)
-    out = ""
-    for cat in cat_order:
-        group = cat_groups.get(cat, [])
-        if not group: continue
-        out += f'<tr><td colspan="{2+len(chain_ids)}" class="bg-slate-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-600">{cat}</td></tr>\n'
-        for r in group:
-            name = r["name"]
-            unit = r["unit_display"]
-            cheapest_cid = r.get("cheapest_chain")
-            out += f'<tr class="border-b border-slate-100 hover:bg-slate-50">'
-            out += f'<td class="px-3 py-2 text-sm font-medium text-slate-800 whitespace-nowrap">{name} <span class="text-xs text-slate-500">{unit}</span></td>'
-            out += f'<td class="px-2 py-2 text-right text-xs text-slate-500 hidden md:table-cell">{unit}</td>'
-            for cid in chain_ids:
-                p = r["prices"].get(cid)
-                if p is None:
-                    out += f'<td class="px-2 py-2 text-right text-xs text-slate-400">—</td>'
-                else:
-                    is_cheapest = (cid == cheapest_cid)
-                    cls = "bg-emerald-50 font-semibold text-emerald-700" if is_cheapest else "text-slate-700"
-                    per = p["price_per_unit"]
-                    lista = p["price_lista"]
-                    badge = forecast_badge(r["id"], cid)
-                    if abs(per - lista) > 0.01 and p["per_unit"] in ("kg","L"):
-                        cell = f'<div class="{cls} text-right text-sm px-1 rounded">{fmt_ar(per)}<span class="text-xs font-normal">/{p["per_unit"]}</span>{badge}</div><div class="text-xs text-slate-400 text-right">{fmt_ar(lista)}</div>'
-                    else:
-                        cell = f'<div class="{cls} text-right text-sm px-1 rounded">{fmt_ar(lista)}{badge}</div>'
-                    out += f'<td class="px-2 py-1.5 text-right">{cell}</td>'
-            out += '</tr>\n'
-    return out
 
-def render_hero(hero_list):
-    cards = ""
-    for i, h in enumerate(hero_list):
-        is_win = i==0
-        border = "border-emerald-400 bg-emerald-50" if is_win else "border-slate-200 bg-white"
-        cards += f'''
-        <div class="rounded-xl border-2 {border} p-4 flex flex-col gap-1 min-w-[160px] flex-1">
-          <div class="text-sm font-bold text-slate-800">{h["chain_label"]}</div>
-          <div class="text-2xl font-extrabold {"text-emerald-700" if is_win else "text-slate-800"}">{fmt_ar(h["total"])}</div>
-          <div class="text-xs text-slate-500">{h["items_found"]}/25 ítems · $/pack + $/kg</div>
-          {f'<span class="mt-1 inline-flex w-fit rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white">Más barato</span>' if is_win else ''}
-        </div>'''
-    return cards
+def number(value, decimals=0):
+    if not isinstance(value, (int, float)) or not math.isfinite(value):
+        return "—"
+    return f"{value:,.{decimals}f}".translate(str.maketrans({",": ".", ".": ","}))
 
-# Zonas: todo (combinado) + rosario + gran. Fallback a combinado si falta.
-zones_data = data.get("zones") or {}
-ZDESC = {
-    "todo": ("Todo: Rosario + alrededores", f"{branches} sucursales"),
-    "rosario": ("Solo Rosario", f"{(zones_data.get('rosario') or {}).get('branches_count', '?')} sucursales"),
-    "gran": ("Alrededores (Funes, Fisherton…)", f"{(zones_data.get('gran') or {}).get('branches_count', '?')} sucursales"),
-}
-zone_blocks = {}
-for zkey in ("todo", "rosario", "gran"):
-    if zkey == "todo":
-        z_hero, z_table = hero, table
-        z_chains, z_order = chains, hero_order
-    else:
-        zd = zones_data.get(zkey) or {}
-        if not zd.get("hero"):
+
+def money(value):
+    return f"${number(value)}"
+
+
+def unit_name(unit):
+    return {"kg": "kg", "L": "L", "u": "unidad"}.get(unit, unit)
+
+
+def comparable(price, expected_unit):
+    value = (price or {}).get("price_per_unit")
+    return (bool(price) and price.get("per_unit") == expected_unit
+            and isinstance(value, (int, float)) and math.isfinite(value) and value > 0)
+
+
+def render_rows(rows, chain_ids, definitions):
+    groups = defaultdict(list)
+    for row in rows:
+        groups[row["category"]].append(row)
+    result = []
+    for category in dict.fromkeys([*CATEGORIES, *groups]):
+        if not groups[category]:
             continue
-        z_hero, z_table = zd["hero"], zd["table"]
-        z_chains = zd.get("chains", chains)
-        z_order = [h["chain_id"] for h in z_hero]
-    z_cheapest = z_hero[0] if z_hero else None
-    z_exp = z_hero[-1] if z_hero else None
-    if z_cheapest and z_exp and z_exp["total"]:
-        z_ah = z_exp["total"] - z_cheapest["total"]
-        z_ahp = round(z_ah / z_exp["total"] * 100)
-    else:
-        z_ah, z_ahp = 0, 0
-    z_heads = "".join(f'<th class="px-2 py-2 text-right text-xs font-semibold text-slate-700 whitespace-nowrap">{next((c["label"] for c in z_chains if c["id"]==cid), cid)}</th>' for cid in z_order)
-    zone_blocks[zkey] = {
-        "title": ZDESC[zkey][0], "sub": ZDESC[zkey][1],
-        "hero": render_hero(z_hero),
-        "heads": z_heads,
-        "rows": render_rows(z_table, z_order),
-        "foot": f'Ahorro máximo: <strong class="text-emerald-700">{fmt_ar(z_ah)} ({z_ahp}%)</strong> entre {z_cheapest["chain_label"]} y {z_exp["chain_label"]}.' if z_cheapest and z_exp else "",
-    }
-zone_blocks["todo"]["title"] = f"Todo: Rosario + alrededores"
-zone_sections = ""
-for zkey in ("todo", "rosario", "gran"):
-    zb = zone_blocks.get(zkey)
-    if not zb:
-        continue
-    hidden = "" if zkey == "todo" else ' hidden'
-    zone_sections += f"""
-  <div data-zoneblock="{zkey}"{hidden}>
-  <section class="mt-4">
-    <h2 class="text-sm font-bold uppercase tracking-wide text-slate-600 mb-1">Costo total canasta HOY por cadena — {zb['title']}</h2>
-    <p class="text-xs text-slate-500 mb-3">{zb['sub']}</p>
-    <div class="flex flex-wrap gap-3">
-      {zb['hero']}
-    </div>
-    <p class="mt-3 text-sm text-slate-600">{zb['foot']} Precios por paquete y $/kg-L donde aplica.</p>
-  </section>
-  <section class="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-    <table class="w-full min-w-[720px] text-sm">
-      <thead class="bg-slate-50 border-b border-slate-200">
-        <tr>
-          <th class="px-3 py-2 text-left text-xs font-semibold text-slate-600">Producto</th>
-          <th class="px-2 py-2 text-right text-xs font-semibold text-slate-600 hidden md:table-cell">Unidad</th>
-          {zb['heads']}
-        </tr>
-      </thead>
-      <tbody>
-        {zb['rows']}
-      </tbody>
-    </table>
-  </section>
-  </div>"""
+        result.append(f'<tr class="category"><th scope="rowgroup" colspan="{len(chain_ids)+1}">{text(category)}</th></tr>')
+        for row in groups[category]:
+            unit = definitions.get(row["id"], {}).get("unit")
+            prices = row.get("prices") or {}
+            valid = [prices[c]["price_per_unit"] for c in chain_ids
+                     if comparable(prices.get(c), unit)]
+            # A lone observation is not a comparison. Include ties when comparable.
+            best = min(valid) if len(valid) > 1 else None
+            result.append(f'<tr><th scope="row">{text(row["name"])}<small>por {text(unit_name(unit or "unidad"))}</small></th>')
+            for cid in chain_ids:
+                price = prices.get(cid)
+                if not price:
+                    result.append('<td><span class="missing" aria-label="Sin dato comparable">—</span></td>')
+                    continue
+                is_valid = comparable(price, unit)
+                is_best = is_valid and best is not None and price["price_per_unit"] == best
+                value = money(price["price_per_unit"] if is_valid else price.get("price_lista"))
+                suffix = f'/{text(unit_name(unit))}' if is_valid else ' por envase'
+                best_label = '<span class="sr-only">Menor precio informado. </span>' if is_best else ''
+                result.append(f'''<td class="{'best' if is_best else ''}">
+                  <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
+                    data-product="{text(price.get('desc') or 'Descripción no disponible')}"
+                    data-package="{text(money(price.get('price_lista')))}"
+                    data-reference="{text(value + suffix)}"
+                    data-comparable="{str(is_valid).lower()}"
+                    data-label="{text(row['name'])}">
+                    {best_label}{value}<span class="price-unit">{suffix}</span>
+                  </button></td>''')
+            result.append('</tr>')
+    return "\n".join(result)
 
-# Precisión del pronóstico (backtest real) — honesto: separa estables de movimientos
-if BT and BT.get("n"):
-    mp = BT.get("moves_prec", {})
-    sube = mp.get("sube", {"n":0,"hits":0,"precision":0})
-    baja = mp.get("baja", {"n":0,"hits":0,"precision":0})
-    est = mp.get("estable", {"n":0,"hits":0,"precision":0})
-    mov_n = sube["n"] + baja["n"]
-    mov_h = sube["hits"] + baja["hits"]
-    mov_p = round(mov_h / mov_n * 100, 1) if mov_n else 0
-    # event layer: precision/recall por clase (daily + weekly)
-    ev = BT.get("event_precision") or {}
-    wk = BT.get("weekly") or {}
-    def _s(d, k): return (d.get(k) or {}) if isinstance(d, dict) else {}
-    ev_d = _s(ev, "daily"); ev_w = _s(wk, "classes")
-    ev_sube = _s(ev_d, "sube"); ev_baja = _s(ev_d, "baja"); ev_est = _s(ev_d, "estable")
-    wk_sube = _s(ev_w, "sube"); wk_baja = _s(ev_w, "baja")
-    ev_sube_p = ev_sube.get("precision", 0); ev_sube_r = ev_sube.get("recall", 0)
-    ev_baja_p = ev_baja.get("precision", 0); ev_baja_r = ev_baja.get("recall", 0)
-    wk_sube_p = wk_sube.get("precision", 0); wk_baja_p = wk_baja.get("precision", 0)
-    # persistence baseline + assortment (honest context for the scoreboard)
-    bp = BT.get("baseline_persistence") or {}
-    bp_mae = bp.get("mae", "—"); bp_hit = bp.get("hit_rate", "—")
-    drift_mae = BT.get("mae", "—")
-    asrt = BT.get("assortment") or {}
-    asrt_txt = ""
-    if asrt.get("price_changes"):
-        asrt_txt = (f" De {asrt['price_changes']} cambios de precio, "
-                    f"{asrt['with_desc_or_brand_change']} ({asrt['pct']}%) vinieron con otro producto como cheapest: "
-                    f"ahí el movimiento puede ser <strong>cambio de surtido, no remarcación</strong>.")
-    cat_rows = "".join(
-        f'<tr class="border-b border-slate-100"><td class="px-2 py-1">{k}</td>'
-        f'<td class="px-2 py-1 text-right">{v["hit_rate"]}%</td>'
-        f'<td class="px-2 py-1 text-right text-slate-400">{v["n"]}</td></tr>'
-        for k, v in (BT.get("by_category") or {}).items()
-    )
-    precision_html = f"""
-  <section class="mt-6 rounded-xl border-2 border-slate-800 bg-white p-5 md:p-6 shadow-sm">
-    <h3 class="text-base md:text-lg font-extrabold text-slate-900">¿Cuántas pegamos? <span class="text-sm font-normal text-slate-500">— medido con datos reales, no con sintéticos</span></h3>
-    <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-slate-700">La flecha <strong>↑/↓</strong> (mover el precio) es la parte difícil: hoy acierta <strong class="text-amber-700">{mov_p}%</strong> ({mov_h}/{mov_n}). Cuando dice <strong>→</strong> (“no cambia”) acierta <strong>{est['precision']}%</strong> ({est['hits']}/{est['n']}). Por eso, hasta que la precisión de movimiento pase el umbral (<strong>{MOVE_PREC_GATE:.0f}%</strong>), el sitio muestra solo la flecha gris → aunque el modelo interno crea que va a subir o bajar.</p>
-    <p class="mt-2 rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-xs md:text-[13px] text-slate-600">📏 <strong>Línea base (mañana = hoy):</strong> acierta el <strong>{bp_hit}%</strong> de las direcciones con MAE {bp_mae} — el drift actual tiene MAE {drift_mae}. Todo modelo propuesto debe superar esta línea: con series mayormente planas, no cambiar nada ya gana.{asrt_txt}</p>
-    <p class="mt-2 rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-xs md:text-[13px] text-slate-600">🚫 <strong>Cero datos sintéticos:</strong> todo lo que ves (precios, pronósticos y este marcador) se calcula <strong>solo con precios reales de SEPA</strong>. Empezamos a recolectar el 26/08/2026, así que la historia es corta: con pocos días la precisión es limitada, y <strong>mejora automáticamente cada día</strong> que el recolector agrega datos reales.</p>
-    <div class="mt-3 grid gap-3 md:grid-cols-2 text-xs md:text-[13px] leading-relaxed">
-      <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3"><strong>Lo fácil: decir “mañana no cambia” →</strong> acierta el <strong>{est['precision']}%</strong> ({est['hits']}/{est['n']}). La mayoría de los días los precios no se mueven, y ahí somos buenos.</div>
-      <div class="rounded-lg bg-amber-50 border border-amber-200 p-3"><strong>Lo difícil: anticipar subas y bajas.</strong> Hoy <strong>↑</strong> acierta <strong>{ev_sube_p}%</strong> (recall {ev_sube_r}%), <strong>↓</strong> acierta <strong>{ev_baja_p}%</strong> (recall {ev_baja_r}%). En ventana semanal (7 días): <strong>↑ {wk_sube_p}% · ↓ {wk_baja_p}%</strong>. Tómalas como señal débil — por eso seguimos con el experimento TimesFM + dólar.</div>
-    </div>
-    <details class="mt-3 text-xs md:text-[13px]"><summary class="cursor-pointer underline text-slate-600\">Ver por categoría</summary>
-      <table class="mt-2 w-full max-w-md text-xs"><thead><tr class="text-left text-slate-500\"><th class="px-2 py-1\">Categoría</th><th class="px-2 py-1 text-right\">Acierto</th><th class="px-2 py-1 text-right\">Casos</th></tr></thead><tbody>{cat_rows}</tbody></table>
-    </details>
-  </section>"""
-else:
-    precision_html = ""
 
-html = f"""<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Canasta Rosario — 25 alimentos — {dt_fmt}</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<meta name="description" content="Compará el costo de 25 alimentos en Rosario + Gran Rosario con datos SEPA.">
-<style>
-.fc-badge{{cursor:pointer;border:1px dashed #94a3b8;border-radius:9999px;padding:0 6px;margin-left:4px;font-size:11px;font-weight:700;line-height:1.6;position:relative;background:#fff}}
-.fc-up{{color:#dc2626;border-color:#fca5a5;background:#fef2f2}}
-.fc-down{{color:#047857;border-color:#6ee7b7;background:#ecfdf5}}
-.fc-flat{{color:#64748b}}
-.fc-badge::after{{content:attr(data-tip);display:none;position:absolute;right:0;top:130%;z-index:30;width:210px;white-space:normal;background:#0f172a;color:#fff;font-size:11px;font-weight:400;border-radius:8px;padding:8px 10px;text-align:left;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.25)}}
-.fc-badge:hover::after,.fc-badge.show::after{{display:block}}
-.zone-chip{{cursor:pointer}}
-.zone-chip[aria-pressed="true"]{{background:#0f172a;color:#fff;border-color:#0f172a}}
-</style>
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased">
-<header class="mx-auto max-w-6xl px-4 pt-6 pb-4">
-  <div class="flex flex-wrap items-center justify-between gap-3">
-    <div>
-      <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">Canasta Rosario <span class="font-normal text-slate-500">— 25 alimentos</span></h1>
-      <p class="mt-1 text-sm text-slate-600">Datos SEPA del <strong>{dt_fmt}</strong> · <span class="inline-flex items-center rounded-full bg-slate-900 px-2.5 py-0.5 text-xs font-semibold text-white">Cubre Rosario + Gran Rosario · {branches} sucursales · {len(chains)} cadenas</span></p>
-    </div>
-    <div class="text-xs text-slate-500">Fuente SEPA CC BY 4.0 · <a class="underline" href="https://datos.produccion.gob.ar/dataset/sepa-precios">datos.produccion.gob.ar</a></div>
-  </div>
-  <div class="mt-2 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2 text-xs text-amber-800">Solo grandes cadenas — La Gallega / DAR / Micropack no informan a SEPA (adhesión voluntaria). Metodología y limitaciones al pie.</div>
-</header>
+def render_zone(key, data, definitions, total_items):
+    chains = data.get("chains") or []
+    # Stable chain order; partial totals must not imply a basket ranking.
+    chain_ids = [c["id"] for c in chains]
+    labels = {c["id"]: c["label"] for c in chains}
+    totals = {h["chain_id"]: h for h in data.get("hero", [])}
+    cards = []
+    for cid in chain_ids:
+        h = totals.get(cid)
+        if not h:
+            continue
+        cards.append(f'''<article class="chain-card"><h3>{text(labels[cid])}</h3>
+          <p class="total">{money(h['total'])}</p>
+          <p class="coverage">{h['items_found']} de {total_items} productos</p></article>''')
+    heads = ''.join(f'<th scope="col">{text(labels[cid])}</th>' for cid in chain_ids)
+    return f'''<section data-zoneblock="{key}" {'hidden' if key != 'todo' else ''} aria-label="Precios de {text(key)}">
+      <div class="section-heading"><h2>Subtotales por cadena</h2><span>{data.get('branches_count', 0)} sucursales en esta zona</span></div>
+      <p class="caption">Cada subtotal incluye los productos informados. Con distinta cobertura, los totales no son comparables.</p>
+      <div class="chain-cards">{''.join(cards)}</div>
+      <div class="section-heading products-heading"><h2>Compará por producto</h2><span>Valores en pesos argentinos</span></div>
+      <p class="caption" id="legend-{key}"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de precios; desplazamiento horizontal" aria-describedby="legend-{key}">
+        <table><caption class="sr-only">Precios informados por producto y cadena</caption>
+          <thead><tr><th scope="col">Producto</th>{heads}</tr></thead>
+          <tbody>{render_rows(data.get('table', []), chain_ids, definitions)}</tbody>
+        </table>
+      </div><p class="scroll-hint">Deslizá la tabla para ver todas las cadenas →</p>
+    </section>'''
 
-<main class="mx-auto max-w-6xl px-4 pb-10">
-  <!-- Qué es esto -->
-  <section class="mt-4 rounded-xl border border-slate-200 bg-white p-5 md:p-6 shadow-sm">
-    <h2 class="text-base md:text-lg font-extrabold text-slate-900">¿Qué es esto?</h2>
-    <p class="mt-2 text-sm md:text-[15px] leading-relaxed text-slate-700">En Rosario el mismo paquete de yerba, aceite o leche puede salir muy distinto según dónde compres. <strong>Canasta Rosario</strong> compara <strong>todos los días una canasta fija de 25 alimentos y limpieza</strong> en 5 cadenas de Rosario y Gran Rosario, para que en 10 segundos sepas <strong>dónde conviene comprar hoy</strong> y cuánto te ahorrás. Sin login, sin app, sin vueltas: una sola página, precios por paquete y por kilo/litro.</p>
-    <div class="mt-4 grid gap-3 md:grid-cols-3">
-      <div class="rounded-lg bg-slate-50 border border-slate-200 p-3">
-        <div class="text-xs font-bold uppercase tracking-wide text-slate-600">Cómo leerlo</div>
-        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Arriba ves el <strong>total de la canasta por cadena</strong>, del más barato al más caro. En verde el ganador. Abajo, la tabla: cada fila es un producto, cada celda su precio. <strong>Verde = más barato</strong> en $/kg-L. <strong>“—” = no informado</strong> ese día por esa cadena (no inventamos precios).</p>
-      </div>
-      <div class="rounded-lg bg-slate-50 border border-slate-200 p-3">
-        <div class="text-xs font-bold uppercase tracking-wide text-slate-600">De dónde salen los datos</div>
-        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Fuente oficial <strong>SEPA (Precios Claros)</strong>, Secretaría de Comercio — lo que las grandes cadenas están obligadas a informar a diario. Licencia CC BY 4.0. Cobertura: <strong>{branches} sucursales</strong> en Rosario + Gran Rosario. No incluye La Gallega / DAR / Micropack porque no informan a SEPA (adhesión voluntaria). Sin promos bancarias en v1.</p>
-      </div>
-      <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3">
-        <div class="text-xs font-bold uppercase tracking-wide text-emerald-800">Qué estamos probando</div>
-        <p class="mt-1 text-xs md:text-[13px] text-slate-700 leading-relaxed">Además de mostrar hoy, probamos si se puede <strong>anticipar el precio de mañana</strong>. Las flechas <strong>↑ ↓ →</strong> en cada precio son un pronóstico liviano de <strong>tendencia de 7 días</strong> (último precio + promedio de cambios recientes, sin covariables), integrado acá mismo (<a class="underline font-semibold" href="#pronostico">ver cómo funciona</a>). En paralelo evaluamos <strong>TimesFM 3 de Google</strong> con covariables reales: <strong>dólar blue / oficial, brecha % y volatilidad 7 días</strong> (histórico diario real de bluelytics.com.ar), <strong>IPIM mayorista</strong> (INDEC vía series-tiempo, mensual; cada día solo ve valores ya publicados) y <strong>precio mínimo de la competencia</strong>. <strong>Solo datos reales</strong> — nada sintético ni simulado. Línea base a batir: <strong>mañana = hoy</strong> (persistencia). Nota de licencia: los pesos preentrenados de TimesFM 3 son de uso no-comercial según Google, así que el sitio en producción usa el método liviano.</p>
-        {tfm_banner}
-      </div>
-    </div>
-  </section>
-  <!-- Filtro de zona -->
-  <section class="mt-4 flex flex-wrap gap-2 items-center text-xs" role="group" aria-label="Filtrar por zona">
-    <span class="text-slate-500 font-semibold">Zona:</span>
-    <button type="button" class="zone-chip rounded-full border border-slate-300 bg-white px-3 py-1 font-medium" data-zone="todo" aria-pressed="true">Todo ({branches})</button>
-    <button type="button" class="zone-chip rounded-full border border-slate-300 bg-white px-3 py-1 font-medium" data-zone="rosario" aria-pressed="false">Rosario</button>
-    <button type="button" class="zone-chip rounded-full border border-slate-300 bg-white px-3 py-1 font-medium" data-zone="gran" aria-pressed="false">Alrededores</button>
-    <span class="text-slate-400">· En móvil deslizá la tabla →</span>
-  </section>
-  {zone_sections}
-  <p class="mt-2 text-xs text-slate-500">Verde = más barato por $/kg-L (o paquete si unidad no normalizada). “—” = No informado ese día. Las flechas son botones: <button type="button" class="fc-badge fc-up" style="cursor:pointer" onclick="return false">↑</button> <button type="button" class="fc-badge fc-down" onclick="return false">↓</button> <button type="button" class="fc-badge fc-flat" onclick="return false">→</button> — <strong>tocá cualquier flecha de la tabla</strong> para ver % esperado y confianza. Pronóstico experimental 24-48h, no es recomendación de compra. <a class="underline" href="#pronostico">Cómo funciona</a>.</p>
 
-  <!-- Precisión: cuántas pegamos -->
-  {precision_html}
-  <!-- Pronóstico en esta misma vista -->
-  <section id="pronostico" class="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/50 p-5 md:p-6">
-    <h3 class="text-base font-extrabold text-slate-900">Pronóstico en esta misma vista — qué significan las flechas</h3>
-    <p class="mt-2 text-sm leading-relaxed text-slate-700">Cada precio lleva una flecha con lo que el modelo espera para las próximas 24-48h. Hoy es <strong>tendencia de 7 días</strong> (la versión liviana que anda sin GPU, sin covariables). En paralelo corremos el experimento completo con <strong>TimesFM 3</strong> para validar si sumar dólar e IPIM mejora de verdad contra la línea base <strong>mañana = hoy</strong>. <strong>Todo se entrena y evalúa solo con precios reales de SEPA</strong> — no usamos datos sintéticos ni simulados.</p>
-    <div class="mt-3 grid gap-3 md:grid-cols-3 text-xs md:text-[13px] leading-relaxed">
-      <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Dólar y brecha</strong><br>blue / oficial (histórico diario real de bluelytics.com.ar), brecha % = (blue-oficial)/oficial y volatilidad 7 días. Es la pista n°1 para aceite, harina, yerba.</div>
-      <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Mayorista y competencia</strong><br>IPIM nivel general (INDEC, serie mensual de series-tiempo; cada fecha solo usa valores ya publicados, sin interpolar futuro) + precio mínimo de las otras 4 cadenas para el mismo producto. Capta remarcación y undercutting.</div>
-      <div class="rounded-lg bg-white border border-slate-200 p-3"><strong>Cómo leer la confianza</strong><br>Pasá el cursor sobre la flecha: muestra % esperado y confianza (alta/media/baja según volatilidad reciente). Con {REAL_DAYS} días de historia real, la precisión de eventos (↑↓) todavía es baja — <strong>mejora a medida que el recolector diario suma datos</strong> (más historia = mejor evaluación, no automáticamente mejor precisión). Detalle técnico en <code>forecast/</code> del repo.</div>
-    </div>
-  </section>
+def render_forecast(backtest, evaluation, normalization_version=None):
+    baseline = backtest.get("baseline_persistence") or {}
+    results = ''
+    if backtest.get("n") and baseline:
+        movements = backtest.get("moves_prec") or {}
+        predicted = sum((movements.get(c) or {}).get("n", 0) for c in ("sube", "baja"))
+        hits = sum((movements.get(c) or {}).get("hits", 0) for c in ("sube", "baja"))
+        results = f'''<p>En {backtest['n']} casos evaluados, el método de tendencia acertó {hits} de {predicted} avisos de suba o baja.</p>
+          <table class="metrics"><caption>Error de precio en los mismos casos (menor es mejor)</caption>
+          <thead><tr><th scope="col">Método</th><th scope="col">Error medio absoluto</th></tr></thead>
+          <tbody><tr><th scope="row">Repetir el último precio</th><td>{number(baseline.get('mae'), 1)}</td></tr>
+          <tr><th scope="row">Tendencia reciente</th><td>{number(backtest.get('mae'), 1)}</td></tr></tbody></table>
+          <p class="caption">Error en pesos por unidad de referencia, agregado entre productos. Evaluamos solo precios observados.</p>'''
+    experiment = ''
+    if evaluation.get("timesfm_ok") and (evaluation.get("status") == "superseded" or
+            evaluation.get("price_normalization_version") != normalization_version):
+        experiment = '<p>La evaluación anterior de TimesFM usaba precios previos a la corrección de unidades. Está pendiente repetirla con los datos corregidos.</p>'
+    elif evaluation.get("timesfm_ok"):
+        experiment = f'''<p>También evaluamos TimesFM 3 de Google con información del dólar, precios mayoristas y competencia.
+          Esa evaluación incluye {number(evaluation.get('fallback_naive', 0))} predicciones de respaldo del método simple;
+          usa una muestra distinta de la tabla anterior y no permite una comparación directa.</p>'''
+    return f'''<details class="disclosure" id="pronostico"><summary>¿Podemos anticipar los precios? <span>En evaluación</span></summary>
+      <div class="disclosure-body"><p>Estamos probando pronósticos para el día siguiente. La tabla muestra únicamente precios informados; las predicciones quedan fuera de la comparación.</p>
+      {results}{experiment}<p>La historia todavía es corta. Más datos permiten evaluar mejor, pero no garantizan mejores predicciones.</p>
+      <a href="{REPO_URL}/blob/main/forecast/README.md">Método y evaluación técnica ↗</a></div></details>'''
 
-  <!-- Footer metodología -->
-  <footer class="mt-10 rounded-xl bg-white border border-slate-200 p-6 text-sm leading-relaxed text-slate-700">
-    <h3 class="font-bold text-slate-900">Metodología</h3>
-    <ul class="mt-2 list-disc pl-5 space-y-1 text-xs md:text-sm">
-      <li><strong>Fuente:</strong> SEPA — Sistema Electrónico de Publicidad de Precios Argentinos, <a class="underline" href="https://datos.produccion.gob.ar/dataset/sepa-precios">datos.produccion.gob.ar</a>, licencia CC BY 4.0. Datos del {dt_fmt}.</li>
-      <li><strong>Cobertura:</strong> {branches} sucursales en bbox Rosario + Gran Rosario (lat -33.1 / -32.7, lon -61.0 / -60.4). Cadenas: {", ".join(c["label"] for c in chains)}. <strong>No incluye</strong> La Gallega, DAR, Micropack — no reportan a SEPA (ver validación).</li>
-      <li><strong>Canasta:</strong> 25 ítems (alimentos + limpieza) basada en CBA INDEC. Matching por keywords con filtro negativo + precio de referencia SEPA ($/kg-L). “No informado” si no hay match.</li>
-      <li><strong>Limitaciones:</strong> matching difuso beta — puede haber falsos positivos en granel/marca blanca. Precio por unidad usa <code>productos_precio_referencia</code> cuando existe. Sin promos bancarias.</li>
-      <li><strong>Repro:</strong> <code>uv run python -m etl.etl --date YYYY-MM-DD --gran-rosario</code>. Datos en <code>/data/rosario-YYYY-MM-DD.json</code>.</li>
-    </ul>
-    <p class="mt-3 text-xs">Roadmap: scraping La Gallega v1.1 · <a class="underline" href="https://github.com/sebbrinkworth/canasta-rosario">GitHub — sebbrinkworth/canasta-rosario</a> · MIT</p>
-  </footer>
-</main>
-<script>
-// Filtro de zona: muestra solo el bloque elegido
-document.querySelectorAll('.zone-chip').forEach(function(btn){{btn.addEventListener('click',function(){{
-  document.querySelectorAll('.zone-chip').forEach(function(b){{b.setAttribute('aria-pressed','false')}});
-  btn.setAttribute('aria-pressed','true');
-  var z=btn.getAttribute('data-zone');
-  document.querySelectorAll('[data-zoneblock]').forEach(function(div){{div.hidden=(div.getAttribute('data-zoneblock')!==z)}});
-}})}});
-// Flechas tocables: tap muestra el dato, otro tap lo cierra
-document.addEventListener('click',function(e){{
-  var b=e.target.closest?e.target.closest('.fc-badge[data-tip]'):null;
-  document.querySelectorAll('.fc-badge.show').forEach(function(x){{if(x!==b)x.classList.remove('show')}});
-  if(b){{b.classList.toggle('show');e.preventDefault()}}
-}});
-</script>
-</body>
-</html>
+
+CSS = """
+:root{color-scheme:light;--ink:#172b27;--muted:#596b66;--line:#dce4df;--green:#146342;--paper:#f7f9f6}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}button{font:inherit}button:focus-visible,summary:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #438b6c;outline-offset:3px}
+.wrap{max-width:1160px;margin:auto;padding:0 28px}header{padding:38px 0 24px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--green);font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+.header-top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}h1{font-size:32px;letter-spacing:-1px;line-height:1.15;margin:9px 0 12px}header p{margin:0;color:var(--muted)}.date{font-size:13px;text-align:right;padding-top:6px;white-space:nowrap}.date strong{display:block;color:var(--ink);font-weight:600}.intro{max-width:660px}.source-note{font-size:12px;margin-top:14px}
+.zone-filter{display:flex;align-items:center;gap:8px;margin:24px 0 28px;flex-wrap:wrap}.zone-filter>span{font-size:13px;margin-right:4px;color:var(--muted)}.zone-chip{border:1px solid var(--line);background:white;border-radius:24px;padding:8px 16px;font-size:13px}.zone-chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:white}.zone-chip:hover{border-color:var(--green)}
+.section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.section-heading h2{font-size:17px;letter-spacing:-.25px;margin:0}.section-heading>span{font-size:12px;color:var(--muted)}.caption{font-size:12px;color:var(--muted);margin:7px 0 16px}.chain-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px}.chain-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}.chain-card h3{font-size:13px;font-weight:600;margin:0;min-height:20px}.total{font-size:25px;font-weight:650;letter-spacing:-.7px;font-variant-numeric:tabular-nums;margin:12px 0 2px}.coverage{font-size:12px;color:var(--muted);margin:0}.products-heading{margin-top:30px}.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:5px}
+.table-scroll{position:relative;overflow:auto;border:1px solid var(--line);border-radius:10px;background:white;max-height:72vh}table{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}th,td{padding:13px 14px;text-align:right;border-bottom:1px solid #edf0ed;vertical-align:top}thead th{font-size:12px;background:#edf2ee;position:sticky;top:0;z-index:3;white-space:nowrap}thead th:first-child{z-index:4}tbody th[scope=row],thead th:first-child{position:sticky;left:0;text-align:left;min-width:166px;background:#fff}thead th:first-child{background:#edf2ee}tbody th[scope=row]{z-index:1;font-size:13px;font-weight:600}th small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}td{min-width:143px;font-size:14px}.category th{background:#f5f7f4;font-size:10px;font-weight:750;letter-spacing:.09em;text-align:left;text-transform:uppercase;padding:8px 14px}.best{background:#eef7ef;color:#155b3e}.best .price-button{font-weight:700}.price-unit{display:block;color:var(--muted);font-size:10px;font-weight:400}.missing{color:#89958f}.price-button{display:block;width:100%;border:0;background:none;color:inherit;font:inherit;text-align:right;padding:0;min-height:38px;white-space:nowrap;border-radius:4px}.price-button:hover,.price-button[aria-expanded=true]{color:var(--green)}.price-button[aria-expanded=true]{box-shadow:0 0 0 5px #dceee1}.price-button:hover{text-decoration:underline;text-underline-offset:3px}
+.price-popover{position:fixed;inset:auto;margin:0;padding:20px;width:310px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 12px 40px #172b2726;z-index:20;font-size:13px}.popover-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.popover-heading h2{font-size:14px;margin:0}.close-popover{border:0;background:#eff3ef;color:var(--muted);border-radius:50%;width:32px;height:32px;font-size:22px;line-height:1}.product-description{margin:14px 0 18px;color:var(--muted);font-size:12px;line-height:1.6;overflow-wrap:anywhere}.price-popover dl{margin:0;border-top:1px solid var(--line);padding-top:14px;display:grid;grid-template-columns:1fr auto;gap:8px}.price-popover dt{color:var(--muted)}.price-popover dd{margin:0;font-weight:650;font-variant-numeric:tabular-nums}.price-popover .caption{margin:12px 0 0}
+.scroll-hint{display:none;color:var(--muted);font-size:11px}
+.about{margin:34px 0 20px}.disclosure{border-top:1px solid var(--line)}.disclosure:last-child{border-bottom:1px solid var(--line)}.disclosure>summary{padding:18px 0;font-size:14px;font-weight:600}.disclosure>summary>span{font-weight:400;color:var(--muted);font-size:12px;margin-left:10px}.disclosure-body{padding:0 0 22px;max-width:760px;color:var(--muted);font-size:13px}.disclosure-body p{margin:0 0 13px}.disclosure-body strong{color:var(--ink)}.metrics{max-width:560px;font-size:12px;margin:16px 0}.metrics caption{text-align:left;font-weight:600;color:var(--ink);margin-bottom:8px}.metrics th,.metrics td{padding:10px;text-align:left}.metrics thead th,.metrics tbody th{position:static;min-width:0}.metrics td{text-align:right;min-width:0}footer{display:flex;justify-content:space-between;gap:14px;padding:0 0 30px;font-size:11px;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}
+@media(max-width:650px){.wrap{padding:0 16px}header{padding-top:25px}.header-top{display:block}h1{font-size:28px}.date{text-align:left;margin-top:14px}.date strong{display:inline;margin-left:5px}.section-heading{display:block}.section-heading>span{display:block;margin-top:3px}.chain-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.chain-card{padding:13px}.total{font-size:24px}.zone-chip{padding:9px 13px}.zone-filter{gap:6px}.zone-filter>span{width:100%}.table-scroll{max-height:65vh}tbody th[scope=row],thead th:first-child{min-width:125px;max-width:125px}th,td{padding:11px 10px}td{min-width:120px}.scroll-hint{display:block}.disclosure>summary>span{display:block;margin:4px 0 0 17px}footer{flex-wrap:wrap}}
 """
-OUT.write_text(html, encoding="utf-8")
-print(f"Wrote {OUT} ({len(html)} bytes)")
+
+
+def build_page(data, backtest, evaluation, definitions):
+    date = data["date"]
+    formatted = f"{date[8:10]}/{date[5:7]}/{date[:4]}"
+    count = len(data.get("table", []))
+    zones = {"todo": data, **{k: v for k, v in (data.get("zones") or {}).items() if v.get("hero")}}
+    zone_labels = {"todo": "Toda la zona", "rosario": "Rosario", "gran": "Alrededores"}
+    buttons = ''.join(f'<button type="button" class="zone-chip" data-zone="{k}" aria-pressed="{str(k == "todo").lower()}">{text(zone_labels.get(k, k))}</button>' for k in zones)
+    sections = ''.join(render_zone(k, v, definitions, count) for k, v in zones.items())
+    return f'''<!doctype html><html lang="es-AR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canasta Rosario — precios del {formatted}</title>
+<meta name="description" content="Compará precios informados de alimentos y limpieza en Rosario y alrededores. Datos SEPA, por producto y cadena.">
+<style>{CSS}</style></head><body><div class="wrap">
+<header><div class="header-top"><div><span class="eyebrow">Precios para tu compra</span><h1>Canasta Rosario</h1>
+<p class="intro">Compará {count} productos de alimentos y limpieza en Rosario y alrededores.</p></div>
+<p class="date">Últimos datos disponibles<strong><time datetime="{date}">{formatted}</time></strong></p></div>
+<p class="source-note">Fuente: SEPA · {len(data.get('chains', []))} cadenas · {data.get('branches_count', 0)} sucursales · <a href="#metodologia">Cómo seleccionamos los precios</a></p></header>
+<main><nav class="zone-filter" aria-label="Filtrar por zona"><span>Buscar en</span>{buttons}</nav>
+{sections}
+<section class="about" aria-label="Acerca de los datos">
+<details class="disclosure" id="metodologia"><summary>Cómo seleccionamos los precios</summary><div class="disclosure-body">
+<p><strong>Fuente y cobertura.</strong> Usamos los precios que las cadenas informan a <a href="https://datos.produccion.gob.ar/dataset/sepa-precios">SEPA</a>. Esta comparación no incluye La Gallega, DAR ni Micropack.</p>
+<p><strong>Qué representa cada precio.</strong> Seleccionamos el menor precio por unidad entre los productos que coinciden con cada categoría, dentro de las sucursales de la zona. Pueden variar la marca, el envase y la sucursal; no es necesariamente el mismo producto ni una compra en un único local. Tocá el precio para ver su descripción.</p>
+<p><strong>Cómo leer los subtotales.</strong> Aplicamos las cantidades de nuestra canasta a los productos disponibles. Si falta un producto o no podemos verificar su unidad, no se suma. Por eso una cadena con menos productos puede tener un subtotal menor sin ser más barata.</p>
+<p><strong>Límites.</strong> Calculamos el precio por kg, litro o unidad con el precio del envase y su contenido. Excluimos tamaños ambiguos; la selección automática del producto aún puede contener errores. Los precios son los informados en la fecha indicada; no garantizan stock ni el precio en caja. No incluimos descuentos bancarios.</p>
+<a href="{REPO_URL}/blob/main/docs/validation.md">Ver fuentes y validación técnica ↗</a></div></details>
+{render_forecast(backtest, evaluation, data.get("price_normalization_version"))}</section></main>
+<footer><span>Datos SEPA · CC BY 4.0</span><a href="{REPO_URL}">Código y datos abiertos ↗</a></footer></div>
+<dialog id="price-detail" class="price-popover" aria-labelledby="detail-title" aria-describedby="detail-description">
+  <div class="popover-heading"><h2 id="detail-title">Detalle del precio</h2><button type="button" class="close-popover" aria-label="Cerrar detalle">×</button></div>
+  <p id="detail-description" class="product-description"></p>
+  <dl><dt>Precio del envase</dt><dd id="detail-package"></dd><dt>Por unidad</dt><dd id="detail-reference"></dd></dl>
+  <p class="caption" id="detail-unit-note" hidden>No comparable por unidad.</p>
+</dialog>
+<script>
+const priceDetail = document.getElementById('price-detail');
+let activePrice = null;
+function closePriceDetail(restoreFocus = false) {{
+  if (!activePrice) return;
+  const previous = activePrice;
+  previous.setAttribute('aria-expanded', 'false');
+  priceDetail.close();
+  activePrice = null;
+  if (restoreFocus) previous.focus({{preventScroll:true}});
+}}
+document.querySelectorAll('.price-button').forEach(function(button) {{
+  button.addEventListener('click', function() {{
+    if (activePrice === button) {{ closePriceDetail(true); return; }}
+    closePriceDetail();
+    activePrice = button;
+    button.setAttribute('aria-expanded', 'true');
+    document.getElementById('detail-title').textContent = button.dataset.label;
+    document.getElementById('detail-description').textContent = button.dataset.product;
+    document.getElementById('detail-package').textContent = button.dataset.package;
+    document.getElementById('detail-reference').textContent = button.dataset.comparable === 'true' ? button.dataset.reference : '—';
+    document.getElementById('detail-unit-note').hidden = button.dataset.comparable === 'true';
+    priceDetail.show();
+    const anchor = button.getBoundingClientRect();
+    const size = priceDetail.getBoundingClientRect();
+    const margin = 16;
+    const mobile = window.innerWidth <= 650;
+    const left = mobile ? (window.innerWidth - size.width) / 2 : Math.max(margin, Math.min(anchor.right - size.width, window.innerWidth - size.width - margin));
+    let top = mobile ? window.innerHeight - size.height - margin : anchor.bottom + 10;
+    if (!mobile && top + size.height > window.innerHeight - margin) top = anchor.top - size.height - 10;
+    priceDetail.style.left = left + 'px';
+    priceDetail.style.top = Math.max(margin, top) + 'px';
+    priceDetail.querySelector('button').focus({{preventScroll:true}});
+  }});
+}});
+priceDetail.querySelector('button').addEventListener('click', function() {{ closePriceDetail(true); }});
+document.addEventListener('keydown', function(event) {{
+  if (event.key === 'Escape' && activePrice) {{ event.preventDefault(); closePriceDetail(true); }}
+}});
+document.addEventListener('pointerdown', function(event) {{
+  if (activePrice && !priceDetail.contains(event.target) && !event.target.closest('.price-button')) closePriceDetail();
+}});
+window.addEventListener('resize', function() {{ closePriceDetail(); }});
+document.addEventListener('scroll', function(event) {{
+  if (activePrice && !priceDetail.contains(event.target)) closePriceDetail();
+}}, true);
+document.querySelectorAll('.zone-chip').forEach(function(button) {{
+  button.addEventListener('click', function() {{
+    closePriceDetail();
+    document.querySelectorAll('.zone-chip').forEach(function(other) {{ other.setAttribute('aria-pressed', String(other === button)); }});
+    document.querySelectorAll('[data-zoneblock]').forEach(function(section) {{ section.hidden = section.dataset.zoneblock !== button.dataset.zone; }});
+  }});
+}});
+// Open the methodology when reached through its in-page link.
+document.querySelectorAll('a[href="#metodologia"]').forEach(function(link) {{
+  link.addEventListener('click', function() {{ document.getElementById('metodologia').open = true; }});
+}});
+if (location.hash === '#metodologia' || location.hash === '#pronostico') {{ document.querySelector(location.hash).open = true; }}
+</script></body></html>'''
+
+
+def main():
+    sys.path.insert(0, str(ROOT))
+    from etl.canasta import CANASTA
+    data = json.loads((ROOT / 'data/latest.json').read_text(encoding='utf-8'))
+    page = build_page(data, read_optional(ROOT / 'data/backtest.json'),
+                      read_optional(ROOT / 'forecast/eval_results.json'),
+                      {item['id']: item for item in CANASTA})
+    for path in (ROOT / 'web/index.html', ROOT / 'index.html', ROOT / 'docs/index.html'):
+        path.write_text(page, encoding='utf-8')
+        print(f'Wrote {path} ({len(page)} characters)')
+
+
+if __name__ == '__main__':
+    main()

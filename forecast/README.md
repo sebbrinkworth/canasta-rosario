@@ -3,8 +3,8 @@
 **Datos reales únicamente.** El preview sintético (30 días) se eliminó el 2026-09-04
 por transparencia: nada sintético alimenta el sitio ni la evaluación. La historia
 SEPA real se acumula día a día (ventana rodante de 7 días en CKAN, sin backfill —
-lo que no se baja el día que sale, se pierde), así que la precisión mejora sola
-con el tiempo a medida que el recolector diario suma días.
+lo que no se baja el día que sale, se pierde), lo que permite evaluar con más evidencia a medida que el recolector suma días.
+Más historia no garantiza mayor precisión.
 
 ## Daily collector
 
@@ -31,8 +31,8 @@ Dos capas de evaluación (2026-09-05: bugs corregidos tras revisión externa):
 - **Fallback accounting** en el harness: cada predicción naive dentro de una corrida TimesFM se cuenta (`fallback_naive`, `fallback_cov_dropped`); una corrida etiquetada TimesFM nunca contiene baseline en silencio.
 
 Con <30 días reales y ~92% de pares día-a-día planos, la precisión de eventos ↑↓
-es baja por diseño del problema; el scoreboard del sitio la publica igual (honestidad
-> marketing) y las flechas ↑↓ del sitio quedan gated hasta que la precisión supere 25%.
+es baja por diseño del problema; la sección de evaluación del sitio informa los aciertos de movimiento y el sitio mantiene los resultados experimentales en una sección desplegable,
+separados de la tabla de precios observados. No se muestran flechas de pronóstico.
 
 ## Covariables
 
@@ -50,3 +50,16 @@ es baja por diseño del problema; el scoreboard del sitio la publica igual (hone
 - `test_harness.py`: evaluación TimesFM vs naive con capa de eventos + fallback accounting.
 - `etl/rebuild_tables.py`: re-match de `data/raw/*.json` con el matcher vigente + reagregación (usado 2026-09-05 para limpiar pet food / no-comestibles).
 - `report.py`: reporte HTML/PNG → `web/forecast.html`.
+
+
+## Datos corregidos — 2026-09-06
+
+La historia utiliza `package-price-v2`: precio de lista dividido por contenido
+verificado del envase. Se reconstruyeron los 11 días y se recalcularon el drift
+y su backtest. Ver [validación de cantidades](../docs/validation.md).
+
+La corrida TimesFM guardada en `eval_results.*` y sus gráficos es **histórica**
+(`status: superseded`): usa los precios anteriores y no debe compararse con el
+backtest actual. El sitio la identifica como pendiente de reevaluación. Al
+repetir el harness, el resultado nuevo registra `price_normalization_version`
+y reemplaza el aviso histórico.

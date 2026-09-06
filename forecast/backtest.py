@@ -203,6 +203,7 @@ def main():
     weekly_prec = {k: _class_stats(all_wpred, all_wactual, k) for k in ("sube", "baja", "estable")}
     OUT.write_text(json.dumps({
         "method": "drift-7d, umbral 0.8%, solo datos reales SEPA",
+        "price_normalization_version": json.loads((DATA / "latest.json").read_text()).get("price_normalization_version"),
         "eval_days": n_days,
         "date_range": [str(dates[1].date()) if len(dates) > 1 else None, str(dates[-1].date()) if dates else None],
         "n": total,

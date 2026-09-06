@@ -81,9 +81,10 @@ def main():
                       "pred": round(float(pred), 2), "last": round(float(last), 2), "conf": conf}
     OUT.write_text(json.dumps({
         "mode": mode,
+        "price_normalization_version": json.loads(real_files[-1].read_text()).get("price_normalization_version") if real_files else None,
         "real_days": used_real,
         "synthetic_days": 0,
-        "note": f"Solo datos reales SEPA ({used_real} días acumulados). Precisión mejora al crecer la historia.",
+        "note": f"Solo datos reales SEPA ({used_real} días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
         "items": items,
     }, ensure_ascii=False, indent=2))
     print(f"[build_next] mode={mode} real={used_real} forecasts={len(items)} -> {OUT}")
