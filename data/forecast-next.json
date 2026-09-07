@@ -1,9 +1,9 @@
 {
   "mode": "real",
   "price_normalization_version": "package-price-v2",
-  "real_days": 12,
+  "real_days": 13,
   "synthetic_days": 0,
-  "note": "Solo datos reales SEPA (12 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
+  "note": "Solo datos reales SEPA (13 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
   "items": {
     "leche_entera__10": {
       "dir": "estable",
@@ -21,8 +21,8 @@
     },
     "leche_entera__15": {
       "dir": "estable",
-      "delta_pct": -0.54,
-      "pred": 1855.0,
+      "delta_pct": 0.0,
+      "pred": 1865.0,
       "last": 1865.0,
       "conf": "media"
     },
@@ -48,9 +48,9 @@
       "conf": "media"
     },
     "pan_lactal__12": {
-      "dir": "sube",
-      "delta_pct": 6.53,
-      "pred": 15815.1,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 14845.45,
       "last": 14845.45,
       "conf": "baja"
     },
@@ -202,9 +202,9 @@
       "conf": "media"
     },
     "harina_000__9": {
-      "dir": "sube",
-      "delta_pct": 2.67,
-      "pred": 2002.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1950.0,
       "last": 1950.0,
       "conf": "media"
     },
@@ -245,8 +245,8 @@
     },
     "yerba__10": {
       "dir": "sube",
-      "delta_pct": 1.7,
-      "pred": 3224.0,
+      "delta_pct": 4.54,
+      "pred": 3314.0,
       "last": 3170.0,
       "conf": "baja"
     },
@@ -300,9 +300,9 @@
       "conf": "media"
     },
     "tomate_triturado__10": {
-      "dir": "baja",
-      "delta_pct": -1.04,
-      "pred": 1463.47,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1478.85,
       "last": 1478.85,
       "conf": "media"
     },
@@ -335,10 +335,10 @@
       "conf": "media"
     },
     "arvejas__12": {
-      "dir": "baja",
-      "delta_pct": -1.12,
-      "pred": 2173.48,
-      "last": 2198.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2320.59,
+      "last": 2320.59,
       "conf": "media"
     },
     "arvejas__15": {
@@ -353,7 +353,7 @@
       "delta_pct": 0.0,
       "pred": 1771.43,
       "last": 1771.43,
-      "conf": "baja"
+      "conf": "media"
     },
     "arvejas__9": {
       "dir": "estable",
@@ -412,9 +412,9 @@
       "conf": "media"
     },
     "carne_picada__15": {
-      "dir": "sube",
-      "delta_pct": 1.34,
-      "pred": 18975.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 18725.0,
       "last": 18725.0,
       "conf": "media"
     },
@@ -433,10 +433,10 @@
       "conf": "media"
     },
     "huevo__12": {
-      "dir": "baja",
-      "delta_pct": -5.09,
-      "pred": 251.5,
-      "last": 265.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 332.5,
+      "last": 332.5,
       "conf": "baja"
     },
     "huevo__15": {
@@ -531,10 +531,10 @@
       "conf": "media"
     },
     "manzana__12": {
-      "dir": "baja",
-      "delta_pct": -7.59,
-      "pred": 2679.0,
-      "last": 2899.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3999.0,
+      "last": 3999.0,
       "conf": "baja"
     },
     "manzana__15": {
@@ -549,7 +549,7 @@
       "delta_pct": 0.0,
       "pred": 3990.0,
       "last": 3990.0,
-      "conf": "baja"
+      "conf": "media"
     },
     "banana__10": {
       "dir": "baja",
@@ -559,10 +559,10 @@
       "conf": "baja"
     },
     "banana__12": {
-      "dir": "baja",
-      "delta_pct": -7.78,
-      "pred": 1659.0,
-      "last": 1799.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2499.0,
+      "last": 2499.0,
       "conf": "baja"
     },
     "banana__15": {
@@ -587,10 +587,10 @@
       "conf": "media"
     },
     "queso_cremoso__12": {
-      "dir": "baja",
-      "delta_pct": -5.2,
-      "pred": 9479.0,
-      "last": 9999.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 12599.0,
+      "last": 12599.0,
       "conf": "baja"
     },
     "queso_cremoso__15": {
@@ -602,9 +602,9 @@
     },
     "queso_cremoso__9": {
       "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 14690.0,
-      "last": 14690.0,
+      "delta_pct": 0.14,
+      "pred": 14810.0,
+      "last": 14790.0,
       "conf": "media"
     },
     "yogur__10": {
@@ -622,9 +622,9 @@
       "conf": "media"
     },
     "yogur__15": {
-      "dir": "baja",
-      "delta_pct": -13.96,
-      "pred": 3076.39,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3575.56,
       "last": 3575.56,
       "conf": "baja"
     },
@@ -657,9 +657,9 @@
       "conf": "media"
     },
     "manteca__2": {
-      "dir": "baja",
-      "delta_pct": -1.67,
-      "pred": 14750.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 15000.0,
       "last": 15000.0,
       "conf": "media"
     },
@@ -678,9 +678,9 @@
       "conf": "media"
     },
     "jabon_tocador__10": {
-      "dir": "sube",
-      "delta_pct": 0.89,
-      "pred": 6053.33,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 6000.0,
       "last": 6000.0,
       "conf": "media"
     },
@@ -755,10 +755,10 @@
       "conf": "media"
     },
     "lavandina__12": {
-      "dir": "baja",
-      "delta_pct": -1.33,
-      "pred": 962.0,
-      "last": 975.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1040.0,
+      "last": 1040.0,
       "conf": "media"
     },
     "lavandina__15": {
