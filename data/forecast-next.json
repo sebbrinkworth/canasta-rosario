@@ -1,9 +1,9 @@
 {
   "mode": "real",
   "price_normalization_version": "package-price-v2",
-  "real_days": 13,
+  "real_days": 14,
   "synthetic_days": 0,
-  "note": "Solo datos reales SEPA (13 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
+  "note": "Solo datos reales SEPA (14 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
   "items": {
     "leche_entera__10": {
       "dir": "estable",
@@ -28,8 +28,8 @@
     },
     "leche_entera__2": {
       "dir": "baja",
-      "delta_pct": -3.27,
-      "pred": 1538.0,
+      "delta_pct": -3.9,
+      "pred": 1528.0,
       "last": 1590.0,
       "conf": "baja"
     },
@@ -52,7 +52,7 @@
       "delta_pct": 0.0,
       "pred": 14845.45,
       "last": 14845.45,
-      "conf": "baja"
+      "conf": "media"
     },
     "pan_lactal__15": {
       "dir": "estable",
@@ -83,10 +83,10 @@
       "conf": "media"
     },
     "arroz__15": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1480.0,
-      "last": 1480.0,
+      "dir": "sube",
+      "delta_pct": 1.49,
+      "pred": 1622.8,
+      "last": 1599.0,
       "conf": "media"
     },
     "arroz__2": {
@@ -97,9 +97,9 @@
       "conf": "media"
     },
     "arroz__9": {
-      "dir": "baja",
-      "delta_pct": -1.44,
-      "pred": 2740.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2780.0,
       "last": 2780.0,
       "conf": "media"
     },
@@ -188,10 +188,10 @@
       "conf": "media"
     },
     "harina_000__15": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 915.0,
-      "last": 915.0,
+      "dir": "sube",
+      "delta_pct": 2.22,
+      "pred": 1051.8,
+      "last": 1029.0,
       "conf": "media"
     },
     "harina_000__2": {
@@ -230,9 +230,9 @@
       "conf": "media"
     },
     "azucar__2": {
-      "dir": "estable",
-      "delta_pct": -0.2,
-      "pred": 978.0,
+      "dir": "baja",
+      "delta_pct": -4.49,
+      "pred": 936.0,
       "last": 980.0,
       "conf": "baja"
     },
@@ -244,9 +244,9 @@
       "conf": "media"
     },
     "yerba__10": {
-      "dir": "sube",
-      "delta_pct": 4.54,
-      "pred": 3314.0,
+      "dir": "baja",
+      "delta_pct": -1.39,
+      "pred": 3126.0,
       "last": 3170.0,
       "conf": "baja"
     },
@@ -314,10 +314,10 @@
       "conf": "media"
     },
     "tomate_triturado__15": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1844.23,
-      "last": 1844.23,
+      "dir": "sube",
+      "delta_pct": 1.89,
+      "pred": 2075.0,
+      "last": 2036.54,
       "conf": "media"
     },
     "tomate_triturado__2": {
@@ -433,24 +433,24 @@
       "conf": "media"
     },
     "huevo__12": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 332.5,
+      "dir": "sube",
+      "delta_pct": 1.97,
+      "pred": 339.07,
       "last": 332.5,
       "conf": "baja"
     },
     "huevo__15": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 349.17,
-      "last": 349.17,
+      "dir": "sube",
+      "delta_pct": 0.87,
+      "pred": 368.17,
+      "last": 365.0,
       "conf": "media"
     },
     "huevo__2": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 400.0,
-      "last": 400.0,
+      "dir": "sube",
+      "delta_pct": 1.82,
+      "pred": 448.0,
+      "last": 440.0,
       "conf": "media"
     },
     "huevo__9": {
@@ -538,11 +538,11 @@
       "conf": "baja"
     },
     "manzana__15": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3590.0,
-      "last": 3590.0,
-      "conf": "media"
+      "dir": "sube",
+      "delta_pct": 6.43,
+      "pred": 5630.0,
+      "last": 5290.0,
+      "conf": "baja"
     },
     "manzana__2": {
       "dir": "estable",
@@ -566,18 +566,18 @@
       "conf": "baja"
     },
     "banana__15": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1790.0,
-      "last": 1790.0,
-      "conf": "media"
+      "dir": "sube",
+      "delta_pct": 11.03,
+      "pred": 4430.0,
+      "last": 3990.0,
+      "conf": "baja"
     },
     "banana__2": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3990.0,
-      "last": 3990.0,
-      "conf": "media"
+      "dir": "sube",
+      "delta_pct": 17.56,
+      "pred": 38402.0,
+      "last": 32666.67,
+      "conf": "baja"
     },
     "queso_cremoso__10": {
       "dir": "estable",
@@ -626,7 +626,7 @@
       "delta_pct": 0.0,
       "pred": 3575.56,
       "last": 3575.56,
-      "conf": "baja"
+      "conf": "media"
     },
     "yogur__2": {
       "dir": "estable",
@@ -657,10 +657,10 @@
       "conf": "media"
     },
     "manteca__2": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 15000.0,
-      "last": 15000.0,
+      "dir": "sube",
+      "delta_pct": 1.54,
+      "pred": 16500.0,
+      "last": 16250.0,
       "conf": "media"
     },
     "manteca__9": {
