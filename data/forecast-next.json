@@ -202,10 +202,10 @@
       "conf": "media"
     },
     "harina_000__9": {
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1950.0,
-      "last": 1950.0,
+      "dir": "baja",
+      "delta_pct": -3.08,
+      "pred": 1638.0,
+      "last": 1690.0,
       "conf": "media"
     },
     "azucar__10": {
@@ -504,9 +504,9 @@
     },
     "cebolla__12": {
       "dir": "baja",
-      "delta_pct": -15.73,
-      "pred": 1179.0,
-      "last": 1399.0,
+      "delta_pct": -7.78,
+      "pred": 1659.0,
+      "last": 1799.0,
       "conf": "baja"
     },
     "cebolla__15": {
@@ -566,18 +566,18 @@
       "conf": "baja"
     },
     "banana__15": {
-      "dir": "sube",
-      "delta_pct": 11.03,
-      "pred": 4430.0,
-      "last": 3990.0,
-      "conf": "baja"
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1790.0,
+      "last": 1790.0,
+      "conf": "media"
     },
     "banana__2": {
-      "dir": "sube",
-      "delta_pct": 17.56,
-      "pred": 38402.0,
-      "last": 32666.67,
-      "conf": "baja"
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3990.0,
+      "last": 3990.0,
+      "conf": "media"
     },
     "queso_cremoso__10": {
       "dir": "estable",
