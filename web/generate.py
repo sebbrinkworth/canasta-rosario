@@ -44,7 +44,25 @@ def comparable(price, expected_unit):
             and isinstance(value, (int, float)) and math.isfinite(value) and value > 0)
 
 
-def render_rows(rows, chain_ids, definitions):
+def forecast_detail(forecasts, key, price):
+    item = (forecasts or {}).get(key) or {}
+    if item.get('dir') not in ('sube', 'baja', 'estable'):
+        return '', ''
+    if any(not isinstance(item.get(k), (int, float)) or not math.isfinite(item[k])
+           for k in ('last', 'pred', 'delta_pct')):
+        return '', ''
+    if item['pred'] <= 0 or not math.isclose(item['last'], price['price_per_unit'], abs_tol=0.011):
+        return '', ''
+    direction = item['dir']
+    symbol, label = {'sube': ('↑', 'Suba prevista'), 'baja': ('↓', 'Baja prevista'),
+                     'estable': ('→', 'Sin cambio significativo previsto')}[direction]
+    change = ('+' if item['delta_pct'] > 0 else '') + number(item['delta_pct'], 1) + '%'
+    detail = f"{label}: {money(item['pred'])}/{unit_name(price['per_unit'])} ({change})."
+    arrow = f'<span class="forecast-arrow {direction}" aria-label="{text(label)}" title="{text(label)}">{symbol}</span>'
+    return arrow, detail
+
+
+def render_rows(rows, chain_ids, definitions, forecasts=None):
     groups = defaultdict(list)
     for row in rows:
         groups[row["category"]].append(row)
@@ -71,20 +89,22 @@ def render_rows(rows, chain_ids, definitions):
                 value = money(price["price_per_unit"] if is_valid else price.get("price_lista"))
                 suffix = f'/{text(unit_name(unit))}' if is_valid else ' por envase'
                 best_label = '<span class="sr-only">Menor precio informado. </span>' if is_best else ''
+                arrow, forecast = forecast_detail(forecasts, f"{row['id']}__{cid}", price) if is_valid else ('', '')
                 result.append(f'''<td class="{'best' if is_best else ''}">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
                     data-product="{text(price.get('desc') or 'Descripción no disponible')}"
                     data-package="{text(money(price.get('price_lista')))}"
                     data-reference="{text(value + suffix)}"
                     data-comparable="{str(is_valid).lower()}"
+                    data-forecast="{text(forecast)}"
                     data-label="{text(row['name'])}">
-                    {best_label}{value}<span class="price-unit">{suffix}</span>
+                    {best_label}{value}{arrow}<span class="price-unit">{suffix}</span>
                   </button></td>''')
             result.append('</tr>')
     return "\n".join(result)
 
 
-def render_zone(key, data, definitions, total_items):
+def render_zone(key, data, definitions, total_items, forecasts=None):
     chains = data.get("chains") or []
     # Stable chain order; partial totals must not imply a basket ranking.
     chain_ids = [c["id"] for c in chains]
@@ -104,11 +124,12 @@ def render_zone(key, data, definitions, total_items):
       <p class="caption">Cada subtotal incluye los productos informados. Con distinta cobertura, los totales no son comparables.</p>
       <div class="chain-cards">{''.join(cards)}</div>
       <div class="section-heading products-heading"><h2>Compará por producto</h2><span>Valores en pesos argentinos</span></div>
-      <p class="caption" id="legend-{key}"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto.</p>
+      <p class="caption" id="legend-{key}"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto y su pronóstico.</p>
+      <p class="caption">{'↑ suba · ↓ baja · → cambio menor al 0,8%. Pronóstico experimental para el día siguiente; sin flecha: no disponible.' if key == 'todo' else 'Los pronósticos están disponibles en Toda la zona.'}</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de precios; desplazamiento horizontal" aria-describedby="legend-{key}">
         <table><caption class="sr-only">Precios informados por producto y cadena</caption>
           <thead><tr><th scope="col">Producto</th>{heads}</tr></thead>
-          <tbody>{render_rows(data.get('table', []), chain_ids, definitions)}</tbody>
+          <tbody>{render_rows(data.get('table', []), chain_ids, definitions, forecasts)}</tbody>
         </table>
       </div><p class="scroll-hint">Deslizá la tabla para ver todas las cadenas →</p>
     </section>'''
@@ -148,7 +169,7 @@ def render_forecast(backtest, evaluation, normalization_version=None, history=No
           Esa evaluación incluye {number(evaluation.get('fallback_naive', 0))} predicciones de respaldo del método simple;
           usa una muestra distinta de la tabla anterior y no permite una comparación directa.</p>'''
     return f'''<details class="disclosure" id="pronostico"><summary>¿Podemos anticipar los precios? <span>En evaluación</span></summary>
-      <div class="disclosure-body"><p>Estamos probando pronósticos para el día siguiente. La tabla muestra únicamente precios informados; las predicciones quedan fuera de la comparación.</p>
+      <div class="disclosure-body"><p>Estamos probando pronósticos para el día siguiente. Las flechas junto a los precios indican la tendencia reciente para el día siguiente. El verde de las celdas y los subtotales usan los precios informados. Tocá un precio para ver su pronóstico experimental.</p>
       {render_history(history)}{results}{experiment}<p>Más datos permiten evaluar mejor, pero no garantizan mejores predicciones. La comparación de modelos usa ocho días de prueba.</p>
       <a href="{REPO_URL}/blob/main/forecast/README.md">Método y evaluación técnica ↗</a></div></details>'''
 
@@ -162,6 +183,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
 .zone-filter{display:flex;align-items:center;gap:8px;margin:24px 0 28px;flex-wrap:wrap}.zone-filter>span{font-size:13px;margin-right:4px;color:var(--muted)}.zone-chip{border:1px solid var(--line);background:white;border-radius:24px;padding:8px 16px;font-size:13px}.zone-chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:white}.zone-chip:hover{border-color:var(--green)}
 .section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.section-heading h2{font-size:17px;letter-spacing:-.25px;margin:0}.section-heading>span{font-size:12px;color:var(--muted)}.caption{font-size:12px;color:var(--muted);margin:7px 0 16px}.chain-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px}.chain-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}.chain-card h3{font-size:13px;font-weight:600;margin:0;min-height:20px}.total{font-size:25px;font-weight:650;letter-spacing:-.7px;font-variant-numeric:tabular-nums;margin:12px 0 2px}.coverage{font-size:12px;color:var(--muted);margin:0}.products-heading{margin-top:30px}.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:5px}
 .table-scroll{position:relative;overflow:auto;border:1px solid var(--line);border-radius:10px;background:white;max-height:72vh}table{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}th,td{padding:13px 14px;text-align:right;border-bottom:1px solid #edf0ed;vertical-align:top}thead th{font-size:12px;background:#edf2ee;position:sticky;top:0;z-index:3;white-space:nowrap}thead th:first-child{z-index:4}tbody th[scope=row],thead th:first-child{position:sticky;left:0;text-align:left;min-width:166px;background:#fff}thead th:first-child{background:#edf2ee}tbody th[scope=row]{z-index:1;font-size:13px;font-weight:600}th small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}td{min-width:143px;font-size:14px}.category th{background:#f5f7f4;font-size:10px;font-weight:750;letter-spacing:.09em;text-align:left;text-transform:uppercase;padding:8px 14px}.best{background:#eef7ef;color:#155b3e}.best .price-button{font-weight:700}.price-unit{display:block;color:var(--muted);font-size:10px;font-weight:400}.missing{color:#89958f}.price-button{display:block;width:100%;border:0;background:none;color:inherit;font:inherit;text-align:right;padding:0;min-height:38px;white-space:nowrap;border-radius:4px}.price-button:hover,.price-button[aria-expanded=true]{color:var(--green)}.price-button[aria-expanded=true]{box-shadow:0 0 0 5px #dceee1}.price-button:hover{text-decoration:underline;text-underline-offset:3px}
+.forecast-arrow{display:inline-block;margin-left:6px;font-size:15px;font-weight:650}.forecast-arrow.sube{color:#a04438}.forecast-arrow.baja{color:#146342}.forecast-arrow.estable{color:#596b66}.forecast-detail{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}.forecast-detail h3{font-size:12px;margin:0 0 6px}.forecast-detail p{margin:0}
 .price-popover{position:fixed;inset:auto;margin:0;padding:20px;width:310px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 12px 40px #172b2726;z-index:20;font-size:13px}.popover-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.popover-heading h2{font-size:14px;margin:0}.close-popover{border:0;background:#eff3ef;color:var(--muted);border-radius:50%;width:32px;height:32px;font-size:22px;line-height:1}.product-description{margin:14px 0 18px;color:var(--muted);font-size:12px;line-height:1.6;overflow-wrap:anywhere}.price-popover dl{margin:0;border-top:1px solid var(--line);padding-top:14px;display:grid;grid-template-columns:1fr auto;gap:8px}.price-popover dt{color:var(--muted)}.price-popover dd{margin:0;font-weight:650;font-variant-numeric:tabular-nums}.price-popover .caption{margin:12px 0 0}
 .scroll-hint{display:none;color:var(--muted);font-size:11px}
 .about{margin:34px 0 20px}.disclosure{border-top:1px solid var(--line)}.disclosure:last-child{border-bottom:1px solid var(--line)}.disclosure>summary{padding:18px 0;font-size:14px;font-weight:600}.disclosure>summary>span{font-weight:400;color:var(--muted);font-size:12px;margin-left:10px}.disclosure-body{padding:0 0 22px;max-width:760px;color:var(--muted);font-size:13px}.disclosure-body p{margin:0 0 13px}.disclosure-body strong{color:var(--ink)}.metrics{max-width:560px;font-size:12px;margin:16px 0}.metrics caption{text-align:left;font-weight:600;color:var(--ink);margin-bottom:8px}.metrics th,.metrics td{padding:10px;text-align:left}.metrics thead th,.metrics tbody th{position:static;min-width:0}.metrics td{text-align:right;min-width:0}footer{display:flex;justify-content:space-between;gap:14px;padding:0 0 30px;font-size:11px;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}
@@ -169,14 +191,19 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
 """
 
 
-def build_page(data, backtest, evaluation, definitions, history=None):
+def build_page(data, backtest, evaluation, definitions, forecast=None, history=None):
     date = data["date"]
     formatted = f"{date[8:10]}/{date[5:7]}/{date[:4]}"
     count = len(data.get("table", []))
     zones = {"todo": data, **{k: v for k, v in (data.get("zones") or {}).items() if v.get("hero")}}
     zone_labels = {"todo": "Toda la zona", "rosario": "Rosario", "gran": "Alrededores"}
     buttons = ''.join(f'<button type="button" class="zone-chip" data-zone="{k}" aria-pressed="{str(k == "todo").lower()}">{text(zone_labels.get(k, k))}</button>' for k in zones)
-    sections = ''.join(render_zone(k, v, definitions, count) for k, v in zones.items())
+    forecast = forecast or {}
+    current = (forecast.get('as_of') == date and forecast.get('mode') == 'real'
+               and bool(data.get('price_normalization_version'))
+               and forecast.get('price_normalization_version') == data.get('price_normalization_version'))
+    forecasts = {k: v for k, v in forecast.get('items', {}).items() if v.get('as_of') == date} if current else {}
+    sections = ''.join(render_zone(k, v, definitions, count, forecasts if k == 'todo' else {}) for k, v in zones.items())
     return f'''<!doctype html><html lang="es-AR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Canasta Rosario — precios del {formatted}</title>
@@ -202,6 +229,8 @@ def build_page(data, backtest, evaluation, definitions, history=None):
   <p id="detail-description" class="product-description"></p>
   <dl><dt>Precio del envase</dt><dd id="detail-package"></dd><dt>Por unidad</dt><dd id="detail-reference"></dd></dl>
   <p class="caption" id="detail-unit-note" hidden>No comparable por unidad.</p>
+  <section class="forecast-detail" id="detail-forecast" hidden><h3>Pronóstico para el día siguiente · experimental</h3>
+    <p id="detail-prediction"></p><p class="caption">Tendencia de los últimos cambios de precio de la cadena en toda la zona. Precisión limitada; no garantiza el precio futuro.</p></section>
 </dialog>
 <script>
 const priceDetail = document.getElementById('price-detail');
@@ -225,6 +254,8 @@ document.querySelectorAll('.price-button').forEach(function(button) {{
     document.getElementById('detail-package').textContent = button.dataset.package;
     document.getElementById('detail-reference').textContent = button.dataset.comparable === 'true' ? button.dataset.reference : '—';
     document.getElementById('detail-unit-note').hidden = button.dataset.comparable === 'true';
+    document.getElementById('detail-forecast').hidden = !button.dataset.forecast;
+    document.getElementById('detail-prediction').textContent = button.dataset.forecast;
     priceDetail.show();
     const anchor = button.getBoundingClientRect();
     const size = priceDetail.getBoundingClientRect();
@@ -271,6 +302,7 @@ def main():
     page = build_page(data, read_optional(ROOT / 'data/backtest.json'),
                       read_optional(ROOT / 'forecast/eval_results.json'),
                       {item['id']: item for item in CANASTA},
+                      read_optional(ROOT / 'data/forecast-next.json'),
                       history=read_optional(ROOT / 'data/backfill/completion.json'))
     for path in (ROOT / 'web/index.html', ROOT / 'index.html', ROOT / 'docs/index.html'):
         path.write_text(page, encoding='utf-8')

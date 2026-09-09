@@ -11,6 +11,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
 .zone-filter{display:flex;align-items:center;gap:8px;margin:24px 0 28px;flex-wrap:wrap}.zone-filter>span{font-size:13px;margin-right:4px;color:var(--muted)}.zone-chip{border:1px solid var(--line);background:white;border-radius:24px;padding:8px 16px;font-size:13px}.zone-chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:white}.zone-chip:hover{border-color:var(--green)}
 .section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.section-heading h2{font-size:17px;letter-spacing:-.25px;margin:0}.section-heading>span{font-size:12px;color:var(--muted)}.caption{font-size:12px;color:var(--muted);margin:7px 0 16px}.chain-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px}.chain-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}.chain-card h3{font-size:13px;font-weight:600;margin:0;min-height:20px}.total{font-size:25px;font-weight:650;letter-spacing:-.7px;font-variant-numeric:tabular-nums;margin:12px 0 2px}.coverage{font-size:12px;color:var(--muted);margin:0}.products-heading{margin-top:30px}.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:5px}
 .table-scroll{position:relative;overflow:auto;border:1px solid var(--line);border-radius:10px;background:white;max-height:72vh}table{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}th,td{padding:13px 14px;text-align:right;border-bottom:1px solid #edf0ed;vertical-align:top}thead th{font-size:12px;background:#edf2ee;position:sticky;top:0;z-index:3;white-space:nowrap}thead th:first-child{z-index:4}tbody th[scope=row],thead th:first-child{position:sticky;left:0;text-align:left;min-width:166px;background:#fff}thead th:first-child{background:#edf2ee}tbody th[scope=row]{z-index:1;font-size:13px;font-weight:600}th small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}td{min-width:143px;font-size:14px}.category th{background:#f5f7f4;font-size:10px;font-weight:750;letter-spacing:.09em;text-align:left;text-transform:uppercase;padding:8px 14px}.best{background:#eef7ef;color:#155b3e}.best .price-button{font-weight:700}.price-unit{display:block;color:var(--muted);font-size:10px;font-weight:400}.missing{color:#89958f}.price-button{display:block;width:100%;border:0;background:none;color:inherit;font:inherit;text-align:right;padding:0;min-height:38px;white-space:nowrap;border-radius:4px}.price-button:hover,.price-button[aria-expanded=true]{color:var(--green)}.price-button[aria-expanded=true]{box-shadow:0 0 0 5px #dceee1}.price-button:hover{text-decoration:underline;text-underline-offset:3px}
+.forecast-arrow{display:inline-block;margin-left:6px;font-size:15px;font-weight:650}.forecast-arrow.sube{color:#a04438}.forecast-arrow.baja{color:#146342}.forecast-arrow.estable{color:#596b66}.forecast-detail{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}.forecast-detail h3{font-size:12px;margin:0 0 6px}.forecast-detail p{margin:0}
 .price-popover{position:fixed;inset:auto;margin:0;padding:20px;width:310px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 12px 40px #172b2726;z-index:20;font-size:13px}.popover-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.popover-heading h2{font-size:14px;margin:0}.close-popover{border:0;background:#eff3ef;color:var(--muted);border-radius:50%;width:32px;height:32px;font-size:22px;line-height:1}.product-description{margin:14px 0 18px;color:var(--muted);font-size:12px;line-height:1.6;overflow-wrap:anywhere}.price-popover dl{margin:0;border-top:1px solid var(--line);padding-top:14px;display:grid;grid-template-columns:1fr auto;gap:8px}.price-popover dt{color:var(--muted)}.price-popover dd{margin:0;font-weight:650;font-variant-numeric:tabular-nums}.price-popover .caption{margin:12px 0 0}
 .scroll-hint{display:none;color:var(--muted);font-size:11px}
 .about{margin:34px 0 20px}.disclosure{border-top:1px solid var(--line)}.disclosure:last-child{border-bottom:1px solid var(--line)}.disclosure>summary{padding:18px 0;font-size:14px;font-weight:600}.disclosure>summary>span{font-weight:400;color:var(--muted);font-size:12px;margin-left:10px}.disclosure-body{padding:0 0 22px;max-width:760px;color:var(--muted);font-size:13px}.disclosure-body p{margin:0 0 13px}.disclosure-body strong{color:var(--ink)}.metrics{max-width:560px;font-size:12px;margin:16px 0}.metrics caption{text-align:left;font-weight:600;color:var(--ink);margin-bottom:8px}.metrics th,.metrics td{padding:10px;text-align:left}.metrics thead th,.metrics tbody th{position:static;min-width:0}.metrics td{text-align:right;min-width:0}footer{display:flex;justify-content:space-between;gap:14px;padding:0 0 30px;font-size:11px;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}
@@ -36,7 +37,8 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
           <p class="total">$98.124</p>
           <p class="coverage">17 de 25 productos</p></article></div>
       <div class="section-heading products-heading"><h2>Compará por producto</h2><span>Valores en pesos argentinos</span></div>
-      <p class="caption" id="legend-todo"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto.</p>
+      <p class="caption" id="legend-todo"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto y su pronóstico.</p>
+      <p class="caption">↑ suba · ↓ baja · → cambio menor al 0,8%. Pronóstico experimental para el día siguiente; sin flecha: no disponible.</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de precios; desplazamiento horizontal" aria-describedby="legend-todo">
         <table><caption class="sr-only">Precios informados por producto y cadena</caption>
           <thead><tr><th scope="col">Producto</th><th scope="col">Carrefour</th><th scope="col">Coto</th><th scope="col">DIA</th><th scope="col">La Anónima</th><th scope="col">Jumbo/Vea/Disco</th></tr></thead>
@@ -48,8 +50,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.710"
                     data-reference="$1.710/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.710/L (0,0%)."
                     data-label="Leche entera">
-                    $1.710<span class="price-unit">/L</span>
+                    $1.710<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -57,8 +60,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.799"
                     data-reference="$1.799/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.799/L (0,0%)."
                     data-label="Leche entera">
-                    $1.799<span class="price-unit">/L</span>
+                    $1.799<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -66,8 +70,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.865"
                     data-reference="$1.865/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.865/L (0,0%)."
                     data-label="Leche entera">
-                    $1.865<span class="price-unit">/L</span>
+                    $1.865<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -75,8 +80,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.590"
                     data-reference="$1.590/L"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $1.528/L (-3,9%)."
                     data-label="Leche entera">
-                    <span class="sr-only">Menor precio informado. </span>$1.590<span class="price-unit">/L</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.590<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -84,8 +90,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.750"
                     data-reference="$2.750/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.750/L (0,0%)."
                     data-label="Leche entera">
-                    $2.750<span class="price-unit">/L</span>
+                    $2.750<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Queso cremoso<small>por kg</small></th>
@@ -95,8 +102,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$12.095"
                     data-reference="$12.095/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $12.095/kg (0,0%)."
                     data-label="Queso cremoso">
-                    <span class="sr-only">Menor precio informado. </span>$12.095<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$12.095<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -104,8 +112,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$12.599"
                     data-reference="$12.599/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $12.599/kg (0,0%)."
                     data-label="Queso cremoso">
-                    $12.599<span class="price-unit">/kg</span>
+                    $12.599<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -113,8 +122,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.290"
                     data-reference="$12.654/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $12.654/kg (0,0%)."
                     data-label="Queso cremoso">
-                    $12.654<span class="price-unit">/kg</span>
+                    $12.654<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 <td class="">
@@ -123,8 +133,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$14.790"
                     data-reference="$14.790/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $14.810/kg (+0,1%)."
                     data-label="Queso cremoso">
-                    $14.790<span class="price-unit">/kg</span>
+                    $14.790<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Yogur entero<small>por kg</small></th>
@@ -134,8 +145,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.869"
                     data-reference="$3.188/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.188/kg (0,0%)."
                     data-label="Yogur entero">
-                    $3.188<span class="price-unit">/kg</span>
+                    $3.188<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -143,8 +155,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.785"
                     data-reference="$3.094/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.094/kg (0,0%)."
                     data-label="Yogur entero">
-                    $3.094<span class="price-unit">/kg</span>
+                    $3.094<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -152,8 +165,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.218"
                     data-reference="$3.576/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.576/kg (0,0%)."
                     data-label="Yogur entero">
-                    $3.576<span class="price-unit">/kg</span>
+                    $3.576<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -161,8 +175,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.050"
                     data-reference="$2.278/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.278/kg (0,0%)."
                     data-label="Yogur entero">
-                    <span class="sr-only">Menor precio informado. </span>$2.278<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$2.278<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 </tr>
@@ -173,8 +188,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.859"
                     data-reference="$14.295/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $14.295/kg (0,0%)."
                     data-label="Manteca">
-                    <span class="sr-only">Menor precio informado. </span>$14.295<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$14.295<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -182,8 +198,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.999"
                     data-reference="$17.998/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $17.998/kg (0,0%)."
                     data-label="Manteca">
-                    $17.998<span class="price-unit">/kg</span>
+                    $17.998<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -191,8 +208,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.750"
                     data-reference="$18.750/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $18.750/kg (0,0%)."
                     data-label="Manteca">
-                    $18.750<span class="price-unit">/kg</span>
+                    $18.750<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -200,8 +218,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.250"
                     data-reference="$16.250/kg"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $16.500/kg (+1,5%)."
                     data-label="Manteca">
-                    $16.250<span class="price-unit">/kg</span>
+                    $16.250<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -209,8 +228,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.390"
                     data-reference="$21.950/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $21.950/kg (0,0%)."
                     data-label="Manteca">
-                    $21.950<span class="price-unit">/kg</span>
+                    $21.950<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr class="category"><th scope="rowgroup" colspan="6">Panificados</th></tr>
@@ -221,8 +241,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.890"
                     data-reference="$8.150/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $8.150/kg (0,0%)."
                     data-label="Pan lactal">
-                    <span class="sr-only">Menor precio informado. </span>$8.150<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$8.150<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -230,8 +251,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.899"
                     data-reference="$14.845/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $14.845/kg (0,0%)."
                     data-label="Pan lactal">
-                    $14.845<span class="price-unit">/kg</span>
+                    $14.845<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -239,8 +261,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.190"
                     data-reference="$8.861/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $8.861/kg (0,0%)."
                     data-label="Pan lactal">
-                    $8.861<span class="price-unit">/kg</span>
+                    $8.861<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 <td class="">
@@ -249,8 +272,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.190"
                     data-reference="$11.679/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $11.679/kg (0,0%)."
                     data-label="Pan lactal">
-                    $11.679<span class="price-unit">/kg</span>
+                    $11.679<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Galletitas de agua<small>por kg</small></th>
@@ -262,8 +286,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.014"
                     data-reference="$5.581/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $5.581/kg (0,0%)."
                     data-label="Galletitas de agua">
-                    $5.581<span class="price-unit">/kg</span>
+                    $5.581<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
@@ -276,8 +301,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.160"
                     data-reference="$1.160/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.160/kg (0,0%)."
                     data-label="Arroz largo fino">
-                    $1.160<span class="price-unit">/kg</span>
+                    $1.160<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -285,8 +311,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.599"
                     data-reference="$1.599/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.599/kg (0,0%)."
                     data-label="Arroz largo fino">
-                    $1.599<span class="price-unit">/kg</span>
+                    $1.599<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -294,8 +321,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.599"
                     data-reference="$1.599/kg"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $1.623/kg (+1,5%)."
                     data-label="Arroz largo fino">
-                    $1.599<span class="price-unit">/kg</span>
+                    $1.599<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -303,8 +331,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.100"
                     data-reference="$1.100/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.100/kg (0,0%)."
                     data-label="Arroz largo fino">
-                    <span class="sr-only">Menor precio informado. </span>$1.100<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.100<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -312,8 +341,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$2.780/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.780/kg (0,0%)."
                     data-label="Arroz largo fino">
-                    $2.780<span class="price-unit">/kg</span>
+                    $2.780<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Fideos secos<small>por kg</small></th>
@@ -323,8 +353,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$799"
                     data-reference="$1.598/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.598/kg (0,0%)."
                     data-label="Fideos secos">
-                    $1.598<span class="price-unit">/kg</span>
+                    $1.598<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -332,8 +363,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.100"
                     data-reference="$2.200/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.200/kg (0,0%)."
                     data-label="Fideos secos">
-                    $2.200<span class="price-unit">/kg</span>
+                    $2.200<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -341,8 +373,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.029"
                     data-reference="$2.058/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.058/kg (0,0%)."
                     data-label="Fideos secos">
-                    $2.058<span class="price-unit">/kg</span>
+                    $2.058<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -350,8 +383,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$750"
                     data-reference="$1.500/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.500/kg (0,0%)."
                     data-label="Fideos secos">
-                    <span class="sr-only">Menor precio informado. </span>$1.500<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.500<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -359,8 +393,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$2.780/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.780/kg (0,0%)."
                     data-label="Fideos secos">
-                    $2.780<span class="price-unit">/kg</span>
+                    $2.780<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Aceite girasol<small>por L</small></th>
@@ -370,8 +405,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.750"
                     data-reference="$3.833/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.833/L (0,0%)."
                     data-label="Aceite girasol">
-                    $3.833<span class="price-unit">/L</span>
+                    $3.833<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -379,8 +415,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.530"
                     data-reference="$4.353/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $4.353/L (0,0%)."
                     data-label="Aceite girasol">
-                    $4.353<span class="price-unit">/L</span>
+                    $4.353<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -388,8 +425,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.745"
                     data-reference="$3.830/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.830/L (0,0%)."
                     data-label="Aceite girasol">
-                    $3.830<span class="price-unit">/L</span>
+                    $3.830<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -397,8 +435,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.750"
                     data-reference="$3.167/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.167/L (0,0%)."
                     data-label="Aceite girasol">
-                    <span class="sr-only">Menor precio informado. </span>$3.167<span class="price-unit">/L</span>
+                    <span class="sr-only">Menor precio informado. </span>$3.167<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -406,8 +445,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$7.200"
                     data-reference="$4.800/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $4.800/L (0,0%)."
                     data-label="Aceite girasol">
-                    $4.800<span class="price-unit">/L</span>
+                    $4.800<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Harina 000<small>por kg</small></th>
@@ -417,8 +457,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$789"
                     data-reference="$789/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $789/kg (0,0%)."
                     data-label="Harina 000">
-                    <span class="sr-only">Menor precio informado. </span>$789<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$789<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -426,8 +467,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$919"
                     data-reference="$919/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $919/kg (0,0%)."
                     data-label="Harina 000">
-                    $919<span class="price-unit">/kg</span>
+                    $919<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -435,8 +477,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.029"
                     data-reference="$1.029/kg"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $1.052/kg (+2,2%)."
                     data-label="Harina 000">
-                    $1.029<span class="price-unit">/kg</span>
+                    $1.029<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -444,8 +487,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$790"
                     data-reference="$790/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $790/kg (0,0%)."
                     data-label="Harina 000">
-                    $790<span class="price-unit">/kg</span>
+                    $790<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -453,8 +497,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.690"
                     data-reference="$1.690/kg"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $1.638/kg (-3,1%)."
                     data-label="Harina 000">
-                    $1.690<span class="price-unit">/kg</span>
+                    $1.690<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Azúcar<small>por kg</small></th>
@@ -464,8 +509,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.350"
                     data-reference="$1.350/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.350/kg (0,0%)."
                     data-label="Azúcar">
-                    $1.350<span class="price-unit">/kg</span>
+                    $1.350<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -473,8 +519,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$1.390/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.390/kg (0,0%)."
                     data-label="Azúcar">
-                    $1.390<span class="price-unit">/kg</span>
+                    $1.390<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -482,8 +529,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$691"
                     data-reference="$1.382/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.382/kg (0,0%)."
                     data-label="Azúcar">
-                    $1.382<span class="price-unit">/kg</span>
+                    $1.382<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -491,8 +539,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$980"
                     data-reference="$980/kg"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $936/kg (-4,5%)."
                     data-label="Azúcar">
-                    <span class="sr-only">Menor precio informado. </span>$980<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$980<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -500,8 +549,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.890"
                     data-reference="$5.780/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $5.780/kg (0,0%)."
                     data-label="Azúcar">
-                    $5.780<span class="price-unit">/kg</span>
+                    $5.780<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr class="category"><th scope="rowgroup" colspan="6">Infusiones</th></tr>
@@ -512,8 +562,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.170"
                     data-reference="$3.170/kg"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $3.126/kg (-1,4%)."
                     data-label="Yerba mate">
-                    $3.170<span class="price-unit">/kg</span>
+                    $3.170<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -521,8 +572,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.685"
                     data-reference="$3.370/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.370/kg (0,0%)."
                     data-label="Yerba mate">
-                    $3.370<span class="price-unit">/kg</span>
+                    $3.370<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -530,8 +582,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.650"
                     data-reference="$3.650/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.650/kg (0,0%)."
                     data-label="Yerba mate">
-                    $3.650<span class="price-unit">/kg</span>
+                    $3.650<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -539,8 +592,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.100"
                     data-reference="$3.097/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.097/kg (0,0%)."
                     data-label="Yerba mate">
-                    $3.097<span class="price-unit">/kg</span>
+                    $3.097<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -548,8 +602,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$2.780/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.780/kg (0,0%)."
                     data-label="Yerba mate">
-                    <span class="sr-only">Menor precio informado. </span>$2.780<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$2.780<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Café instantáneo<small>por kg</small></th>
@@ -559,8 +614,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.755"
                     data-reference="$46.040/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $46.040/kg (0,0%)."
                     data-label="Café instantáneo">
-                    $46.040<span class="price-unit">/kg</span>
+                    $46.040<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -568,8 +624,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$9.014"
                     data-reference="$40.062/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $40.062/kg (0,0%)."
                     data-label="Café instantáneo">
-                    $40.062<span class="price-unit">/kg</span>
+                    $40.062<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 <td class="best">
@@ -578,8 +635,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.750"
                     data-reference="$30.000/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $30.000/kg (0,0%)."
                     data-label="Café instantáneo">
-                    <span class="sr-only">Menor precio informado. </span>$30.000<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$30.000<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 </tr>
@@ -591,8 +649,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$769"
                     data-reference="$1.479/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.479/kg (0,0%)."
                     data-label="Tomate triturado">
-                    $1.479<span class="price-unit">/kg</span>
+                    $1.479<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -600,8 +659,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$999"
                     data-reference="$1.921/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.921/kg (0,0%)."
                     data-label="Tomate triturado">
-                    $1.921<span class="price-unit">/kg</span>
+                    $1.921<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -609,8 +669,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.059"
                     data-reference="$2.037/kg"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $2.075/kg (+1,9%)."
                     data-label="Tomate triturado">
-                    $2.037<span class="price-unit">/kg</span>
+                    $2.037<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -618,8 +679,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$690"
                     data-reference="$1.327/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.327/kg (0,0%)."
                     data-label="Tomate triturado">
-                    <span class="sr-only">Menor precio informado. </span>$1.327<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.327<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 </tr>
@@ -630,8 +692,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.650"
                     data-reference="$1.964/kg"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $1.938/kg (-1,4%)."
                     data-label="Arvejas">
-                    $1.964<span class="price-unit">/kg</span>
+                    $1.964<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -639,8 +702,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$789"
                     data-reference="$2.321/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.321/kg (0,0%)."
                     data-label="Arvejas">
-                    $2.321<span class="price-unit">/kg</span>
+                    $2.321<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -648,8 +712,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$729"
                     data-reference="$2.430/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.430/kg (0,0%)."
                     data-label="Arvejas">
-                    $2.430<span class="price-unit">/kg</span>
+                    $2.430<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -657,8 +722,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$620"
                     data-reference="$1.771/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.771/kg (0,0%)."
                     data-label="Arvejas">
-                    <span class="sr-only">Menor precio informado. </span>$1.771<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.771<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -666,8 +732,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$590"
                     data-reference="$1.967/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.967/kg (0,0%)."
                     data-label="Arvejas">
-                    $1.967<span class="price-unit">/kg</span>
+                    $1.967<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr class="category"><th scope="rowgroup" colspan="6">Carnes</th></tr>
@@ -678,8 +745,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.100"
                     data-reference="$4.100/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $4.100/kg (0,0%)."
                     data-label="Pollo entero">
-                    $4.100<span class="price-unit">/kg</span>
+                    $4.100<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -687,8 +755,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.399"
                     data-reference="$4.399/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $4.399/kg (0,0%)."
                     data-label="Pollo entero">
-                    $4.399<span class="price-unit">/kg</span>
+                    $4.399<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -696,8 +765,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.800"
                     data-reference="$8.800/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $8.800/kg (0,0%)."
                     data-label="Pollo entero">
-                    $8.800<span class="price-unit">/kg</span>
+                    $8.800<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -705,8 +775,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.790"
                     data-reference="$3.790/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.790/kg (0,0%)."
                     data-label="Pollo entero">
-                    <span class="sr-only">Menor precio informado. </span>$3.790<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$3.790<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -714,8 +785,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$12.290"
                     data-reference="$22.759/kg"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $23.155/kg (+1,7%)."
                     data-label="Pollo entero">
-                    $22.759<span class="price-unit">/kg</span>
+                    $22.759<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Carne picada<small>por kg</small></th>
@@ -725,8 +797,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.900"
                     data-reference="$8.900/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $8.900/kg (0,0%)."
                     data-label="Carne picada">
-                    $8.900<span class="price-unit">/kg</span>
+                    $8.900<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -734,8 +807,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.999"
                     data-reference="$6.999/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $6.999/kg (0,0%)."
                     data-label="Carne picada">
-                    <span class="sr-only">Menor precio informado. </span>$6.999<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$6.999<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -743,8 +817,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$7.490"
                     data-reference="$18.725/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $18.725/kg (0,0%)."
                     data-label="Carne picada">
-                    $18.725<span class="price-unit">/kg</span>
+                    $18.725<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 <td class="">
@@ -753,8 +828,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.335"
                     data-reference="$8.335/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $8.335/kg (0,0%)."
                     data-label="Carne picada">
-                    $8.335<span class="price-unit">/kg</span>
+                    $8.335<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr class="category"><th scope="rowgroup" colspan="6">Frescos</th></tr>
@@ -765,8 +841,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.999"
                     data-reference="$167/unidad"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $167/unidad (0,0%)."
                     data-label="Huevo">
-                    <span class="sr-only">Menor precio informado. </span>$167<span class="price-unit">/unidad</span>
+                    <span class="sr-only">Menor precio informado. </span>$167<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/unidad</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -774,8 +851,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.995"
                     data-reference="$332/unidad"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $339/unidad (+2,0%)."
                     data-label="Huevo">
-                    $332<span class="price-unit">/unidad</span>
+                    $332<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/unidad</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -783,8 +861,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.190"
                     data-reference="$365/unidad"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $368/unidad (+0,9%)."
                     data-label="Huevo">
-                    $365<span class="price-unit">/unidad</span>
+                    $365<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/unidad</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -792,8 +871,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.600"
                     data-reference="$440/unidad"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $448/unidad (+1,8%)."
                     data-label="Huevo">
-                    $440<span class="price-unit">/unidad</span>
+                    $440<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/unidad</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -801,8 +881,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.290"
                     data-reference="$382/unidad"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $382/unidad (0,0%)."
                     data-label="Huevo">
-                    $382<span class="price-unit">/unidad</span>
+                    $382<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/unidad</span>
                   </button></td>
 </tr>
 <tr class="category"><th scope="rowgroup" colspan="6">Verdulería</th></tr>
@@ -813,8 +894,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.299"
                     data-reference="$2.299/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.299/kg (0,0%)."
                     data-label="Papa">
-                    $2.299<span class="price-unit">/kg</span>
+                    $2.299<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -822,8 +904,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.999"
                     data-reference="$1.999/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.999/kg (0,0%)."
                     data-label="Papa">
-                    $1.999<span class="price-unit">/kg</span>
+                    $1.999<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -831,8 +914,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.990"
                     data-reference="$2.990/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.990/kg (0,0%)."
                     data-label="Papa">
-                    $2.990<span class="price-unit">/kg</span>
+                    $2.990<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -840,8 +924,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.499"
                     data-reference="$1.499/kg"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $1.439/kg (-4,0%)."
                     data-label="Papa">
-                    <span class="sr-only">Menor precio informado. </span>$1.499<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.499<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -849,8 +934,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.750"
                     data-reference="$9.375/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $9.375/kg (0,0%)."
                     data-label="Papa">
-                    $9.375<span class="price-unit">/kg</span>
+                    $9.375<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Cebolla<small>por kg</small></th>
@@ -860,8 +946,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.999"
                     data-reference="$1.999/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.999/kg (0,0%)."
                     data-label="Cebolla">
-                    $1.999<span class="price-unit">/kg</span>
+                    $1.999<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -869,8 +956,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.799"
                     data-reference="$1.799/kg"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $1.659/kg (-7,8%)."
                     data-label="Cebolla">
-                    <span class="sr-only">Menor precio informado. </span>$1.799<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.799<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -878,8 +966,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.990"
                     data-reference="$1.990/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.990/kg (0,0%)."
                     data-label="Cebolla">
-                    $1.990<span class="price-unit">/kg</span>
+                    $1.990<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -887,8 +976,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.990"
                     data-reference="$2.990/kg"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $3.190/kg (+6,7%)."
                     data-label="Cebolla">
-                    $2.990<span class="price-unit">/kg</span>
+                    $2.990<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 </tr>
@@ -899,8 +989,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.999"
                     data-reference="$3.999/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.999/kg (0,0%)."
                     data-label="Manzana">
-                    $3.999<span class="price-unit">/kg</span>
+                    $3.999<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -908,8 +999,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.999"
                     data-reference="$3.999/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.999/kg (0,0%)."
                     data-label="Manzana">
-                    $3.999<span class="price-unit">/kg</span>
+                    $3.999<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -917,8 +1009,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.290"
                     data-reference="$5.290/kg"
                     data-comparable="true"
+                    data-forecast="Suba prevista: $5.630/kg (+6,4%)."
                     data-label="Manzana">
-                    $5.290<span class="price-unit">/kg</span>
+                    $5.290<span class="forecast-arrow sube" aria-label="Suba prevista" title="Suba prevista">↑</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -926,8 +1019,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.990"
                     data-reference="$3.990/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.990/kg (0,0%)."
                     data-label="Manzana">
-                    <span class="sr-only">Menor precio informado. </span>$3.990<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$3.990<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 </tr>
@@ -938,8 +1032,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.999"
                     data-reference="$2.999/kg"
                     data-comparable="true"
+                    data-forecast="Baja prevista: $2.799/kg (-6,7%)."
                     data-label="Banana">
-                    $2.999<span class="price-unit">/kg</span>
+                    $2.999<span class="forecast-arrow baja" aria-label="Baja prevista" title="Baja prevista">↓</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -947,8 +1042,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.499"
                     data-reference="$2.499/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.499/kg (0,0%)."
                     data-label="Banana">
-                    $2.499<span class="price-unit">/kg</span>
+                    $2.499<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -956,8 +1052,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.790"
                     data-reference="$1.790/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.790/kg (0,0%)."
                     data-label="Banana">
-                    <span class="sr-only">Menor precio informado. </span>$1.790<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$1.790<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
@@ -970,8 +1067,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.350"
                     data-reference="$6.000/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $6.000/kg (0,0%)."
                     data-label="Jabón de tocador">
-                    $6.000<span class="price-unit">/kg</span>
+                    $6.000<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -979,8 +1077,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.941"
                     data-reference="$7.843/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $7.843/kg (0,0%)."
                     data-label="Jabón de tocador">
-                    $7.843<span class="price-unit">/kg</span>
+                    $7.843<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -988,8 +1087,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.999"
                     data-reference="$7.404/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $7.404/kg (0,0%)."
                     data-label="Jabón de tocador">
-                    $7.404<span class="price-unit">/kg</span>
+                    $7.404<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -997,8 +1097,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.350"
                     data-reference="$6.267/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $6.267/kg (0,0%)."
                     data-label="Jabón de tocador">
-                    $6.267<span class="price-unit">/kg</span>
+                    $6.267<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1006,8 +1107,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.290"
                     data-reference="$4.778/kg"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $4.778/kg (0,0%)."
                     data-label="Jabón de tocador">
-                    <span class="sr-only">Menor precio informado. </span>$4.778<span class="price-unit">/kg</span>
+                    <span class="sr-only">Menor precio informado. </span>$4.778<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/kg</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Detergente<small>por L</small></th>
@@ -1017,8 +1119,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.850"
                     data-reference="$2.950/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.950/L (0,0%)."
                     data-label="Detergente">
-                    $2.950<span class="price-unit">/L</span>
+                    $2.950<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1026,8 +1129,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.960"
                     data-reference="$2.613/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $2.613/L (0,0%)."
                     data-label="Detergente">
-                    <span class="sr-only">Menor precio informado. </span>$2.613<span class="price-unit">/L</span>
+                    <span class="sr-only">Menor precio informado. </span>$2.613<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1035,8 +1139,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.900"
                     data-reference="$6.333/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $6.333/L (0,0%)."
                     data-label="Detergente">
-                    $6.333<span class="price-unit">/L</span>
+                    $6.333<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1044,8 +1149,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.050"
                     data-reference="$4.100/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $4.100/L (0,0%)."
                     data-label="Detergente">
-                    $4.100<span class="price-unit">/L</span>
+                    $4.100<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1053,8 +1159,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$9.600"
                     data-reference="$3.200/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $3.200/L (0,0%)."
                     data-label="Detergente">
-                    $3.200<span class="price-unit">/L</span>
+                    $3.200<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 </tr>
 <tr><th scope="row">Lavandina<small>por L</small></th>
@@ -1064,8 +1171,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.810"
                     data-reference="$1.202/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.202/L (0,0%)."
                     data-label="Lavandina">
-                    $1.202<span class="price-unit">/L</span>
+                    $1.202<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1073,8 +1181,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.160"
                     data-reference="$1.040/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.040/L (0,0%)."
                     data-label="Lavandina">
-                    $1.040<span class="price-unit">/L</span>
+                    $1.040<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="best">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1082,8 +1191,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.950"
                     data-reference="$975/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $975/L (0,0%)."
                     data-label="Lavandina">
-                    <span class="sr-only">Menor precio informado. </span>$975<span class="price-unit">/L</span>
+                    <span class="sr-only">Menor precio informado. </span>$975<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td class="">
                   <button type="button" class="price-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="price-detail"
@@ -1091,8 +1201,9 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.850"
                     data-reference="$1.212/L"
                     data-comparable="true"
+                    data-forecast="Sin cambio significativo previsto: $1.212/L (0,0%)."
                     data-label="Lavandina">
-                    $1.212<span class="price-unit">/L</span>
+                    $1.212<span class="forecast-arrow estable" aria-label="Sin cambio significativo previsto" title="Sin cambio significativo previsto">→</span><span class="price-unit">/L</span>
                   </button></td>
 <td><span class="missing" aria-label="Sin dato comparable">—</span></td>
 </tr></tbody>
@@ -1111,7 +1222,8 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
           <p class="total">$78.362</p>
           <p class="coverage">14 de 25 productos</p></article></div>
       <div class="section-heading products-heading"><h2>Compará por producto</h2><span>Valores en pesos argentinos</span></div>
-      <p class="caption" id="legend-rosario"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto.</p>
+      <p class="caption" id="legend-rosario"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto y su pronóstico.</p>
+      <p class="caption">Los pronósticos están disponibles en Toda la zona.</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de precios; desplazamiento horizontal" aria-describedby="legend-rosario">
         <table><caption class="sr-only">Precios informados por producto y cadena</caption>
           <thead><tr><th scope="col">Producto</th><th scope="col">Carrefour</th><th scope="col">Coto</th><th scope="col">La Anónima</th><th scope="col">Jumbo/Vea/Disco</th></tr></thead>
@@ -1123,6 +1235,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.710"
                     data-reference="$1.710/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Leche entera">
                     $1.710<span class="price-unit">/L</span>
                   </button></td>
@@ -1132,6 +1245,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.799"
                     data-reference="$1.799/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Leche entera">
                     $1.799<span class="price-unit">/L</span>
                   </button></td>
@@ -1141,6 +1255,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.590"
                     data-reference="$1.590/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Leche entera">
                     <span class="sr-only">Menor precio informado. </span>$1.590<span class="price-unit">/L</span>
                   </button></td>
@@ -1150,6 +1265,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.950"
                     data-reference="$2.950/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Leche entera">
                     $2.950<span class="price-unit">/L</span>
                   </button></td>
@@ -1161,6 +1277,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$12.095"
                     data-reference="$12.095/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Queso cremoso">
                     <span class="sr-only">Menor precio informado. </span>$12.095<span class="price-unit">/kg</span>
                   </button></td>
@@ -1170,6 +1287,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$12.599"
                     data-reference="$12.599/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Queso cremoso">
                     $12.599<span class="price-unit">/kg</span>
                   </button></td>
@@ -1180,6 +1298,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$20.190"
                     data-reference="$20.190/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Queso cremoso">
                     $20.190<span class="price-unit">/kg</span>
                   </button></td>
@@ -1191,6 +1310,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.869"
                     data-reference="$3.188/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yogur entero">
                     $3.188<span class="price-unit">/kg</span>
                   </button></td>
@@ -1200,6 +1320,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.785"
                     data-reference="$3.094/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yogur entero">
                     $3.094<span class="price-unit">/kg</span>
                   </button></td>
@@ -1209,6 +1330,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.050"
                     data-reference="$2.278/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yogur entero">
                     <span class="sr-only">Menor precio informado. </span>$2.278<span class="price-unit">/kg</span>
                   </button></td>
@@ -1221,6 +1343,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.859"
                     data-reference="$14.295/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manteca">
                     <span class="sr-only">Menor precio informado. </span>$14.295<span class="price-unit">/kg</span>
                   </button></td>
@@ -1230,6 +1353,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.999"
                     data-reference="$17.998/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manteca">
                     $17.998<span class="price-unit">/kg</span>
                   </button></td>
@@ -1239,6 +1363,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.250"
                     data-reference="$16.250/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manteca">
                     $16.250<span class="price-unit">/kg</span>
                   </button></td>
@@ -1248,6 +1373,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.200"
                     data-reference="$22.000/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manteca">
                     $22.000<span class="price-unit">/kg</span>
                   </button></td>
@@ -1260,6 +1386,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.890"
                     data-reference="$8.150/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pan lactal">
                     <span class="sr-only">Menor precio informado. </span>$8.150<span class="price-unit">/kg</span>
                   </button></td>
@@ -1269,6 +1396,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.899"
                     data-reference="$14.845/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pan lactal">
                     $14.845<span class="price-unit">/kg</span>
                   </button></td>
@@ -1289,6 +1417,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.160"
                     data-reference="$1.160/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arroz largo fino">
                     $1.160<span class="price-unit">/kg</span>
                   </button></td>
@@ -1298,6 +1427,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.599"
                     data-reference="$1.599/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arroz largo fino">
                     $1.599<span class="price-unit">/kg</span>
                   </button></td>
@@ -1307,6 +1437,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.100"
                     data-reference="$1.100/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arroz largo fino">
                     <span class="sr-only">Menor precio informado. </span>$1.100<span class="price-unit">/kg</span>
                   </button></td>
@@ -1316,6 +1447,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.050"
                     data-reference="$4.100/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arroz largo fino">
                     $4.100<span class="price-unit">/kg</span>
                   </button></td>
@@ -1327,6 +1459,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$799"
                     data-reference="$1.598/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Fideos secos">
                     $1.598<span class="price-unit">/kg</span>
                   </button></td>
@@ -1336,6 +1469,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.100"
                     data-reference="$2.200/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Fideos secos">
                     $2.200<span class="price-unit">/kg</span>
                   </button></td>
@@ -1345,6 +1479,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$750"
                     data-reference="$1.500/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Fideos secos">
                     <span class="sr-only">Menor precio informado. </span>$1.500<span class="price-unit">/kg</span>
                   </button></td>
@@ -1354,6 +1489,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.850"
                     data-reference="$3.700/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Fideos secos">
                     $3.700<span class="price-unit">/kg</span>
                   </button></td>
@@ -1365,6 +1501,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.750"
                     data-reference="$3.833/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Aceite girasol">
                     $3.833<span class="price-unit">/L</span>
                   </button></td>
@@ -1374,6 +1511,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.530"
                     data-reference="$4.353/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Aceite girasol">
                     $4.353<span class="price-unit">/L</span>
                   </button></td>
@@ -1383,6 +1521,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.750"
                     data-reference="$3.167/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Aceite girasol">
                     <span class="sr-only">Menor precio informado. </span>$3.167<span class="price-unit">/L</span>
                   </button></td>
@@ -1392,6 +1531,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$7.200"
                     data-reference="$4.800/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Aceite girasol">
                     $4.800<span class="price-unit">/L</span>
                   </button></td>
@@ -1403,6 +1543,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$789"
                     data-reference="$789/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Harina 000">
                     <span class="sr-only">Menor precio informado. </span>$789<span class="price-unit">/kg</span>
                   </button></td>
@@ -1412,6 +1553,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$919"
                     data-reference="$919/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Harina 000">
                     $919<span class="price-unit">/kg</span>
                   </button></td>
@@ -1421,6 +1563,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$790"
                     data-reference="$790/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Harina 000">
                     $790<span class="price-unit">/kg</span>
                   </button></td>
@@ -1433,6 +1576,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.350"
                     data-reference="$1.350/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Azúcar">
                     $1.350<span class="price-unit">/kg</span>
                   </button></td>
@@ -1442,6 +1586,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$1.390/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Azúcar">
                     $1.390<span class="price-unit">/kg</span>
                   </button></td>
@@ -1451,6 +1596,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$980"
                     data-reference="$980/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Azúcar">
                     <span class="sr-only">Menor precio informado. </span>$980<span class="price-unit">/kg</span>
                   </button></td>
@@ -1460,6 +1606,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.050"
                     data-reference="$6.100/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Azúcar">
                     $6.100<span class="price-unit">/kg</span>
                   </button></td>
@@ -1472,6 +1619,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.170"
                     data-reference="$3.170/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yerba mate">
                     $3.170<span class="price-unit">/kg</span>
                   </button></td>
@@ -1481,6 +1629,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.685"
                     data-reference="$3.370/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yerba mate">
                     $3.370<span class="price-unit">/kg</span>
                   </button></td>
@@ -1490,6 +1639,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.100"
                     data-reference="$3.097/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yerba mate">
                     <span class="sr-only">Menor precio informado. </span>$3.097<span class="price-unit">/kg</span>
                   </button></td>
@@ -1499,6 +1649,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.150"
                     data-reference="$4.300/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yerba mate">
                     $4.300<span class="price-unit">/kg</span>
                   </button></td>
@@ -1510,6 +1661,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.755"
                     data-reference="$46.040/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Café instantáneo">
                     $46.040<span class="price-unit">/kg</span>
                   </button></td>
@@ -1519,6 +1671,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$9.014"
                     data-reference="$40.062/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Café instantáneo">
                     $40.062<span class="price-unit">/kg</span>
                   </button></td>
@@ -1528,6 +1681,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.750"
                     data-reference="$30.000/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Café instantáneo">
                     <span class="sr-only">Menor precio informado. </span>$30.000<span class="price-unit">/kg</span>
                   </button></td>
@@ -1541,6 +1695,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$769"
                     data-reference="$1.479/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Tomate triturado">
                     $1.479<span class="price-unit">/kg</span>
                   </button></td>
@@ -1550,6 +1705,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$999"
                     data-reference="$1.921/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Tomate triturado">
                     $1.921<span class="price-unit">/kg</span>
                   </button></td>
@@ -1559,6 +1715,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$690"
                     data-reference="$1.327/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Tomate triturado">
                     <span class="sr-only">Menor precio informado. </span>$1.327<span class="price-unit">/kg</span>
                   </button></td>
@@ -1571,6 +1728,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.650"
                     data-reference="$1.964/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arvejas">
                     $1.964<span class="price-unit">/kg</span>
                   </button></td>
@@ -1580,6 +1738,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$789"
                     data-reference="$2.321/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arvejas">
                     $2.321<span class="price-unit">/kg</span>
                   </button></td>
@@ -1589,6 +1748,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$620"
                     data-reference="$1.771/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arvejas">
                     <span class="sr-only">Menor precio informado. </span>$1.771<span class="price-unit">/kg</span>
                   </button></td>
@@ -1598,6 +1758,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$850"
                     data-reference="$2.833/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arvejas">
                     $2.833<span class="price-unit">/kg</span>
                   </button></td>
@@ -1610,6 +1771,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.100"
                     data-reference="$4.100/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pollo entero">
                     $4.100<span class="price-unit">/kg</span>
                   </button></td>
@@ -1619,6 +1781,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.399"
                     data-reference="$4.399/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pollo entero">
                     $4.399<span class="price-unit">/kg</span>
                   </button></td>
@@ -1628,6 +1791,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.790"
                     data-reference="$3.790/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pollo entero">
                     <span class="sr-only">Menor precio informado. </span>$3.790<span class="price-unit">/kg</span>
                   </button></td>
@@ -1640,6 +1804,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.900"
                     data-reference="$8.900/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Carne picada">
                     $8.900<span class="price-unit">/kg</span>
                   </button></td>
@@ -1649,6 +1814,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.999"
                     data-reference="$6.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Carne picada">
                     <span class="sr-only">Menor precio informado. </span>$6.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -1659,6 +1825,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.335"
                     data-reference="$8.335/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Carne picada">
                     $8.335<span class="price-unit">/kg</span>
                   </button></td>
@@ -1671,6 +1838,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.999"
                     data-reference="$167/unidad"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Huevo">
                     <span class="sr-only">Menor precio informado. </span>$167<span class="price-unit">/unidad</span>
                   </button></td>
@@ -1680,6 +1848,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.995"
                     data-reference="$332/unidad"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Huevo">
                     $332<span class="price-unit">/unidad</span>
                   </button></td>
@@ -1689,6 +1858,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.600"
                     data-reference="$440/unidad"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Huevo">
                     $440<span class="price-unit">/unidad</span>
                   </button></td>
@@ -1698,6 +1868,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.350"
                     data-reference="$392/unidad"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Huevo">
                     $392<span class="price-unit">/unidad</span>
                   </button></td>
@@ -1710,6 +1881,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.299"
                     data-reference="$2.299/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Papa">
                     $2.299<span class="price-unit">/kg</span>
                   </button></td>
@@ -1719,6 +1891,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.999"
                     data-reference="$1.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Papa">
                     $1.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -1728,6 +1901,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.499"
                     data-reference="$1.499/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Papa">
                     <span class="sr-only">Menor precio informado. </span>$1.499<span class="price-unit">/kg</span>
                   </button></td>
@@ -1737,6 +1911,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.750"
                     data-reference="$9.375/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Papa">
                     $9.375<span class="price-unit">/kg</span>
                   </button></td>
@@ -1748,6 +1923,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.999"
                     data-reference="$1.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Cebolla">
                     $1.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -1757,6 +1933,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.799"
                     data-reference="$1.799/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Cebolla">
                     <span class="sr-only">Menor precio informado. </span>$1.799<span class="price-unit">/kg</span>
                   </button></td>
@@ -1766,6 +1943,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.990"
                     data-reference="$2.990/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Cebolla">
                     $2.990<span class="price-unit">/kg</span>
                   </button></td>
@@ -1778,6 +1956,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.999"
                     data-reference="$3.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manzana">
                     $3.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -1787,6 +1966,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.999"
                     data-reference="$3.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manzana">
                     $3.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -1796,6 +1976,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.990"
                     data-reference="$3.990/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manzana">
                     <span class="sr-only">Menor precio informado. </span>$3.990<span class="price-unit">/kg</span>
                   </button></td>
@@ -1808,6 +1989,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.999"
                     data-reference="$2.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Banana">
                     $2.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -1817,6 +1999,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.499"
                     data-reference="$2.499/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Banana">
                     <span class="sr-only">Menor precio informado. </span>$2.499<span class="price-unit">/kg</span>
                   </button></td>
@@ -1831,6 +2014,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.350"
                     data-reference="$6.000/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Jabón de tocador">
                     <span class="sr-only">Menor precio informado. </span>$6.000<span class="price-unit">/kg</span>
                   </button></td>
@@ -1840,6 +2024,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.941"
                     data-reference="$7.843/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Jabón de tocador">
                     $7.843<span class="price-unit">/kg</span>
                   </button></td>
@@ -1849,6 +2034,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.350"
                     data-reference="$6.267/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Jabón de tocador">
                     $6.267<span class="price-unit">/kg</span>
                   </button></td>
@@ -1858,6 +2044,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.000"
                     data-reference="$11.765/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Jabón de tocador">
                     $11.765<span class="price-unit">/kg</span>
                   </button></td>
@@ -1869,6 +2056,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.850"
                     data-reference="$2.950/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Detergente">
                     $2.950<span class="price-unit">/L</span>
                   </button></td>
@@ -1878,6 +2066,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.960"
                     data-reference="$2.613/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Detergente">
                     <span class="sr-only">Menor precio informado. </span>$2.613<span class="price-unit">/L</span>
                   </button></td>
@@ -1887,6 +2076,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.050"
                     data-reference="$4.100/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Detergente">
                     $4.100<span class="price-unit">/L</span>
                   </button></td>
@@ -1896,6 +2086,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$9.600"
                     data-reference="$3.200/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Detergente">
                     $3.200<span class="price-unit">/L</span>
                   </button></td>
@@ -1907,6 +2098,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.810"
                     data-reference="$1.202/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Lavandina">
                     $1.202<span class="price-unit">/L</span>
                   </button></td>
@@ -1916,6 +2108,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.160"
                     data-reference="$1.040/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Lavandina">
                     <span class="sr-only">Menor precio informado. </span>$1.040<span class="price-unit">/L</span>
                   </button></td>
@@ -1925,6 +2118,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.850"
                     data-reference="$1.212/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Lavandina">
                     $1.212<span class="price-unit">/L</span>
                   </button></td>
@@ -1943,7 +2137,8 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
           <p class="total">$76.473</p>
           <p class="coverage">14 de 25 productos</p></article></div>
       <div class="section-heading products-heading"><h2>Compará por producto</h2><span>Valores en pesos argentinos</span></div>
-      <p class="caption" id="legend-gran"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto.</p>
+      <p class="caption" id="legend-gran"><span class="legend-dot" aria-hidden="true"></span>Verde: menor precio por la misma unidad · —: sin dato comparable. Tocá un precio para ver el producto y su pronóstico.</p>
+      <p class="caption">Los pronósticos están disponibles en Toda la zona.</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de precios; desplazamiento horizontal" aria-describedby="legend-gran">
         <table><caption class="sr-only">Precios informados por producto y cadena</caption>
           <thead><tr><th scope="col">Producto</th><th scope="col">Coto</th><th scope="col">DIA</th><th scope="col">Jumbo/Vea/Disco</th></tr></thead>
@@ -1955,6 +2150,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.799"
                     data-reference="$1.799/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Leche entera">
                     <span class="sr-only">Menor precio informado. </span>$1.799<span class="price-unit">/L</span>
                   </button></td>
@@ -1964,6 +2160,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.865"
                     data-reference="$1.865/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Leche entera">
                     $1.865<span class="price-unit">/L</span>
                   </button></td>
@@ -1973,6 +2170,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.750"
                     data-reference="$2.750/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Leche entera">
                     $2.750<span class="price-unit">/L</span>
                   </button></td>
@@ -1984,6 +2182,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$12.599"
                     data-reference="$12.599/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Queso cremoso">
                     <span class="sr-only">Menor precio informado. </span>$12.599<span class="price-unit">/kg</span>
                   </button></td>
@@ -1993,6 +2192,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.290"
                     data-reference="$12.654/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Queso cremoso">
                     $12.654<span class="price-unit">/kg</span>
                   </button></td>
@@ -2002,6 +2202,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$14.790"
                     data-reference="$14.790/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Queso cremoso">
                     $14.790<span class="price-unit">/kg</span>
                   </button></td>
@@ -2013,6 +2214,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.785"
                     data-reference="$3.094/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yogur entero">
                     <span class="sr-only">Menor precio informado. </span>$3.094<span class="price-unit">/kg</span>
                   </button></td>
@@ -2022,6 +2224,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.218"
                     data-reference="$3.576/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yogur entero">
                     $3.576<span class="price-unit">/kg</span>
                   </button></td>
@@ -2034,6 +2237,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.605"
                     data-reference="$18.025/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manteca">
                     <span class="sr-only">Menor precio informado. </span>$18.025<span class="price-unit">/kg</span>
                   </button></td>
@@ -2043,6 +2247,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.750"
                     data-reference="$18.750/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manteca">
                     $18.750<span class="price-unit">/kg</span>
                   </button></td>
@@ -2052,6 +2257,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.390"
                     data-reference="$21.950/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manteca">
                     $21.950<span class="price-unit">/kg</span>
                   </button></td>
@@ -2064,6 +2270,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.899"
                     data-reference="$14.845/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pan lactal">
                     $14.845<span class="price-unit">/kg</span>
                   </button></td>
@@ -2073,6 +2280,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.190"
                     data-reference="$8.861/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pan lactal">
                     <span class="sr-only">Menor precio informado. </span>$8.861<span class="price-unit">/kg</span>
                   </button></td>
@@ -2082,6 +2290,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.190"
                     data-reference="$11.679/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pan lactal">
                     $11.679<span class="price-unit">/kg</span>
                   </button></td>
@@ -2094,6 +2303,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.014"
                     data-reference="$5.581/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Galletitas de agua">
                     $5.581<span class="price-unit">/kg</span>
                   </button></td>
@@ -2107,6 +2317,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.599"
                     data-reference="$1.599/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arroz largo fino">
                     <span class="sr-only">Menor precio informado. </span>$1.599<span class="price-unit">/kg</span>
                   </button></td>
@@ -2116,6 +2327,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.599"
                     data-reference="$1.599/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arroz largo fino">
                     <span class="sr-only">Menor precio informado. </span>$1.599<span class="price-unit">/kg</span>
                   </button></td>
@@ -2125,6 +2337,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$2.780/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arroz largo fino">
                     $2.780<span class="price-unit">/kg</span>
                   </button></td>
@@ -2136,6 +2349,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.100"
                     data-reference="$2.200/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Fideos secos">
                     $2.200<span class="price-unit">/kg</span>
                   </button></td>
@@ -2145,6 +2359,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.029"
                     data-reference="$2.058/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Fideos secos">
                     <span class="sr-only">Menor precio informado. </span>$2.058<span class="price-unit">/kg</span>
                   </button></td>
@@ -2154,6 +2369,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$2.780/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Fideos secos">
                     $2.780<span class="price-unit">/kg</span>
                   </button></td>
@@ -2165,6 +2381,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.530"
                     data-reference="$4.353/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Aceite girasol">
                     $4.353<span class="price-unit">/L</span>
                   </button></td>
@@ -2174,6 +2391,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.745"
                     data-reference="$3.830/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Aceite girasol">
                     <span class="sr-only">Menor precio informado. </span>$3.830<span class="price-unit">/L</span>
                   </button></td>
@@ -2186,6 +2404,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$919"
                     data-reference="$919/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Harina 000">
                     <span class="sr-only">Menor precio informado. </span>$919<span class="price-unit">/kg</span>
                   </button></td>
@@ -2195,6 +2414,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.029"
                     data-reference="$1.029/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Harina 000">
                     $1.029<span class="price-unit">/kg</span>
                   </button></td>
@@ -2204,6 +2424,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.690"
                     data-reference="$1.690/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Harina 000">
                     $1.690<span class="price-unit">/kg</span>
                   </button></td>
@@ -2215,6 +2436,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$1.390/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Azúcar">
                     $1.390<span class="price-unit">/kg</span>
                   </button></td>
@@ -2224,6 +2446,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$691"
                     data-reference="$1.382/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Azúcar">
                     <span class="sr-only">Menor precio informado. </span>$1.382<span class="price-unit">/kg</span>
                   </button></td>
@@ -2233,6 +2456,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.890"
                     data-reference="$5.780/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Azúcar">
                     $5.780<span class="price-unit">/kg</span>
                   </button></td>
@@ -2245,6 +2469,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.685"
                     data-reference="$3.370/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yerba mate">
                     $3.370<span class="price-unit">/kg</span>
                   </button></td>
@@ -2254,6 +2479,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.650"
                     data-reference="$3.650/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yerba mate">
                     $3.650<span class="price-unit">/kg</span>
                   </button></td>
@@ -2263,6 +2489,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.390"
                     data-reference="$2.780/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Yerba mate">
                     <span class="sr-only">Menor precio informado. </span>$2.780<span class="price-unit">/kg</span>
                   </button></td>
@@ -2274,6 +2501,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$9.014"
                     data-reference="$40.062/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Café instantáneo">
                     $40.062<span class="price-unit">/kg</span>
                   </button></td>
@@ -2288,6 +2516,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$999"
                     data-reference="$1.921/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Tomate triturado">
                     <span class="sr-only">Menor precio informado. </span>$1.921<span class="price-unit">/kg</span>
                   </button></td>
@@ -2297,6 +2526,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.059"
                     data-reference="$2.037/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Tomate triturado">
                     $2.037<span class="price-unit">/kg</span>
                   </button></td>
@@ -2309,6 +2539,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$789"
                     data-reference="$2.321/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arvejas">
                     $2.321<span class="price-unit">/kg</span>
                   </button></td>
@@ -2318,6 +2549,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$729"
                     data-reference="$2.430/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arvejas">
                     $2.430<span class="price-unit">/kg</span>
                   </button></td>
@@ -2327,6 +2559,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$590"
                     data-reference="$1.967/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Arvejas">
                     <span class="sr-only">Menor precio informado. </span>$1.967<span class="price-unit">/kg</span>
                   </button></td>
@@ -2339,6 +2572,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.399"
                     data-reference="$4.399/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pollo entero">
                     <span class="sr-only">Menor precio informado. </span>$4.399<span class="price-unit">/kg</span>
                   </button></td>
@@ -2348,6 +2582,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$8.800"
                     data-reference="$8.800/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pollo entero">
                     $8.800<span class="price-unit">/kg</span>
                   </button></td>
@@ -2357,6 +2592,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$12.290"
                     data-reference="$22.759/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Pollo entero">
                     $22.759<span class="price-unit">/kg</span>
                   </button></td>
@@ -2369,6 +2605,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$7.490"
                     data-reference="$18.725/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Carne picada">
                     $18.725<span class="price-unit">/kg</span>
                   </button></td>
@@ -2382,6 +2619,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.995"
                     data-reference="$332/unidad"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Huevo">
                     <span class="sr-only">Menor precio informado. </span>$332<span class="price-unit">/unidad</span>
                   </button></td>
@@ -2391,6 +2629,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.190"
                     data-reference="$365/unidad"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Huevo">
                     $365<span class="price-unit">/unidad</span>
                   </button></td>
@@ -2400,6 +2639,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.290"
                     data-reference="$382/unidad"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Huevo">
                     $382<span class="price-unit">/unidad</span>
                   </button></td>
@@ -2412,6 +2652,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.999"
                     data-reference="$1.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Papa">
                     <span class="sr-only">Menor precio informado. </span>$1.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -2421,6 +2662,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.990"
                     data-reference="$2.990/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Papa">
                     $2.990<span class="price-unit">/kg</span>
                   </button></td>
@@ -2433,6 +2675,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.799"
                     data-reference="$1.799/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Cebolla">
                     <span class="sr-only">Menor precio informado. </span>$1.799<span class="price-unit">/kg</span>
                   </button></td>
@@ -2442,6 +2685,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.990"
                     data-reference="$1.990/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Cebolla">
                     $1.990<span class="price-unit">/kg</span>
                   </button></td>
@@ -2454,6 +2698,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.999"
                     data-reference="$3.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manzana">
                     <span class="sr-only">Menor precio informado. </span>$3.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -2463,6 +2708,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$5.290"
                     data-reference="$5.290/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Manzana">
                     $5.290<span class="price-unit">/kg</span>
                   </button></td>
@@ -2475,6 +2721,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$3.999"
                     data-reference="$3.999/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Banana">
                     $3.999<span class="price-unit">/kg</span>
                   </button></td>
@@ -2484,6 +2731,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.790"
                     data-reference="$1.790/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Banana">
                     <span class="sr-only">Menor precio informado. </span>$1.790<span class="price-unit">/kg</span>
                   </button></td>
@@ -2497,6 +2745,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$2.941"
                     data-reference="$7.843/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Jabón de tocador">
                     $7.843<span class="price-unit">/kg</span>
                   </button></td>
@@ -2506,6 +2755,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.999"
                     data-reference="$7.404/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Jabón de tocador">
                     $7.404<span class="price-unit">/kg</span>
                   </button></td>
@@ -2515,6 +2765,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.290"
                     data-reference="$4.778/kg"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Jabón de tocador">
                     <span class="sr-only">Menor precio informado. </span>$4.778<span class="price-unit">/kg</span>
                   </button></td>
@@ -2526,6 +2777,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.960"
                     data-reference="$2.613/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Detergente">
                     <span class="sr-only">Menor precio informado. </span>$2.613<span class="price-unit">/L</span>
                   </button></td>
@@ -2535,6 +2787,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.900"
                     data-reference="$6.333/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Detergente">
                     $6.333<span class="price-unit">/L</span>
                   </button></td>
@@ -2544,6 +2797,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$6.790"
                     data-reference="$7.544/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Detergente">
                     $7.544<span class="price-unit">/L</span>
                   </button></td>
@@ -2555,6 +2809,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$4.160"
                     data-reference="$1.040/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Lavandina">
                     $1.040<span class="price-unit">/L</span>
                   </button></td>
@@ -2564,6 +2819,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
                     data-package="$1.950"
                     data-reference="$975/L"
                     data-comparable="true"
+                    data-forecast=""
                     data-label="Lavandina">
                     <span class="sr-only">Menor precio informado. </span>$975<span class="price-unit">/L</span>
                   </button></td>
@@ -2580,7 +2836,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
 <p><strong>Límites.</strong> Calculamos el precio por kg, litro o unidad con el precio del envase y su contenido. Excluimos tamaños ambiguos; la selección automática del producto aún puede contener errores. Los precios son los informados en la fecha indicada; no garantizan stock ni el precio en caja. No incluimos descuentos bancarios.</p>
 <a href="https://github.com/sebbrinkworth/canasta-rosario/blob/main/docs/validation.md">Ver fuentes y validación técnica ↗</a></div></details>
 <details class="disclosure" id="pronostico"><summary>¿Podemos anticipar los precios? <span>En evaluación</span></summary>
-      <div class="disclosure-body"><p>Estamos probando pronósticos para el día siguiente. La tabla muestra únicamente precios informados; las predicciones quedan fuera de la comparación.</p>
+      <div class="disclosure-body"><p>Estamos probando pronósticos para el día siguiente. Las flechas junto a los precios indican la tendencia reciente para el día siguiente. El verde de las celdas y los subtotales usan los precios informados. Tocá un precio para ver su pronóstico experimental.</p>
       <p><strong>Historia disponible: 626 días con datos reales</strong>,
       desde 2024-08-19 hasta 2026-09-08.
       Hay 122 fechas sin descarga pública y
@@ -2599,6 +2855,8 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
   <p id="detail-description" class="product-description"></p>
   <dl><dt>Precio del envase</dt><dd id="detail-package"></dd><dt>Por unidad</dt><dd id="detail-reference"></dd></dl>
   <p class="caption" id="detail-unit-note" hidden>No comparable por unidad.</p>
+  <section class="forecast-detail" id="detail-forecast" hidden><h3>Pronóstico para el día siguiente · experimental</h3>
+    <p id="detail-prediction"></p><p class="caption">Tendencia de los últimos cambios de precio de la cadena en toda la zona. Precisión limitada; no garantiza el precio futuro.</p></section>
 </dialog>
 <script>
 const priceDetail = document.getElementById('price-detail');
@@ -2622,6 +2880,8 @@ document.querySelectorAll('.price-button').forEach(function(button) {
     document.getElementById('detail-package').textContent = button.dataset.package;
     document.getElementById('detail-reference').textContent = button.dataset.comparable === 'true' ? button.dataset.reference : '—';
     document.getElementById('detail-unit-note').hidden = button.dataset.comparable === 'true';
+    document.getElementById('detail-forecast').hidden = !button.dataset.forecast;
+    document.getElementById('detail-prediction').textContent = button.dataset.forecast;
     priceDetail.show();
     const anchor = button.getBoundingClientRect();
     const size = priceDetail.getBoundingClientRect();

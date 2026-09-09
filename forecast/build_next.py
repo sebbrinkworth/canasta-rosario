@@ -81,10 +81,11 @@ def main():
         if vol > abs(last) * 0.08:
             conf = "baja"
         pid, cid = col.split("__", 1)
-        items[col] = {"dir": d, "delta_pct": round(float(delta), 2),
+        items[col] = {"as_of": s.index[-1].strftime("%Y-%m-%d"), "dir": d, "delta_pct": round(float(delta), 2),
                       "pred": round(float(pred), 2), "last": round(float(last), 2), "conf": conf}
     OUT.write_text(json.dumps({
         "mode": mode,
+        "as_of": df.index[-1].strftime("%Y-%m-%d") if len(df) else None,
         "price_normalization_version": json.loads(real_files[-1].read_text()).get("price_normalization_version") if real_files else None,
         "real_days": used_real,
         "synthetic_days": 0,

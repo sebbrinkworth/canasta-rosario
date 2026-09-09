@@ -65,7 +65,7 @@ Dos capas de evaluación (2026-09-05: bugs corregidos tras revisión externa):
 
 La evaluación inicial tenía <30 días reales y ~92% de pares día-a-día planos.
 La sección de evaluación del sitio informa los aciertos de movimiento y mantiene los resultados experimentales en una sección desplegable,
-separados de la tabla de precios observados. No se muestran flechas de pronóstico.
+separados de la tabla de precios observados. Las flechas de pronóstico del método liviano aparecen junto a los precios en «Toda la zona»; el valor estimado y su variación se muestran al tocar el precio.
 
 ## Covariables
 
