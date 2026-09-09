@@ -6,9 +6,9 @@
     "2024-08-20",
     "2026-09-09"
   ],
-  "n": 64937,
-  "hits": 54257,
-  "hit_rate": 83.6,
+  "n": 64983,
+  "hits": 54291,
+  "hit_rate": 83.5,
   "mae": 61.6,
   "mape": 1.86,
   "baseline_persistence": {
@@ -18,34 +18,34 @@
     "note": "Todo modelo propuesto debe superar esta línea base. Con series mayormente planas, la persistencia gana en MAE y acierto direccional; el drift solo aporta si anticipa cambios reales."
   },
   "scoring": {
-    "filled_skipped": 43951,
+    "filled_skipped": 43905,
     "note": "Los precios rellenados por ffill no se puntúan: solo observaciones reales."
   },
   "assortment": {
-    "price_changes": 3877,
-    "with_desc_or_brand_change": 2086,
-    "pct": 53.8,
+    "price_changes": 3883,
+    "with_desc_or_brand_change": 2091,
+    "pct": 53.9,
     "note": "Cambios de precio donde el cheapest también cambió de descripción/marca: el movimiento puede ser assortment, no repricing del mismo producto."
   },
   "pred_dist": {
-    "estable": 56571,
-    "sube": 4956,
-    "baja": 3410
+    "estable": 56606,
+    "sube": 4964,
+    "baja": 3413
   },
   "moves_prec": {
     "sube": {
-      "n": 4956,
+      "n": 4964,
       "hits": 120,
       "precision": 2.4
     },
     "baja": {
-      "n": 3410,
+      "n": 3413,
       "hits": 65,
       "precision": 1.9
     },
     "estable": {
-      "n": 56571,
-      "hits": 54072,
+      "n": 56606,
+      "hits": 54106,
       "precision": 95.6
     }
   },
@@ -53,25 +53,25 @@
     "threshold_pct": 0.8,
     "note": "Precision/recall/F1 por clase de dirección (daily). precision = de las veces que predijo la clase, cuántas acertó; recall = de las veces que la clase ocurrió, cuántas anticipó.",
     "sube": {
-      "n": 4956,
-      "actual": 2189,
+      "n": 4964,
+      "actual": 2190,
       "hits": 120,
       "precision": 2.4,
       "recall": 5.5,
-      "f1": 3.36
+      "f1": 3.35
     },
     "baja": {
-      "n": 3410,
-      "actual": 1688,
+      "n": 3413,
+      "actual": 1693,
       "hits": 65,
       "precision": 1.9,
-      "recall": 3.9,
+      "recall": 3.8,
       "f1": 2.55
     },
     "estable": {
-      "n": 56571,
-      "actual": 61060,
-      "hits": 54072,
+      "n": 56606,
+      "actual": 61100,
+      "hits": 54106,
       "precision": 95.6,
       "recall": 88.6,
       "f1": 91.93
@@ -83,43 +83,75 @@
     "horizon_days": 7,
     "classes": {
       "sube": {
-        "n": 4124,
-        "actual": 7751,
+        "n": 4128,
+        "actual": 7762,
         "hits": 543,
         "precision": 13.2,
         "recall": 7.0,
-        "f1": 9.15
+        "f1": 9.13
       },
       "baja": {
-        "n": 2834,
-        "actual": 6366,
+        "n": 2836,
+        "actual": 6368,
         "hits": 280,
         "precision": 9.9,
         "recall": 4.4,
-        "f1": 6.09
+        "f1": 6.08
       },
       "estable": {
-        "n": 46670,
-        "actual": 39511,
-        "hits": 35839,
+        "n": 46709,
+        "actual": 39543,
+        "hits": 35865,
         "precision": 76.8,
         "recall": 90.7,
-        "f1": 83.17
+        "f1": 83.16
       }
     },
     "mov_prec_summary": {
-      "sube_pred": 4124,
+      "sube_pred": 4128,
       "sube_precision": 13.2,
       "sube_recall": 7.0,
-      "baja_pred": 2834,
+      "baja_pred": 2836,
       "baja_precision": 9.9,
       "baja_recall": 4.4
     }
   },
   "by_category": {
-    "Otro": {
-      "n": 64937,
-      "hit_rate": 83.6
+    "Almacén": {
+      "n": 14068,
+      "hit_rate": 85.1
+    },
+    "Carnes": {
+      "n": 4147,
+      "hit_rate": 84.4
+    },
+    "Conservas": {
+      "n": 5779,
+      "hit_rate": 84.7
+    },
+    "Frescos": {
+      "n": 2887,
+      "hit_rate": 85.7
+    },
+    "Infusiones": {
+      "n": 4924,
+      "hit_rate": 88.1
+    },
+    "Limpieza": {
+      "n": 7950,
+      "hit_rate": 91.4
+    },
+    "Lácteos": {
+      "n": 11588,
+      "hit_rate": 83.9
+    },
+    "Panificados": {
+      "n": 3207,
+      "hit_rate": 89.1
+    },
+    "Verdulería": {
+      "n": 10433,
+      "hit_rate": 69.7
     }
   }
 }
