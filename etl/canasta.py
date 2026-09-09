@@ -1,4 +1,7 @@
-"""Canasta Rosario v1 — 25 items definition. v1.0.1: EAN-first prefixes added, stricter keywords kept in etl.py NEGATIVE."""
+"""Canasta Rosario — 25 items. Legacy ean_prefixes are metadata only;
+manufacturer prefixes must never be used to infer a product category.
+Only explicitly curated complete ean_codes can override description matching.
+"""
 CANASTA = [
     {"id": "leche_entera", "name": "Leche entera", "category": "Lácteos", "unit": "L", "unit_display": "1 L", "need_qty": 1, "need_unit": "L", "keywords": ["leche entera", "leche "], "ean_prefixes": ["779074", "779038", "779007", "779015"], "fallback_must": ["leche"]},
     {"id": "pan_lactal", "name": "Pan lactal", "category": "Panificados", "unit": "kg", "unit_display": "500 g", "need_qty": 0.5, "need_unit": "kg", "keywords": ["pan lactal"], "ean_prefixes": ["779004", "779058"]},

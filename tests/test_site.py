@@ -44,3 +44,15 @@ def test_superseded_forecast_scores_are_not_presented_as_current():
     assert '2.220 predicciones' in html
     evaluation['status'] = 'superseded'
     assert 'pendiente repetirla' in render_forecast({}, evaluation, 'package-price-v2')
+
+
+def test_history_reports_observed_days_and_explicit_gaps():
+    from web.generate import render_history
+    history = {'snapshots': 626, 'first_date': '2024-08-19', 'last_date': '2026-09-08',
+               'unavailable_dates': ['2026-04-01'], 'rejected_source_dates': {'2024-12-27': {}}}
+    html = render_history(history)
+    assert '626 días con datos reales' in html
+    assert '1 fechas sin descarga pública' in html
+    assert '1 archivos descartados' in html
+    assert 'history-evaluation/report.md' in html
+    assert render_history({}) == ''

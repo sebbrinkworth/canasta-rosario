@@ -8,10 +8,12 @@ historia. Honestidad > completitud.
 Forecast method (lightweight, no GPU): drift of last 5 diffs on price_per_unit.
 Full TimesFM3 eval lives in forecast/test_harness.py (b3sti4 4060).
 """
-import json, pathlib
+import json, pathlib, sys
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from forecast.backtest import contiguous_history
 DATA = ROOT / "data"
 OUT = DATA / "forecast-next.json"
 
@@ -44,7 +46,9 @@ def load_df(files, field="price_per_unit"):
     import pandas as pd
     df = pd.DataFrame.from_dict(rows, orient="index")
     df.index = pd.to_datetime(df.index)
-    return df.sort_index().ffill(limit=2)
+    df = df.sort_index()
+    df = df.reindex(pd.date_range(df.index.min(), df.index.max(), freq="D"))
+    return df.ffill(limit=2)
 
 def main():
     real_files = sorted(DATA.glob("rosario-*.json"))
@@ -56,7 +60,7 @@ def main():
     used_real, used_synt = real_days, 0
     items = {}
     for col in df.columns:
-        s = df[col].dropna()
+        s = contiguous_history(df[col])
         if len(s) < 4:
             continue
         last = float(s.iloc[-1])

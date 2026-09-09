@@ -110,6 +110,8 @@ def normalize_observation(observation, expected_unit):
     A generic '1 UNI' is one package, not necessarily one egg or one kg.
     Legacy derived price_per_unit is intentionally ignored on every rebuild.
     """
+    if observation.get("identity_conflict"):
+        return None
     price = positive_number(observation.get("price_lista"))
     if price is None:
         return None

@@ -1,0 +1,3994 @@
+{
+  "date": "2026-02-25",
+  "gran_rosario": true,
+  "price_normalization_version": "package-price-v2",
+  "branches_count": 15,
+  "chains": [
+    {
+      "id": "10",
+      "label": "Carrefour"
+    },
+    {
+      "id": "12",
+      "label": "Coto"
+    },
+    {
+      "id": "15",
+      "label": "DIA"
+    },
+    {
+      "id": "16",
+      "label": "Libertad"
+    },
+    {
+      "id": "9",
+      "label": "Jumbo/Vea/Disco"
+    }
+  ],
+  "hero": [
+    {
+      "chain_id": "16",
+      "chain_label": "Libertad",
+      "total": 63838.75,
+      "items_found": 22
+    },
+    {
+      "chain_id": "10",
+      "chain_label": "Carrefour",
+      "total": 67088.37,
+      "items_found": 24
+    },
+    {
+      "chain_id": "12",
+      "chain_label": "Coto",
+      "total": 72699.36,
+      "items_found": 24
+    },
+    {
+      "chain_id": "15",
+      "chain_label": "DIA",
+      "total": 79200.52,
+      "items_found": 24
+    },
+    {
+      "chain_id": "9",
+      "chain_label": "Jumbo/Vea/Disco",
+      "total": 94970.63,
+      "items_found": 16
+    }
+  ],
+  "table": [
+    {
+      "id": "leche_entera",
+      "name": "Leche entera",
+      "unit_display": "1 L",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 1490.0,
+          "price_per_unit": 1490.0,
+          "per_unit": "L",
+          "desc": "LECHE ULTRA ENTERA CARREFOUR CLASSIC SACHET X 1LT",
+          "marca": "CARREFOUR CLASSIC",
+          "price_basis": "description",
+          "normalized_quantity": 1.0,
+          "product_id": "7791720029749",
+          "branch_id": "32",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 1390.0,
+          "price_per_unit": 1390.0,
+          "per_unit": "L",
+          "desc": "LECHE ENTERA COTO ULTRAPASTEURIZADA SCH 1 LTR",
+          "marca": "COTO",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7798039600058",
+          "branch_id": "165",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1480.0,
+          "price_per_unit": 1480.0,
+          "per_unit": "L",
+          "desc": "LECHE SACHET ULTRA E",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "8480017286291",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 1471.0,
+          "price_per_unit": 1471.0,
+          "per_unit": "L",
+          "desc": "LECHE MANFREY DES C/VITX1LT   ",
+          "marca": "MANFREY                       ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7791058000601",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 1300.0,
+          "price_per_unit": 6500.0,
+          "per_unit": "L",
+          "desc": "Leche UAT Entera LS 3% 200cc BRK-200-ml.",
+          "marca": "LA SERENISIMA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.2,
+          "product_id": "7790742357205",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "12"
+    },
+    {
+      "id": "pan_lactal",
+      "name": "Pan lactal",
+      "unit_display": "500 g",
+      "category": "Panificados",
+      "prices": {
+        "10": {
+          "price_lista": 3990.0,
+          "price_per_unit": 6650.0,
+          "per_unit": "kg",
+          "desc": "PAN LACTAL X 600GRS",
+          "marca": "ELABORACION PROPIA",
+          "price_basis": "description",
+          "normalized_quantity": 0.6,
+          "product_id": "7798125690109",
+          "branch_id": "33",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 3339.0,
+          "price_per_unit": 9275.0,
+          "per_unit": "kg",
+          "desc": "PAN LACTAL CENTENO INT CJA 360 GRM",
+          "marca": ".",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.36,
+          "product_id": "7798217932452",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 3040.0,
+          "price_per_unit": 8444.44,
+          "per_unit": "kg",
+          "desc": "PAN LACTAL BLANCO",
+          "marca": "",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.36,
+          "product_id": "7798164190578",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 2596.0,
+          "price_per_unit": 7417.14,
+          "per_unit": "kg",
+          "desc": "PAN LACTAL DONYEYO R/FINAS350G",
+          "marca": "sin marca",
+          "price_basis": "description",
+          "normalized_quantity": 0.35000000000000003,
+          "product_id": "7795293000198",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": null
+      },
+      "cheapest_chain": "10"
+    },
+    {
+      "id": "arroz",
+      "name": "Arroz largo fino",
+      "unit_display": "1 kg",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 1050.0,
+          "price_per_unit": 1050.0,
+          "per_unit": "kg",
+          "desc": "ARROZ BLANCO SHANGRILA X 1 KG",
+          "marca": "SHANGRILA",
+          "price_basis": "description",
+          "normalized_quantity": 1.0,
+          "product_id": "7798078450379",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 1599.0,
+          "price_per_unit": 1599.0,
+          "per_unit": "kg",
+          "desc": "ARROZ VANGUARDIA LARGO FINO 00000 PAQ 1 KGM",
+          "marca": "VANGUARDIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7798078450126",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1260.0,
+          "price_per_unit": 1260.0,
+          "per_unit": "kg",
+          "desc": "ARROZ LARG FINO 0000",
+          "marca": "CUQUE",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "8480017281470",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 2645.0,
+          "price_per_unit": 1001.89,
+          "per_unit": "kg",
+          "desc": "TOST.CRIO ARROZ S.SAL 24X110G ",
+          "marca": "sin marca",
+          "price_basis": "description",
+          "normalized_quantity": 2.64,
+          "product_id": "7790040133921",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 1850.0,
+          "price_per_unit": 3700.0,
+          "per_unit": "kg",
+          "desc": "Arroz MOLINOS ALA Doble Carolina x500g PAQ-500-gr.",
+          "marca": "MOLINOS ALA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7791120021565",
+          "branch_id": "5218",
+          "bandera_id": "3"
+        }
+      },
+      "cheapest_chain": "16"
+    },
+    {
+      "id": "fideos",
+      "name": "Fideos secos",
+      "unit_display": "500 g",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 799.0,
+          "price_per_unit": 1598.0,
+          "per_unit": "kg",
+          "desc": "FIDEOS CODOS BULNEZ PAQUETE X 500 GRS",
+          "marca": "BULNEZ",
+          "price_basis": "description",
+          "normalized_quantity": 0.5,
+          "product_id": "7791720036907",
+          "branch_id": "41",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 900.0,
+          "price_per_unit": 1800.0,
+          "per_unit": "kg",
+          "desc": "FIDEOS GUISEROS SEM.MOSTACHOL ALDENTE PAQ 500 GRM",
+          "marca": "ALDENTE",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7798031152067",
+          "branch_id": "96",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 870.0,
+          "price_per_unit": 1740.0,
+          "per_unit": "kg",
+          "desc": "FIDEOS SPAGHETTI",
+          "marca": "CUQUE",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "8480017064158",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 589.0,
+          "price_per_unit": 1178.0,
+          "per_unit": "kg",
+          "desc": "FIDEOS CANALE TALLARIN X 500 G",
+          "marca": "CANALE                        ",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7794910056600",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 1397.0,
+          "price_per_unit": 2794.0,
+          "per_unit": "kg",
+          "desc": "fideos LUCCHETTI Coditos PAQ-500-gr.",
+          "marca": "LUCHETTI",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7790070318343",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "16"
+    },
+    {
+      "id": "aceite_girasol",
+      "name": "Aceite girasol",
+      "unit_display": "1,5 L",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 5210.0,
+          "price_per_unit": 3473.33,
+          "per_unit": "L",
+          "desc": "ACEITE GIRASOL COCINERO PET X 1.5 LT",
+          "marca": "COCINERO",
+          "price_basis": "description",
+          "normalized_quantity": 1.5,
+          "product_id": "7790060023684",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 5799.0,
+          "price_per_unit": 3866.0,
+          "per_unit": "L",
+          "desc": "ACEITE GIRASOL LEGITIMO BOT 1,5 LTR",
+          "marca": "LEGITIMO",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.5,
+          "product_id": "7798316700815",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 5100.0,
+          "price_per_unit": 3400.0,
+          "per_unit": "L",
+          "desc": "ACEITE DE GIRASOL",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.5,
+          "product_id": "8480017241146",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 3290.0,
+          "price_per_unit": 3655.56,
+          "per_unit": "L",
+          "desc": "ACEITE DE GIRASOL COCINERO 900",
+          "marca": "COCINERO                      ",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.9,
+          "product_id": "7790070012050",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": null
+      },
+      "cheapest_chain": "15"
+    },
+    {
+      "id": "harina_000",
+      "name": "Harina 000",
+      "unit_display": "1 kg",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 789.0,
+          "price_per_unit": 789.0,
+          "per_unit": "kg",
+          "desc": "HARINA DE TRIGO 000 BULNEZ X 1 KG",
+          "marca": "BULNEZ",
+          "price_basis": "description",
+          "normalized_quantity": 1.0,
+          "product_id": "7791720036686",
+          "branch_id": "18",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 899.0,
+          "price_per_unit": 899.0,
+          "per_unit": "kg",
+          "desc": "HARINA DE TRIGO  000 CHACABUCO PAQ. 1 KGM",
+          "marca": "CHACABUCO",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7799037060011",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 650.0,
+          "price_per_unit": 650.0,
+          "per_unit": "kg",
+          "desc": "HARINA DE TRIGO 000",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "8480017242723",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 899.0,
+          "price_per_unit": 899.0,
+          "per_unit": "kg",
+          "desc": "HARINA 000 MORIXE X 1KG       ",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7790199000013",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 1700.0,
+          "price_per_unit": 1700.0,
+          "per_unit": "kg",
+          "desc": "Harina Pureza Leud P/Repost Ulta refin PAQ-1000-gr.",
+          "marca": "PUREZA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7792180140708",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "15"
+    },
+    {
+      "id": "azucar",
+      "name": "Azúcar",
+      "unit_display": "1 kg",
+      "category": "Almacén",
+      "prices": {
+        "10": {
+          "price_lista": 1090.0,
+          "price_per_unit": 1090.0,
+          "per_unit": "kg",
+          "desc": "AZUCAR COMUN BULNEZ X 1 KG",
+          "marca": "BULNEZ",
+          "price_basis": "description",
+          "normalized_quantity": 1.0,
+          "product_id": "7791720048726",
+          "branch_id": "18",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 1149.0,
+          "price_per_unit": 1149.0,
+          "per_unit": "kg",
+          "desc": "AZUCAR LA CAMPECHANA PAQ 1 KGM",
+          "marca": "LA CAMPECHANA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "0659525879112",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1199.0,
+          "price_per_unit": 1199.0,
+          "per_unit": "kg",
+          "desc": "AZUCAR COMUN TIPO A",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "8480017298515",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 1099.0,
+          "price_per_unit": 1099.0,
+          "per_unit": "kg",
+          "desc": "AZÚCAR AZUCEL X 1 KG.         ",
+          "marca": "AZUCEL                        ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7798174970016",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 2650.0,
+          "price_per_unit": 5300.0,
+          "per_unit": "kg",
+          "desc": "Azucar Light HILERET x 500-gr. BSA-500-gr.",
+          "marca": "HILERET",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7794940000536",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "10"
+    },
+    {
+      "id": "yerba",
+      "name": "Yerba mate",
+      "unit_display": "1 kg",
+      "category": "Infusiones",
+      "prices": {
+        "10": {
+          "price_lista": 2990.0,
+          "price_per_unit": 2990.0,
+          "per_unit": "kg",
+          "desc": "YERBA MATE S TACC BULNEZ X 1 KG",
+          "marca": "BULNEZ",
+          "price_basis": "description",
+          "normalized_quantity": 1.0,
+          "product_id": "7791720032312",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 1539.0,
+          "price_per_unit": 3078.0,
+          "per_unit": "kg",
+          "desc": "YERBA MATE HIERBAS SERRANAS NATURA PAQ 500 GRM",
+          "marca": "NATURA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7792198006645",
+          "branch_id": "96",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 2760.0,
+          "price_per_unit": 2760.0,
+          "per_unit": "kg",
+          "desc": "YERBA MATE SUAVE",
+          "marca": "CHAMI",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7790070509017",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 2989.0,
+          "price_per_unit": 2989.0,
+          "per_unit": "kg",
+          "desc": "YERBA MATE LA HOJA X 1KG      ",
+          "marca": "LA HOJA                       ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "7791680101103",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 1539.0,
+          "price_per_unit": 3078.0,
+          "per_unit": "kg",
+          "desc": "Yerba Mate CHAMIGO x500g sin TACC PAQ-500-gr.",
+          "marca": "CHAMIGO",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7790070509123",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "15"
+    },
+    {
+      "id": "cafe",
+      "name": "Café instantáneo",
+      "unit_display": "170 g",
+      "category": "Infusiones",
+      "prices": {
+        "10": {
+          "price_lista": 4460.0,
+          "price_per_unit": 35680.0,
+          "per_unit": "kg",
+          "desc": "CAFE INSTANTANEO COOKIES CREAM DOLCA X 125 GRS",
+          "marca": "DOLCA",
+          "price_basis": "description",
+          "normalized_quantity": 0.125,
+          "product_id": "8445290794819",
+          "branch_id": "33",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 6825.0,
+          "price_per_unit": 30333.33,
+          "per_unit": "kg",
+          "desc": "CAFÉ INSTANTÁNEO CHOCOMOCHA NESCAFE DOLCA DOY 225 GRM",
+          "marca": "NESCAFE DOLCA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.225,
+          "product_id": "8445291311190",
+          "branch_id": "96",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 7360.0,
+          "price_per_unit": 43294.12,
+          "per_unit": "kg",
+          "desc": "CAFE INSTANTANEO",
+          "marca": "MOREN",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.17,
+          "product_id": "7790170904507",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 8599.0,
+          "price_per_unit": 50582.35,
+          "per_unit": "kg",
+          "desc": "CAFÉ INSTANTÁNEO LA VIRGINIA S",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.17,
+          "product_id": "7790150101490",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": null
+      },
+      "cheapest_chain": "12"
+    },
+    {
+      "id": "tomate_triturado",
+      "name": "Tomate triturado",
+      "unit_display": "520 g",
+      "category": "Conservas",
+      "prices": {
+        "10": {
+          "price_lista": 759.0,
+          "price_per_unit": 1459.62,
+          "per_unit": "kg",
+          "desc": "PURE DE TOMATES BULNEZ X 520 GRS",
+          "marca": "BULNEZ",
+          "price_basis": "description",
+          "normalized_quantity": 0.52,
+          "product_id": "7791720036273",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 852.0,
+          "price_per_unit": 1638.46,
+          "per_unit": "kg",
+          "desc": "PURE DE TOMATE SABORES DEL VALLE BRK 520 GRM",
+          "marca": "SABORES DEL VAL",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.52,
+          "product_id": "7798156760062",
+          "branch_id": "96",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 910.0,
+          "price_per_unit": 1750.0,
+          "per_unit": "kg",
+          "desc": "PURE DE TOMATE",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.52,
+          "product_id": "8480017299314",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 1990.0,
+          "price_per_unit": 2072.92,
+          "per_unit": "kg",
+          "desc": "TOMATE TRITURADO DULCOR X960 G",
+          "marca": "DULCOR                        ",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.96,
+          "product_id": "7793046015024",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 1300.0,
+          "price_per_unit": 2500.0,
+          "per_unit": "kg",
+          "desc": "Pure de tomate MOLTO Slim x 520g CJA-520-gr.",
+          "marca": "MOLTO",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.52,
+          "product_id": "7798138554603",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "10"
+    },
+    {
+      "id": "arvejas",
+      "name": "Arvejas",
+      "unit_display": "350 g",
+      "category": "Conservas",
+      "prices": {
+        "10": {
+          "price_lista": 695.0,
+          "price_per_unit": 2044.12,
+          "per_unit": "kg",
+          "desc": "ARVEJAS SECAS REMOJADAS DONA PUPA TETRA X 340 GRS",
+          "marca": "DONA PUPA",
+          "price_basis": "description",
+          "normalized_quantity": 0.34,
+          "product_id": "7798096031055",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 699.0,
+          "price_per_unit": 2055.88,
+          "per_unit": "kg",
+          "desc": "ARVEJAS VIGENTE TTB 340 GRM",
+          "marca": "VIGENTE",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.34,
+          "product_id": "7790123001376",
+          "branch_id": "96",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 675.0,
+          "price_per_unit": 2250.0,
+          "per_unit": "kg",
+          "desc": "ARVEJAS SECAS REMOJA",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.3,
+          "product_id": "8480017260109",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 823.0,
+          "price_per_unit": 2351.43,
+          "per_unit": "kg",
+          "desc": "ARVEJAS SEC.REMOJ. INALPA     ",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.35,
+          "product_id": "7792350067019",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 570.0,
+          "price_per_unit": 1900.0,
+          "per_unit": "kg",
+          "desc": "Arvejas INALPA Secas Remojadas x300gr LAT-300-gr.",
+          "marca": "INALPA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.3,
+          "product_id": "7792350067019",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "9"
+    },
+    {
+      "id": "pollo",
+      "name": "Pollo entero",
+      "unit_display": "1 kg",
+      "category": "Carnes",
+      "prices": {
+        "10": {
+          "price_lista": 3890.0,
+          "price_per_unit": 3890.0,
+          "per_unit": "kg",
+          "desc": "POLLO CONGELADO",
+          "marca": "CARREFOUR CRISTAL",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2507384000001",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 2835.0,
+          "price_per_unit": 5670.0,
+          "per_unit": "kg",
+          "desc": "CAPELLETTIS POLLO Y VERDURA CIUDAD DEL LAGO PAQ 500 GRM",
+          "marca": "CIUDAD DEL LAGO",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "2800005680348",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 6190.0,
+          "price_per_unit": 15475.0,
+          "per_unit": "kg",
+          "desc": "NAHGUETS POLLO TIRAS",
+          "marca": "GRANG",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.4,
+          "product_id": "7798068288111",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 49850.0,
+          "price_per_unit": 3323.33,
+          "per_unit": "kg",
+          "desc": "ALIM.GATI CARNE Y POLLO 15KG  ",
+          "marca": "sin marca",
+          "price_basis": "description",
+          "normalized_quantity": 15.0,
+          "product_id": "8445290585066",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 9300.0,
+          "price_per_unit": 29062.5,
+          "per_unit": "kg",
+          "desc": "Emanadas EL NOBLE de pollo x4 320g CJA-320-gr.",
+          "marca": "EL NOBLE",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.32,
+          "product_id": "7798171572381",
+          "branch_id": "5218",
+          "bandera_id": "3"
+        }
+      },
+      "cheapest_chain": "16"
+    },
+    {
+      "id": "carne_picada",
+      "name": "Carne picada",
+      "unit_display": "1 kg",
+      "category": "Carnes",
+      "prices": {
+        "10": {
+          "price_lista": 7200.0,
+          "price_per_unit": 7200.0,
+          "per_unit": "kg",
+          "desc": "CARNE PICADA NOVILLO X KG",
+          "marca": "BULNEZ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2506116000005",
+          "branch_id": "33",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 6499.0,
+          "price_per_unit": 6499.0,
+          "per_unit": "kg",
+          "desc": "PICADA COMUN NOVILLITO  X KG.",
+          "marca": "COTO",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2004141200006",
+          "branch_id": "165",
+          "bandera_id": "1"
+        },
+        "15": null,
+        "16": null,
+        "9": null
+      },
+      "cheapest_chain": "12"
+    },
+    {
+      "id": "huevo",
+      "name": "Huevo",
+      "unit_display": "12 u",
+      "category": "Frescos",
+      "prices": {
+        "10": {
+          "price_lista": 8490.0,
+          "price_per_unit": 283.0,
+          "per_unit": "u",
+          "desc": "HUEVO BLANCO CARREFOUR CARTON X 30 UNI",
+          "marca": "CARREFOUR EL MERCADO",
+          "price_basis": "description",
+          "normalized_quantity": 30.0,
+          "product_id": "7798108347105",
+          "branch_id": "41",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 1995.0,
+          "price_per_unit": 332.5,
+          "per_unit": "u",
+          "desc": "HUEVO BLANCO CJA 6 UNI",
+          "marca": " ",
+          "price_basis": "presentation",
+          "normalized_quantity": 6.0,
+          "product_id": "7798064180136",
+          "branch_id": "165",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 4190.0,
+          "price_per_unit": 349.17,
+          "per_unit": "u",
+          "desc": "HUEVO BLANCO GDE",
+          "marca": "",
+          "price_basis": "presentation",
+          "normalized_quantity": 12.0,
+          "product_id": "7798064180143",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 10369.0,
+          "price_per_unit": 345.63,
+          "per_unit": "u",
+          "desc": "HUEVO COLOR CARNAVEX30UN      ",
+          "marca": "CARNAVE                       ",
+          "price_basis": "description",
+          "normalized_quantity": 30.0,
+          "product_id": "7798092353625",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 2350.0,
+          "price_per_unit": 391.67,
+          "per_unit": "u",
+          "desc": "Huevo CARNAVE blanco carton x 6 u PCK-6-un.",
+          "marca": "CARNAVE",
+          "price_basis": "presentation",
+          "normalized_quantity": 6.0,
+          "product_id": "7798092352048",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "10"
+    },
+    {
+      "id": "papa",
+      "name": "Papa",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 1390.0,
+          "price_per_unit": 1390.0,
+          "per_unit": "kg",
+          "desc": "PAPA X KG",
+          "marca": "CARREFOUR CRISTAL",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2303620000008",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 1199.0,
+          "price_per_unit": 1199.0,
+          "per_unit": "kg",
+          "desc": "PAPA COMERCIAL   X KG",
+          "marca": " ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2099937000007",
+          "branch_id": "96",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1390.0,
+          "price_per_unit": 1390.0,
+          "per_unit": "kg",
+          "desc": "PAPA NEGRA COMERCIAL",
+          "marca": "",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2490094000000",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 1699.0,
+          "price_per_unit": 1699.0,
+          "per_unit": "kg",
+          "desc": "PAPA SUELTA X KG.             ",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "0000000271115",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 3200.0,
+          "price_per_unit": 8000.0,
+          "per_unit": "kg",
+          "desc": "Pemezcla Ñoqui Papa MC plus 400 grs BSA-400-gr.",
+          "marca": "MAMA COCINA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.4,
+          "product_id": "7792180006752",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "12"
+    },
+    {
+      "id": "cebolla",
+      "name": "Cebolla",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 999.0,
+          "price_per_unit": 999.0,
+          "per_unit": "kg",
+          "desc": "CEBOLLA X KG",
+          "marca": "S/D",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2320056000006",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 799.0,
+          "price_per_unit": 799.0,
+          "per_unit": "kg",
+          "desc": "CEBOLLA COMERCIAL X KG",
+          "marca": " ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2063135000008",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1090.0,
+          "price_per_unit": 1090.0,
+          "per_unit": "kg",
+          "desc": "CEBOLLA COMERCIAL",
+          "marca": "",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2490063000000",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 1099.0,
+          "price_per_unit": 1099.0,
+          "per_unit": "kg",
+          "desc": "CEBOLLA RED AMARILLA X KG.    ",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "0000000271106",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": null
+      },
+      "cheapest_chain": "12"
+    },
+    {
+      "id": "manzana",
+      "name": "Manzana",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 3999.0,
+          "price_per_unit": 3999.0,
+          "per_unit": "kg",
+          "desc": "MANZANA X KG. COMERCIAL",
+          "marca": "S/D",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2304643000006",
+          "branch_id": "33",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 4499.0,
+          "price_per_unit": 4499.0,
+          "per_unit": "kg",
+          "desc": "MANZANA BOLSITA   XKG   ",
+          "marca": " ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2004022900001",
+          "branch_id": "165",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 4790.0,
+          "price_per_unit": 4790.0,
+          "per_unit": "kg",
+          "desc": "MANZANA PG",
+          "marca": "",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2490111000000",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 250.0,
+          "price_per_unit": 1785.71,
+          "per_unit": "kg",
+          "desc": "VERAO MANZANA 16X20X7G        ",
+          "marca": "sin marca",
+          "price_basis": "description",
+          "normalized_quantity": 0.14,
+          "product_id": "7622201717445",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": null
+      },
+      "cheapest_chain": "16"
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "unit_display": "1 kg",
+      "category": "Verdulería",
+      "prices": {
+        "10": {
+          "price_lista": 3499.0,
+          "price_per_unit": 3499.0,
+          "per_unit": "kg",
+          "desc": "BANANA SELECCI N X KG",
+          "marca": "S/D",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2508844000005",
+          "branch_id": "32",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 2299.0,
+          "price_per_unit": 2299.0,
+          "per_unit": "kg",
+          "desc": "BANANA COMERCIAL X KG",
+          "marca": " ",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2051432000005",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1790.0,
+          "price_per_unit": 1790.0,
+          "per_unit": "kg",
+          "desc": "BANANA NOA KG",
+          "marca": "",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2490038000000",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 3199.0,
+          "price_per_unit": 3199.0,
+          "per_unit": "kg",
+          "desc": "BANANA ECUADOR X KG.          ",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "0000000271588",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": null
+      },
+      "cheapest_chain": "15"
+    },
+    {
+      "id": "queso_cremoso",
+      "name": "Queso cremoso",
+      "unit_display": "1 kg",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 9900.0,
+          "price_per_unit": 9900.0,
+          "per_unit": "kg",
+          "desc": "QUESO CREMOSO 1 8 CLASSIC X KG S",
+          "marca": "CARREFOUR CLASSIC",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2510257000008",
+          "branch_id": "41",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 11899.0,
+          "price_per_unit": 11899.0,
+          "per_unit": "kg",
+          "desc": "QUESO CREMOSO HORMA LA PAULINA X KG",
+          "marca": "LA PAULINA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "2000199000001",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 5290.0,
+          "price_per_unit": 10580.0,
+          "per_unit": "kg",
+          "desc": "QUESO CREMOSO",
+          "marca": "ELPRA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7798099131189",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 12590.0,
+          "price_per_unit": 12590.0,
+          "per_unit": "kg",
+          "desc": "QUESO CREMOSO PUNTA DEL AGUA X",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "0000000476806",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 11888.0,
+          "price_per_unit": 11888.0,
+          "per_unit": "kg",
+          "desc": "Queso cremoso punta del agua HMA-1-Kg ",
+          "marca": "PUNTA DEL AGUA",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "0000000918237",
+          "branch_id": "5218",
+          "bandera_id": "3"
+        }
+      },
+      "cheapest_chain": "10"
+    },
+    {
+      "id": "yogur",
+      "name": "Yogur entero",
+      "unit_display": "1 kg",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 2369.0,
+          "price_per_unit": 2632.22,
+          "per_unit": "kg",
+          "desc": "YOGUR SEMIDESCRE BEBIBLE VAINILLA TREGAR X 900 GRS",
+          "marca": "TREGAR",
+          "price_basis": "description",
+          "normalized_quantity": 0.9,
+          "product_id": "7793913013580",
+          "branch_id": "33",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 2465.0,
+          "price_per_unit": 2738.89,
+          "per_unit": "kg",
+          "desc": "YOGUR BEBIBLE ENT.SAB.FRUTILLA GANDARA SCH 900 GRM",
+          "marca": "GANDARA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.9,
+          "product_id": "7798335282361",
+          "branch_id": "165",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 2835.0,
+          "price_per_unit": 3150.0,
+          "per_unit": "kg",
+          "desc": "YOGUR BEBIBLE VAINIL",
+          "marca": "GRANC",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.9,
+          "product_id": "7791337009691",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 2653.0,
+          "price_per_unit": 2792.63,
+          "per_unit": "kg",
+          "desc": "YOGUR ILOLAY TT DES VAI X950G ",
+          "marca": "sin marca",
+          "price_basis": "description",
+          "normalized_quantity": 0.9500000000000001,
+          "product_id": "7790787960811",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 1750.0,
+          "price_per_unit": 10937.5,
+          "per_unit": "kg",
+          "desc": "Yogur entero Frutilla Tregar 160g POT-160-gr.",
+          "marca": "TREGAR",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.16,
+          "product_id": "7793913013238",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "10"
+    },
+    {
+      "id": "manteca",
+      "name": "Manteca",
+      "unit_display": "200 g",
+      "category": "Lácteos",
+      "prices": {
+        "10": {
+          "price_lista": 2635.0,
+          "price_per_unit": 13175.0,
+          "per_unit": "kg",
+          "desc": "MANTECA PRIMER PREMIO X 200 GRS",
+          "marca": "PRIMER PREMIO",
+          "price_basis": "description",
+          "normalized_quantity": 0.2,
+          "product_id": "7798085370080",
+          "branch_id": "33",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 8165.0,
+          "price_per_unit": 16330.0,
+          "per_unit": "kg",
+          "desc": "MANTECA PRIMER PREMIO PAN 500 GRM",
+          "marca": "PRIMER PREMIO",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "7798085370752",
+          "branch_id": "165",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 8150.0,
+          "price_per_unit": 16300.0,
+          "per_unit": "kg",
+          "desc": "MANTECA CALIDAD EXTR",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.5,
+          "product_id": "8480017080899",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 3999.0,
+          "price_per_unit": 3999.0,
+          "per_unit": "kg",
+          "desc": "CHAUCHA MANTECA X KG .        ",
+          "marca": "sin marca",
+          "price_basis": "presentation",
+          "normalized_quantity": 1.0,
+          "product_id": "0000000271224",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 2000.0,
+          "price_per_unit": 20000.0,
+          "per_unit": "kg",
+          "desc": "Manteca la paulina x 100 gr PAQ-100-gr.",
+          "marca": "LA PAULINA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.1,
+          "product_id": "7790398100071",
+          "branch_id": "5218",
+          "bandera_id": "3"
+        }
+      },
+      "cheapest_chain": "16"
+    },
+    {
+      "id": "galletitas_agua",
+      "name": "Galletitas de agua",
+      "unit_display": "300 g",
+      "category": "Panificados",
+      "prices": {
+        "10": null,
+        "12": null,
+        "15": {
+          "price_lista": 2589.0,
+          "price_per_unit": 4794.44,
+          "per_unit": "kg",
+          "desc": "GALLETITAS AGUA X5",
+          "marca": "TRAVI",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.54,
+          "product_id": "7790040144095",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": null,
+        "9": null
+      },
+      "cheapest_chain": "15"
+    },
+    {
+      "id": "jabon_tocador",
+      "name": "Jabón de tocador",
+      "unit_display": "125 g",
+      "category": "Limpieza",
+      "prices": {
+        "10": {
+          "price_lista": 1590.0,
+          "price_per_unit": 5888.89,
+          "per_unit": "kg",
+          "desc": "JABON TOCADOR CREMOSO CARREFOUR SOFT 3X90 GR",
+          "marca": "CARREFOUR SOFT",
+          "price_basis": "description",
+          "normalized_quantity": 0.27,
+          "product_id": "7791720032879",
+          "branch_id": "268",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 2721.0,
+          "price_per_unit": 7256.0,
+          "per_unit": "kg",
+          "desc": "JABÓN TOCADOR FRESC.MARINA X3 ST.TROPEZ PAQ 375 GRM",
+          "marca": "ST.TROPEZ",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.375,
+          "product_id": "7794218000046",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1730.0,
+          "price_per_unit": 6407.41,
+          "per_unit": "kg",
+          "desc": "JABON TOCADOR X 3UD",
+          "marca": "CUPID",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.27,
+          "product_id": "7794218106373",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": null,
+        "9": {
+          "price_lista": 1550.0,
+          "price_per_unit": 5740.74,
+          "per_unit": "kg",
+          "desc": "jabón de tocador CUPIDO PAQ-270-gr.",
+          "marca": "CUPIDO",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.27,
+          "product_id": "7794218106229",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "9"
+    },
+    {
+      "id": "detergente",
+      "name": "Detergente",
+      "unit_display": "750 ml",
+      "category": "Limpieza",
+      "prices": {
+        "10": {
+          "price_lista": 1529.0,
+          "price_per_unit": 2038.67,
+          "per_unit": "L",
+          "desc": "DETERGENTE PLUS CREMOSO GLICERINA HEROE X 750 CC",
+          "marca": "HEROE",
+          "price_basis": "description",
+          "normalized_quantity": 0.75,
+          "product_id": "7798131250540",
+          "branch_id": "18",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 1859.99,
+          "price_per_unit": 2479.99,
+          "per_unit": "L",
+          "desc": "DETERGENTE DESENG.C/GLICERINA LIMÓN LIMZUL BOT 750 ML",
+          "marca": "LIMZUL",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.75,
+          "product_id": "7790990003350",
+          "branch_id": "95",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 1490.0,
+          "price_per_unit": 4966.67,
+          "per_unit": "L",
+          "desc": "DETERGENTE ULT MANZN",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 0.3,
+          "product_id": "8480017311191",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 1516.9,
+          "price_per_unit": 5056.33,
+          "per_unit": "L",
+          "desc": "DETERGENTE HÉROE LIMÓN 300 CC ",
+          "marca": "sin marca",
+          "price_basis": "description",
+          "normalized_quantity": 0.3,
+          "product_id": "7798131250472",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": {
+          "price_lista": 8100.0,
+          "price_per_unit": 2700.0,
+          "per_unit": "L",
+          "desc": "detergente liq ECOVITA intense DP 3000ml DOY-3-lt.",
+          "marca": "ECOVITA",
+          "price_basis": "presentation",
+          "normalized_quantity": 3.0,
+          "product_id": "7798124362342",
+          "branch_id": "430",
+          "bandera_id": "1"
+        }
+      },
+      "cheapest_chain": "10"
+    },
+    {
+      "id": "lavandina",
+      "name": "Lavandina",
+      "unit_display": "1 L",
+      "category": "Limpieza",
+      "prices": {
+        "10": {
+          "price_lista": 4000.0,
+          "price_per_unit": 1000.0,
+          "per_unit": "L",
+          "desc": "LAVANDINA ORIGINAL ODEX X 4 LT",
+          "marca": "ODEX",
+          "price_basis": "description",
+          "normalized_quantity": 4.0,
+          "product_id": "7791905023227",
+          "branch_id": "18",
+          "bandera_id": "1"
+        },
+        "12": {
+          "price_lista": 3574.99,
+          "price_per_unit": 893.75,
+          "per_unit": "L",
+          "desc": "LAVANDINA HEROE BID 4 LTR",
+          "marca": "HEROE",
+          "price_basis": "presentation",
+          "normalized_quantity": 4.0,
+          "product_id": "7798131250502",
+          "branch_id": "165",
+          "bandera_id": "1"
+        },
+        "15": {
+          "price_lista": 3690.0,
+          "price_per_unit": 922.5,
+          "per_unit": "L",
+          "desc": "LAVANDINA TRADICIONA",
+          "marca": "DIA",
+          "price_basis": "presentation",
+          "normalized_quantity": 4.0,
+          "product_id": "8480017253064",
+          "branch_id": "438",
+          "bandera_id": "1"
+        },
+        "16": {
+          "price_lista": 3479.0,
+          "price_per_unit": 869.75,
+          "per_unit": "L",
+          "desc": "LAVANDINA HÉORE 4 L CLASICA   ",
+          "marca": "sin marca",
+          "price_basis": "description",
+          "normalized_quantity": 4.0,
+          "product_id": "7798131250502",
+          "branch_id": "1202",
+          "bandera_id": "1"
+        },
+        "9": null
+      },
+      "cheapest_chain": "16"
+    }
+  ],
+  "zones": {
+    "rosario": {
+      "branches_count": 11,
+      "chains": [
+        {
+          "id": "10",
+          "label": "Carrefour"
+        },
+        {
+          "id": "12",
+          "label": "Coto"
+        },
+        {
+          "id": "16",
+          "label": "Libertad"
+        },
+        {
+          "id": "9",
+          "label": "Jumbo/Vea/Disco"
+        }
+      ],
+      "hero": [
+        {
+          "chain_id": "16",
+          "chain_label": "Libertad",
+          "total": 63838.75,
+          "items_found": 22
+        },
+        {
+          "chain_id": "10",
+          "chain_label": "Carrefour",
+          "total": 67088.37,
+          "items_found": 24
+        },
+        {
+          "chain_id": "12",
+          "chain_label": "Coto",
+          "total": 72899.36,
+          "items_found": 24
+        },
+        {
+          "chain_id": "9",
+          "chain_label": "Jumbo/Vea/Disco",
+          "total": 97414.47,
+          "items_found": 16
+        }
+      ],
+      "table": [
+        {
+          "id": "leche_entera",
+          "name": "Leche entera",
+          "unit_display": "1 L",
+          "category": "Lácteos",
+          "prices": {
+            "10": {
+              "price_lista": 1490.0,
+              "price_per_unit": 1490.0,
+              "per_unit": "L",
+              "desc": "LECHE ULTRA ENTERA CARREFOUR CLASSIC SACHET X 1LT",
+              "marca": "CARREFOUR CLASSIC",
+              "price_basis": "description",
+              "normalized_quantity": 1.0,
+              "product_id": "7791720029749",
+              "branch_id": "32",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 1390.0,
+              "price_per_unit": 1390.0,
+              "per_unit": "L",
+              "desc": "LECHE ENTERA COTO ULTRAPASTEURIZADA SCH 1 LTR",
+              "marca": "COTO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7798039600058",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 1471.0,
+              "price_per_unit": 1471.0,
+              "per_unit": "L",
+              "desc": "LECHE MANFREY DES C/VITX1LT   ",
+              "marca": "MANFREY                       ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7791058000601",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1300.0,
+              "price_per_unit": 6500.0,
+              "per_unit": "L",
+              "desc": "Leche UAT Entera LS 3% 200cc BRK-200-ml.",
+              "marca": "LA SERENISIMA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.2,
+              "product_id": "7790742357205",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "pan_lactal",
+          "name": "Pan lactal",
+          "unit_display": "500 g",
+          "category": "Panificados",
+          "prices": {
+            "10": {
+              "price_lista": 3990.0,
+              "price_per_unit": 6650.0,
+              "per_unit": "kg",
+              "desc": "PAN LACTAL X 600GRS",
+              "marca": "ELABORACION PROPIA",
+              "price_basis": "description",
+              "normalized_quantity": 0.6,
+              "product_id": "7798125690109",
+              "branch_id": "33",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 3339.0,
+              "price_per_unit": 9275.0,
+              "per_unit": "kg",
+              "desc": "PAN LACTAL CENTENO INT CJA 360 GRM",
+              "marca": ".",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.36,
+              "product_id": "7798217932452",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 2596.0,
+              "price_per_unit": 7417.14,
+              "per_unit": "kg",
+              "desc": "PAN LACTAL DONYEYO R/FINAS350G",
+              "marca": "sin marca",
+              "price_basis": "description",
+              "normalized_quantity": 0.35000000000000003,
+              "product_id": "7795293000198",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "arroz",
+          "name": "Arroz largo fino",
+          "unit_display": "1 kg",
+          "category": "Almacén",
+          "prices": {
+            "10": {
+              "price_lista": 1050.0,
+              "price_per_unit": 1050.0,
+              "per_unit": "kg",
+              "desc": "ARROZ BLANCO SHANGRILA X 1 KG",
+              "marca": "SHANGRILA",
+              "price_basis": "description",
+              "normalized_quantity": 1.0,
+              "product_id": "7798078450379",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 1599.0,
+              "price_per_unit": 1599.0,
+              "per_unit": "kg",
+              "desc": "ARROZ VANGUARDIA LARGO FINO 00000 PAQ 1 KGM",
+              "marca": "VANGUARDIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7798078450126",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 2645.0,
+              "price_per_unit": 1001.89,
+              "per_unit": "kg",
+              "desc": "TOST.CRIO ARROZ S.SAL 24X110G ",
+              "marca": "sin marca",
+              "price_basis": "description",
+              "normalized_quantity": 2.64,
+              "product_id": "7790040133921",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1850.0,
+              "price_per_unit": 3700.0,
+              "per_unit": "kg",
+              "desc": "Arroz MOLINOS ALA Doble Carolina x500g PAQ-500-gr.",
+              "marca": "MOLINOS ALA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7791120021565",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "16"
+        },
+        {
+          "id": "fideos",
+          "name": "Fideos secos",
+          "unit_display": "500 g",
+          "category": "Almacén",
+          "prices": {
+            "10": {
+              "price_lista": 799.0,
+              "price_per_unit": 1598.0,
+              "per_unit": "kg",
+              "desc": "FIDEOS CODOS BULNEZ PAQUETE X 500 GRS",
+              "marca": "BULNEZ",
+              "price_basis": "description",
+              "normalized_quantity": 0.5,
+              "product_id": "7791720036907",
+              "branch_id": "41",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 900.0,
+              "price_per_unit": 1800.0,
+              "per_unit": "kg",
+              "desc": "FIDEOS GUISEROS SEM.MOSTACHOL ALDENTE PAQ 500 GRM",
+              "marca": "ALDENTE",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7798031152067",
+              "branch_id": "97",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 589.0,
+              "price_per_unit": 1178.0,
+              "per_unit": "kg",
+              "desc": "FIDEOS CANALE TALLARIN X 500 G",
+              "marca": "CANALE                        ",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7794910056600",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1550.0,
+              "price_per_unit": 3100.0,
+              "per_unit": "kg",
+              "desc": "fideos LUCCHETTI Coditos PAQ-500-gr.",
+              "marca": "LUCHETTI",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7790070318343",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "16"
+        },
+        {
+          "id": "aceite_girasol",
+          "name": "Aceite girasol",
+          "unit_display": "1,5 L",
+          "category": "Almacén",
+          "prices": {
+            "10": {
+              "price_lista": 5210.0,
+              "price_per_unit": 3473.33,
+              "per_unit": "L",
+              "desc": "ACEITE GIRASOL COCINERO PET X 1.5 LT",
+              "marca": "COCINERO",
+              "price_basis": "description",
+              "normalized_quantity": 1.5,
+              "product_id": "7790060023684",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 5799.0,
+              "price_per_unit": 3866.0,
+              "per_unit": "L",
+              "desc": "ACEITE GIRASOL LEGITIMO BOT 1,5 LTR",
+              "marca": "LEGITIMO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.5,
+              "product_id": "7798316700815",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 3290.0,
+              "price_per_unit": 3655.56,
+              "per_unit": "L",
+              "desc": "ACEITE DE GIRASOL COCINERO 900",
+              "marca": "COCINERO                      ",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.9,
+              "product_id": "7790070012050",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "harina_000",
+          "name": "Harina 000",
+          "unit_display": "1 kg",
+          "category": "Almacén",
+          "prices": {
+            "10": {
+              "price_lista": 789.0,
+              "price_per_unit": 789.0,
+              "per_unit": "kg",
+              "desc": "HARINA DE TRIGO 000 BULNEZ X 1 KG",
+              "marca": "BULNEZ",
+              "price_basis": "description",
+              "normalized_quantity": 1.0,
+              "product_id": "7791720036686",
+              "branch_id": "18",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 899.0,
+              "price_per_unit": 899.0,
+              "per_unit": "kg",
+              "desc": "HARINA DE TRIGO  000 CHACABUCO PAQ. 1 KGM",
+              "marca": "CHACABUCO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7799037060011",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 899.0,
+              "price_per_unit": 899.0,
+              "per_unit": "kg",
+              "desc": "HARINA 000 MORIXE X 1KG       ",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7790199000013",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1750.0,
+              "price_per_unit": 1750.0,
+              "per_unit": "kg",
+              "desc": "Harina Pureza Leud P/Repost Ulta refin PAQ-1000-gr.",
+              "marca": "PUREZA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7792180140708",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "azucar",
+          "name": "Azúcar",
+          "unit_display": "1 kg",
+          "category": "Almacén",
+          "prices": {
+            "10": {
+              "price_lista": 1090.0,
+              "price_per_unit": 1090.0,
+              "per_unit": "kg",
+              "desc": "AZUCAR COMUN BULNEZ X 1 KG",
+              "marca": "BULNEZ",
+              "price_basis": "description",
+              "normalized_quantity": 1.0,
+              "product_id": "7791720048726",
+              "branch_id": "18",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 1149.0,
+              "price_per_unit": 1149.0,
+              "per_unit": "kg",
+              "desc": "AZUCAR LA CAMPECHANA PAQ 1 KGM",
+              "marca": "LA CAMPECHANA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0659525879112",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 1099.0,
+              "price_per_unit": 1099.0,
+              "per_unit": "kg",
+              "desc": "AZÚCAR AZUCEL X 1 KG.         ",
+              "marca": "AZUCEL                        ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7798174970016",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 2750.0,
+              "price_per_unit": 5500.0,
+              "per_unit": "kg",
+              "desc": "Azucar Light HILERET x 500-gr. BSA-500-gr.",
+              "marca": "HILERET",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7794940000536",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "yerba",
+          "name": "Yerba mate",
+          "unit_display": "1 kg",
+          "category": "Infusiones",
+          "prices": {
+            "10": {
+              "price_lista": 2990.0,
+              "price_per_unit": 2990.0,
+              "per_unit": "kg",
+              "desc": "YERBA MATE S TACC BULNEZ X 1 KG",
+              "marca": "BULNEZ",
+              "price_basis": "description",
+              "normalized_quantity": 1.0,
+              "product_id": "7791720032312",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 1539.0,
+              "price_per_unit": 3078.0,
+              "per_unit": "kg",
+              "desc": "YERBA MATE HIERBAS SERRANAS NATURA PAQ 500 GRM",
+              "marca": "NATURA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7792198006645",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 2989.0,
+              "price_per_unit": 2989.0,
+              "per_unit": "kg",
+              "desc": "YERBA MATE LA HOJA X 1KG      ",
+              "marca": "LA HOJA                       ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7791680101103",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1900.0,
+              "price_per_unit": 3800.0,
+              "per_unit": "kg",
+              "desc": "Yerba Mate CHAMIGO x500g sin TACC PAQ-500-gr.",
+              "marca": "CHAMIGO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7790070509123",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "16"
+        },
+        {
+          "id": "cafe",
+          "name": "Café instantáneo",
+          "unit_display": "170 g",
+          "category": "Infusiones",
+          "prices": {
+            "10": {
+              "price_lista": 4460.0,
+              "price_per_unit": 35680.0,
+              "per_unit": "kg",
+              "desc": "CAFE INSTANTANEO COOKIES CREAM DOLCA X 125 GRS",
+              "marca": "DOLCA",
+              "price_basis": "description",
+              "normalized_quantity": 0.125,
+              "product_id": "8445290794819",
+              "branch_id": "33",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 6825.0,
+              "price_per_unit": 30333.33,
+              "per_unit": "kg",
+              "desc": "CAFÉ INSTANTÁNEO CHOCOMOCHA NESCAFE DOLCA DOY 225 GRM",
+              "marca": "NESCAFE DOLCA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.225,
+              "product_id": "8445291311190",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 8599.0,
+              "price_per_unit": 50582.35,
+              "per_unit": "kg",
+              "desc": "CAFÉ INSTANTÁNEO LA VIRGINIA S",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.17,
+              "product_id": "7790150101490",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "tomate_triturado",
+          "name": "Tomate triturado",
+          "unit_display": "520 g",
+          "category": "Conservas",
+          "prices": {
+            "10": {
+              "price_lista": 759.0,
+              "price_per_unit": 1459.62,
+              "per_unit": "kg",
+              "desc": "PURE DE TOMATES BULNEZ X 520 GRS",
+              "marca": "BULNEZ",
+              "price_basis": "description",
+              "normalized_quantity": 0.52,
+              "product_id": "7791720036273",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 852.0,
+              "price_per_unit": 1638.46,
+              "per_unit": "kg",
+              "desc": "PURE DE TOMATE SABORES DEL VALLE BRK 520 GRM",
+              "marca": "SABORES DEL VAL",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.52,
+              "product_id": "7798156760062",
+              "branch_id": "97",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 1990.0,
+              "price_per_unit": 2072.92,
+              "per_unit": "kg",
+              "desc": "TOMATE TRITURADO DULCOR X960 G",
+              "marca": "DULCOR                        ",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.96,
+              "product_id": "7793046015024",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1350.0,
+              "price_per_unit": 2596.15,
+              "per_unit": "kg",
+              "desc": "Pure de tomate MOLTO Slim x 520g CJA-520-gr.",
+              "marca": "MOLTO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.52,
+              "product_id": "7798138554603",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "arvejas",
+          "name": "Arvejas",
+          "unit_display": "350 g",
+          "category": "Conservas",
+          "prices": {
+            "10": {
+              "price_lista": 695.0,
+              "price_per_unit": 2044.12,
+              "per_unit": "kg",
+              "desc": "ARVEJAS SECAS REMOJADAS DONA PUPA TETRA X 340 GRS",
+              "marca": "DONA PUPA",
+              "price_basis": "description",
+              "normalized_quantity": 0.34,
+              "product_id": "7798096031055",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 699.0,
+              "price_per_unit": 2055.88,
+              "per_unit": "kg",
+              "desc": "ARVEJAS VIGENTE TTB 340 GRM",
+              "marca": "VIGENTE",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.34,
+              "product_id": "7790123001376",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 823.0,
+              "price_per_unit": 2351.43,
+              "per_unit": "kg",
+              "desc": "ARVEJAS SEC.REMOJ. INALPA     ",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.35,
+              "product_id": "7792350067019",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 800.0,
+              "price_per_unit": 2352.94,
+              "per_unit": "kg",
+              "desc": "Arvejas MAROLIO t recart 340 gr BRK-340-gr.",
+              "marca": "MAROLIO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.34,
+              "product_id": "7797470007426",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "pollo",
+          "name": "Pollo entero",
+          "unit_display": "1 kg",
+          "category": "Carnes",
+          "prices": {
+            "10": {
+              "price_lista": 3890.0,
+              "price_per_unit": 3890.0,
+              "per_unit": "kg",
+              "desc": "POLLO CONGELADO",
+              "marca": "CARREFOUR CRISTAL",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2507384000001",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 2835.0,
+              "price_per_unit": 5670.0,
+              "per_unit": "kg",
+              "desc": "CAPELLETTIS POLLO Y VERDURA CIUDAD DEL LAGO PAQ 500 GRM",
+              "marca": "CIUDAD DEL LAGO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "2800005680348",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 49850.0,
+              "price_per_unit": 3323.33,
+              "per_unit": "kg",
+              "desc": "ALIM.GATI CARNE Y POLLO 15KG  ",
+              "marca": "sin marca",
+              "price_basis": "description",
+              "normalized_quantity": 15.0,
+              "product_id": "8445290585066",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 9300.0,
+              "price_per_unit": 29062.5,
+              "per_unit": "kg",
+              "desc": "Emanadas EL NOBLE de pollo x4 320g CJA-320-gr.",
+              "marca": "EL NOBLE",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.32,
+              "product_id": "7798171572381",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "16"
+        },
+        {
+          "id": "carne_picada",
+          "name": "Carne picada",
+          "unit_display": "1 kg",
+          "category": "Carnes",
+          "prices": {
+            "10": {
+              "price_lista": 7200.0,
+              "price_per_unit": 7200.0,
+              "per_unit": "kg",
+              "desc": "CARNE PICADA NOVILLO X KG",
+              "marca": "BULNEZ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2506116000005",
+              "branch_id": "33",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 6499.0,
+              "price_per_unit": 6499.0,
+              "per_unit": "kg",
+              "desc": "PICADA COMUN NOVILLITO  X KG.",
+              "marca": "COTO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2004141200006",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": null,
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "huevo",
+          "name": "Huevo",
+          "unit_display": "12 u",
+          "category": "Frescos",
+          "prices": {
+            "10": {
+              "price_lista": 8490.0,
+              "price_per_unit": 283.0,
+              "per_unit": "u",
+              "desc": "HUEVO BLANCO CARREFOUR CARTON X 30 UNI",
+              "marca": "CARREFOUR EL MERCADO",
+              "price_basis": "description",
+              "normalized_quantity": 30.0,
+              "product_id": "7798108347105",
+              "branch_id": "41",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 1995.0,
+              "price_per_unit": 332.5,
+              "per_unit": "u",
+              "desc": "HUEVO BLANCO CJA 6 UNI",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 6.0,
+              "product_id": "7798064180136",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 10369.0,
+              "price_per_unit": 345.63,
+              "per_unit": "u",
+              "desc": "HUEVO COLOR CARNAVEX30UN      ",
+              "marca": "CARNAVE                       ",
+              "price_basis": "description",
+              "normalized_quantity": 30.0,
+              "product_id": "7798092353625",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 2400.0,
+              "price_per_unit": 400.0,
+              "per_unit": "u",
+              "desc": "Huevo CARNAVE blanco carton x 6 u PCK-6-un.",
+              "marca": "CARNAVE",
+              "price_basis": "presentation",
+              "normalized_quantity": 6.0,
+              "product_id": "7798092352048",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "papa",
+          "name": "Papa",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "10": {
+              "price_lista": 1390.0,
+              "price_per_unit": 1390.0,
+              "per_unit": "kg",
+              "desc": "PAPA X KG",
+              "marca": "CARREFOUR CRISTAL",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2303620000008",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 1399.0,
+              "price_per_unit": 1399.0,
+              "per_unit": "kg",
+              "desc": "PAPA NEGRA SELECCION X KG",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2060947000004",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 1699.0,
+              "price_per_unit": 1699.0,
+              "per_unit": "kg",
+              "desc": "PAPA SUELTA X KG.             ",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0000000271115",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 3300.0,
+              "price_per_unit": 8250.0,
+              "per_unit": "kg",
+              "desc": "Pemezcla Ñoqui Papa MC plus 400 grs BSA-400-gr.",
+              "marca": "MAMA COCINA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.4,
+              "product_id": "7792180006752",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "cebolla",
+          "name": "Cebolla",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "10": {
+              "price_lista": 999.0,
+              "price_per_unit": 999.0,
+              "per_unit": "kg",
+              "desc": "CEBOLLA X KG",
+              "marca": "S/D",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2320056000006",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 799.0,
+              "price_per_unit": 799.0,
+              "per_unit": "kg",
+              "desc": "CEBOLLA COMERCIAL X KG",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2063135000008",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 1099.0,
+              "price_per_unit": 1099.0,
+              "per_unit": "kg",
+              "desc": "CEBOLLA RED AMARILLA X KG.    ",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0000000271106",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "manzana",
+          "name": "Manzana",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "10": {
+              "price_lista": 3999.0,
+              "price_per_unit": 3999.0,
+              "per_unit": "kg",
+              "desc": "MANZANA X KG. COMERCIAL",
+              "marca": "S/D",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2304643000006",
+              "branch_id": "33",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 4499.0,
+              "price_per_unit": 4499.0,
+              "per_unit": "kg",
+              "desc": "MANZANA BOLSITA   XKG   ",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2004022900001",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 250.0,
+              "price_per_unit": 1785.71,
+              "per_unit": "kg",
+              "desc": "VERAO MANZANA 16X20X7G        ",
+              "marca": "sin marca",
+              "price_basis": "description",
+              "normalized_quantity": 0.14,
+              "product_id": "7622201717445",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "16"
+        },
+        {
+          "id": "banana",
+          "name": "Banana",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "10": {
+              "price_lista": 3499.0,
+              "price_per_unit": 3499.0,
+              "per_unit": "kg",
+              "desc": "BANANA SELECCI N X KG",
+              "marca": "S/D",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2508844000005",
+              "branch_id": "32",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 2299.0,
+              "price_per_unit": 2299.0,
+              "per_unit": "kg",
+              "desc": "BANANA COMERCIAL X KG",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2051432000005",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 3199.0,
+              "price_per_unit": 3199.0,
+              "per_unit": "kg",
+              "desc": "BANANA ECUADOR X KG.          ",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0000000271588",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "queso_cremoso",
+          "name": "Queso cremoso",
+          "unit_display": "1 kg",
+          "category": "Lácteos",
+          "prices": {
+            "10": {
+              "price_lista": 9900.0,
+              "price_per_unit": 9900.0,
+              "per_unit": "kg",
+              "desc": "QUESO CREMOSO 1 8 CLASSIC X KG S",
+              "marca": "CARREFOUR CLASSIC",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2510257000008",
+              "branch_id": "41",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 11899.0,
+              "price_per_unit": 11899.0,
+              "per_unit": "kg",
+              "desc": "QUESO CREMOSO HORMA LA PAULINA X KG",
+              "marca": "LA PAULINA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2000199000001",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 12590.0,
+              "price_per_unit": 12590.0,
+              "per_unit": "kg",
+              "desc": "QUESO CREMOSO PUNTA DEL AGUA X",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0000000476806",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 11888.0,
+              "price_per_unit": 11888.0,
+              "per_unit": "kg",
+              "desc": "Queso cremoso punta del agua HMA-1-Kg ",
+              "marca": "PUNTA DEL AGUA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0000000918237",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "yogur",
+          "name": "Yogur entero",
+          "unit_display": "1 kg",
+          "category": "Lácteos",
+          "prices": {
+            "10": {
+              "price_lista": 2369.0,
+              "price_per_unit": 2632.22,
+              "per_unit": "kg",
+              "desc": "YOGUR SEMIDESCRE BEBIBLE VAINILLA TREGAR X 900 GRS",
+              "marca": "TREGAR",
+              "price_basis": "description",
+              "normalized_quantity": 0.9,
+              "product_id": "7793913013580",
+              "branch_id": "33",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 2465.0,
+              "price_per_unit": 2738.89,
+              "per_unit": "kg",
+              "desc": "YOGUR BEBIBLE ENT.SAB.FRUTILLA GANDARA SCH 900 GRM",
+              "marca": "GANDARA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.9,
+              "product_id": "7798335282361",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 2653.0,
+              "price_per_unit": 2792.63,
+              "per_unit": "kg",
+              "desc": "YOGUR ILOLAY TT DES VAI X950G ",
+              "marca": "sin marca",
+              "price_basis": "description",
+              "normalized_quantity": 0.9500000000000001,
+              "product_id": "7790787960811",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1800.0,
+              "price_per_unit": 11250.0,
+              "per_unit": "kg",
+              "desc": "Yogur entero Frutilla Tregar 160g POT-160-gr.",
+              "marca": "TREGAR",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.16,
+              "product_id": "7793913013238",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "manteca",
+          "name": "Manteca",
+          "unit_display": "200 g",
+          "category": "Lácteos",
+          "prices": {
+            "10": {
+              "price_lista": 2635.0,
+              "price_per_unit": 13175.0,
+              "per_unit": "kg",
+              "desc": "MANTECA PRIMER PREMIO X 200 GRS",
+              "marca": "PRIMER PREMIO",
+              "price_basis": "description",
+              "normalized_quantity": 0.2,
+              "product_id": "7798085370080",
+              "branch_id": "33",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 8165.0,
+              "price_per_unit": 16330.0,
+              "per_unit": "kg",
+              "desc": "MANTECA PRIMER PREMIO PAN 500 GRM",
+              "marca": "PRIMER PREMIO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7798085370752",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 3999.0,
+              "price_per_unit": 3999.0,
+              "per_unit": "kg",
+              "desc": "CHAUCHA MANTECA X KG .        ",
+              "marca": "sin marca",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0000000271224",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 2000.0,
+              "price_per_unit": 20000.0,
+              "per_unit": "kg",
+              "desc": "Manteca la paulina x 100 gr PAQ-100-gr.",
+              "marca": "LA PAULINA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.1,
+              "product_id": "7790398100071",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "16"
+        },
+        {
+          "id": "galletitas_agua",
+          "name": "Galletitas de agua",
+          "unit_display": "300 g",
+          "category": "Panificados",
+          "prices": {
+            "10": null,
+            "12": null,
+            "16": null,
+            "9": null
+          },
+          "cheapest_chain": null
+        },
+        {
+          "id": "jabon_tocador",
+          "name": "Jabón de tocador",
+          "unit_display": "125 g",
+          "category": "Limpieza",
+          "prices": {
+            "10": {
+              "price_lista": 1590.0,
+              "price_per_unit": 5888.89,
+              "per_unit": "kg",
+              "desc": "JABON TOCADOR CREMOSO CARREFOUR SOFT 3X90 GR",
+              "marca": "CARREFOUR SOFT",
+              "price_basis": "description",
+              "normalized_quantity": 0.27,
+              "product_id": "7791720032879",
+              "branch_id": "268",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 2721.0,
+              "price_per_unit": 7256.0,
+              "per_unit": "kg",
+              "desc": "JABÓN TOCADOR FRESC.MARINA X3 ST.TROPEZ PAQ 375 GRM",
+              "marca": "ST.TROPEZ",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.375,
+              "product_id": "7794218000046",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": null,
+            "9": {
+              "price_lista": 750.0,
+              "price_per_unit": 8823.53,
+              "per_unit": "kg",
+              "desc": "jabón de tocador PALMOLIVE karite 85gr PCK-85-gr.",
+              "marca": "PALMOLIVE",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.085,
+              "product_id": "7891024034781",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "detergente",
+          "name": "Detergente",
+          "unit_display": "750 ml",
+          "category": "Limpieza",
+          "prices": {
+            "10": {
+              "price_lista": 1529.0,
+              "price_per_unit": 2038.67,
+              "per_unit": "L",
+              "desc": "DETERGENTE PLUS CREMOSO GLICERINA HEROE X 750 CC",
+              "marca": "HEROE",
+              "price_basis": "description",
+              "normalized_quantity": 0.75,
+              "product_id": "7798131250540",
+              "branch_id": "18",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 1859.99,
+              "price_per_unit": 2479.99,
+              "per_unit": "L",
+              "desc": "DETERGENTE DESENG.C/GLICERINA LIMÓN LIMZUL BOT 750 ML",
+              "marca": "LIMZUL",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.75,
+              "product_id": "7790990003350",
+              "branch_id": "95",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 1516.9,
+              "price_per_unit": 5056.33,
+              "per_unit": "L",
+              "desc": "DETERGENTE HÉROE LIMÓN 300 CC ",
+              "marca": "sin marca",
+              "price_basis": "description",
+              "normalized_quantity": 0.3,
+              "product_id": "7798131250472",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 8350.0,
+              "price_per_unit": 2783.33,
+              "per_unit": "L",
+              "desc": "detergente liq ECOVITA intense DP 3000ml DOY-3-lt.",
+              "marca": "ECOVITA",
+              "price_basis": "presentation",
+              "normalized_quantity": 3.0,
+              "product_id": "7798124362342",
+              "branch_id": "5218",
+              "bandera_id": "3"
+            }
+          },
+          "cheapest_chain": "10"
+        },
+        {
+          "id": "lavandina",
+          "name": "Lavandina",
+          "unit_display": "1 L",
+          "category": "Limpieza",
+          "prices": {
+            "10": {
+              "price_lista": 4000.0,
+              "price_per_unit": 1000.0,
+              "per_unit": "L",
+              "desc": "LAVANDINA ORIGINAL ODEX X 4 LT",
+              "marca": "ODEX",
+              "price_basis": "description",
+              "normalized_quantity": 4.0,
+              "product_id": "7791905023227",
+              "branch_id": "18",
+              "bandera_id": "1"
+            },
+            "12": {
+              "price_lista": 3574.99,
+              "price_per_unit": 893.75,
+              "per_unit": "L",
+              "desc": "LAVANDINA HEROE BID 4 LTR",
+              "marca": "HEROE",
+              "price_basis": "presentation",
+              "normalized_quantity": 4.0,
+              "product_id": "7798131250502",
+              "branch_id": "165",
+              "bandera_id": "1"
+            },
+            "16": {
+              "price_lista": 3479.0,
+              "price_per_unit": 869.75,
+              "per_unit": "L",
+              "desc": "LAVANDINA HÉORE 4 L CLASICA   ",
+              "marca": "sin marca",
+              "price_basis": "description",
+              "normalized_quantity": 4.0,
+              "product_id": "7798131250502",
+              "branch_id": "1202",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "16"
+        }
+      ]
+    },
+    "gran": {
+      "branches_count": 4,
+      "chains": [
+        {
+          "id": "12",
+          "label": "Coto"
+        },
+        {
+          "id": "15",
+          "label": "DIA"
+        },
+        {
+          "id": "9",
+          "label": "Jumbo/Vea/Disco"
+        }
+      ],
+      "hero": [
+        {
+          "chain_id": "9",
+          "chain_label": "Jumbo/Vea/Disco",
+          "total": 67008.13,
+          "items_found": 15
+        },
+        {
+          "chain_id": "12",
+          "chain_label": "Coto",
+          "total": 73765.36,
+          "items_found": 24
+        },
+        {
+          "chain_id": "15",
+          "chain_label": "DIA",
+          "total": 79200.52,
+          "items_found": 24
+        }
+      ],
+      "table": [
+        {
+          "id": "leche_entera",
+          "name": "Leche entera",
+          "unit_display": "1 L",
+          "category": "Lácteos",
+          "prices": {
+            "12": {
+              "price_lista": 1390.0,
+              "price_per_unit": 1390.0,
+              "per_unit": "L",
+              "desc": "LECHE ENTERA COTO ULTRAPASTEURIZADA SCH 1 LTR",
+              "marca": "COTO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7798039600058",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1480.0,
+              "price_per_unit": 1480.0,
+              "per_unit": "L",
+              "desc": "LECHE SACHET ULTRA E",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "8480017286291",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1300.0,
+              "price_per_unit": 6500.0,
+              "per_unit": "L",
+              "desc": "Leche UAT Entera LS 3% 200cc BRK-200-ml.",
+              "marca": "LA SERENISIMA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.2,
+              "product_id": "7790742357205",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "pan_lactal",
+          "name": "Pan lactal",
+          "unit_display": "500 g",
+          "category": "Panificados",
+          "prices": {
+            "12": {
+              "price_lista": 3339.0,
+              "price_per_unit": 9275.0,
+              "per_unit": "kg",
+              "desc": "PAN LACTAL CENTENO INT CJA 360 GRM",
+              "marca": ".",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.36,
+              "product_id": "7798217932452",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 3040.0,
+              "price_per_unit": 8444.44,
+              "per_unit": "kg",
+              "desc": "PAN LACTAL BLANCO",
+              "marca": "",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.36,
+              "product_id": "7798164190578",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "arroz",
+          "name": "Arroz largo fino",
+          "unit_display": "1 kg",
+          "category": "Almacén",
+          "prices": {
+            "12": {
+              "price_lista": 1599.0,
+              "price_per_unit": 1599.0,
+              "per_unit": "kg",
+              "desc": "ARROZ VANGUARDIA LARGO FINO 00000 PAQ 1 KGM",
+              "marca": "VANGUARDIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7798078450126",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1260.0,
+              "price_per_unit": 1260.0,
+              "per_unit": "kg",
+              "desc": "ARROZ LARG FINO 0000",
+              "marca": "CUQUE",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "8480017281470",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 2400.0,
+              "price_per_unit": 4800.0,
+              "per_unit": "kg",
+              "desc": "arroz DOS HERMANOS Yamani  CJA-500-gr.",
+              "marca": "DOS HERMANOS",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7790503000265",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "fideos",
+          "name": "Fideos secos",
+          "unit_display": "500 g",
+          "category": "Almacén",
+          "prices": {
+            "12": {
+              "price_lista": 900.0,
+              "price_per_unit": 1800.0,
+              "per_unit": "kg",
+              "desc": "FIDEOS GUISEROS SEM.MOSTACHOL ALDENTE PAQ 500 GRM",
+              "marca": "ALDENTE",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7798031152067",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 870.0,
+              "price_per_unit": 1740.0,
+              "per_unit": "kg",
+              "desc": "FIDEOS SPAGHETTI",
+              "marca": "CUQUE",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "8480017064158",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1397.0,
+              "price_per_unit": 2794.0,
+              "per_unit": "kg",
+              "desc": "fideos LUCCHETTI Coditos PAQ-500-gr.",
+              "marca": "LUCHETTI",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7790070318343",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "aceite_girasol",
+          "name": "Aceite girasol",
+          "unit_display": "1,5 L",
+          "category": "Almacén",
+          "prices": {
+            "12": {
+              "price_lista": 5865.0,
+              "price_per_unit": 3910.0,
+              "per_unit": "L",
+              "desc": "ACEITE GIRASOL COCINERO BOT 1,5 LTR",
+              "marca": "COCINERO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.5,
+              "product_id": "7790060023684",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 5100.0,
+              "price_per_unit": 3400.0,
+              "per_unit": "L",
+              "desc": "ACEITE DE GIRASOL",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.5,
+              "product_id": "8480017241146",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "harina_000",
+          "name": "Harina 000",
+          "unit_display": "1 kg",
+          "category": "Almacén",
+          "prices": {
+            "12": {
+              "price_lista": 899.0,
+              "price_per_unit": 899.0,
+              "per_unit": "kg",
+              "desc": "HARINA DE TRIGO  000 CHACABUCO PAQ. 1 KGM",
+              "marca": "CHACABUCO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7799037060011",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 650.0,
+              "price_per_unit": 650.0,
+              "per_unit": "kg",
+              "desc": "HARINA DE TRIGO 000",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "8480017242723",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1700.0,
+              "price_per_unit": 1700.0,
+              "per_unit": "kg",
+              "desc": "Harina Pureza Leud P/Repost Ulta refin PAQ-1000-gr.",
+              "marca": "PUREZA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7792180140708",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "azucar",
+          "name": "Azúcar",
+          "unit_display": "1 kg",
+          "category": "Almacén",
+          "prices": {
+            "12": {
+              "price_lista": 1149.0,
+              "price_per_unit": 1149.0,
+              "per_unit": "kg",
+              "desc": "AZUCAR LA CAMPECHANA PAQ 1 KGM",
+              "marca": "LA CAMPECHANA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0659525879112",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1199.0,
+              "price_per_unit": 1199.0,
+              "per_unit": "kg",
+              "desc": "AZUCAR COMUN TIPO A",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "8480017298515",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 2650.0,
+              "price_per_unit": 5300.0,
+              "per_unit": "kg",
+              "desc": "Azucar Light HILERET x 500-gr. BSA-500-gr.",
+              "marca": "HILERET",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7794940000536",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "yerba",
+          "name": "Yerba mate",
+          "unit_display": "1 kg",
+          "category": "Infusiones",
+          "prices": {
+            "12": {
+              "price_lista": 1539.0,
+              "price_per_unit": 3078.0,
+              "per_unit": "kg",
+              "desc": "YERBA MATE HIERBAS SERRANAS NATURA PAQ 500 GRM",
+              "marca": "NATURA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7792198006645",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 2760.0,
+              "price_per_unit": 2760.0,
+              "per_unit": "kg",
+              "desc": "YERBA MATE SUAVE",
+              "marca": "CHAMI",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "7790070509017",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1539.0,
+              "price_per_unit": 3078.0,
+              "per_unit": "kg",
+              "desc": "Yerba Mate CHAMIGO x500g sin TACC PAQ-500-gr.",
+              "marca": "CHAMIGO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7790070509123",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "cafe",
+          "name": "Café instantáneo",
+          "unit_display": "170 g",
+          "category": "Infusiones",
+          "prices": {
+            "12": {
+              "price_lista": 6825.0,
+              "price_per_unit": 30333.33,
+              "per_unit": "kg",
+              "desc": "CAFÉ INSTANTÁNEO CHOCOMOCHA NESCAFE DOLCA DOY 225 GRM",
+              "marca": "NESCAFE DOLCA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.225,
+              "product_id": "8445291311190",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 7360.0,
+              "price_per_unit": 43294.12,
+              "per_unit": "kg",
+              "desc": "CAFE INSTANTANEO",
+              "marca": "MOREN",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.17,
+              "product_id": "7790170904507",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "tomate_triturado",
+          "name": "Tomate triturado",
+          "unit_display": "520 g",
+          "category": "Conservas",
+          "prices": {
+            "12": {
+              "price_lista": 852.0,
+              "price_per_unit": 1638.46,
+              "per_unit": "kg",
+              "desc": "PURE DE TOMATE SABORES DEL VALLE BRK 520 GRM",
+              "marca": "SABORES DEL VAL",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.52,
+              "product_id": "7798156760062",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 910.0,
+              "price_per_unit": 1750.0,
+              "per_unit": "kg",
+              "desc": "PURE DE TOMATE",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.52,
+              "product_id": "8480017299314",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1300.0,
+              "price_per_unit": 2500.0,
+              "per_unit": "kg",
+              "desc": "Pure de tomate MOLTO Slim x 520g CJA-520-gr.",
+              "marca": "MOLTO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.52,
+              "product_id": "7798138554603",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "arvejas",
+          "name": "Arvejas",
+          "unit_display": "350 g",
+          "category": "Conservas",
+          "prices": {
+            "12": {
+              "price_lista": 699.0,
+              "price_per_unit": 2055.88,
+              "per_unit": "kg",
+              "desc": "ARVEJAS VIGENTE TTB 340 GRM",
+              "marca": "VIGENTE",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.34,
+              "product_id": "7790123001376",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 675.0,
+              "price_per_unit": 2250.0,
+              "per_unit": "kg",
+              "desc": "ARVEJAS SECAS REMOJA",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.3,
+              "product_id": "8480017260109",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 570.0,
+              "price_per_unit": 1900.0,
+              "per_unit": "kg",
+              "desc": "Arvejas INALPA Secas Remojadas x300gr LAT-300-gr.",
+              "marca": "INALPA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.3,
+              "product_id": "7792350067019",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "9"
+        },
+        {
+          "id": "pollo",
+          "name": "Pollo entero",
+          "unit_display": "1 kg",
+          "category": "Carnes",
+          "prices": {
+            "12": {
+              "price_lista": 2835.0,
+              "price_per_unit": 5670.0,
+              "per_unit": "kg",
+              "desc": "CAPELLETTIS POLLO Y VERDURA CIUDAD DEL LAGO PAQ 500 GRM",
+              "marca": "CIUDAD DEL LAGO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "2800005680348",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 6190.0,
+              "price_per_unit": 15475.0,
+              "per_unit": "kg",
+              "desc": "NAHGUETS POLLO TIRAS",
+              "marca": "GRANG",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.4,
+              "product_id": "7798068288111",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "carne_picada",
+          "name": "Carne picada",
+          "unit_display": "1 kg",
+          "category": "Carnes",
+          "prices": {
+            "12": {
+              "price_lista": 6499.0,
+              "price_per_unit": 6499.0,
+              "per_unit": "kg",
+              "desc": "PICADA COMUN NOVILLITO  X KG.",
+              "marca": "COTO",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2004141200006",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": null,
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "huevo",
+          "name": "Huevo",
+          "unit_display": "12 u",
+          "category": "Frescos",
+          "prices": {
+            "12": {
+              "price_lista": 1995.0,
+              "price_per_unit": 332.5,
+              "per_unit": "u",
+              "desc": "HUEVO BLANCO CJA 6 UNI",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 6.0,
+              "product_id": "7798064180136",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 4190.0,
+              "price_per_unit": 349.17,
+              "per_unit": "u",
+              "desc": "HUEVO BLANCO GDE",
+              "marca": "",
+              "price_basis": "presentation",
+              "normalized_quantity": 12.0,
+              "product_id": "7798064180143",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 2350.0,
+              "price_per_unit": 391.67,
+              "per_unit": "u",
+              "desc": "Huevo CARNAVE blanco carton x 6 u PCK-6-un.",
+              "marca": "CARNAVE",
+              "price_basis": "presentation",
+              "normalized_quantity": 6.0,
+              "product_id": "7798092352048",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "papa",
+          "name": "Papa",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "12": {
+              "price_lista": 1199.0,
+              "price_per_unit": 1199.0,
+              "per_unit": "kg",
+              "desc": "PAPA COMERCIAL   X KG",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2099937000007",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1390.0,
+              "price_per_unit": 1390.0,
+              "per_unit": "kg",
+              "desc": "PAPA NEGRA COMERCIAL",
+              "marca": "",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2490094000000",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 3200.0,
+              "price_per_unit": 8000.0,
+              "per_unit": "kg",
+              "desc": "Pemezcla Ñoqui Papa MC plus 400 grs BSA-400-gr.",
+              "marca": "MAMA COCINA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.4,
+              "product_id": "7792180006752",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "cebolla",
+          "name": "Cebolla",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "12": {
+              "price_lista": 899.0,
+              "price_per_unit": 899.0,
+              "per_unit": "kg",
+              "desc": "CEBOLLA SELECCIONADA EN BOLSITA X KG",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2000615000004",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1090.0,
+              "price_per_unit": 1090.0,
+              "per_unit": "kg",
+              "desc": "CEBOLLA COMERCIAL",
+              "marca": "",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2490063000000",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "manzana",
+          "name": "Manzana",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "12": {
+              "price_lista": 4999.0,
+              "price_per_unit": 4999.0,
+              "per_unit": "kg",
+              "desc": "MANZANA X KG",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2061002000007",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 4790.0,
+              "price_per_unit": 4790.0,
+              "per_unit": "kg",
+              "desc": "MANZANA PG",
+              "marca": "",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2490111000000",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "banana",
+          "name": "Banana",
+          "unit_display": "1 kg",
+          "category": "Verdulería",
+          "prices": {
+            "12": {
+              "price_lista": 2699.0,
+              "price_per_unit": 2699.0,
+              "per_unit": "kg",
+              "desc": "BANANA CAVENDISH X KG",
+              "marca": " ",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2000446000006",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1790.0,
+              "price_per_unit": 1790.0,
+              "per_unit": "kg",
+              "desc": "BANANA NOA KG",
+              "marca": "",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2490038000000",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "queso_cremoso",
+          "name": "Queso cremoso",
+          "unit_display": "1 kg",
+          "category": "Lácteos",
+          "prices": {
+            "12": {
+              "price_lista": 11899.0,
+              "price_per_unit": 11899.0,
+              "per_unit": "kg",
+              "desc": "QUESO CREMOSO HORMA LA PAULINA X KG",
+              "marca": "LA PAULINA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "2000199000001",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 5290.0,
+              "price_per_unit": 10580.0,
+              "per_unit": "kg",
+              "desc": "QUESO CREMOSO",
+              "marca": "ELPRA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7798099131189",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 11888.0,
+              "price_per_unit": 11888.0,
+              "per_unit": "kg",
+              "desc": "Queso cremoso punta del agua HMA-1-Kg ",
+              "marca": "PUNTA DEL AGUA",
+              "price_basis": "presentation",
+              "normalized_quantity": 1.0,
+              "product_id": "0000000918237",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "yogur",
+          "name": "Yogur entero",
+          "unit_display": "1 kg",
+          "category": "Lácteos",
+          "prices": {
+            "12": {
+              "price_lista": 2465.0,
+              "price_per_unit": 2738.89,
+              "per_unit": "kg",
+              "desc": "YOGUR BEBIBLE ENT.SAB.FRUTILLA GANDARA SCH 900 GRM",
+              "marca": "GANDARA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.9,
+              "product_id": "7798335282361",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 2835.0,
+              "price_per_unit": 3150.0,
+              "per_unit": "kg",
+              "desc": "YOGUR BEBIBLE VAINIL",
+              "marca": "GRANC",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.9,
+              "product_id": "7791337009691",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1750.0,
+              "price_per_unit": 10937.5,
+              "per_unit": "kg",
+              "desc": "Yogur entero Frutilla Tregar 160g POT-160-gr.",
+              "marca": "TREGAR",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.16,
+              "product_id": "7793913013238",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "manteca",
+          "name": "Manteca",
+          "unit_display": "200 g",
+          "category": "Lácteos",
+          "prices": {
+            "12": {
+              "price_lista": 8165.0,
+              "price_per_unit": 16330.0,
+              "per_unit": "kg",
+              "desc": "MANTECA PRIMER PREMIO PAN 500 GRM",
+              "marca": "PRIMER PREMIO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "7798085370752",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 8150.0,
+              "price_per_unit": 16300.0,
+              "per_unit": "kg",
+              "desc": "MANTECA CALIDAD EXTR",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.5,
+              "product_id": "8480017080899",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 2000.0,
+              "price_per_unit": 20000.0,
+              "per_unit": "kg",
+              "desc": "Manteca la paulina x 100 gr PAQ-100-gr.",
+              "marca": "LA PAULINA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.1,
+              "product_id": "7790398100071",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "galletitas_agua",
+          "name": "Galletitas de agua",
+          "unit_display": "300 g",
+          "category": "Panificados",
+          "prices": {
+            "12": null,
+            "15": {
+              "price_lista": 2589.0,
+              "price_per_unit": 4794.44,
+              "per_unit": "kg",
+              "desc": "GALLETITAS AGUA X5",
+              "marca": "TRAVI",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.54,
+              "product_id": "7790040144095",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "15"
+        },
+        {
+          "id": "jabon_tocador",
+          "name": "Jabón de tocador",
+          "unit_display": "125 g",
+          "category": "Limpieza",
+          "prices": {
+            "12": {
+              "price_lista": 2721.0,
+              "price_per_unit": 7256.0,
+              "per_unit": "kg",
+              "desc": "JABÓN TOCADOR FRESC.MARINA X3 ST.TROPEZ PAQ 375 GRM",
+              "marca": "ST.TROPEZ",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.375,
+              "product_id": "7794218000046",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1730.0,
+              "price_per_unit": 6407.41,
+              "per_unit": "kg",
+              "desc": "JABON TOCADOR X 3UD",
+              "marca": "CUPID",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.27,
+              "product_id": "7794218106373",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 1550.0,
+              "price_per_unit": 5740.74,
+              "per_unit": "kg",
+              "desc": "jabón de tocador CUPIDO PAQ-270-gr.",
+              "marca": "CUPIDO",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.27,
+              "product_id": "7794218106229",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "9"
+        },
+        {
+          "id": "detergente",
+          "name": "Detergente",
+          "unit_display": "750 ml",
+          "category": "Limpieza",
+          "prices": {
+            "12": {
+              "price_lista": 1859.99,
+              "price_per_unit": 2479.99,
+              "per_unit": "L",
+              "desc": "DETERGENTE DESENG.C/GLICERINA LIMÓN LIMZUL BOT 750 ML",
+              "marca": "LIMZUL",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.75,
+              "product_id": "7790990003350",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 1490.0,
+              "price_per_unit": 4966.67,
+              "per_unit": "L",
+              "desc": "DETERGENTE ULT MANZN",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 0.3,
+              "product_id": "8480017311191",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": {
+              "price_lista": 8100.0,
+              "price_per_unit": 2700.0,
+              "per_unit": "L",
+              "desc": "detergente liq ECOVITA intense DP 3000ml DOY-3-lt.",
+              "marca": "ECOVITA",
+              "price_basis": "presentation",
+              "normalized_quantity": 3.0,
+              "product_id": "7798124362342",
+              "branch_id": "430",
+              "bandera_id": "1"
+            }
+          },
+          "cheapest_chain": "12"
+        },
+        {
+          "id": "lavandina",
+          "name": "Lavandina",
+          "unit_display": "1 L",
+          "category": "Limpieza",
+          "prices": {
+            "12": {
+              "price_lista": 3574.99,
+              "price_per_unit": 893.75,
+              "per_unit": "L",
+              "desc": "LAVANDINA HEROE BID 4 LTR",
+              "marca": "HEROE",
+              "price_basis": "presentation",
+              "normalized_quantity": 4.0,
+              "product_id": "7798131250502",
+              "branch_id": "96",
+              "bandera_id": "1"
+            },
+            "15": {
+              "price_lista": 3690.0,
+              "price_per_unit": 922.5,
+              "per_unit": "L",
+              "desc": "LAVANDINA TRADICIONA",
+              "marca": "DIA",
+              "price_basis": "presentation",
+              "normalized_quantity": 4.0,
+              "product_id": "8480017253064",
+              "branch_id": "438",
+              "bandera_id": "1"
+            },
+            "9": null
+          },
+          "cheapest_chain": "12"
+        }
+      ]
+    }
+  },
+  "generated_at": "2026-09-09T13:45:13.077936+00:00",
+  "source": {
+    "provider": "SEPA via Preciazo public archive",
+    "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+    "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/1e92cd42-4f94-4071-a165-62c4cb2ce23c-revID-809c9fc9-2ecb-4839-a9ad-94ad1a9e979a-sepa_miercoles.zip-repackaged.tar.zst",
+    "revision": "1e92cd42-4f94-4071-a165-62c4cb2ce23c-revID-809c9fc9-2ecb-4839-a9ad-94ad1a9e979a",
+    "first_seen_at": "2026-02-25T18:16:35.972Z",
+    "warnings": "",
+    "sha256": "7f4a15c1abc6841f4e5490be89e8178559495d19f4c1b093ca5618930e0e6526",
+    "compressed_bytes": 70157859,
+    "import_version": "preciazo-tar-v3",
+    "retrieved_at": "2026-09-09T13:45:13.046018+00:00"
+  },
+  "normalization": {
+    "candidate_observations": 11583,
+    "kept": 8138,
+    "rejected": 3445
+  }
+}

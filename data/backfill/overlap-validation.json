@@ -1,0 +1,48 @@
+{
+  "date": "2026-08-26",
+  "local_cells": 108,
+  "archive_cells": 110,
+  "same_price": 107,
+  "changed": [
+    {
+      "key": [
+        "arvejas",
+        "10"
+      ],
+      "old": {
+        "price_lista": 629.0,
+        "price_per_unit": 2096.67,
+        "per_unit": "kg",
+        "desc": "ARVEJAS SECAS. REMOJADAS BULNEZ LATA X 300 GRS",
+        "marca": "BULNEZ",
+        "price_basis": "description",
+        "normalized_quantity": 0.3
+      },
+      "archive": {
+        "price_lista": 1650.0,
+        "price_per_unit": 1964.29,
+        "per_unit": "kg",
+        "desc": "ARVEJAS SECAS REMOJADAS BULNEZ X 840 GRS",
+        "marca": "BULNEZ",
+        "price_basis": "description",
+        "normalized_quantity": 0.84,
+        "product_id": "7791720042946",
+        "branch_id": "41",
+        "bandera_id": "1"
+      }
+    }
+  ],
+  "only_local": [],
+  "only_archive": [
+    [
+      "jabon_tocador",
+      "12"
+    ],
+    [
+      "jabon_tocador",
+      "15"
+    ]
+  ],
+  "local_branches": 15,
+  "archive_branches": 15
+}

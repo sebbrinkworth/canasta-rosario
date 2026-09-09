@@ -55,6 +55,8 @@ def load_series(field="price_per_unit"):
     df = pd.DataFrame.from_dict(rows, orient="index")
     df.index = pd.to_datetime(df.index)
     df = df.sort_index()
+    if len(df):
+        df = df.reindex(pd.date_range(df.index.min(), df.index.max(), freq="D"))
     obs = pd.DataFrame.from_dict(raw, orient="index")
     obs.index = pd.to_datetime(obs.index)
     obs = obs.sort_index().reindex(df.index).fillna(False).astype(bool)
@@ -70,9 +72,15 @@ def direction(delta_pct):
     return "sube" if delta_pct > 0 else "baja"
 
 
+def contiguous_history(series_hist):
+    """Do not reconnect observations separated by more than the fill limit."""
+    missing = np.flatnonzero(series_hist.isna().to_numpy())
+    return series_hist.iloc[missing[-1] + 1:] if len(missing) else series_hist
+
+
 def drift_pred(series_hist):
     """Same logic as build_next.py: last + mean of last up-to-5 diffs."""
-    h = series_hist.dropna()
+    h = contiguous_history(series_hist)
     if len(h) < 4:
         return None
     last = float(h.iloc[-1])
@@ -133,11 +141,15 @@ def main():
         future = df.iloc[ti: ti + WEEK_H] if has_full_week else None
         day_hits = day_total = 0
         for col in df.columns:
-            h = hist[col].dropna()
+            h = contiguous_history(hist[col])
             a = actual[col]
             # no puntuar precios rellenados: el ffill no es una observación
             if not bool(obs_row.get(col, True)):
                 n_skipped_filled += 1
+                continue
+            # A next-day movement must be relative to yesterday's observation,
+            # not a stale price from before a missing interval.
+            if not bool(observed.iloc[ti - 1].get(col, False)):
                 continue
             if len(h) < 4 or np.isnan(a) or a == 0:
                 continue
@@ -252,7 +264,7 @@ def main():
         },
         "by_category": {k: {"n": v["n"], "hit_rate": round(v["hits"] / v["n"] * 100, 1)} for k, v in sorted(per_cat.items())},
     }, ensure_ascii=False, indent=2))
-    print(f"[backtest] {hits}/{total} = {hits/total*100:.1f}% dir. correcta en {n_days} dias, MAE {mae:.1f} -> {OUT}")
+    print(f"[backtest] {hits}/{total} = {(hits/total*100 if total else 0):.1f}% dir. correcta en {n_days} dias, MAE {mae:.1f} -> {OUT}")
     for k in ("sube", "baja", "estable"):
         e = event_prec[k]
         print(f"  daily {k}: n_pred={e['n']} actual={e['actual']} prec={e['precision']}% recall={e['recall']}% f1={e['f1']}")

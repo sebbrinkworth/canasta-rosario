@@ -7,6 +7,7 @@ import argparse, csv, io, json, re, zipfile, unicodedata
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
+from functools import lru_cache
 
 from etl.canasta import CANASTA, CANASTA_BY_ID
 from etl.prices import (NORMALIZATION_VERSION, normalize_unit, price_per_unit,
@@ -42,6 +43,7 @@ ALLOWED_CHAINS = {"2","9","10","11","12","13","15","16"}
 EXCLUDE_CHAINS = None
 NON_RETAIL_COMERCIOS = {"23"}  # Axion Energy: estaciones de servicio, no supermercados
 
+@lru_cache(maxsize=100000)
 def normalize_text(s: str) -> str:
     if not s: return ""
     s = s.lower()
@@ -144,33 +146,39 @@ def _strict_ok(pid: str, desc_n: str) -> bool:
             return True
     return False
 
+@lru_cache(maxsize=100000)
 def match_product(descripcion: str, ean: str = ""):
     desc_n = normalize_text(descripcion)
-    # Priority 1: EAN when available — direct high-confidence match
+    # Only curated complete barcodes identify a product. Manufacturer prefixes
+    # overlap many categories (e.g. rice and milk), so cannot classify a row.
     if ean:
         for item in CANASTA:
-            prefixes = item.get("ean_prefixes") or []
-            if prefixes and ean_matches(ean, prefixes):
-                # still respect negatives? EAN is trusted, skip negative check
+            if str(ean) in item.get("ean_codes", []):
                 return item["id"]
     # Priority 2: keyword fallback — require all primary keywords implicitly via kw match + negatives + strict
     best = None
     best_len = 0
     for item in CANASTA:
-        negs = NEGATIVE.get(item["id"], [])
-        if any(normalize_text(n) in desc_n for n in negs):
-            continue
-        if not _strict_ok(item["id"], desc_n):
-            continue
+        # Most supermarket rows are outside the basket. Check the short
+        # positive list before scanning dozens of exclusions; result is the
+        # same longest qualifying keyword, with much less backfill CPU work.
+        longest = 0
         for kw in item["keywords"]:
             kw_n = normalize_text(kw)
             if kw_n in desc_n:
                 if len(kw_n.strip()) <= 5:
                     if not re.search(r'\b' + re.escape(kw_n.strip()) + r'\b', desc_n):
                         continue
-                if len(kw_n) > best_len:
-                    best = item["id"]
-                    best_len = len(kw_n)
+                longest = max(longest, len(kw_n))
+        if longest <= best_len:
+            continue
+        negs = NEGATIVE.get(item["id"], [])
+        if any(normalize_text(n) in desc_n for n in negs):
+            continue
+        if not _strict_ok(item["id"], desc_n):
+            continue
+        best = item["id"]
+        best_len = longest
     return best
 
 def is_price_sane(price_per_unit: float) -> bool:
@@ -232,6 +240,47 @@ def is_rosario_branch(row, gran_rosario=False):
                 return True
         except: pass
     return False
+
+
+def observation_from_row(prow, branch):
+    """Keep SEPA product identity separate from its EAN indicator (0/1)."""
+    price = positive_number(prow.get("productos_precio_lista"))
+    if price is None:
+        return None
+    product_id = str(prow.get("id_producto") or "").strip()
+    desc = prow.get("productos_descripcion") or ""
+    canonical = match_product(desc, product_id)
+    if canonical is None:
+        return None
+    observation = {
+        "canonical_id": canonical,
+        "chain_id": prow.get("id_comercio"),
+        "bandera_id": prow.get("id_bandera"),
+        "chain_label": CHAIN_LABELS.get(prow.get("id_comercio"), prow.get("id_comercio")),
+        "branch_id": prow.get("id_sucursal"),
+        "branch_name": branch.get("sucursales_nombre", ""),
+        "branch_localidad": branch.get("sucursales_localidad", ""),
+        "product_id": product_id,
+        "ean": product_id,
+        "ean_flag": prow.get("productos_ean"),
+        "descripcion": desc,
+        "marca": prow.get("productos_marca") or "",
+        "price_lista": price,
+        "cantidad_presentacion": positive_number(prow.get("productos_cantidad_presentacion")) or 0,
+        "unidad_presentacion": prow.get("productos_unidad_medida_presentacion") or "",
+        "precio_referencia": prow.get("productos_precio_referencia") or "",
+        "cantidad_referencia": prow.get("productos_cantidad_referencia") or "",
+        "unidad_referencia": prow.get("productos_unidad_medida_referencia") or "",
+        "price_promo1": positive_number(prow.get("productos_precio_unitario_promo1")),
+        "promo1": prow.get("productos_leyenda_promo1") or "",
+        "price_promo2": positive_number(prow.get("productos_precio_unitario_promo2")),
+        "promo2": prow.get("productos_leyenda_promo2") or "",
+    }
+    normalized = normalize_observation(observation, CANASTA_BY_ID[canonical]["unit"])
+    return normalized if normalized is not None else {
+        **observation, "price_per_unit": None, "per_unit_name": "?",
+        "price_basis": "unverified", "price_normalization_version": NORMALIZATION_VERSION,
+    }
 
 def extract_observations(zip_path: Path, gran_rosario=False):
     comercios = {}
@@ -302,45 +351,11 @@ def extract_observations(zip_path: Path, gran_rosario=False):
                             key = (prow.get("id_comercio"), prow.get("id_bandera"), prow.get("id_sucursal"))
                             if key not in branch_keys:
                                 continue
-                            try:
-                                price_lista = float((prow.get("productos_precio_lista") or "").replace(",","."))
-                            except: continue
-                            if price_lista <=0: continue
-                            desc = prow.get("productos_descripcion") or ""
-                            ean = prow.get("productos_ean") or prow.get("id_producto") or ""
-                            canonical = match_product(desc, ean)
-                            if not canonical:
-                                continue
-                            try:
-                                qty_present = float((prow.get("productos_cantidad_presentacion") or "0").replace(",","."))
-                            except: qty_present = 0
-                            unit_present = prow.get("productos_unidad_medida_presentacion") or ""
-                            precio_ref = (prow.get("productos_precio_referencia") or "").strip()
-                            cantidad_ref = (prow.get("productos_cantidad_referencia") or "").strip()
-                            unidad_ref = (prow.get("productos_unidad_medida_referencia") or "").strip()
-                            bmatch = next((b for b in file_branches if b.get("id_sucursal")==prow.get("id_sucursal") and b.get("id_comercio")==prow.get("id_comercio")), None)
-                            observation = {
-                                "canonical_id": canonical,
-                                "chain_id": prow.get("id_comercio"),
-                                "chain_label": CHAIN_LABELS.get(prow.get("id_comercio"), prow.get("id_comercio")),
-                                "branch_id": prow.get("id_sucursal"),
-                                "branch_name": bmatch.get("sucursales_nombre") if bmatch else "",
-                                "branch_localidad": bmatch.get("sucursales_localidad") if bmatch else "",
-                                "ean": ean,
-                                "descripcion": desc,
-                                "marca": prow.get("productos_marca") or "",
-                                "price_lista": price_lista,
-                                "cantidad_presentacion": qty_present,
-                                "unidad_presentacion": unit_present,
-                                "precio_referencia": precio_ref,
-                                "cantidad_referencia": cantidad_ref,
-                                "unidad_referencia": unidad_ref,
-                            }
-                            normalized = normalize_observation(observation, CANASTA_BY_ID[canonical]["unit"])
-                            observations.append(normalized if normalized is not None else {
-                                **observation, "price_per_unit": None, "per_unit_name": "?",
-                                "price_basis": "unverified", "price_normalization_version": NORMALIZATION_VERSION,
-                            })
+                            branch = next(b for b in file_branches if
+                                          (b.get("id_comercio"), b.get("id_bandera"), b.get("id_sucursal")) == key)
+                            observation = observation_from_row(prow, branch)
+                            if observation is not None:
+                                observations.append(observation)
             except zipfile.BadZipFile:
                 continue
     return comercios, branches, observations
@@ -398,7 +413,7 @@ def build_table(agg):
         for cid in agg["chains"]:
             obs = agg["cheapest"][cid].get(item["id"])
             if obs:
-                row["prices"][cid] = {"price_lista": obs["price_lista"], "price_per_unit": obs["price_per_unit"], "per_unit": obs["per_unit_name"], "desc": obs["descripcion"], "marca": obs["marca"], "price_basis": obs.get("price_basis"), "normalized_quantity": obs.get("normalized_quantity")}
+                row["prices"][cid] = {"price_lista": obs["price_lista"], "price_per_unit": obs["price_per_unit"], "per_unit": obs["per_unit_name"], "desc": obs["descripcion"], "marca": obs["marca"], "price_basis": obs.get("price_basis"), "normalized_quantity": obs.get("normalized_quantity"), "product_id": obs.get("product_id"), "branch_id": obs.get("branch_id"), "bandera_id": obs.get("bandera_id")}
             else:
                 row["prices"][cid] = None
         vals=[(cid, v["price_per_unit"]) for cid,v in row["prices"].items() if v]

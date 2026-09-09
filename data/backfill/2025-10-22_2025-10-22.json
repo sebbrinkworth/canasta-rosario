@@ -1,0 +1,43 @@
+{
+  "start": "2025-10-22",
+  "end": "2025-10-22",
+  "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+  "index_sha256": "1209072b9c19e4d58dc89c1cfd7fc818046d2853367ab5c7174b5f1fe0f3cff9",
+  "import_version": "preciazo-tar-v3",
+  "started_at": "2026-09-09T13:50:21.109924+00:00",
+  "days": {
+    "2025-10-22": {
+      "date": "2025-10-22",
+      "status": "imported",
+      "branches": 13,
+      "observations": 10573,
+      "cells": 94,
+      "product_files": 4,
+      "selected_branch_rows": 138453,
+      "duplicate_rows": 0,
+      "conflicting_identities_excluded": 0,
+      "source": {
+        "provider": "SEPA via Preciazo public archive",
+        "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+        "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/1e92cd42-4f94-4071-a165-62c4cb2ce23c-revID-de413391-9105-4751-afb7-c1fe677bbc09-sepa_miercoles.zip-repackaged.tar.zst",
+        "revision": "1e92cd42-4f94-4071-a165-62c4cb2ce23c-revID-de413391-9105-4751-afb7-c1fe677bbc09",
+        "first_seen_at": "2025-10-22T18:00:58.741Z",
+        "warnings": "",
+        "sha256": "41c937f0876527eee466cd18efbca777f6793aef09138764ba6473097177f2b6",
+        "compressed_bytes": 61021429,
+        "import_version": "preciazo-tar-v3",
+        "retrieved_at": "2026-09-09T13:50:38.745012+00:00"
+      },
+      "seconds": 16.51,
+      "rejected_revisions": [
+        {
+          "revision": "1e92cd42-4f94-4071-a165-62c4cb2ce23c-revID-7b293cde-8c5c-4522-953c-2399acd939f3",
+          "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/1e92cd42-4f94-4071-a165-62c4cb2ce23c-revID-7b293cde-8c5c-4522-953c-2399acd939f3-sepa_miercoles.zip-repackaged.tar.zst",
+          "error": "ValueError: Archive date mismatch: expected 2025-10-22, found ['2025-10-15']",
+          "sha256": "28daae6296ef91302212182dc4bc0d2b4a4507d5bca5fcb75e70c60ae4050b48"
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-09-09T13:50:38.981998+00:00"
+}

@@ -52,9 +52,10 @@ def test_outlier_rejection():
     assert len(kept)==3
 
 def test_ean_priority():
-    # EAN prefix should win even if description ambiguous
-    assert match_product("ALIMENTO CUALQUIERA", ean="7790741234567") == "leche_entera"
-    assert match_product("PAN RALLADO", ean="7790740000000") == "leche_entera"  # EAN trumps keyword negative
+    # A manufacturer prefix does not identify a food category.
+    assert match_product("ALIMENTO CUALQUIERA", ean="7790741234567") is None
+    assert match_product("PAN RALLADO", ean="7790740000000") is None
+    assert match_product("ARROZ LARGO FINO 1 KG", ean="7790070431905") == "arroz"
 
 def test_strict_pan_lactal():
     assert match_product("PAN RALLADO") is None

@@ -2581,12 +2581,17 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
 <a href="https://github.com/sebbrinkworth/canasta-rosario/blob/main/docs/validation.md">Ver fuentes y validación técnica ↗</a></div></details>
 <details class="disclosure" id="pronostico"><summary>¿Podemos anticipar los precios? <span>En evaluación</span></summary>
       <div class="disclosure-body"><p>Estamos probando pronósticos para el día siguiente. La tabla muestra únicamente precios informados; las predicciones quedan fuera de la comparación.</p>
-      <p>En 1081 casos evaluados, el método de tendencia acertó 2 de 164 avisos de suba o baja.</p>
+      <p><strong>Historia disponible: 626 días con datos reales</strong>,
+      desde 2024-08-19 hasta 2026-09-08.
+      Hay 122 fechas sin descarga pública y
+      3 archivos descartados por fecha incorrecta.
+      Los huecos permanecen sin datos.</p>
+      <p><a href="https://github.com/sebbrinkworth/canasta-rosario/blob/main/forecast/history-evaluation/report.md">Comparación antes y después de recuperar la historia ↗</a></p><p>En 64874 casos evaluados, el método de tendencia acertó 185 de 8359 avisos de suba o baja.</p>
           <table class="metrics"><caption>Error de precio en los mismos casos (menor es mejor)</caption>
           <thead><tr><th scope="col">Método</th><th scope="col">Error medio absoluto</th></tr></thead>
-          <tbody><tr><th scope="row">Repetir el último precio</th><td>48,3</td></tr>
-          <tr><th scope="row">Tendencia reciente</th><td>73,3</td></tr></tbody></table>
-          <p class="caption">Error en pesos por unidad de referencia, agregado entre productos. Evaluamos solo precios observados.</p><p>La evaluación anterior de TimesFM usaba precios previos a la corrección de unidades. Está pendiente repetirla con los datos corregidos.</p><p>La historia todavía es corta. Más datos permiten evaluar mejor, pero no garantizan mejores predicciones.</p>
+          <tbody><tr><th scope="row">Repetir el último precio</th><td>41,8</td></tr>
+          <tr><th scope="row">Tendencia reciente</th><td>61,7</td></tr></tbody></table>
+          <p class="caption">Error en pesos por unidad de referencia, agregado entre productos. Evaluamos solo precios observados.</p><p>La evaluación anterior de TimesFM usaba precios previos a la corrección de unidades. Está pendiente repetirla con los datos corregidos.</p><p>Más datos permiten evaluar mejor, pero no garantizan mejores predicciones. La comparación de modelos usa ocho días de prueba.</p>
       <a href="https://github.com/sebbrinkworth/canasta-rosario/blob/main/forecast/README.md">Método y evaluación técnica ↗</a></div></details></section></main>
 <footer><span>Datos SEPA · CC BY 4.0</span><a href="https://github.com/sebbrinkworth/canasta-rosario">Código y datos abiertos ↗</a></footer></div>
 <dialog id="price-detail" class="price-popover" aria-labelledby="detail-title" aria-describedby="detail-description">

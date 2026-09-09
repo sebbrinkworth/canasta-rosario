@@ -8,4 +8,5 @@ data/covariates/
 *.zip
 *.db
 *.parquet
-
+data/research/
+data/archive-cache/

@@ -114,7 +114,19 @@ def render_zone(key, data, definitions, total_items):
     </section>'''
 
 
-def render_forecast(backtest, evaluation, normalization_version=None):
+def render_history(history):
+    if not history.get("snapshots"):
+        return ''
+    return f'''<p><strong>Historia disponible: {number(history['snapshots'])} días con datos reales</strong>,
+      desde {text(history['first_date'])} hasta {text(history['last_date'])}.
+      Hay {number(len(history.get('unavailable_dates', [])))} fechas sin descarga pública y
+      {number(len(history.get('rejected_source_dates', {})))} archivos descartados por fecha incorrecta.
+      Los huecos permanecen sin datos.</p>
+      <p><a href="{REPO_URL}/blob/main/forecast/history-evaluation/report.md">Comparación antes y después de recuperar la historia ↗</a></p>'''
+
+
+def render_forecast(backtest, evaluation, normalization_version=None, history=None):
+    history = history or {}
     baseline = backtest.get("baseline_persistence") or {}
     results = ''
     if backtest.get("n") and baseline:
@@ -137,7 +149,7 @@ def render_forecast(backtest, evaluation, normalization_version=None):
           usa una muestra distinta de la tabla anterior y no permite una comparación directa.</p>'''
     return f'''<details class="disclosure" id="pronostico"><summary>¿Podemos anticipar los precios? <span>En evaluación</span></summary>
       <div class="disclosure-body"><p>Estamos probando pronósticos para el día siguiente. La tabla muestra únicamente precios informados; las predicciones quedan fuera de la comparación.</p>
-      {results}{experiment}<p>La historia todavía es corta. Más datos permiten evaluar mejor, pero no garantizan mejores predicciones.</p>
+      {render_history(history)}{results}{experiment}<p>Más datos permiten evaluar mejor, pero no garantizan mejores predicciones. La comparación de modelos usa ocho días de prueba.</p>
       <a href="{REPO_URL}/blob/main/forecast/README.md">Método y evaluación técnica ↗</a></div></details>'''
 
 
@@ -157,7 +169,7 @@ a{color:var(--green);text-underline-offset:3px}button,summary{cursor:pointer}but
 """
 
 
-def build_page(data, backtest, evaluation, definitions):
+def build_page(data, backtest, evaluation, definitions, history=None):
     date = data["date"]
     formatted = f"{date[8:10]}/{date[5:7]}/{date[:4]}"
     count = len(data.get("table", []))
@@ -183,7 +195,7 @@ def build_page(data, backtest, evaluation, definitions):
 <p><strong>Cómo leer los subtotales.</strong> Aplicamos las cantidades de nuestra canasta a los productos disponibles. Si falta un producto o no podemos verificar su unidad, no se suma. Por eso una cadena con menos productos puede tener un subtotal menor sin ser más barata.</p>
 <p><strong>Límites.</strong> Calculamos el precio por kg, litro o unidad con el precio del envase y su contenido. Excluimos tamaños ambiguos; la selección automática del producto aún puede contener errores. Los precios son los informados en la fecha indicada; no garantizan stock ni el precio en caja. No incluimos descuentos bancarios.</p>
 <a href="{REPO_URL}/blob/main/docs/validation.md">Ver fuentes y validación técnica ↗</a></div></details>
-{render_forecast(backtest, evaluation, data.get("price_normalization_version"))}</section></main>
+{render_forecast(backtest, evaluation, data.get("price_normalization_version"), history)}</section></main>
 <footer><span>Datos SEPA · CC BY 4.0</span><a href="{REPO_URL}">Código y datos abiertos ↗</a></footer></div>
 <dialog id="price-detail" class="price-popover" aria-labelledby="detail-title" aria-describedby="detail-description">
   <div class="popover-heading"><h2 id="detail-title">Detalle del precio</h2><button type="button" class="close-popover" aria-label="Cerrar detalle">×</button></div>
@@ -258,7 +270,8 @@ def main():
     data = json.loads((ROOT / 'data/latest.json').read_text(encoding='utf-8'))
     page = build_page(data, read_optional(ROOT / 'data/backtest.json'),
                       read_optional(ROOT / 'forecast/eval_results.json'),
-                      {item['id']: item for item in CANASTA})
+                      {item['id']: item for item in CANASTA},
+                      history=read_optional(ROOT / 'data/backfill/completion.json'))
     for path in (ROOT / 'web/index.html', ROOT / 'index.html', ROOT / 'docs/index.html'):
         path.write_text(page, encoding='utf-8')
         print(f'Wrote {path} ({len(page)} characters)')

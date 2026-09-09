@@ -1,10 +1,43 @@
 # Forecast — Canasta Rosario × TimesFM 3
 
 **Datos reales únicamente.** El preview sintético (30 días) se eliminó el 2026-09-04
-por transparencia: nada sintético alimenta el sitio ni la evaluación. La historia
-SEPA real se acumula día a día (ventana rodante de 7 días en CKAN, sin backfill —
-lo que no se baja el día que sale, se pierde), lo que permite evaluar con más evidencia a medida que el recolector suma días.
-Más historia no garantiza mayor precisión.
+por transparencia: nada sintético alimenta el sitio ni la evaluación. CKAN conserva
+una ventana rodante de 7 días, pero existe un archivo público de SEPA mantenido
+por Preciazo que permite recuperar fechas anteriores. `etl/backfill.py` importa
+ese archivo, conserva la procedencia y deja explícitos los huecos y las revisiones
+inválidas. Más historia no garantiza mayor precisión.
+
+## Backfill y evaluación por etapas
+
+Ver [comparación de historia](history-evaluation/report.md) y sus resultados JSON:
+14 días originales, incorporación de julio/agosto, y resto del archivo disponible.
+Las tres etapas usan los mismos 860 objetivos de septiembre, con entrenamiento
+anterior a cada objetivo, persistencia, drift, persistencia semanal, regresión
+sobre retornos y TimesFM 3 real (solo investigación). No se ajustan parámetros
+con los resultados del período de prueba.
+
+```bash
+uv sync --extra evaluation
+# zstd debe estar instalado; TimesFM se instala aparte para investigación.
+uv run --no-sync python -m etl.backfill --start 2026-07-01 --end 2026-08-31
+uv run --no-sync python -m forecast.evaluate_history --stage full
+uv run --no-sync python -m forecast.report_history
+```
+
+La evaluación `full` requiere los resultados anteriores `baseline.json` y
+`july-august.json`. El reporte documenta cómo recrear las etapas.
+Las importaciones son reanudables y no modifican `latest.json` ni reemplazan
+observaciones locales existentes. Los crudos nuevos están en
+`data/raw/rosario-*.json.gz`; `etl/rebuild_tables.py` acepta JSON y JSON gzip.
+Se conservan `product_id`, `bandera_id`, `branch_id` y el indicador EAN por
+separado. Los prefijos de fabricante no clasifican alimentos. Las identidades
+con filas contradictorias se conservan para auditoría y se excluyen del agregado.
+Los huecos largos reinician el contexto; no se compactan fechas discontinuas.
+
+Próximos pasos: [experimentos propuestos](next-experiments.md), con validación
+en varios períodos, seguimiento del mismo producto, promociones y competidores.
+El evaluador acepta `--device auto|cpu|cuda`; `auto` usa CUDA si está disponible
+en la máquina donde se ejecuta. Las tres evaluaciones guardadas usaron CPU.
 
 ## Daily collector
 
@@ -30,8 +63,8 @@ Dos capas de evaluación (2026-09-05: bugs corregidos tras revisión externa):
 - **Assortment tracking**: % de cambios de precio donde el cheapest también cambió de descripción/marca (el movimiento puede ser surtido, no remarcación).
 - **Fallback accounting** en el harness: cada predicción naive dentro de una corrida TimesFM se cuenta (`fallback_naive`, `fallback_cov_dropped`); una corrida etiquetada TimesFM nunca contiene baseline en silencio.
 
-Con <30 días reales y ~92% de pares día-a-día planos, la precisión de eventos ↑↓
-es baja por diseño del problema; la sección de evaluación del sitio informa los aciertos de movimiento y el sitio mantiene los resultados experimentales en una sección desplegable,
+La evaluación inicial tenía <30 días reales y ~92% de pares día-a-día planos.
+La sección de evaluación del sitio informa los aciertos de movimiento y mantiene los resultados experimentales en una sección desplegable,
 separados de la tabla de precios observados. No se muestran flechas de pronóstico.
 
 ## Covariables

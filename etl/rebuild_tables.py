@@ -8,7 +8,7 @@ matcher (etl.etl.match_product) + normalized units.
 - Preserves date/branches/chains metadata shape; refreshes latest.json.
 - Prints before/after diagnostics per file.
 """
-import json, pathlib, sys
+import gzip, json, pathlib, sys
 from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -25,7 +25,11 @@ RAW = ROOT / "data" / "raw"
 AGG = ROOT / "data"
 
 def rebuild_one(raw_fp: pathlib.Path):
-    d = json.loads(raw_fp.read_text())
+    if raw_fp.name.endswith(".gz"):
+        with gzip.open(raw_fp, "rt", encoding="utf-8") as stream:
+            d = json.load(stream)
+    else:
+        d = json.loads(raw_fp.read_text())
     date_str = d.get("date") or raw_fp.stem.replace("rosario-", "")
     branches = d.get("branches", [])
     branches = [b for b in branches if str(b.get("id_comercio")) not in NON_RETAIL_COMERCIOS]
@@ -77,6 +81,8 @@ def rebuild_one(raw_fp: pathlib.Path):
         "normalization": {"excluded_unverified": sum(unverified_units.values()),
                           "excluded_by_product": dict(unverified_units)},
     }
+    if d.get("source"):
+        out["source"] = d["source"]
     (AGG / f"rosario-{date_str}.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     # Preserve the input archive: repeated rebuilds must not erase candidates.
@@ -87,7 +93,7 @@ def rebuild_one(raw_fp: pathlib.Path):
             "hero": [(h["chain_label"], h["total"]) for h in agg["hero"]]}
 
 if __name__ == "__main__":
-    files = sorted(RAW.glob("rosario-*.json"))
+    files = sorted([*RAW.glob("rosario-*.json"), *RAW.glob("rosario-*.json.gz")])
     print(f"rebuilding {len(files)} days")
     latest = None
     for fp in files:
@@ -104,7 +110,7 @@ if __name__ == "__main__":
     if not files:
         raise SystemExit("No raw snapshots found; existing outputs preserved")
     newest = max(files, key=lambda p: p.name)
-    date_str = newest.stem.replace("rosario-", "")
+    date_str = newest.name.removeprefix("rosario-").removesuffix(".gz").removesuffix(".json")
     (AGG / "latest.json").write_text(
         (AGG / f"rosario-{date_str}.json").read_text(encoding="utf-8"), encoding="utf-8")
     print(f"latest.json -> {date_str}")

@@ -51,6 +51,7 @@ def load_price_dataframe(price_field: str = "price_per_unit", fill_limit: int = 
     df = pd.DataFrame.from_dict(rows, orient="index")
     df.index = pd.to_datetime(df.index)
     df = df.sort_index()
+    df = df.reindex(pd.date_range(df.index.min(), df.index.max(), freq="D"))
     # forward-fill at most fill_limit days
     df = df.ffill(limit=fill_limit)
     return df
@@ -85,7 +86,9 @@ def load_price_observed(price_field: str = "price_per_unit") -> pd.DataFrame:
         return pd.DataFrame()
     obs = pd.DataFrame.from_dict(rows, orient="index")
     obs.index = pd.to_datetime(obs.index)
-    return obs.sort_index().fillna(False).astype(bool)
+    obs = obs.sort_index()
+    obs = obs.reindex(pd.date_range(obs.index.min(), obs.index.max(), freq="D"))
+    return obs.fillna(False).astype(bool)
 
 def load_meta():
     files = list_jsons()

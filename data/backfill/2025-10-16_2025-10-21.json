@@ -1,0 +1,175 @@
+{
+  "start": "2025-10-16",
+  "end": "2025-10-21",
+  "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+  "index_sha256": "1209072b9c19e4d58dc89c1cfd7fc818046d2853367ab5c7174b5f1fe0f3cff9",
+  "import_version": "preciazo-tar-v3",
+  "started_at": "2026-09-09T13:50:04.789081+00:00",
+  "days": {
+    "2025-10-20": {
+      "status": "unavailable",
+      "reason": "No indexed public download"
+    },
+    "2025-10-16": {
+      "date": "2025-10-16",
+      "status": "imported",
+      "branches": 15,
+      "observations": 11699,
+      "cells": 113,
+      "product_files": 5,
+      "selected_branch_rows": 151681,
+      "duplicate_rows": 0,
+      "conflicting_identities_excluded": 0,
+      "source": {
+        "provider": "SEPA via Preciazo public archive",
+        "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+        "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/d076720f-a7f0-4af8-b1d6-1b99d5a90c14-revID-686df02f-bca0-4ee1-b48c-25e79264fd7a-sepa_jueves.zip-repackaged.tar.zst",
+        "revision": "d076720f-a7f0-4af8-b1d6-1b99d5a90c14-revID-686df02f-bca0-4ee1-b48c-25e79264fd7a",
+        "first_seen_at": "2025-10-22T18:00:58.741Z",
+        "warnings": "",
+        "sha256": "34f7f4ea617ed3216185f0bf7daf3089fde95bc32fec14c6a90f7917013db5cf",
+        "compressed_bytes": 67701476,
+        "import_version": "preciazo-tar-v3",
+        "retrieved_at": "2026-09-09T13:50:32.244816+00:00"
+      },
+      "seconds": 25.4,
+      "rejected_revisions": [
+        {
+          "revision": "d076720f-a7f0-4af8-b1d6-1b99d5a90c14-revID-c9de4815-ca01-44e8-915b-984d4f01758b",
+          "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/d076720f-a7f0-4af8-b1d6-1b99d5a90c14-revID-c9de4815-ca01-44e8-915b-984d4f01758b-sepa_jueves.zip-repackaged.tar.zst",
+          "error": "ValueError: Archive date mismatch: expected 2025-10-16, found ['2025-10-09']",
+          "sha256": "d311674ebc15b78e6e691b3b0e77d6548e6e9fa25415d01e2ba37f8f0940d412"
+        }
+      ]
+    },
+    "2025-10-19": {
+      "date": "2025-10-19",
+      "status": "imported",
+      "branches": 15,
+      "observations": 11748,
+      "cells": 113,
+      "product_files": 5,
+      "selected_branch_rows": 152182,
+      "duplicate_rows": 0,
+      "conflicting_identities_excluded": 0,
+      "source": {
+        "provider": "SEPA via Preciazo public archive",
+        "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+        "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/f8e75128-515a-436e-bf8d-5c63a62f2005-revID-403ec23c-e3f5-40f1-8045-585152d84f2f-sepa_domingo.zip-repackaged.tar.zst",
+        "revision": "f8e75128-515a-436e-bf8d-5c63a62f2005-revID-403ec23c-e3f5-40f1-8045-585152d84f2f",
+        "first_seen_at": "2025-10-22T18:00:58.741Z",
+        "warnings": "",
+        "sha256": "b6aa50855e03a70538a39e2b58d0d5d3d5a44c41f3ed913f2e442f58f5eb5e7d",
+        "compressed_bytes": 66774452,
+        "import_version": "preciazo-tar-v3",
+        "retrieved_at": "2026-09-09T13:50:32.946350+00:00"
+      },
+      "seconds": 26.13,
+      "rejected_revisions": [
+        {
+          "revision": "f8e75128-515a-436e-bf8d-5c63a62f2005-revID-58bb339e-4850-43ba-a57c-6d6917ca2281",
+          "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/f8e75128-515a-436e-bf8d-5c63a62f2005-revID-58bb339e-4850-43ba-a57c-6d6917ca2281-sepa_domingo.zip-repackaged.tar.zst",
+          "error": "ValueError: Archive date mismatch: expected 2025-10-19, found ['2025-10-12']",
+          "sha256": "17d694ed74581a61ee5646569746afbd4c6e5acd8cfa94f4e675b63283aaf0f0"
+        }
+      ]
+    },
+    "2025-10-18": {
+      "date": "2025-10-18",
+      "status": "imported",
+      "branches": 15,
+      "observations": 11732,
+      "cells": 113,
+      "product_files": 5,
+      "selected_branch_rows": 152273,
+      "duplicate_rows": 0,
+      "conflicting_identities_excluded": 0,
+      "source": {
+        "provider": "SEPA via Preciazo public archive",
+        "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+        "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/b3c3da5d-213d-41e7-8d74-f23fda0a3c30-revID-51f3195b-8e91-405b-b57c-9c817ab69d96-sepa_sabado.zip-repackaged.tar.zst",
+        "revision": "b3c3da5d-213d-41e7-8d74-f23fda0a3c30-revID-51f3195b-8e91-405b-b57c-9c817ab69d96",
+        "first_seen_at": "2025-10-22T18:00:58.741Z",
+        "warnings": "",
+        "sha256": "db379f0d3839b87caa6d82e6736ec8a15f0235800fb9eac3c6f5468c64a2b2c4",
+        "compressed_bytes": 67953380,
+        "import_version": "preciazo-tar-v3",
+        "retrieved_at": "2026-09-09T13:50:35.058538+00:00"
+      },
+      "seconds": 28.2,
+      "rejected_revisions": [
+        {
+          "revision": "b3c3da5d-213d-41e7-8d74-f23fda0a3c30-revID-1fa82752-f9a6-47c2-b5dd-5b42e6fb56b3",
+          "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/b3c3da5d-213d-41e7-8d74-f23fda0a3c30-revID-1fa82752-f9a6-47c2-b5dd-5b42e6fb56b3-sepa_sabado.zip-repackaged.tar.zst",
+          "error": "ValueError: Archive date mismatch: expected 2025-10-18, found ['2025-10-11']",
+          "sha256": "f30df1e2879f0061ab37e294ccdf4d00df1661a2f5f7b5efa50574f69902e0c2"
+        }
+      ]
+    },
+    "2025-10-17": {
+      "date": "2025-10-17",
+      "status": "imported",
+      "branches": 15,
+      "observations": 11789,
+      "cells": 113,
+      "product_files": 5,
+      "selected_branch_rows": 152521,
+      "duplicate_rows": 0,
+      "conflicting_identities_excluded": 0,
+      "source": {
+        "provider": "SEPA via Preciazo public archive",
+        "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+        "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/91bc072a-4726-44a1-85ec-4a8467aad27e-revID-100d0fb4-61a8-444a-bdb3-c5a7b8528700-sepa_viernes.zip-repackaged.tar.zst",
+        "revision": "91bc072a-4726-44a1-85ec-4a8467aad27e-revID-100d0fb4-61a8-444a-bdb3-c5a7b8528700",
+        "first_seen_at": "2025-10-22T18:00:58.741Z",
+        "warnings": "",
+        "sha256": "4e3997c070161550a6c76bc537c46d15eb79bd84eea5e36cab60c2dd3e1f6217",
+        "compressed_bytes": 67602821,
+        "import_version": "preciazo-tar-v3",
+        "retrieved_at": "2026-09-09T13:50:35.163602+00:00"
+      },
+      "seconds": 28.31,
+      "rejected_revisions": [
+        {
+          "revision": "91bc072a-4726-44a1-85ec-4a8467aad27e-revID-bbfec8ab-4dc5-4239-8bca-ce2c0d525d8f",
+          "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/91bc072a-4726-44a1-85ec-4a8467aad27e-revID-bbfec8ab-4dc5-4239-8bca-ce2c0d525d8f-sepa_viernes.zip-repackaged.tar.zst",
+          "error": "ValueError: Archive date mismatch: expected 2025-10-17, found ['2025-10-10']",
+          "sha256": "c12602eafc996bcd8fb44b2a234a1d94fa5068e0fa4619d4d7aa909bce247f75"
+        }
+      ]
+    },
+    "2025-10-21": {
+      "date": "2025-10-21",
+      "status": "imported",
+      "branches": 15,
+      "observations": 11668,
+      "cells": 113,
+      "product_files": 5,
+      "selected_branch_rows": 151373,
+      "duplicate_rows": 0,
+      "conflicting_identities_excluded": 0,
+      "source": {
+        "provider": "SEPA via Preciazo public archive",
+        "index_url": "https://raw.githubusercontent.com/catdevnull/sepa-precios-metadata/main/index.json",
+        "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/9dc06241-cc83-44f4-8e25-c9b1636b8bc8-revID-dab1a8e1-c563-4bc7-aa86-2b24524892f4-sepa_martes.zip-repackaged.tar.zst",
+        "revision": "9dc06241-cc83-44f4-8e25-c9b1636b8bc8-revID-dab1a8e1-c563-4bc7-aa86-2b24524892f4",
+        "first_seen_at": "2025-10-22T18:00:58.741Z",
+        "warnings": "",
+        "sha256": "aa3e73ae6540647eab40f963c8676d94d9ba44afc3be067f7e6e513fdccfa860",
+        "compressed_bytes": 65968946,
+        "import_version": "preciazo-tar-v3",
+        "retrieved_at": "2026-09-09T13:50:47.401523+00:00"
+      },
+      "seconds": 13.26,
+      "rejected_revisions": [
+        {
+          "revision": "9dc06241-cc83-44f4-8e25-c9b1636b8bc8-revID-ef816a14-ac05-4d6a-a977-ed8deae0f76f",
+          "url": "https://f004.backblazeb2.com/file/precios-justos-datasets/9dc06241-cc83-44f4-8e25-c9b1636b8bc8-revID-ef816a14-ac05-4d6a-a977-ed8deae0f76f-sepa_martes.zip-repackaged.tar.zst",
+          "error": "ValueError: Archive date mismatch: expected 2025-10-21, found ['2025-10-14']",
+          "sha256": "50e8f2004e664c0e9eb1b6a6caac7d876b313d013429d91579981bdfe09d812e"
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-09-09T13:50:47.652773+00:00"
+}

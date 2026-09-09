@@ -40,6 +40,12 @@ El ETL descarga `sepa_lunes.zip` … `sepa_domingo.zip` vía CKAN (dataset `6f47
 
 Ver [`docs/validation.md`](docs/validation.md) — auditoría real SEPA 2026-08-31 (2.800 sucursales, 47 en AR-S, 20 en Gran Rosario, 5 cadenas super). §7 Addendum Gran Rosario documenta bbox y por qué no hay nuevas cadenas.
 
+Historia recuperada: [`etl/backfill.py`](etl/backfill.py) importa el archivo público
+de Preciazo con comprobación de fechas, revisiones, SHA-256 y conservación de
+crudos. Ver [evaluación por etapas](forecast/history-evaluation/report.md) para
+comparar los pronósticos antes y después de incorporar historia. Los huecos sin
+datos válidos permanecen como huecos; no se generan observaciones sintéticas.
+
 ## Roadmap
 
 - v1 (hoy): SEPA puro, 5 cadenas (Carrefour, Coto, Jumbo/Vea, La Anónima, DIA), badge honesto.
