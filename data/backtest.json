@@ -1,16 +1,16 @@
 {
   "method": "drift-7d, umbral 0.8%, solo datos reales SEPA",
   "price_normalization_version": "package-price-v2",
-  "eval_days": 602,
+  "eval_days": 603,
   "date_range": [
     "2024-08-20",
-    "2026-09-09"
+    "2026-09-10"
   ],
-  "n": 64983,
-  "hits": 54291,
+  "n": 65007,
+  "hits": 54312,
   "hit_rate": 83.5,
   "mae": 61.6,
-  "mape": 1.86,
+  "mape": 1.99,
   "baseline_persistence": {
     "method": "mañana = hoy (predice estable siempre)",
     "mae": 41.8,
@@ -18,19 +18,19 @@
     "note": "Todo modelo propuesto debe superar esta línea base. Con series mayormente planas, la persistencia gana en MAE y acierto direccional; el drift solo aporta si anticipa cambios reales."
   },
   "scoring": {
-    "filled_skipped": 43905,
+    "filled_skipped": 44031,
     "note": "Los precios rellenados por ffill no se puntúan: solo observaciones reales."
   },
   "assortment": {
-    "price_changes": 3883,
-    "with_desc_or_brand_change": 2091,
+    "price_changes": 3884,
+    "with_desc_or_brand_change": 2092,
     "pct": 53.9,
     "note": "Cambios de precio donde el cheapest también cambió de descripción/marca: el movimiento puede ser assortment, no repricing del mismo producto."
   },
   "pred_dist": {
-    "estable": 56606,
+    "estable": 56628,
     "sube": 4964,
-    "baja": 3413
+    "baja": 3415
   },
   "moves_prec": {
     "sube": {
@@ -39,13 +39,13 @@
       "precision": 2.4
     },
     "baja": {
-      "n": 3413,
+      "n": 3415,
       "hits": 65,
       "precision": 1.9
     },
     "estable": {
-      "n": 56606,
-      "hits": 54106,
+      "n": 56628,
+      "hits": 54127,
       "precision": 95.6
     }
   },
@@ -61,17 +61,17 @@
       "f1": 3.35
     },
     "baja": {
-      "n": 3413,
-      "actual": 1693,
+      "n": 3415,
+      "actual": 1694,
       "hits": 65,
       "precision": 1.9,
       "recall": 3.8,
-      "f1": 2.55
+      "f1": 2.54
     },
     "estable": {
-      "n": 56606,
-      "actual": 61100,
-      "hits": 54106,
+      "n": 56628,
+      "actual": 61123,
+      "hits": 54127,
       "precision": 95.6,
       "recall": 88.6,
       "f1": 91.93
@@ -83,75 +83,43 @@
     "horizon_days": 7,
     "classes": {
       "sube": {
-        "n": 4128,
-        "actual": 7762,
+        "n": 4130,
+        "actual": 7763,
         "hits": 543,
-        "precision": 13.2,
+        "precision": 13.1,
         "recall": 7.0,
         "f1": 9.13
       },
       "baja": {
-        "n": 2836,
-        "actual": 6368,
+        "n": 2837,
+        "actual": 6372,
         "hits": 280,
         "precision": 9.9,
         "recall": 4.4,
         "f1": 6.08
       },
       "estable": {
-        "n": 46709,
-        "actual": 39543,
-        "hits": 35865,
+        "n": 46730,
+        "actual": 39562,
+        "hits": 35882,
         "precision": 76.8,
         "recall": 90.7,
         "f1": 83.16
       }
     },
     "mov_prec_summary": {
-      "sube_pred": 4128,
-      "sube_precision": 13.2,
+      "sube_pred": 4130,
+      "sube_precision": 13.1,
       "sube_recall": 7.0,
-      "baja_pred": 2836,
+      "baja_pred": 2837,
       "baja_precision": 9.9,
       "baja_recall": 4.4
     }
   },
   "by_category": {
-    "Almacén": {
-      "n": 14068,
-      "hit_rate": 85.1
-    },
-    "Carnes": {
-      "n": 4147,
-      "hit_rate": 84.4
-    },
-    "Conservas": {
-      "n": 5779,
-      "hit_rate": 84.7
-    },
-    "Frescos": {
-      "n": 2887,
-      "hit_rate": 85.7
-    },
-    "Infusiones": {
-      "n": 4924,
-      "hit_rate": 88.1
-    },
-    "Limpieza": {
-      "n": 7950,
-      "hit_rate": 91.4
-    },
-    "Lácteos": {
-      "n": 11588,
-      "hit_rate": 83.9
-    },
-    "Panificados": {
-      "n": 3207,
-      "hit_rate": 89.1
-    },
-    "Verdulería": {
-      "n": 10433,
-      "hit_rate": 69.7
+    "Otro": {
+      "n": 65007,
+      "hit_rate": 83.5
     }
   }
 }
