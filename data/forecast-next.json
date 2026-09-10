@@ -104,11 +104,11 @@
     },
     "fideos__10": {
       "as_of": "2026-09-10",
-      "dir": "baja",
-      "delta_pct": -1680.0,
-      "pred": -297.04,
-      "last": 18.8,
-      "conf": "baja"
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1598.0,
+      "last": 1598.0,
+      "conf": "media"
     },
     "fideos__12": {
       "as_of": "2026-09-10",
@@ -328,10 +328,10 @@
     },
     "arvejas__9": {
       "as_of": "2026-09-10",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1966.67,
-      "last": 1966.67,
+      "dir": "sube",
+      "delta_pct": 2.9,
+      "pred": 2366.67,
+      "last": 2300.0,
       "conf": "media"
     },
     "pollo__10": {
@@ -473,9 +473,9 @@
     "cebolla__12": {
       "as_of": "2026-09-10",
       "dir": "sube",
-      "delta_pct": 4.45,
-      "pred": 1879.0,
-      "last": 1799.0,
+      "delta_pct": 7.83,
+      "pred": 2479.0,
+      "last": 2299.0,
       "conf": "baja"
     },
     "cebolla__15": {
@@ -656,10 +656,10 @@
     },
     "jabon_tocador__9": {
       "as_of": "2026-09-10",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 4777.78,
-      "last": 4777.78,
+      "dir": "sube",
+      "delta_pct": 2.68,
+      "pred": 5666.67,
+      "last": 5518.52,
       "conf": "media"
     },
     "detergente__10": {
@@ -760,10 +760,10 @@
     },
     "azucar__2": {
       "as_of": "2026-09-10",
-      "dir": "baja",
-      "delta_pct": -4.49,
-      "pred": 936.0,
-      "last": 980.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1200.0,
+      "last": 1200.0,
       "conf": "baja"
     },
     "yerba__2": {
@@ -800,27 +800,27 @@
     },
     "pollo__2": {
       "as_of": "2026-09-10",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3790.0,
-      "last": 3790.0,
+      "dir": "baja",
+      "delta_pct": -3.76,
+      "pred": 3070.0,
+      "last": 3190.0,
       "conf": "media"
     },
     "huevo__2": {
       "as_of": "2026-09-10",
       "dir": "sube",
-      "delta_pct": 1.82,
-      "pred": 448.0,
-      "last": 440.0,
-      "conf": "media"
+      "delta_pct": 4.64,
+      "pred": 545.0,
+      "last": 520.83,
+      "conf": "alta"
     },
     "papa__2": {
       "as_of": "2026-09-10",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1499.0,
-      "last": 1499.0,
-      "conf": "media"
+      "dir": "sube",
+      "delta_pct": 12.69,
+      "pred": 4620.2,
+      "last": 4100.0,
+      "conf": "baja"
     },
     "cebolla__2": {
       "as_of": "2026-09-10",
@@ -840,10 +840,10 @@
     },
     "yogur__2": {
       "as_of": "2026-09-10",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2277.78,
-      "last": 2277.78,
+      "dir": "sube",
+      "delta_pct": 1.36,
+      "pred": 2477.77,
+      "last": 2444.44,
       "conf": "media"
     },
     "manteca__2": {
