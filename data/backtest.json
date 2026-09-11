@@ -117,9 +117,41 @@
     }
   },
   "by_category": {
-    "Otro": {
-      "n": 65199,
-      "hit_rate": 83.6
+    "Almacén": {
+      "n": 14118,
+      "hit_rate": 85.1
+    },
+    "Carnes": {
+      "n": 4165,
+      "hit_rate": 84.4
+    },
+    "Conservas": {
+      "n": 5797,
+      "hit_rate": 84.7
+    },
+    "Frescos": {
+      "n": 2897,
+      "hit_rate": 85.6
+    },
+    "Infusiones": {
+      "n": 4940,
+      "hit_rate": 88.1
+    },
+    "Limpieza": {
+      "n": 7978,
+      "hit_rate": 91.4
+    },
+    "Lácteos": {
+      "n": 11624,
+      "hit_rate": 83.9
+    },
+    "Panificados": {
+      "n": 3215,
+      "hit_rate": 89.1
+    },
+    "Verdulería": {
+      "n": 10465,
+      "hit_rate": 69.8
     }
   }
 }
