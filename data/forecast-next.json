@@ -96,10 +96,10 @@
     },
     "arroz__9": {
       "as_of": "2026-09-13",
-      "dir": "sube",
-      "delta_pct": 6.44,
-      "pred": 4364.0,
-      "last": 4100.0,
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2780.0,
+      "last": 2780.0,
       "conf": "baja"
     },
     "fideos__10": {
@@ -297,9 +297,9 @@
     "tomate_triturado__15": {
       "as_of": "2026-09-13",
       "dir": "baja",
-      "delta_pct": -2.09,
-      "pred": 1805.77,
-      "last": 1844.23,
+      "delta_pct": -1.2,
+      "pred": 1898.07,
+      "last": 1921.15,
       "conf": "media"
     },
     "arvejas__10": {
@@ -553,9 +553,9 @@
     "queso_cremoso__15": {
       "as_of": "2026-09-13",
       "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 12653.85,
-      "last": 12653.85,
+      "delta_pct": 0.8,
+      "pred": 13285.23,
+      "last": 13180.0,
       "conf": "media"
     },
     "queso_cremoso__9": {
