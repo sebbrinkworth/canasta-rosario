@@ -6,8 +6,8 @@
     "2024-08-20",
     "2026-09-15"
   ],
-  "n": 65567,
-  "hits": 54757,
+  "n": 65630,
+  "hits": 54810,
   "hit_rate": 83.5,
   "mae": 61.9,
   "mape": 1.86,
@@ -18,34 +18,34 @@
     "note": "Todo modelo propuesto debe superar esta línea base. Con series mayormente planas, la persistencia gana en MAE y acierto direccional; el drift solo aporta si anticipa cambios reales."
   },
   "scoring": {
-    "filled_skipped": 44215,
+    "filled_skipped": 44153,
     "note": "Los precios rellenados por ffill no se puntúan: solo observaciones reales."
   },
   "assortment": {
-    "price_changes": 3924,
-    "with_desc_or_brand_change": 2116,
+    "price_changes": 3928,
+    "with_desc_or_brand_change": 2118,
     "pct": 53.9,
     "note": "Cambios de precio donde el cheapest también cambió de descripción/marca: el movimiento puede ser assortment, no repricing del mismo producto."
   },
   "pred_dist": {
-    "estable": 57096,
-    "sube": 5025,
-    "baja": 3446
+    "estable": 57151,
+    "sube": 5032,
+    "baja": 3447
   },
   "moves_prec": {
     "sube": {
-      "n": 5025,
-      "hits": 121,
+      "n": 5032,
+      "hits": 122,
       "precision": 2.4
     },
     "baja": {
-      "n": 3446,
+      "n": 3447,
       "hits": 65,
       "precision": 1.9
     },
     "estable": {
-      "n": 57096,
-      "hits": 54571,
+      "n": 57151,
+      "hits": 54623,
       "precision": 95.6
     }
   },
@@ -53,25 +53,25 @@
     "threshold_pct": 0.8,
     "note": "Precision/recall/F1 por clase de dirección (daily). precision = de las veces que predijo la clase, cuántas acertó; recall = de las veces que la clase ocurrió, cuántas anticipó.",
     "sube": {
-      "n": 5025,
-      "actual": 2217,
-      "hits": 121,
+      "n": 5032,
+      "actual": 2219,
+      "hits": 122,
       "precision": 2.4,
       "recall": 5.5,
-      "f1": 3.34
+      "f1": 3.37
     },
     "baja": {
-      "n": 3446,
-      "actual": 1707,
+      "n": 3447,
+      "actual": 1709,
       "hits": 65,
       "precision": 1.9,
       "recall": 3.8,
       "f1": 2.52
     },
     "estable": {
-      "n": 57096,
-      "actual": 61643,
-      "hits": 54571,
+      "n": 57151,
+      "actual": 61702,
+      "hits": 54623,
       "precision": 95.6,
       "recall": 88.5,
       "f1": 91.92
@@ -83,43 +83,75 @@
     "horizon_days": 7,
     "classes": {
       "sube": {
-        "n": 4169,
-        "actual": 7873,
+        "n": 4174,
+        "actual": 7883,
         "hits": 545,
         "precision": 13.1,
         "recall": 6.9,
-        "f1": 9.05
+        "f1": 9.04
       },
       "baja": {
-        "n": 2884,
-        "actual": 6430,
+        "n": 2888,
+        "actual": 6438,
         "hits": 280,
         "precision": 9.7,
-        "recall": 4.4,
-        "f1": 6.01
+        "recall": 4.3,
+        "f1": 6.0
       },
       "estable": {
-        "n": 47188,
-        "actual": 39938,
-        "hits": 36216,
+        "n": 47242,
+        "actual": 39983,
+        "hits": 36257,
         "precision": 76.7,
         "recall": 90.7,
         "f1": 83.13
       }
     },
     "mov_prec_summary": {
-      "sube_pred": 4169,
+      "sube_pred": 4174,
       "sube_precision": 13.1,
       "sube_recall": 6.9,
-      "baja_pred": 2884,
+      "baja_pred": 2888,
       "baja_precision": 9.7,
-      "baja_recall": 4.4
+      "baja_recall": 4.3
     }
   },
   "by_category": {
-    "Otro": {
-      "n": 65567,
-      "hit_rate": 83.5
+    "Almacén": {
+      "n": 14218,
+      "hit_rate": 85.1
+    },
+    "Carnes": {
+      "n": 4197,
+      "hit_rate": 84.4
+    },
+    "Conservas": {
+      "n": 5833,
+      "hit_rate": 84.6
+    },
+    "Frescos": {
+      "n": 2917,
+      "hit_rate": 85.5
+    },
+    "Infusiones": {
+      "n": 4972,
+      "hit_rate": 88.2
+    },
+    "Limpieza": {
+      "n": 8034,
+      "hit_rate": 91.3
+    },
+    "Lácteos": {
+      "n": 11696,
+      "hit_rate": 83.8
+    },
+    "Panificados": {
+      "n": 3234,
+      "hit_rate": 89.1
+    },
+    "Verdulería": {
+      "n": 10529,
+      "hit_rate": 69.8
     }
   }
 }

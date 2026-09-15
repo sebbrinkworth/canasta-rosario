@@ -32,10 +32,10 @@
     },
     "leche_entera__9": {
       "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2750.0,
-      "last": 2750.0,
+      "dir": "baja",
+      "delta_pct": -3.01,
+      "pred": 2318.0,
+      "last": 2390.0,
       "conf": "media"
     },
     "pan_lactal__10": {
@@ -152,10 +152,10 @@
     },
     "aceite_girasol__15": {
       "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3830.0,
-      "last": 3830.0,
+      "dir": "sube",
+      "delta_pct": 1.09,
+      "pred": 4094.0,
+      "last": 4050.0,
       "conf": "media"
     },
     "aceite_girasol__9": {
@@ -520,11 +520,11 @@
     },
     "banana__12": {
       "as_of": "2026-09-15",
-      "dir": "sube",
-      "delta_pct": 7.5,
-      "pred": 4299.0,
-      "last": 3999.0,
-      "conf": "baja"
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 2499.0,
+      "last": 2499.0,
+      "conf": "media"
     },
     "banana__15": {
       "as_of": "2026-09-15",
@@ -552,11 +552,11 @@
     },
     "queso_cremoso__15": {
       "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.8,
-      "pred": 13285.23,
-      "last": 13180.0,
-      "conf": "media"
+      "dir": "sube",
+      "delta_pct": 2.64,
+      "pred": 14961.53,
+      "last": 14576.92,
+      "conf": "alta"
     },
     "queso_cremoso__9": {
       "as_of": "2026-09-15",
@@ -585,10 +585,10 @@
     "yogur__15": {
       "as_of": "2026-09-15",
       "dir": "sube",
-      "delta_pct": 1.74,
-      "pred": 3984.89,
-      "last": 3916.67,
-      "conf": "media"
+      "delta_pct": 7.53,
+      "pred": 6169.1,
+      "last": 5736.84,
+      "conf": "baja"
     },
     "manteca__10": {
       "as_of": "2026-09-15",
@@ -664,11 +664,11 @@
     },
     "detergente__10": {
       "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2950.0,
-      "last": 2950.0,
-      "conf": "media"
+      "dir": "baja",
+      "delta_pct": -13.91,
+      "pred": 1498.0,
+      "last": 1740.0,
+      "conf": "baja"
     },
     "detergente__12": {
       "as_of": "2026-09-15",
@@ -836,14 +836,6 @@
       "delta_pct": 0.0,
       "pred": 3990.0,
       "last": 3990.0,
-      "conf": "baja"
-    },
-    "banana__2": {
-      "as_of": "2026-09-15",
-      "dir": "sube",
-      "delta_pct": 17.56,
-      "pred": 38402.0,
-      "last": 32666.67,
       "conf": "baja"
     },
     "yogur__2": {
