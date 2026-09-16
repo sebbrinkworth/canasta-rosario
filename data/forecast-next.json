@@ -1,13 +1,13 @@
 {
   "mode": "real",
-  "as_of": "2026-09-15",
+  "as_of": "2026-09-16",
   "price_normalization_version": "package-price-v2",
-  "real_days": 633,
+  "real_days": 634,
   "synthetic_days": 0,
-  "note": "Solo datos reales SEPA (633 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
+  "note": "Solo datos reales SEPA (634 días acumulados). Más historia permite evaluar mejor; no garantiza mayor precisión.",
   "items": {
     "leche_entera__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1710.0,
@@ -15,7 +15,7 @@
       "conf": "media"
     },
     "leche_entera__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1899.0,
@@ -23,7 +23,7 @@
       "conf": "media"
     },
     "leche_entera__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1865.0,
@@ -31,7 +31,7 @@
       "conf": "media"
     },
     "leche_entera__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "baja",
       "delta_pct": -3.01,
       "pred": 2318.0,
@@ -39,7 +39,7 @@
       "conf": "media"
     },
     "pan_lactal__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 8150.0,
@@ -47,7 +47,7 @@
       "conf": "media"
     },
     "pan_lactal__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 14845.45,
@@ -55,7 +55,7 @@
       "conf": "media"
     },
     "pan_lactal__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 8861.11,
@@ -63,7 +63,7 @@
       "conf": "media"
     },
     "pan_lactal__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 12811.32,
@@ -71,15 +71,15 @@
       "conf": "media"
     },
     "arroz__10": {
-      "as_of": "2026-09-15",
-      "dir": "sube",
-      "delta_pct": 1.29,
-      "pred": 1256.0,
+      "as_of": "2026-09-16",
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1240.0,
       "last": 1240.0,
       "conf": "media"
     },
     "arroz__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1599.0,
@@ -87,7 +87,7 @@
       "conf": "media"
     },
     "arroz__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1480.0,
@@ -95,15 +95,15 @@
       "conf": "media"
     },
     "arroz__9": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2780.0,
+      "as_of": "2026-09-16",
+      "dir": "baja",
+      "delta_pct": -9.5,
+      "pred": 2516.0,
       "last": 2780.0,
       "conf": "baja"
     },
     "fideos__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1598.0,
@@ -111,23 +111,23 @@
       "conf": "media"
     },
     "fideos__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
-      "delta_pct": 0.53,
-      "pred": 2272.0,
+      "delta_pct": 0.0,
+      "pred": 2260.0,
       "last": 2260.0,
       "conf": "media"
     },
     "fideos__15": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2058.0,
-      "last": 2058.0,
+      "as_of": "2026-09-16",
+      "dir": "baja",
+      "delta_pct": -3.63,
+      "pred": 1678.8,
+      "last": 1742.0,
       "conf": "media"
     },
     "fideos__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2780.0,
@@ -135,7 +135,7 @@
       "conf": "media"
     },
     "aceite_girasol__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3833.33,
@@ -143,7 +143,7 @@
       "conf": "media"
     },
     "aceite_girasol__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 4353.33,
@@ -151,15 +151,15 @@
       "conf": "media"
     },
     "aceite_girasol__15": {
-      "as_of": "2026-09-15",
-      "dir": "sube",
-      "delta_pct": 1.09,
-      "pred": 4094.0,
-      "last": 4050.0,
+      "as_of": "2026-09-16",
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 3830.0,
+      "last": 3830.0,
       "conf": "media"
     },
     "aceite_girasol__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 4800.0,
@@ -167,7 +167,7 @@
       "conf": "media"
     },
     "harina_000__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 789.0,
@@ -175,7 +175,7 @@
       "conf": "media"
     },
     "harina_000__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 919.0,
@@ -183,7 +183,7 @@
       "conf": "media"
     },
     "harina_000__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 915.0,
@@ -191,7 +191,7 @@
       "conf": "media"
     },
     "harina_000__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1690.0,
@@ -199,7 +199,7 @@
       "conf": "media"
     },
     "azucar__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1350.0,
@@ -207,7 +207,7 @@
       "conf": "media"
     },
     "azucar__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1390.0,
@@ -215,7 +215,7 @@
       "conf": "media"
     },
     "azucar__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1382.0,
@@ -223,7 +223,7 @@
       "conf": "media"
     },
     "azucar__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 5780.0,
@@ -231,7 +231,7 @@
       "conf": "media"
     },
     "yerba__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3170.0,
@@ -239,7 +239,7 @@
       "conf": "media"
     },
     "yerba__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3370.0,
@@ -247,7 +247,7 @@
       "conf": "media"
     },
     "yerba__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3650.0,
@@ -255,7 +255,7 @@
       "conf": "media"
     },
     "yerba__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2780.0,
@@ -263,7 +263,7 @@
       "conf": "media"
     },
     "cafe__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 46040.0,
@@ -271,7 +271,7 @@
       "conf": "media"
     },
     "cafe__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 40062.22,
@@ -279,7 +279,7 @@
       "conf": "media"
     },
     "tomate_triturado__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1478.85,
@@ -287,7 +287,7 @@
       "conf": "media"
     },
     "tomate_triturado__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1921.15,
@@ -295,7 +295,7 @@
       "conf": "media"
     },
     "tomate_triturado__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
       "delta_pct": 0.8,
       "pred": 1936.53,
@@ -303,7 +303,7 @@
       "conf": "media"
     },
     "arvejas__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1964.29,
@@ -311,7 +311,7 @@
       "conf": "media"
     },
     "arvejas__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2320.59,
@@ -319,7 +319,7 @@
       "conf": "media"
     },
     "arvejas__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2430.0,
@@ -327,7 +327,7 @@
       "conf": "media"
     },
     "arvejas__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2300.0,
@@ -335,7 +335,7 @@
       "conf": "media"
     },
     "pollo__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 4100.0,
@@ -343,7 +343,7 @@
       "conf": "media"
     },
     "pollo__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 4399.0,
@@ -351,23 +351,15 @@
       "conf": "media"
     },
     "pollo__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 8800.0,
       "last": 8800.0,
       "conf": "media"
     },
-    "pollo__9": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 22759.26,
-      "last": 22759.26,
-      "conf": "media"
-    },
     "carne_picada__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
       "delta_pct": 1.26,
       "pred": 9620.0,
@@ -375,7 +367,7 @@
       "conf": "media"
     },
     "carne_picada__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 6999.0,
@@ -383,7 +375,7 @@
       "conf": "baja"
     },
     "carne_picada__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 18725.0,
@@ -391,7 +383,7 @@
       "conf": "media"
     },
     "carne_picada__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 8335.0,
@@ -399,7 +391,7 @@
       "conf": "media"
     },
     "huevo__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 166.63,
@@ -407,7 +399,7 @@
       "conf": "media"
     },
     "huevo__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 332.5,
@@ -415,7 +407,7 @@
       "conf": "media"
     },
     "huevo__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 349.17,
@@ -423,7 +415,7 @@
       "conf": "media"
     },
     "huevo__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 381.67,
@@ -431,7 +423,7 @@
       "conf": "media"
     },
     "papa__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2299.0,
@@ -439,7 +431,7 @@
       "conf": "media"
     },
     "papa__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1999.0,
@@ -447,7 +439,7 @@
       "conf": "media"
     },
     "papa__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2990.0,
@@ -455,7 +447,7 @@
       "conf": "media"
     },
     "papa__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 9375.0,
@@ -463,23 +455,23 @@
       "conf": "media"
     },
     "cebolla__10": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1999.0,
-      "last": 1999.0,
-      "conf": "media"
+      "as_of": "2026-09-16",
+      "dir": "sube",
+      "delta_pct": 6.63,
+      "pred": 3188.2,
+      "last": 2990.0,
+      "conf": "baja"
     },
     "cebolla__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2299.0,
       "last": 2299.0,
-      "conf": "baja"
+      "conf": "media"
     },
     "cebolla__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1990.0,
@@ -487,7 +479,7 @@
       "conf": "media"
     },
     "manzana__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3999.0,
@@ -495,7 +487,7 @@
       "conf": "media"
     },
     "manzana__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3999.0,
@@ -503,7 +495,7 @@
       "conf": "baja"
     },
     "manzana__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3590.0,
@@ -511,15 +503,15 @@
       "conf": "media"
     },
     "banana__10": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2999.0,
-      "last": 2999.0,
-      "conf": "media"
+      "as_of": "2026-09-16",
+      "dir": "sube",
+      "delta_pct": 5.0,
+      "pred": 4199.0,
+      "last": 3999.0,
+      "conf": "baja"
     },
     "banana__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2499.0,
@@ -527,7 +519,7 @@
       "conf": "media"
     },
     "banana__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1790.0,
@@ -535,7 +527,7 @@
       "conf": "media"
     },
     "queso_cremoso__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 12095.0,
@@ -543,7 +535,7 @@
       "conf": "media"
     },
     "queso_cremoso__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
       "delta_pct": 1.05,
       "pred": 13439.0,
@@ -551,47 +543,47 @@
       "conf": "baja"
     },
     "queso_cremoso__15": {
-      "as_of": "2026-09-15",
-      "dir": "sube",
-      "delta_pct": 2.64,
-      "pred": 14961.53,
-      "last": 14576.92,
-      "conf": "alta"
+      "as_of": "2026-09-16",
+      "dir": "estable",
+      "delta_pct": 0.8,
+      "pred": 13285.23,
+      "last": 13180.0,
+      "conf": "media"
     },
     "queso_cremoso__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
-      "delta_pct": 4.34,
-      "pred": 19710.0,
+      "delta_pct": 4.45,
+      "pred": 19730.0,
       "last": 18890.0,
       "conf": "baja"
     },
     "yogur__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3266.67,
-      "last": 3266.67,
+      "delta_pct": 0.47,
+      "pred": 3359.99,
+      "last": 3344.44,
       "conf": "media"
     },
     "yogur__12": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3094.44,
-      "last": 3094.44,
+      "as_of": "2026-09-16",
+      "dir": "sube",
+      "delta_pct": 1.4,
+      "pred": 3374.45,
+      "last": 3327.78,
       "conf": "media"
     },
     "yogur__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
-      "delta_pct": 7.53,
-      "pred": 6169.1,
-      "last": 5736.84,
+      "delta_pct": 1.74,
+      "pred": 3984.89,
+      "last": 3916.67,
       "conf": "baja"
     },
     "manteca__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 14295.0,
@@ -599,7 +591,7 @@
       "conf": "media"
     },
     "manteca__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 17998.0,
@@ -607,7 +599,7 @@
       "conf": "media"
     },
     "manteca__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 18750.0,
@@ -615,7 +607,7 @@
       "conf": "media"
     },
     "manteca__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 21950.0,
@@ -623,7 +615,7 @@
       "conf": "media"
     },
     "galletitas_agua__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 5581.48,
@@ -631,7 +623,7 @@
       "conf": "media"
     },
     "jabon_tocador__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 6000.0,
@@ -639,15 +631,15 @@
       "conf": "media"
     },
     "jabon_tocador__12": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 7842.64,
-      "last": 7842.64,
+      "as_of": "2026-09-16",
+      "dir": "sube",
+      "delta_pct": 0.86,
+      "pred": 8265.04,
+      "last": 8194.64,
       "conf": "media"
     },
     "jabon_tocador__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 7403.7,
@@ -655,7 +647,7 @@
       "conf": "media"
     },
     "jabon_tocador__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 5518.52,
@@ -663,7 +655,7 @@
       "conf": "media"
     },
     "detergente__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "baja",
       "delta_pct": -13.91,
       "pred": 1498.0,
@@ -671,7 +663,7 @@
       "conf": "baja"
     },
     "detergente__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2613.32,
@@ -679,7 +671,7 @@
       "conf": "media"
     },
     "detergente__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 6333.33,
@@ -687,7 +679,7 @@
       "conf": "media"
     },
     "detergente__9": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3200.0,
@@ -695,7 +687,7 @@
       "conf": "media"
     },
     "lavandina__10": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "baja",
       "delta_pct": -3.53,
       "pred": 986.2,
@@ -703,7 +695,7 @@
       "conf": "media"
     },
     "lavandina__12": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1040.0,
@@ -711,7 +703,7 @@
       "conf": "media"
     },
     "lavandina__15": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 975.0,
@@ -719,15 +711,15 @@
       "conf": "media"
     },
     "leche_entera__2": {
-      "as_of": "2026-09-15",
-      "dir": "sube",
-      "delta_pct": 2.23,
-      "pred": 1830.0,
+      "as_of": "2026-09-16",
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1790.0,
       "last": 1790.0,
       "conf": "media"
     },
     "arroz__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1100.0,
@@ -735,7 +727,7 @@
       "conf": "media"
     },
     "fideos__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1500.0,
@@ -743,7 +735,7 @@
       "conf": "media"
     },
     "aceite_girasol__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3166.67,
@@ -751,7 +743,7 @@
       "conf": "media"
     },
     "harina_000__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "baja",
       "delta_pct": -2.9,
       "pred": 670.0,
@@ -759,7 +751,7 @@
       "conf": "media"
     },
     "azucar__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "baja",
       "delta_pct": -4.49,
       "pred": 936.0,
@@ -767,7 +759,7 @@
       "conf": "baja"
     },
     "yerba__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 3096.9,
@@ -775,7 +767,7 @@
       "conf": "media"
     },
     "cafe__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 30000.0,
@@ -783,7 +775,7 @@
       "conf": "media"
     },
     "tomate_triturado__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1326.92,
@@ -791,7 +783,7 @@
       "conf": "media"
     },
     "arvejas__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1771.43,
@@ -799,31 +791,31 @@
       "conf": "media"
     },
     "pollo__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
       "delta_pct": 3.17,
       "pred": 3910.0,
       "last": 3790.0,
-      "conf": "baja"
+      "conf": "media"
     },
     "huevo__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "baja",
       "delta_pct": -3.67,
       "pred": 423.83,
       "last": 440.0,
-      "conf": "baja"
+      "conf": "media"
     },
     "papa__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 4100.0,
       "last": 4100.0,
-      "conf": "baja"
+      "conf": "media"
     },
     "cebolla__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
       "delta_pct": 10.02,
       "pred": 6590.0,
@@ -831,15 +823,15 @@
       "conf": "baja"
     },
     "manzana__2": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3990.0,
+      "as_of": "2026-09-16",
+      "dir": "sube",
+      "delta_pct": 3.96,
+      "pred": 4148.0,
       "last": 3990.0,
       "conf": "baja"
     },
     "yogur__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 2444.44,
@@ -847,15 +839,15 @@
       "conf": "media"
     },
     "manteca__2": {
-      "as_of": "2026-09-15",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 16250.0,
-      "last": 16250.0,
+      "as_of": "2026-09-16",
+      "dir": "sube",
+      "delta_pct": 3.42,
+      "pred": 20270.0,
+      "last": 19600.0,
       "conf": "media"
     },
     "jabon_tocador__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "sube",
       "delta_pct": 8.42,
       "pred": 11734.9,
@@ -863,7 +855,7 @@
       "conf": "baja"
     },
     "detergente__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 4100.0,
@@ -871,7 +863,7 @@
       "conf": "media"
     },
     "lavandina__2": {
-      "as_of": "2026-09-15",
+      "as_of": "2026-09-16",
       "dir": "estable",
       "delta_pct": 0.0,
       "pred": 1212.5,
