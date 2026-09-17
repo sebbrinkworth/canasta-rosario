@@ -24,10 +24,10 @@
     },
     "leche_entera__15": {
       "as_of": "2026-09-17",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1865.0,
-      "last": 1865.0,
+      "dir": "sube",
+      "delta_pct": 1.26,
+      "pred": 2015.0,
+      "last": 1990.0,
       "conf": "media"
     },
     "leche_entera__9": {
@@ -96,11 +96,11 @@
     },
     "fideos__10": {
       "as_of": "2026-09-17",
-      "dir": "baja",
-      "delta_pct": -1643.72,
-      "pred": -296.55,
-      "last": 19.21,
-      "conf": "baja"
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 1598.0,
+      "last": 1598.0,
+      "conf": "media"
     },
     "fideos__12": {
       "as_of": "2026-09-17",
@@ -113,10 +113,10 @@
     "fideos__15": {
       "as_of": "2026-09-17",
       "dir": "baja",
-      "delta_pct": -3.63,
-      "pred": 1678.8,
-      "last": 1742.0,
-      "conf": "media"
+      "delta_pct": -5.76,
+      "pred": 1506.0,
+      "last": 1598.0,
+      "conf": "baja"
     },
     "fideos__9": {
       "as_of": "2026-09-17",
@@ -393,9 +393,9 @@
     "huevo__12": {
       "as_of": "2026-09-17",
       "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 332.5,
-      "last": 332.5,
+      "delta_pct": -0.17,
+      "pred": 329.1,
+      "last": 329.67,
       "conf": "media"
     },
     "huevo__15": {
@@ -464,10 +464,10 @@
     },
     "cebolla__15": {
       "as_of": "2026-09-17",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1990.0,
-      "last": 1990.0,
+      "dir": "sube",
+      "delta_pct": 2.62,
+      "pred": 2350.0,
+      "last": 2290.0,
       "conf": "media"
     },
     "manzana__10": {
@@ -696,11 +696,11 @@
     },
     "lavandina__15": {
       "as_of": "2026-09-17",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 975.0,
-      "last": 975.0,
-      "conf": "media"
+      "dir": "baja",
+      "delta_pct": -19.84,
+      "pred": 392.4,
+      "last": 489.5,
+      "conf": "baja"
     },
     "leche_entera__2": {
       "as_of": "2026-09-17",
@@ -800,11 +800,11 @@
     },
     "papa__2": {
       "as_of": "2026-09-17",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 4100.0,
-      "last": 4100.0,
-      "conf": "media"
+      "dir": "baja",
+      "delta_pct": -21.21,
+      "pred": 1568.0,
+      "last": 1990.0,
+      "conf": "baja"
     },
     "cebolla__2": {
       "as_of": "2026-09-17",
