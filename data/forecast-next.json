@@ -304,10 +304,10 @@
     },
     "arvejas__12": {
       "as_of": "2026-09-20",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2320.59,
-      "last": 2320.59,
+      "dir": "baja",
+      "delta_pct": -1.12,
+      "pred": 2173.48,
+      "last": 2198.0,
       "conf": "media"
     },
     "arvejas__15": {
@@ -480,11 +480,11 @@
     },
     "manzana__12": {
       "as_of": "2026-09-20",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3999.0,
-      "last": 3999.0,
-      "conf": "media"
+      "dir": "baja",
+      "delta_pct": -7.59,
+      "pred": 2679.0,
+      "last": 2899.0,
+      "conf": "baja"
     },
     "manzana__15": {
       "as_of": "2026-09-20",
@@ -504,10 +504,10 @@
     },
     "banana__12": {
       "as_of": "2026-09-20",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 2499.0,
-      "last": 2499.0,
+      "dir": "baja",
+      "delta_pct": -1.74,
+      "pred": 2259.0,
+      "last": 2299.0,
       "conf": "media"
     },
     "banana__15": {
@@ -528,11 +528,11 @@
     },
     "queso_cremoso__12": {
       "as_of": "2026-09-20",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 13299.0,
-      "last": 13299.0,
-      "conf": "media"
+      "dir": "baja",
+      "delta_pct": -8.0,
+      "pred": 8739.0,
+      "last": 9499.0,
+      "conf": "baja"
     },
     "queso_cremoso__15": {
       "as_of": "2026-09-20",
@@ -688,10 +688,10 @@
     },
     "lavandina__12": {
       "as_of": "2026-09-20",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1040.0,
-      "last": 1040.0,
+      "dir": "baja",
+      "delta_pct": -1.33,
+      "pred": 962.0,
+      "last": 975.0,
       "conf": "media"
     },
     "lavandina__15": {
