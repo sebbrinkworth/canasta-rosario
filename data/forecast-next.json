@@ -64,11 +64,11 @@
     },
     "pan_lactal__9": {
       "as_of": "2026-09-22",
-      "dir": "baja",
-      "delta_pct": -32312.97,
-      "pred": -4503.37,
-      "last": 13.98,
-      "conf": "baja"
+      "dir": "estable",
+      "delta_pct": 0.0,
+      "pred": 13566.04,
+      "last": 13566.04,
+      "conf": "media"
     },
     "arroz__10": {
       "as_of": "2026-09-22",
@@ -296,10 +296,10 @@
     },
     "tomate_triturado__15": {
       "as_of": "2026-09-22",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 1921.15,
-      "last": 1921.15,
+      "dir": "sube",
+      "delta_pct": 1.13,
+      "pred": 2059.62,
+      "last": 2036.54,
       "conf": "media"
     },
     "arvejas__10": {
@@ -408,10 +408,10 @@
     },
     "huevo__15": {
       "as_of": "2026-09-22",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 349.17,
-      "last": 349.17,
+      "dir": "sube",
+      "delta_pct": 0.87,
+      "pred": 368.17,
+      "last": 365.0,
       "conf": "media"
     },
     "huevo__9": {
@@ -496,11 +496,11 @@
     },
     "manzana__15": {
       "as_of": "2026-09-22",
-      "dir": "estable",
-      "delta_pct": 0.0,
-      "pred": 3590.0,
-      "last": 3590.0,
-      "conf": "media"
+      "dir": "sube",
+      "delta_pct": 7.81,
+      "pred": 6350.0,
+      "last": 5890.0,
+      "conf": "baja"
     },
     "banana__10": {
       "as_of": "2026-09-22",
